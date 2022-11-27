@@ -64,12 +64,14 @@ export class NgxFormComponent implements OnInit {
 
     private checkAvailability(): void {
         if (!this.ngxForm) return;
+
+        const values: INgxFormValues = this.getValues();
         this.ngxForm.inputs.forEach((row: NgxFormInputTypes | NgxFormInputTypes[]) => {
             const inputs: NgxFormInputTypes[] = Array.isArray(row) ? row : [row];
             inputs.forEach((input: NgxFormInputTypes) => {
                 if (!input.disableOn) return;
 
-                const disabled: boolean = input.disableOn(this.formGroup.value);
+                const disabled: boolean = input.disableOn(values);
                 disabled ? this.formGroup.get(input.name)?.disable() : this.formGroup.get(input.name)?.enable();
             });
         });
@@ -77,14 +79,15 @@ export class NgxFormComponent implements OnInit {
 
     private checkVisibility(): void {
         this.hiddenInputs = [];
-
         if (!this.ngxForm) return;
+
+        const values: INgxFormValues = this.getValues();
         this.ngxForm.inputs.forEach((row: NgxFormInputTypes | NgxFormInputTypes[]) => {
             const inputs: NgxFormInputTypes[] = Array.isArray(row) ? row : [row];
             inputs.forEach((input: NgxFormInputTypes) => {
                 if (!input.hideOn) return;
 
-                const hidden: boolean = input.hideOn(this.formGroup.value);
+                const hidden: boolean = input.hideOn(values);
                 hidden ? this.formGroup.get(input.name)?.disable() : this.formGroup.get(input.name)?.enable();
                 if (hidden) this.hiddenInputs.push(input.name);
             });
@@ -100,15 +103,22 @@ export class NgxFormComponent implements OnInit {
         return NgxFieldInputInfo[input.type].methods.value(value, input);
     }
 
-    protected checkValues(): void {
-        this.formGroup.markAllAsTouched();
-        if (!this.ngxForm || this.formGroup.invalid) return;
+    private getValues(): INgxFormValues {
+        if (!this.ngxForm) return {};
 
         const values: INgxFormValues = {};
         this.ngxForm.inputs.forEach((row: NgxFormInputTypes | NgxFormInputTypes[]) => {
             const inputs: NgxFormInputTypes[] = Array.isArray(row) ? row : [row];
             inputs.forEach((input: NgxFormInputTypes) => (values[input.name] = this.getValue(input)));
         });
+        return values;
+    }
+
+    protected checkValues(): void {
+        this.formGroup.markAllAsTouched();
+        if (!this.ngxForm || this.formGroup.invalid) return;
+
+        const values: INgxFormValues = this.getValues();
         this.ngxSubmit.emit(values);
     }
 

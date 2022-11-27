@@ -1,6 +1,7 @@
 import { CommonModule, DecimalPipe } from '@angular/common';
 import { ModuleWithProviders, NgModule } from '@angular/core';
 import { ReactiveFormsModule } from '@angular/forms';
+import { NgxMaskModule } from 'ngx-mask';
 
 import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatInputModule } from '@angular/material/input';
@@ -31,7 +32,16 @@ import { INgxConfig } from './interfaces/ngx-config';
         NgxInputComponent,
         NgxInputTextComponent,
     ],
-    imports: [CommonModule, ReactiveFormsModule, MatFormFieldModule, MatInputModule, MatIconModule, MatButtonModule],
+    imports: [
+        CommonModule,
+        ReactiveFormsModule,
+        NgxMaskModule.forRoot(),
+
+        MatFormFieldModule,
+        MatInputModule,
+        MatIconModule,
+        MatButtonModule,
+    ],
     providers: [DecimalPipe],
     exports: [NgxFormComponent],
 })

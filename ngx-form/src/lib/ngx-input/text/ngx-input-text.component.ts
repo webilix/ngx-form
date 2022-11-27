@@ -1,7 +1,7 @@
 import { Component, Inject, Input, OnInit } from '@angular/core';
 import { FormControl } from '@angular/forms';
 
-import { INgxFormInputEmail, INgxFormInputText } from '../../inputs';
+import { INgxFormInputEmail, INgxFormInputMobile, INgxFormInputText } from '../../inputs';
 
 @Component({
     selector: 'ngx-input-text',
@@ -10,7 +10,7 @@ import { INgxFormInputEmail, INgxFormInputText } from '../../inputs';
 })
 export class NgxInputTextComponent implements OnInit {
     @Input() control?: FormControl;
-    @Input() input?: INgxFormInputEmail | INgxFormInputText;
+    @Input() input?: INgxFormInputEmail | INgxFormInputMobile | INgxFormInputText;
     @Input() icon?: string;
     @Input() en: boolean = false;
 

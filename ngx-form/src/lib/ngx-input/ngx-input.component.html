@@ -8,6 +8,18 @@
         [en]="true"
     ></ngx-input-text>
 
+    <!-- MOBILE -->
+    <ngx-input-text
+        *ngIf="input.type === 'MOBILE'"
+        [control]="control"
+        [input]="input"
+        [icon]="'smartphone'"
+        [en]="true"
+        [numeric]="true"
+        [mask]="'00-000-0000'"
+        [suffix]="{ en: '09' }"
+    ></ngx-input-text>
+
     <!-- TEXT -->
     <ngx-input-text
         *ngIf="input.type === 'TEXT'"

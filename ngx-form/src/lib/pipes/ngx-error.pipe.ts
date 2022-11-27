@@ -30,6 +30,13 @@ export class NgxErrorPipe implements PipeTransform {
                         return 'فرمت استاندارد ایمیل رعایت نشده است.';
                 }
                 break;
+
+            case 'mask':
+                switch (type) {
+                    case 'MOBILE':
+                        return 'شماره موبایل کامل مشخص نشده است.';
+                }
+                break;
         }
 
         switch (type) {

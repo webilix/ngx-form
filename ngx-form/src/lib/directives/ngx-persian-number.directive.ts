@@ -35,7 +35,7 @@ export class NgxPersianNumberDirective {
         if (!this.hasMask) return;
 
         const maxlength: number = Number(this.input.getAttribute('maxlength'));
-        if (maxlength) {
+        if (maxlength && (this.mask === 'separator.3' || this.mask === 'separator.0')) {
             const value: string = this.input.value.replace(/,/gi, '');
             const checkLength: string | null = value === '-' ? value : this.decimalPipe.transform(this.getEn(value));
             if (maxlength && (checkLength ? checkLength.length : 0) >= maxlength) return;
