@@ -1,4 +1,4 @@
-import { Component, Input, OnInit } from '@angular/core';
+import { Component, Inject, Input, OnInit } from '@angular/core';
 import { FormControl, FormGroup } from '@angular/forms';
 
 import { NgxFormInputTypes } from '../ngx-form.types';
@@ -13,6 +13,8 @@ export class NgxInputComponent implements OnInit {
     @Input() input?: NgxFormInputTypes;
 
     public control?: FormControl;
+
+    constructor(@Inject('NGX_APPEARANCE') public readonly appearance: 'fill' | 'outline') {}
 
     ngOnInit(): void {
         if (!this.group || !this.input) return;

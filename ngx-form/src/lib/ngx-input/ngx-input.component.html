@@ -1,4 +1,19 @@
 <ng-container *ngIf="input && control">
+    <!-- COMMENT -->
+    <mat-form-field *ngIf="input.type === 'COMMENT'" [appearance]="appearance" dir="rtl">
+        <mat-label>{{ input.title }}</mat-label>
+        <mat-hint *ngIf="input.hint">{{ input.hint }}</mat-hint>
+        <input
+            matInput
+            type="text"
+            [name]="input.name"
+            [formControl]="control"
+            [ngClass]="{ 'input-en': input.english }"
+            [readonly]="true"
+        />
+    </mat-form-field>
+    <!-- COMMENT -->
+
     <!-- AUTO COMPLETE -->
     <ngx-input-auto-complete
         *ngIf="input.type === 'AUTO-COMPLETE'"

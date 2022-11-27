@@ -3,6 +3,7 @@ import { NgxFormInputTypes } from '../ngx-form.types';
 
 import {
     NgxFormInputAutoCompleteMethods,
+    NgxFormInputCommentMethods,
     NgxFormInputEmailMethods,
     NgxFormInputMobileMethods,
     NgxFormInputNumberMethods,
@@ -15,6 +16,9 @@ interface INgxFieldInputInfo {
 }
 
 export const NgxFieldInputInfo: { [key in NgxFormInputTypes['type']]: INgxFieldInputInfo } = {
+    // VIEWS
+    COMMENT: { title: 'توضیحات', methods: new NgxFormInputCommentMethods() },
+    // INPUTS
     'AUTO-COMPLETE': { title: 'لیست تکمیلی', methods: new NgxFormInputAutoCompleteMethods() },
     EMAIL: { title: 'ایمیل', methods: new NgxFormInputEmailMethods() },
     MOBILE: { title: 'موبایل', methods: new NgxFormInputMobileMethods() },

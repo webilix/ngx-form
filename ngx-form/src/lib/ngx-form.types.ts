@@ -1,5 +1,6 @@
 import {
     INgxFormInputAutoComplete,
+    INgxFormInputComment,
     INgxFormInputEmail,
     INgxFormInputMobile,
     INgxFormInputNumber,
@@ -7,6 +8,9 @@ import {
 } from './inputs';
 
 export type NgxFormInputTypes =
+    // VIEWS
+    | INgxFormInputComment
+    // INPUTS
     | INgxFormInputAutoComplete
     | INgxFormInputEmail
     | INgxFormInputMobile

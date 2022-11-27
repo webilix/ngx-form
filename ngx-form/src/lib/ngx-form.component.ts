@@ -58,7 +58,7 @@ export class NgxFormComponent implements OnInit {
     }
 
     private setInput(input: NgxFormInputTypes): void {
-        const validators: ValidatorFn[] = input.optional ? [] : [Validators.required];
+        const validators: ValidatorFn[] = input.type === 'COMMENT' || input.optional ? [] : [Validators.required];
         this.formGroup.setControl(input.name, NgxFieldInputInfo[input.type].methods.control(input, validators));
     }
 
@@ -69,7 +69,7 @@ export class NgxFormComponent implements OnInit {
         this.ngxForm.inputs.forEach((row: NgxFormInputTypes | NgxFormInputTypes[]) => {
             const inputs: NgxFormInputTypes[] = Array.isArray(row) ? row : [row];
             inputs.forEach((input: NgxFormInputTypes) => {
-                if (!input.disableOn) return;
+                if (input.type === 'COMMENT' || !input.disableOn) return;
 
                 const disabled: boolean = input.disableOn(values);
                 disabled ? this.formGroup.get(input.name)?.disable() : this.formGroup.get(input.name)?.enable();
