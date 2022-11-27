@@ -5,6 +5,7 @@ import { INgxForm, NgxFormComponent } from '@ngx-form';
 
 import { EmailComponent } from './email/email.component';
 import { MobileComponent } from './mobile/mobile.component';
+import { NumberComponent } from './number/number.component';
 import { TextComponent } from './text/text.component';
 
 @Component({
@@ -20,6 +21,7 @@ export class AppComponent implements OnInit {
         inputs: [
             { name: 'email', type: 'EMAIL', optional: true },
             { name: 'mobile', type: 'MOBILE', optional: true },
+            { name: 'number', type: 'NUMBER', title: 'مقدار عددی', optional: true },
             { name: 'text', type: 'TEXT', title: 'متن یک خطی', optional: true },
         ],
         buttons: [{ title: 'ریست کردن فرم', action: this.resetValues.bind(this) }],
@@ -28,6 +30,7 @@ export class AppComponent implements OnInit {
     public types: { type: string; title: string; component: ComponentType<any> }[] = [
         { type: 'EMAIL', title: 'ایمیل', component: EmailComponent },
         { type: 'MOBILE', title: 'موبایل', component: MobileComponent },
+        { type: 'NUMBER', title: 'مقدار عددی', component: NumberComponent },
         { type: 'TEXT', title: 'متن یک خطی', component: TextComponent },
     ];
 

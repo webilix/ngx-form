@@ -20,6 +20,9 @@
         [suffix]="{ en: '09' }"
     ></ngx-input-text>
 
+    <!-- NUMBER -->
+    <ngx-input-number *ngIf="input.type === 'NUMBER'" [control]="control" [input]="input"></ngx-input-number>
+
     <!-- TEXT -->
     <ngx-input-text
         *ngIf="input.type === 'TEXT'"

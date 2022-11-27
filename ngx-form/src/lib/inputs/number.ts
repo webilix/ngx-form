@@ -1,0 +1,31 @@
+import { FormControl, ValidatorFn, Validators } from '@angular/forms';
+
+import { Validator } from 'validator-library';
+
+import { INgxFormInput } from '../interfaces/ngx-input';
+import { NgxFormInputMethods } from '../ngx-form.methods';
+
+export interface INgxFormInputNumber extends Omit<INgxFormInput, 'english' | 'value'> {
+    type: 'NUMBER';
+    title: string;
+    value?: number;
+    minimum?: number;
+    maximum?: number;
+    negative?: boolean;
+    decimal?: boolean;
+}
+
+export class NgxFormInputNumberMethods extends NgxFormInputMethods<INgxFormInputNumber, number | null> {
+    control(input: INgxFormInputNumber, validators: ValidatorFn[]): FormControl<number | null> {
+        if (input.minimum) validators.push(Validators.min(input.minimum));
+        if (input.maximum) validators.push(Validators.max(input.maximum));
+
+        const value: number | null =
+            input.value === undefined ? null : Validator.VALUE.isNumber(input.value) ? input.value : null;
+        return new FormControl<number | null>(value, validators);
+    }
+
+    value(value: any): number | null {
+        return Validator.VALUE.isNumber(value) ? value : null;
+    }
+}

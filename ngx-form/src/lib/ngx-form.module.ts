@@ -14,11 +14,12 @@ import { NgxAutoheightDirective } from './directives/ngx-autoheight.directive';
 import { NgxErrorDirective } from './directives/ngx-error.directive';
 import { NgxPersianNumberDirective } from './directives/ngx-persian-number.directive';
 
+import { INgxConfig } from './interfaces/ngx-config';
 import { NgxFormComponent } from './ngx-form.component';
 import { NgxInputComponent } from './ngx-input/ngx-input.component';
 
 import { NgxInputTextComponent } from './ngx-input/text/ngx-input-text.component';
-import { INgxConfig } from './interfaces/ngx-config';
+import { NgxInputNumberComponent } from './ngx-input/number/ngx-input-number.component';
 
 @NgModule({
     declarations: [
@@ -31,6 +32,7 @@ import { INgxConfig } from './interfaces/ngx-config';
         NgxFormComponent,
         NgxInputComponent,
         NgxInputTextComponent,
+        NgxInputNumberComponent,
     ],
     imports: [
         CommonModule,

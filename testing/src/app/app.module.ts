@@ -9,9 +9,10 @@ import { AppComponent } from './app.component';
 import { EmailComponent } from './email/email.component';
 import { MobileComponent } from './mobile/mobile.component';
 import { TextComponent } from './text/text.component';
+import { NumberComponent } from './number/number.component';
 
 @NgModule({
-    declarations: [AppComponent, EmailComponent, MobileComponent, TextComponent],
+    declarations: [AppComponent, EmailComponent, MobileComponent, TextComponent, NumberComponent],
     imports: [BrowserModule, BrowserAnimationsModule, NgxFormModule.forRoot()],
     bootstrap: [AppComponent],
 })
