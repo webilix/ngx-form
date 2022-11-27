@@ -1,1 +1,20 @@
-<ngx-form></ngx-form>
+<content>
+    <section class="header">
+        <select [dir]="'rtl'" (change)="setType(typeSelect.value)" #typeSelect>
+            <option value="" [selected]="type === null"></option>
+            <option *ngFor="let t of types" [value]="t.type" [selected]="type === t.type">
+                {{ t.title }}
+            </option>
+        </select>
+    </section>
+
+    <section class="form" *ngIf="type && title && component">
+        <ng-container *ngComponentOutlet="component"></ng-container>
+    </section>
+
+    <section class="form" *ngIf="!type || !title || !component">
+        <ngx-form [ngxForm]="ngxForm" (ngxSubmit)="showValues($event)" #ngxFormComponent>
+            <div class="comment">این متن در پایین فرم نمایش داده می‌شود.</div>
+        </ngx-form>
+    </section>
+</content>

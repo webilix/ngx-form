@@ -11,7 +11,7 @@
         "noImplicitReturns": true,
         "noFallthroughCasesInSwitch": true,
         "sourceMap": true,
-        "paths": { "ngx-form": ["ngx-form/src/public-api"] },
+        "paths": { "@ngx-form": ["ngx-form/src/public-api"] },
         "declaration": false,
         "downlevelIteration": true,
         "experimentalDecorators": true,

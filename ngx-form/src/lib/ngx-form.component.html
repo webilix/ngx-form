@@ -1,0 +1,29 @@
+<form *ngIf="ngxForm" class="ngxForm" [formGroup]="formGroup" (ngSubmit)="checkValues()" #formObject="ngForm">
+    <ng-container *ngFor="let row of ngxForm.inputs || []">
+        <ngx-input
+            *ngIf="!isArray(row) && !hiddenInputs.includes(row.name)"
+            [group]="formGroup"
+            [input]="row"
+        ></ngx-input>
+        <div class="columns" *ngIf="isArray(row)">
+            <ng-container *ngFor="let input of row">
+                <ngx-input *ngIf="!hiddenInputs.includes(input.name)" [group]="formGroup" [input]="input"></ngx-input>
+            </ng-container>
+        </div>
+    </ng-container>
+
+    <ng-content></ng-content>
+
+    <div class="buttons">
+        <button mat-flat-button type="submit" color="primary">{{ ngxForm.submit }}</button>
+        <button
+            mat-stroked-button
+            type="button"
+            color="primary"
+            *ngFor="let button of ngxForm.buttons"
+            (click)="button.action()"
+        >
+            {{ button.title }}
+        </button>
+    </div>
+</form>

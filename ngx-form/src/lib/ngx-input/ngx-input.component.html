@@ -1,0 +1,12 @@
+<ng-container *ngIf="input && control">
+    <!-- TEXT -->
+    <ngx-input-text
+        *ngIf="input.type === 'TEXT'"
+        [control]="control"
+        [input]="input"
+        [en]="!!input.english"
+        [suffix]="input.suffix"
+        [maxLength]="input.maxLength"
+        [counter]="input.counter"
+    ></ngx-input-text>
+</ng-container>
