@@ -3,6 +3,7 @@ import { ComponentType } from '@angular/cdk/overlay';
 
 import { INgxForm, NgxFormComponent } from '@ngx-form';
 
+import { EmailComponent } from './email/email.component';
 import { TextComponent } from './text/text.component';
 
 @Component({
@@ -15,11 +16,15 @@ export class AppComponent implements OnInit {
 
     public ngxForm: INgxForm = {
         submit: 'نمایش مقادیر ثبت شده در فرم',
-        inputs: [{ name: 'text', type: 'TEXT', title: 'متن یک خطی', optional: true }],
+        inputs: [
+            { name: 'email', type: 'EMAIL', optional: true },
+            { name: 'text', type: 'TEXT', title: 'متن یک خطی', optional: true },
+        ],
         buttons: [{ title: 'ریست کردن فرم', action: this.resetValues.bind(this) }],
     };
 
     public types: { type: string; title: string; component: ComponentType<any> }[] = [
+        { type: 'EMAIL', title: 'ایمیل', component: EmailComponent },
         { type: 'TEXT', title: 'متن یک خطی', component: TextComponent },
     ];
 

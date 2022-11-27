@@ -23,6 +23,13 @@ export class NgxErrorPipe implements PipeTransform {
 
             case 'maxlength':
                 return `مقدار می‌تواند حداکثر داری ${Helper.NUMBER.format(value.requiredLength)} کاراکتر باشد.`;
+
+            case 'pattern':
+                switch (type) {
+                    case 'EMAIL':
+                        return 'فرمت استاندارد ایمیل رعایت نشده است.';
+                }
+                break;
         }
 
         switch (type) {

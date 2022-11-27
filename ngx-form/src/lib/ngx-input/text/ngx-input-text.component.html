@@ -8,9 +8,15 @@
     </mat-hint>
 
     <span matTextSuffix *ngIf="suffixText">
-        <span [ngClass]="{ 'suffix-text': true, 'suffix-en': suffixLang === 'EN' }">{{ suffixText }}</span>
+        <span
+            [ngClass]="{ 'suffix-text': true, 'suffix-en': suffixLang === 'EN', 'suffix-disabled': control.disabled }"
+        >
+            {{ suffixText }}
+        </span>
     </span>
-    <span matIconSuffix *ngIf="icon"><mat-icon [fontIcon]="icon"></mat-icon></span>
+    <span matIconSuffix *ngIf="icon" [ngClass]="{ 'suffix-disabled': control.disabled }">
+        <mat-icon [fontIcon]="icon"></mat-icon>
+    </span>
 
     <input
         matInput

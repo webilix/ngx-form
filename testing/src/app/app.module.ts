@@ -6,10 +6,11 @@ import { NgxFormModule } from '@ngx-form';
 
 import { AppComponent } from './app.component';
 
+import { EmailComponent } from './email/email.component';
 import { TextComponent } from './text/text.component';
 
 @NgModule({
-    declarations: [AppComponent, TextComponent],
+    declarations: [AppComponent, EmailComponent, TextComponent],
     imports: [BrowserModule, BrowserAnimationsModule, NgxFormModule.forRoot()],
     bootstrap: [AppComponent],
 })

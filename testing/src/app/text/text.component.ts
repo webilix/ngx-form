@@ -3,15 +3,16 @@ import { Component } from '@angular/core';
 import { INgxForm, INgxFormValues } from '@ngx-form';
 
 @Component({
-    selector: 'app-text',
     templateUrl: './text.component.html',
     styleUrls: ['./text.component.scss'],
 })
 export class TextComponent {
+    public showValues = console.log;
+
     public ngxForm: INgxForm = {
         submit: 'نمایش مقادیر ثبت شده در فرم',
         inputs: [
-            { name: 'text-1', type: 'TEXT', title: 'متن یک خطی' },
+            { name: 'text-1', type: 'TEXT', title: 'متن یک خطی', value: 'مقدار مشخص شده برای متن یک خطی' },
             { name: 'text-2', type: 'TEXT', title: 'اختیاری', optional: true },
             { name: 'text-3', type: 'TEXT', title: 'انگلیسی', optional: true, english: true },
             {
@@ -42,6 +43,4 @@ export class TextComponent {
             },
         ],
     };
-
-    public showValues = console.log;
 }

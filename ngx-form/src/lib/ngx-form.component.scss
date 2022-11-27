@@ -60,6 +60,10 @@ form {
             font-family: var(--ngxEnFont);
             margin: 0 !important;
         }
+
+        span.suffix-disabled {
+            opacity: 0.5;
+        }
     }
 
     .mat-mdc-form-field-icon-suffix {
@@ -75,6 +79,10 @@ form {
             margin: 0 1rem 0 0 !important;
             height: auto !important;
             width: auto !important;
+        }
+
+        span.suffix-disabled {
+            opacity: 0.5;
         }
     }
 

@@ -1,4 +1,13 @@
 <ng-container *ngIf="input && control">
+    <!-- EMAIL -->
+    <ngx-input-text
+        *ngIf="input.type === 'EMAIL'"
+        [control]="control"
+        [input]="input"
+        [icon]="'alternate_email'"
+        [en]="true"
+    ></ngx-input-text>
+
     <!-- TEXT -->
     <ngx-input-text
         *ngIf="input.type === 'TEXT'"

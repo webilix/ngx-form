@@ -1,3 +1,3 @@
-import { INgxFormInputText } from './inputs';
+import { INgxFormInputEmail, INgxFormInputText } from './inputs';
 
-export type NgxFormInputTypes = INgxFormInputText;
+export type NgxFormInputTypes = INgxFormInputEmail | INgxFormInputText;
