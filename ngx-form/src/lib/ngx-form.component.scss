@@ -100,3 +100,9 @@ form {
         direction: rtl;
     }
 }
+
+::ng-deep .ngx-form-en {
+    font-family: var(--ngxEnFont);
+    direction: ltr;
+    text-align: left;
+}

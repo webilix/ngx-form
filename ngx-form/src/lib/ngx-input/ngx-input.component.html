@@ -1,4 +1,11 @@
 <ng-container *ngIf="input && control">
+    <!-- AUTO COMPLETE -->
+    <ngx-input-auto-complete
+        *ngIf="input.type === 'AUTO-COMPLETE'"
+        [control]="control"
+        [input]="input"
+    ></ngx-input-auto-complete>
+
     <!-- EMAIL -->
     <ngx-input-text
         *ngIf="input.type === 'EMAIL'"

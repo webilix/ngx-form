@@ -20,10 +20,10 @@
 
     <input
         matInput
-        [ngxPersianNumber]="numeric || false"
         type="text"
         [name]="input.name"
         [formControl]="control"
+        [ngxPersianNumber]="numeric || false"
         [inputMode]="numeric ? 'numeric' : 'text'"
         [maxLength]="maxLength || 524288"
         [ngClass]="{ 'input-en': en }"

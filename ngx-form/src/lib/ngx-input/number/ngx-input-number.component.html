@@ -5,13 +5,14 @@
 
     <input
         matInput
+        type="text"
+        [name]="input.name"
+        [formControl]="control"
         [ngxPersianNumber]="true"
         [isNnumber]="true"
         [isNegative]="!!input.negative"
         [isDecimal]="!!input.decimal"
-        type="text"
         inputmode="numeric"
-        [formControl]="control"
         class="input-en"
         [mask]="input.decimal ? 'separator.3' : 'separator.0'"
         thousandSeparator=","

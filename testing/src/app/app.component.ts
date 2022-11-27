@@ -3,6 +3,7 @@ import { ComponentType } from '@angular/cdk/overlay';
 
 import { INgxForm, NgxFormComponent } from '@ngx-form';
 
+import { AutoCompleteComponent } from './auto-complete/auto-complete.component';
 import { EmailComponent } from './email/email.component';
 import { MobileComponent } from './mobile/mobile.component';
 import { NumberComponent } from './number/number.component';
@@ -19,6 +20,13 @@ export class AppComponent implements OnInit {
     public ngxForm: INgxForm = {
         submit: 'نمایش مقادیر ثبت شده در فرم',
         inputs: [
+            {
+                name: 'auto-complete',
+                type: 'AUTO-COMPLETE',
+                title: 'لیست تکمیلی',
+                options: ['سیمیلیس', 'مپانگا', 'کت اتو', 'پلکو'],
+                optional: true,
+            },
             { name: 'email', type: 'EMAIL', optional: true },
             { name: 'mobile', type: 'MOBILE', optional: true },
             { name: 'number', type: 'NUMBER', title: 'مقدار عددی', optional: true },
@@ -28,6 +36,7 @@ export class AppComponent implements OnInit {
     };
 
     public types: { type: string; title: string; component: ComponentType<any> }[] = [
+        { type: 'AUTO-COMPLETE', title: 'لیست تکمیلی', component: AutoCompleteComponent },
         { type: 'EMAIL', title: 'ایمیل', component: EmailComponent },
         { type: 'MOBILE', title: 'موبایل', component: MobileComponent },
         { type: 'NUMBER', title: 'مقدار عددی', component: NumberComponent },

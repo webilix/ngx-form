@@ -7,6 +7,7 @@ import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatInputModule } from '@angular/material/input';
 import { MatIconModule } from '@angular/material/icon';
 import { MatButtonModule } from '@angular/material/button';
+import { MatAutocompleteModule } from '@angular/material/autocomplete';
 
 import { NgxErrorPipe } from './pipes/ngx-error.pipe';
 import { NgxAutocompleteDirective } from './directives/ngx-autocomplete.directive';
@@ -18,6 +19,7 @@ import { INgxConfig } from './interfaces/ngx-config';
 import { NgxFormComponent } from './ngx-form.component';
 import { NgxInputComponent } from './ngx-input/ngx-input.component';
 
+import { NgxInputAutoCompleteComponent } from './ngx-input/auto-complete/ngx-input-auto-complete.component';
 import { NgxInputTextComponent } from './ngx-input/text/ngx-input-text.component';
 import { NgxInputNumberComponent } from './ngx-input/number/ngx-input-number.component';
 
@@ -31,6 +33,8 @@ import { NgxInputNumberComponent } from './ngx-input/number/ngx-input-number.com
 
         NgxFormComponent,
         NgxInputComponent,
+
+        NgxInputAutoCompleteComponent,
         NgxInputTextComponent,
         NgxInputNumberComponent,
     ],
@@ -43,6 +47,7 @@ import { NgxInputNumberComponent } from './ngx-input/number/ngx-input-number.com
         MatInputModule,
         MatIconModule,
         MatButtonModule,
+        MatAutocompleteModule,
     ],
     providers: [DecimalPipe],
     exports: [NgxFormComponent],
