@@ -4,5 +4,8 @@ export interface INgxConfig {
 
     iconFont: string;
     iconSize: string;
-    iconColor: string;
+
+    primaryColor: string;
+    borderColor: string;
+    backgroundColor: string;
 }

@@ -45,7 +45,13 @@
                         "inlineStyleLanguage": "scss",
                         "assets": ["testing/src/favicon.ico", "testing/src/assets"],
                         "styles": ["testing/src/theme/material.scss", "testing/src/theme/styles.scss"],
-                        "scripts": []
+                        "scripts": [],
+                        "allowedCommonJsDependencies": [
+                            "helper-library",
+                            "jalali-date-time",
+                            "regex-library",
+                            "validator-library"
+                        ]
                     },
                     "configurations": {
                         "production": {

@@ -6,6 +6,7 @@ import {
     NgxFormInputCommentMethods,
     NgxFormInputEmailMethods,
     NgxFormInputMobileMethods,
+    NgxFormInputMultiSelectMethods,
     NgxFormInputNumberMethods,
     NgxFormInputTextMethods,
 } from '../inputs';
@@ -22,6 +23,7 @@ export const NgxFieldInputInfo: { [key in NgxFormInputTypes['type']]: INgxFieldI
     'AUTO-COMPLETE': { title: 'لیست تکمیلی', methods: new NgxFormInputAutoCompleteMethods() },
     EMAIL: { title: 'ایمیل', methods: new NgxFormInputEmailMethods() },
     MOBILE: { title: 'موبایل', methods: new NgxFormInputMobileMethods() },
+    'MULTI-SELECT': { title: 'چند انتخابی', methods: new NgxFormInputMultiSelectMethods() },
     NUMBER: { title: 'مقدار عددی', methods: new NgxFormInputNumberMethods() },
     TEXT: { title: 'متن یک خطی', methods: new NgxFormInputTextMethods() },
 };

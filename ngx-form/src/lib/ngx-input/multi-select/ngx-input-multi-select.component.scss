@@ -1,0 +1,78 @@
+.options {
+    display: flex;
+    row-gap: 0.5rem;
+    margin-top: 0.75rem;
+    width: 100%;
+    max-height: 230px;
+    overflow: auto;
+}
+
+.options-checkbox {
+    flex-direction: column;
+
+    .option {
+        display: flex;
+        align-items: center;
+        column-gap: 0.5rem;
+        cursor: pointer;
+
+        mat-icon {
+            font-size: 18px !important;
+        }
+
+        .title {
+            flex: 1;
+            white-space: nowrap;
+            overflow: hidden;
+            text-overflow: ellipsis;
+        }
+    }
+
+    .option-en {
+        direction: ltr;
+
+        .title {
+            font-family: var(--ngxEnFont);
+            text-align: left;
+        }
+    }
+}
+
+.options-tag {
+    flex-wrap: wrap;
+    column-gap: 0.5rem;
+
+    .option {
+        padding: 0.25rem 0.5rem;
+        border: 1px solid var(--ngxBorderColor);
+        border-radius: 4px;
+        flex-grow: 1;
+        cursor: pointer;
+    }
+
+    .option-selected {
+        border-color: var(--ngxPrimaryColor);
+        background-color: var(--ngxBackgroundColor);
+    }
+}
+
+.options-tag-en {
+    flex-direction: row-reverse;
+
+    .option {
+        font-family: var(--ngxEnFont);
+        direction: ltr;
+        text-align: left;
+    }
+}
+
+:host ::ng-deep .select-en {
+    .mat-mdc-select-value {
+        direction: ltr !important;
+        text-align: left !important;
+
+        mat-select-trigger {
+            font-family: var(--ngxEnFont);
+        }
+    }
+}

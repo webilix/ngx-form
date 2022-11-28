@@ -1,6 +1,6 @@
 <ng-container *ngIf="input && control">
     <!-- COMMENT -->
-    <mat-form-field *ngIf="input.type === 'COMMENT'" [appearance]="appearance" dir="rtl">
+    <mat-form-field *ngIf="input.type === 'COMMENT'" [appearance]="appearance">
         <mat-label>{{ input.title }}</mat-label>
         <mat-hint *ngIf="input.hint">{{ input.hint }}</mat-hint>
         <input
@@ -41,6 +41,13 @@
         [mask]="'00-000-0000'"
         [suffix]="{ en: '09' }"
     ></ngx-input-text>
+
+    <!-- MULTI-SELECT -->
+    <ngx-input-multi-select
+        *ngIf="input.type === 'MULTI-SELECT'"
+        [control]="control"
+        [input]="input"
+    ></ngx-input-multi-select>
 
     <!-- NUMBER -->
     <ngx-input-number *ngIf="input.type === 'NUMBER'" [control]="control" [input]="input"></ngx-input-number>

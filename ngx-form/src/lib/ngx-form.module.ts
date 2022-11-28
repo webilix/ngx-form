@@ -8,6 +8,7 @@ import { MatInputModule } from '@angular/material/input';
 import { MatIconModule } from '@angular/material/icon';
 import { MatButtonModule } from '@angular/material/button';
 import { MatAutocompleteModule } from '@angular/material/autocomplete';
+import { MatSelectModule } from '@angular/material/select';
 
 import { NgxErrorPipe } from './pipes/ngx-error.pipe';
 import { NgxAutocompleteDirective } from './directives/ngx-autocomplete.directive';
@@ -20,8 +21,9 @@ import { NgxFormComponent } from './ngx-form.component';
 import { NgxInputComponent } from './ngx-input/ngx-input.component';
 
 import { NgxInputAutoCompleteComponent } from './ngx-input/auto-complete/ngx-input-auto-complete.component';
-import { NgxInputTextComponent } from './ngx-input/text/ngx-input-text.component';
+import { NgxInputMultiSelectComponent } from './ngx-input/multi-select/ngx-input-multi-select.component';
 import { NgxInputNumberComponent } from './ngx-input/number/ngx-input-number.component';
+import { NgxInputTextComponent } from './ngx-input/text/ngx-input-text.component';
 
 @NgModule({
     declarations: [
@@ -35,8 +37,9 @@ import { NgxInputNumberComponent } from './ngx-input/number/ngx-input-number.com
         NgxInputComponent,
 
         NgxInputAutoCompleteComponent,
-        NgxInputTextComponent,
+        NgxInputMultiSelectComponent,
         NgxInputNumberComponent,
+        NgxInputTextComponent,
     ],
     imports: [
         CommonModule,
@@ -48,6 +51,7 @@ import { NgxInputNumberComponent } from './ngx-input/number/ngx-input-number.com
         MatIconModule,
         MatButtonModule,
         MatAutocompleteModule,
+        MatSelectModule,
     ],
     providers: [DecimalPipe],
     exports: [NgxFormComponent],
@@ -66,7 +70,9 @@ export class NgxFormModule {
         config.enFont = config.enFont || "Roboto, 'Helvetica Neue', sans-serif";
         config.iconFont = config.iconFont || 'Material Icons Outlined';
         config.iconSize = config.iconSize || '16px';
-        config.iconColor = config.iconColor || 'rgb(29, 91, 116)';
+        config.primaryColor = config.primaryColor || 'rgb(29, 91, 116)';
+        config.borderColor = config.borderColor || 'rgb(187, 206, 213)';
+        config.backgroundColor = config.backgroundColor || 'rgb(212, 219, 221)';
 
         return {
             ngModule: NgxFormModule,

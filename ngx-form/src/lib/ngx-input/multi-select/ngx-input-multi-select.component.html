@@ -1,0 +1,68 @@
+<mat-form-field
+    *ngIf="control && input"
+    [appearance]="appearance"
+    [floatLabel]="input.view === 'SELECT' ? 'auto' : 'always'"
+>
+    <mat-label>{{ input.title }}</mat-label>
+    <mat-error *ngIf="control.invalid">{{ control.errors | ngxError: input.type }}</mat-error>
+    <mat-hint *ngIf="input.hint">{{ input.hint }}</mat-hint>
+    <input
+        *ngIf="input.view !== 'SELECT'"
+        matInput
+        type="text"
+        [name]="input.name"
+        [formControl]="control"
+        class="input-hidden"
+    />
+
+    <ng-container [ngSwitch]="input.view">
+        <!-- TAG VIEW -->
+        <div
+            [ngClass]="{ options: true, 'options-tag': true, 'options-tag-en': !!input.english }"
+            *ngSwitchCase="'TAG'"
+        >
+            <div
+                *ngFor="let option of input.options"
+                [ngClass]="{
+                    option: true,
+                    'option-selected': values.includes(option.id),
+                    'ngx-form-disabled': control.disabled
+                }"
+                (click)="setValue(option.id)"
+            >
+                {{ option.title }}
+            </div>
+        </div>
+
+        <!-- SELECT VIEW -->
+        <mat-select
+            [formControl]="control"
+            [multiple]="true"
+            [ngClass]="{ 'select-en': !!input.english }"
+            *ngSwitchCase="'SELECT'"
+        >
+            <mat-select-trigger>{{ getValues() }}</mat-select-trigger>
+            <mat-option
+                *ngFor="let option of input.options"
+                [value]="option.id"
+                [ngClass]="{ 'ngx-form-en': !!input.english }"
+                >{{ option.title }}</mat-option
+            >
+        </mat-select>
+
+        <!-- CHECKBOX VIEW -->
+        <div class="options options-checkbox" *ngSwitchDefault>
+            <div
+                *ngFor="let option of input.options"
+                [ngClass]="{ option: true, 'option-en': !!input.english, 'ngx-form-disabled': control.disabled }"
+                (click)="setValue(option.id)"
+            >
+                <mat-icon
+                    [fontIcon]="values.includes(option.id) ? 'check_box' : 'check_box_outline_blank'"
+                    class="ngx-form-icon"
+                ></mat-icon>
+                <div class="title">{{ option.title }}</div>
+            </div>
+        </div>
+    </ng-container>
+</mat-form-field>

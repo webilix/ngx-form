@@ -6,6 +6,7 @@ import { INgxForm, NgxFormComponent } from '@ngx-form';
 import { AutoCompleteComponent } from './auto-complete/auto-complete.component';
 import { EmailComponent } from './email/email.component';
 import { MobileComponent } from './mobile/mobile.component';
+import { MultiSelectComponent } from './multi-select/multi-select.component';
 import { NumberComponent } from './number/number.component';
 import { TextComponent } from './text/text.component';
 
@@ -39,6 +40,7 @@ export class AppComponent implements OnInit {
         { type: 'AUTO-COMPLETE', title: 'لیست تکمیلی', component: AutoCompleteComponent },
         { type: 'EMAIL', title: 'ایمیل', component: EmailComponent },
         { type: 'MOBILE', title: 'موبایل', component: MobileComponent },
+        { type: 'MULTI-SELECT', title: 'چند انتخابی', component: MultiSelectComponent },
         { type: 'NUMBER', title: 'مقدار عددی', component: NumberComponent },
         { type: 'TEXT', title: 'متن یک خطی', component: TextComponent },
     ];

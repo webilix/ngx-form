@@ -10,7 +10,6 @@ form {
     }
 
     .buttons {
-        direction: rtl;
         margin-top: 1rem;
 
         display: flex;
@@ -30,8 +29,6 @@ form {
 
         input {
             font-family: var(--ngxFaFont);
-            direction: rtl;
-            text-align: right;
         }
 
         input.input-en {
@@ -75,8 +72,8 @@ form {
 
             font-family: var(--ngxIconFont) !important;
             font-size: var(--ngxIconSize) !important;
-            color: var(--ngxIconColor) !important;
-            margin: 0 1rem 0 0 !important;
+            color: var(--ngxPrimaryColor) !important;
+            margin: 0 1rem !important;
             height: auto !important;
             width: auto !important;
         }
@@ -90,14 +87,16 @@ form {
         width: 100% !important;
     }
 
-    .mat-mdc-form-field-error {
-        text-align: right;
-        direction: rtl;
-    }
+    .ngx-form-icon {
+        display: flex;
+        align-items: center;
 
-    .mat-mdc-form-field-hint {
-        text-align: right;
-        direction: rtl;
+        font-family: var(--ngxIconFont) !important;
+        font-size: var(--ngxIconSize) !important;
+        color: var(--ngxPrimaryColor) !important;
+        margin: 0 !important;
+        height: auto !important;
+        width: auto !important;
     }
 }
 
@@ -105,4 +104,13 @@ form {
     font-family: var(--ngxEnFont);
     direction: ltr;
     text-align: left;
+
+    .mat-pseudo-checkbox {
+        margin-left: 0 !important;
+        margin-right: 16px !important;
+    }
+}
+
+::ng-deep .ngx-form-disabled {
+    opacity: 0.5;
 }

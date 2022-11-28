@@ -30,6 +30,12 @@ export class NgxErrorPipe implements PipeTransform {
             case 'maxlength':
                 return `مقدار می‌تواند حداکثر داری ${Helper.NUMBER.format(value.requiredLength)} کاراکتر باشد.`;
 
+            case 'min-count':
+                return `انتخاب حداقل ${Helper.NUMBER.format(value)} گزینه الزامی است.`;
+
+            case 'max-count':
+                return `امکان انتخاب بیشتر از ${Helper.NUMBER.format(value)} گزینه وجود ندارد.`;
+
             case 'pattern':
                 switch (type) {
                     case 'EMAIL':

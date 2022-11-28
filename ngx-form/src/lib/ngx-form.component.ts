@@ -58,7 +58,8 @@ export class NgxFormComponent implements OnInit {
     }
 
     private setInput(input: NgxFormInputTypes): void {
-        const validators: ValidatorFn[] = input.type === 'COMMENT' || input.optional ? [] : [Validators.required];
+        const validators: ValidatorFn[] =
+            input.type === 'COMMENT' || input.type === 'MULTI-SELECT' || input.optional ? [] : [Validators.required];
         this.formGroup.setControl(input.name, NgxFieldInputInfo[input.type].methods.control(input, validators));
     }
 
@@ -129,7 +130,9 @@ export class NgxFormComponent implements OnInit {
             `--ngxEnFont:${this.ngxConfig.enFont};` +
             `--ngxIconFont:${this.ngxConfig.iconFont};` +
             `--ngxIconSize:${this.ngxConfig.iconSize};` +
-            `--ngxIconColor:${this.ngxConfig.iconColor};` +
+            `--ngxPrimaryColor:${this.ngxConfig.primaryColor};` +
+            `--ngxBorderColor:${this.ngxConfig.borderColor};` +
+            `--ngxBackgroundColor:${this.ngxConfig.backgroundColor};` +
             '}';
 
         const style: HTMLStyleElement = document.createElement('style');
