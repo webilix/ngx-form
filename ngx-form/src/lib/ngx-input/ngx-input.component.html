@@ -21,6 +21,17 @@
         [input]="input"
     ></ngx-input-auto-complete>
 
+    <!-- BANK CARD -->
+    <ngx-input-text
+        *ngIf="input.type === 'BANK-CARD'"
+        [control]="control"
+        [input]="input"
+        [icon]="'credit_card'"
+        [en]="true"
+        [numeric]="true"
+        [mask]="'0000-0000-0000-0000'"
+    ></ngx-input-text>
+
     <!-- EMAIL -->
     <ngx-input-text
         *ngIf="input.type === 'EMAIL'"

@@ -3,7 +3,7 @@ import { FormControl, ValidatorFn } from '@angular/forms';
 import { INgxFormInput } from '../interfaces/ngx-input';
 import { INgxFormOption } from '../interfaces/ngx-option';
 import { NgxFormInputMethods } from '../ngx-form.methods';
-import { MaxCountValidator, MinCountValidator } from '../validators';
+import { NgxMaxCountValidator, NgxMinCountValidator } from '../validators';
 
 export interface INgxFormInputMultiSelect extends Omit<INgxFormInput, 'value' | 'optional'> {
     type: 'MULTI-SELECT';
@@ -19,8 +19,8 @@ export class NgxFormInputMultiSelectMethods extends NgxFormInputMethods<INgxForm
     control(input: INgxFormInputMultiSelect, validators: ValidatorFn[]): FormControl<string[] | null> {
         const options: string[] = input.options.map((option) => option.id);
         const value: string[] = (input.value || []).filter((value: string) => options.includes(value));
-        if (input.minCount) validators.push(MinCountValidator<string>(input.minCount));
-        if (input.maxCount) validators.push(MaxCountValidator<string>(input.maxCount));
+        if (input.minCount) validators.push(NgxMinCountValidator<string>(input.minCount));
+        if (input.maxCount) validators.push(NgxMaxCountValidator<string>(input.maxCount));
 
         return new FormControl<string[] | null>(value, validators);
     }

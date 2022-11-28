@@ -3,6 +3,7 @@ import { NgxFormInputTypes } from '../ngx-form.types';
 
 import {
     NgxFormInputAutoCompleteMethods,
+    NgxFormInputBankCard,
     NgxFormInputCommentMethods,
     NgxFormInputEmailMethods,
     NgxFormInputMobileMethods,
@@ -24,6 +25,7 @@ export const NgxFieldInputInfo: { [key in NgxFormInputTypes['type']]: INgxFieldI
     COMMENT: { title: 'توضیحات', methods: new NgxFormInputCommentMethods() },
     // INPUTS
     'AUTO-COMPLETE': { title: 'لیست تکمیلی', methods: new NgxFormInputAutoCompleteMethods() },
+    'BANK-CARD': { title: 'شماره کارت بانکی', methods: new NgxFormInputBankCard() },
     EMAIL: { title: 'ایمیل', methods: new NgxFormInputEmailMethods() },
     MOBILE: { title: 'موبایل', methods: new NgxFormInputMobileMethods() },
     'MULTI-SELECT': { title: 'چند انتخابی', methods: new NgxFormInputMultiSelectMethods() },

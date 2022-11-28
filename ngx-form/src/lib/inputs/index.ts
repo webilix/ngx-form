@@ -1,6 +1,7 @@
 export * from './comment';
 
 export * from './auto-complete';
+export * from './bank-card';
 export * from './email';
 export * from './mobile';
 export * from './multi-select';

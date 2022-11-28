@@ -7,6 +7,7 @@ import { NgxFormModule } from '@ngx-form';
 import { AppComponent } from './app.component';
 
 import { AutoCompleteComponent } from './auto-complete/auto-complete.component';
+import { BankCardComponent } from './bank-card/bank-card.component';
 import { EmailComponent } from './email/email.component';
 import { MobileComponent } from './mobile/mobile.component';
 import { MultiSelectComponent } from './multi-select/multi-select.component';
@@ -21,6 +22,7 @@ import { UsernameComponent } from './username/username.component';
         AppComponent,
 
         AutoCompleteComponent,
+        BankCardComponent,
         EmailComponent,
         MobileComponent,
         MultiSelectComponent,

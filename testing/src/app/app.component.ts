@@ -4,6 +4,7 @@ import { ComponentType } from '@angular/cdk/overlay';
 import { INgxForm, NgxFormComponent } from '@ngx-form';
 
 import { AutoCompleteComponent } from './auto-complete/auto-complete.component';
+import { BankCardComponent } from './bank-card/bank-card.component';
 import { EmailComponent } from './email/email.component';
 import { MobileComponent } from './mobile/mobile.component';
 import { MultiSelectComponent } from './multi-select/multi-select.component';
@@ -31,6 +32,7 @@ export class AppComponent implements OnInit {
                 options: ['سیمیلیس', 'مپانگا', 'کت اتو', 'پلکو'],
                 optional: true,
             },
+            { name: 'bank-card', type: 'BANK-CARD', optional: true },
             { name: 'email', type: 'EMAIL', optional: true },
             { name: 'mobile', type: 'MOBILE', optional: true },
             {
@@ -49,12 +51,14 @@ export class AppComponent implements OnInit {
             { name: 'number', type: 'NUMBER', title: 'مقدار عددی', optional: true },
             { name: 'password', type: 'PASSWORD', optional: true },
             { name: 'text', type: 'TEXT', title: 'متن یک خطی', optional: true },
+            { name: 'username', type: 'USERNAME', title: 'نام کاربری', optional: true },
         ],
         buttons: [{ title: 'ریست کردن فرم', action: this.resetValues.bind(this) }],
     };
 
     public types: { type: string; title: string; component: ComponentType<any> }[] = [
         { type: 'AUTO-COMPLETE', title: 'لیست تکمیلی', component: AutoCompleteComponent },
+        { type: 'BANK-CARD', title: 'شماره کارت بانکی', component: BankCardComponent },
         { type: 'EMAIL', title: 'ایمیل', component: EmailComponent },
         { type: 'MOBILE', title: 'موبایل', component: MobileComponent },
         { type: 'MULTI-SELECT', title: 'چند انتخابی', component: MultiSelectComponent },
