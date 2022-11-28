@@ -9,6 +9,7 @@ import {
     NgxFormInputMultiSelectMethods,
     NgxFormInputNameMethods,
     NgxFormInputNumberMethods,
+    NgxFormInputPasswordMethods,
     NgxFormInputTextMethods,
 } from '../inputs';
 
@@ -27,5 +28,6 @@ export const NgxFieldInputInfo: { [key in NgxFormInputTypes['type']]: INgxFieldI
     'MULTI-SELECT': { title: 'چند انتخابی', methods: new NgxFormInputMultiSelectMethods() },
     NAME: { title: 'نام و نام خانوادگی', methods: new NgxFormInputNameMethods() },
     NUMBER: { title: 'مقدار عددی', methods: new NgxFormInputNumberMethods() },
+    PASSWORD: { title: 'کلمه عبور', methods: new NgxFormInputPasswordMethods() },
     TEXT: { title: 'متن یک خطی', methods: new NgxFormInputTextMethods() },
 };

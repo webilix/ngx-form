@@ -40,6 +40,16 @@ export class NgxErrorPipe implements PipeTransform {
                 switch (type) {
                     case 'EMAIL':
                         return 'فرمت استاندارد ایمیل رعایت نشده است.';
+                    case 'PASSWORD':
+                        switch (true) {
+                            case value.requiredPattern.includes('[0-9]'):
+                                return 'مقدار باید شامل اعداد انگلیسی باشد.';
+                            case value.requiredPattern.includes('[a-z]'):
+                                return 'مقدار باید شامل حروف انگلیسی کوچک باشد.';
+                            case value.requiredPattern.includes('[A-Z]'):
+                                return 'مقدار باید شامل حروف انگلیسی بزرگ باشد.';
+                        }
+                        return 'کاراکترهای الزامی در کلمه عبور استفاده نشده‌اند.';
                 }
                 break;
 

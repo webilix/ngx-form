@@ -24,6 +24,7 @@ import { NgxInputAutoCompleteComponent } from './ngx-input/auto-complete/ngx-inp
 import { NgxInputMultiSelectComponent } from './ngx-input/multi-select/ngx-input-multi-select.component';
 import { NgxInputNameComponent } from './ngx-input/name/ngx-input-name.component';
 import { NgxInputNumberComponent } from './ngx-input/number/ngx-input-number.component';
+import { NgxInputPasswordComponent } from './ngx-input/password/ngx-input-password.component';
 import { NgxInputTextComponent } from './ngx-input/text/ngx-input-text.component';
 
 @NgModule({
@@ -41,6 +42,7 @@ import { NgxInputTextComponent } from './ngx-input/text/ngx-input-text.component
         NgxInputMultiSelectComponent,
         NgxInputNameComponent,
         NgxInputNumberComponent,
+        NgxInputPasswordComponent,
         NgxInputTextComponent,
     ],
     imports: [

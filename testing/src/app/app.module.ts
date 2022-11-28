@@ -12,6 +12,7 @@ import { MobileComponent } from './mobile/mobile.component';
 import { MultiSelectComponent } from './multi-select/multi-select.component';
 import { NameComponent } from './name/name.component';
 import { NumberComponent } from './number/number.component';
+import { PasswordComponent } from './password/password.component';
 import { TextComponent } from './text/text.component';
 
 @NgModule({
@@ -24,6 +25,7 @@ import { TextComponent } from './text/text.component';
         MultiSelectComponent,
         NameComponent,
         NumberComponent,
+        PasswordComponent,
         TextComponent,
     ],
     imports: [BrowserModule, BrowserAnimationsModule, NgxFormModule.forRoot()],

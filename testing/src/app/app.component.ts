@@ -9,6 +9,7 @@ import { MobileComponent } from './mobile/mobile.component';
 import { MultiSelectComponent } from './multi-select/multi-select.component';
 import { NameComponent } from './name/name.component';
 import { NumberComponent } from './number/number.component';
+import { PasswordComponent } from './password/password.component';
 import { TextComponent } from './text/text.component';
 
 @Component({
@@ -45,6 +46,7 @@ export class AppComponent implements OnInit {
             },
             { name: 'name', type: 'NAME', optional: true },
             { name: 'number', type: 'NUMBER', title: 'مقدار عددی', optional: true },
+            { name: 'password', type: 'PASSWORD', optional: true },
             { name: 'text', type: 'TEXT', title: 'متن یک خطی', optional: true },
         ],
         buttons: [{ title: 'ریست کردن فرم', action: this.resetValues.bind(this) }],
@@ -57,6 +59,7 @@ export class AppComponent implements OnInit {
         { type: 'MULTI-SELECT', title: 'چند انتخابی', component: MultiSelectComponent },
         { type: 'NAME', title: 'نام و نام خانوادگی', component: NameComponent },
         { type: 'NUMBER', title: 'مقدار عددی', component: NumberComponent },
+        { type: 'PASSWORD', title: 'کلمه عبور', component: PasswordComponent },
         { type: 'TEXT', title: 'متن یک خطی', component: TextComponent },
     ];
 
