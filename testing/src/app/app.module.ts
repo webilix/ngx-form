@@ -14,6 +14,7 @@ import { NameComponent } from './name/name.component';
 import { NumberComponent } from './number/number.component';
 import { PasswordComponent } from './password/password.component';
 import { TextComponent } from './text/text.component';
+import { UsernameComponent } from './username/username.component';
 
 @NgModule({
     declarations: [
@@ -27,6 +28,7 @@ import { TextComponent } from './text/text.component';
         NumberComponent,
         PasswordComponent,
         TextComponent,
+        UsernameComponent,
     ],
     imports: [BrowserModule, BrowserAnimationsModule, NgxFormModule.forRoot()],
     bootstrap: [AppComponent],

@@ -11,6 +11,7 @@ import {
     NgxFormInputNumberMethods,
     NgxFormInputPasswordMethods,
     NgxFormInputTextMethods,
+    NgxFormInputUsernameMethods,
 } from '../inputs';
 
 interface INgxFieldInputInfo {
@@ -30,4 +31,5 @@ export const NgxFieldInputInfo: { [key in NgxFormInputTypes['type']]: INgxFieldI
     NUMBER: { title: 'مقدار عددی', methods: new NgxFormInputNumberMethods() },
     PASSWORD: { title: 'کلمه عبور', methods: new NgxFormInputPasswordMethods() },
     TEXT: { title: 'متن یک خطی', methods: new NgxFormInputTextMethods() },
+    USERNAME: { title: 'نام کاربری', methods: new NgxFormInputUsernameMethods() },
 };

@@ -68,4 +68,13 @@
         [maxLength]="input.maxLength"
         [counter]="input.counter"
     ></ngx-input-text>
+
+    <!-- USERNAME -->
+    <ngx-input-text
+        *ngIf="input.type === 'USERNAME'"
+        [control]="control"
+        [input]="input"
+        [icon]="'person'"
+        [en]="true"
+    ></ngx-input-text>
 </ng-container>

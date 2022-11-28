@@ -11,6 +11,7 @@ import { NameComponent } from './name/name.component';
 import { NumberComponent } from './number/number.component';
 import { PasswordComponent } from './password/password.component';
 import { TextComponent } from './text/text.component';
+import { UsernameComponent } from './username/username.component';
 
 @Component({
     selector: 'app-root',
@@ -61,6 +62,7 @@ export class AppComponent implements OnInit {
         { type: 'NUMBER', title: 'مقدار عددی', component: NumberComponent },
         { type: 'PASSWORD', title: 'کلمه عبور', component: PasswordComponent },
         { type: 'TEXT', title: 'متن یک خطی', component: TextComponent },
+        { type: 'USERNAME', title: 'نام کاربری', component: UsernameComponent },
     ];
 
     public type: string | null = null;

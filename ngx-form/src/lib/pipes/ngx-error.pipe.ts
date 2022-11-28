@@ -50,6 +50,19 @@ export class NgxErrorPipe implements PipeTransform {
                                 return 'مقدار باید شامل حروف انگلیسی بزرگ باشد.';
                         }
                         return 'کاراکترهای الزامی در کلمه عبور استفاده نشده‌اند.';
+                    case 'USERNAME':
+                        switch (value.requiredPattern) {
+                            case '/[a-z]{1}$/':
+                                return 'نام کاربری باید با حروف انگلیسی کوچک تمام شود.';
+                            case '/^[a-z]{1}/':
+                                return 'نام کاربری باید با حروف انگلیسی کوچک شروع شود.';
+                            default:
+                                const pattern: string = value.requiredPattern.replace('a-z0-9', '');
+                                const chars: string[] = ['حروف انگلیسی کوچک', 'اعداد انگلیسی'];
+                                if (pattern.includes('-')) chars.push('منها (-)');
+                                if (pattern.includes('.')) chars.push('نقطه (.)');
+                                return `کاراکترهای مجاز: ${chars.join('، ')}`;
+                        }
                 }
                 break;
 
