@@ -8,6 +8,7 @@ export * from './ip';
 export * from './mobile';
 export * from './multi-select';
 export * from './name';
+export * from './national-code';
 export * from './number';
 export * from './password';
 export * from './text';

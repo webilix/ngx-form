@@ -14,6 +14,7 @@ import { IpComponent } from './ip/ip.component';
 import { MobileComponent } from './mobile/mobile.component';
 import { MultiSelectComponent } from './multi-select/multi-select.component';
 import { NameComponent } from './name/name.component';
+import { NationalCodeComponent } from './national-code/national-code.component';
 import { NumberComponent } from './number/number.component';
 import { PasswordComponent } from './password/password.component';
 import { TextComponent } from './text/text.component';
@@ -31,6 +32,7 @@ import { UsernameComponent } from './username/username.component';
         MobileComponent,
         MultiSelectComponent,
         NameComponent,
+        NationalCodeComponent,
         NumberComponent,
         PasswordComponent,
         TextComponent,

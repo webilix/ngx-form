@@ -110,7 +110,9 @@ export class NgxFormComponent implements OnInit {
         const values: INgxFormValues = {};
         this.ngxForm.inputs.forEach((row: NgxFormInputTypes | NgxFormInputTypes[]) => {
             const inputs: NgxFormInputTypes[] = Array.isArray(row) ? row : [row];
-            inputs.forEach((input: NgxFormInputTypes) => (values[input.name] = this.getValue(input)));
+            inputs.forEach((input: NgxFormInputTypes) => {
+                values[input.name] = this.formGroup.get(input.name)?.errors === null ? this.getValue(input) : null;
+            });
         });
         return values;
     }

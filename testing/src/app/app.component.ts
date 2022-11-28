@@ -11,6 +11,7 @@ import { IpComponent } from './ip/ip.component';
 import { MobileComponent } from './mobile/mobile.component';
 import { MultiSelectComponent } from './multi-select/multi-select.component';
 import { NameComponent } from './name/name.component';
+import { NationalCodeComponent } from './national-code/national-code.component';
 import { NumberComponent } from './number/number.component';
 import { PasswordComponent } from './password/password.component';
 import { TextComponent } from './text/text.component';
@@ -52,6 +53,7 @@ export class AppComponent implements OnInit {
                 view: 'SELECT',
             },
             { name: 'name', type: 'NAME', optional: true },
+            { name: 'national-code', type: 'NATIONAL-CODE', optional: true },
             { name: 'number', type: 'NUMBER', title: 'مقدار عددی', optional: true },
             { name: 'password', type: 'PASSWORD', optional: true },
             { name: 'text', type: 'TEXT', title: 'متن یک خطی', optional: true },
@@ -69,6 +71,7 @@ export class AppComponent implements OnInit {
         { type: 'MOBILE', title: 'موبایل', component: MobileComponent },
         { type: 'MULTI-SELECT', title: 'چند انتخابی', component: MultiSelectComponent },
         { type: 'NAME', title: 'نام و نام خانوادگی', component: NameComponent },
+        { type: 'NATIONAL-CODE', title: 'کد ملی', component: NationalCodeComponent },
         { type: 'NUMBER', title: 'مقدار عددی', component: NumberComponent },
         { type: 'PASSWORD', title: 'کلمه عبور', component: PasswordComponent },
         { type: 'TEXT', title: 'متن یک خطی', component: TextComponent },

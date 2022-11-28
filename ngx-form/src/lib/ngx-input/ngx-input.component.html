@@ -81,6 +81,17 @@
     <!-- NAME -->
     <ngx-input-name *ngIf="input.type === 'NAME'" [control]="control" [input]="input"></ngx-input-name>
 
+    <!-- NATIONAL CODE -->
+    <ngx-input-text
+        *ngIf="input.type === 'NATIONAL-CODE'"
+        [control]="control"
+        [input]="input"
+        [icon]="'badge'"
+        [en]="true"
+        [numeric]="true"
+        [mask]="'0000000000'"
+    ></ngx-input-text>
+
     <!-- NUMBER -->
     <ngx-input-number *ngIf="input.type === 'NUMBER'" [control]="control" [input]="input"></ngx-input-number>
 

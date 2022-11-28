@@ -39,6 +39,9 @@ export class NgxErrorPipe implements PipeTransform {
             case 'bank-card':
                 return `شماره کارت بانکی صحیح مشخص نشده است.`;
 
+            case 'national-code':
+                return `کد ملی صحیح مشخص نشده است.`;
+
             case 'pattern':
                 switch (type) {
                     case 'EMAIL':
@@ -76,7 +79,9 @@ export class NgxErrorPipe implements PipeTransform {
                     case 'BANK-CARD':
                         return 'شماره کارت بانکی دارای ۱۶ رقم است.';
                     case 'MOBILE':
-                        return 'شماره موبایل کامل مشخص نشده است.';
+                        return 'شماره موبایل دارای ۱۱ رقم است.';
+                    case 'NATIONAL-CODE':
+                        return 'کدملی دارای ۱۰ رقم است.';
                 }
                 break;
         }

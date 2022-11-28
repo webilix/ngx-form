@@ -8,6 +8,7 @@ import {
     INgxFormInputMobile,
     INgxFormInputMultiSelect,
     INgxFormInputName,
+    INgxFormInputNationalCode,
     INgxFormInputNumber,
     INgxFormInputPassword,
     INgxFormInputText,
@@ -26,6 +27,7 @@ export type NgxFormInputTypes =
     | INgxFormInputMobile
     | INgxFormInputMultiSelect
     | INgxFormInputName
+    | INgxFormInputNationalCode
     | INgxFormInputNumber
     | INgxFormInputPassword
     | INgxFormInputText

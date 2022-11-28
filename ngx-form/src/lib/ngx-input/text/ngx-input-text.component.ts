@@ -7,6 +7,7 @@ import {
     INgxFormInputEmail,
     INgxFormInputIp,
     INgxFormInputMobile,
+    INgxFormInputNationalCode,
     INgxFormInputText,
     INgxFormInputUsername,
 } from '../../inputs';
@@ -24,6 +25,7 @@ export class NgxInputTextComponent implements OnInit {
         | INgxFormInputEmail
         | INgxFormInputIp
         | INgxFormInputMobile
+        | INgxFormInputNationalCode
         | INgxFormInputText
         | INgxFormInputUsername;
     @Input() icon?: string;

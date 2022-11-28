@@ -46,7 +46,7 @@ export class MultiSelectComponent {
                 type: 'MULTI-SELECT',
                 title: 'غیرفعال شدن',
                 options: this.options,
-                disableOn: (values: INgxFormValues) => values['multi-select-3'].includes('2ND'),
+                disableOn: (values: INgxFormValues) => values['multi-select-3']?.includes('2ND'),
                 hint: 'در صورتی که گزینه نمایش لیست کشویی شامل گزینه دوم باشد این گزینه غیرفعال می‌شود.',
             },
             {
@@ -54,7 +54,7 @@ export class MultiSelectComponent {
                 type: 'MULTI-SELECT',
                 title: 'عدم نمایش',
                 options: this.options,
-                hideOn: (values: INgxFormValues) => values['multi-select-3'].includes('2ND'),
+                hideOn: (values: INgxFormValues) => values['multi-select-3']?.includes('2ND'),
                 hint: 'در صورتی که گزینه نمایش لیست کشویی شامل گزینه دوم باشد این گزینه نمایش داده نمی‌شود.',
             },
             {
