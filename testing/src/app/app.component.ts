@@ -7,6 +7,7 @@ import { AutoCompleteComponent } from './auto-complete/auto-complete.component';
 import { EmailComponent } from './email/email.component';
 import { MobileComponent } from './mobile/mobile.component';
 import { MultiSelectComponent } from './multi-select/multi-select.component';
+import { NameComponent } from './name/name.component';
 import { NumberComponent } from './number/number.component';
 import { TextComponent } from './text/text.component';
 
@@ -30,6 +31,19 @@ export class AppComponent implements OnInit {
             },
             { name: 'email', type: 'EMAIL', optional: true },
             { name: 'mobile', type: 'MOBILE', optional: true },
+            {
+                name: 'multi-select',
+                type: 'MULTI-SELECT',
+                title: 'چند انتخابی',
+                options: [
+                    { id: '1ST', title: 'گزینه اول' },
+                    { id: '2ND', title: 'گزینه دوم' },
+                    { id: '3RD', title: 'گزینه سوم' },
+                    { id: '4TH', title: 'گزینه چهارم' },
+                ],
+                view: 'SELECT',
+            },
+            { name: 'name', type: 'NAME', optional: true },
             { name: 'number', type: 'NUMBER', title: 'مقدار عددی', optional: true },
             { name: 'text', type: 'TEXT', title: 'متن یک خطی', optional: true },
         ],
@@ -41,6 +55,7 @@ export class AppComponent implements OnInit {
         { type: 'EMAIL', title: 'ایمیل', component: EmailComponent },
         { type: 'MOBILE', title: 'موبایل', component: MobileComponent },
         { type: 'MULTI-SELECT', title: 'چند انتخابی', component: MultiSelectComponent },
+        { type: 'NAME', title: 'نام و نام خانوادگی', component: NameComponent },
         { type: 'NUMBER', title: 'مقدار عددی', component: NumberComponent },
         { type: 'TEXT', title: 'متن یک خطی', component: TextComponent },
     ];

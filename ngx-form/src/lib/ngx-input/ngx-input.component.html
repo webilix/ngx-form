@@ -49,6 +49,9 @@
         [input]="input"
     ></ngx-input-multi-select>
 
+    <!-- NAME -->
+    <ngx-input-name *ngIf="input.type === 'NAME'" [control]="control" [input]="input"></ngx-input-name>
+
     <!-- NUMBER -->
     <ngx-input-number *ngIf="input.type === 'NUMBER'" [control]="control" [input]="input"></ngx-input-number>
 

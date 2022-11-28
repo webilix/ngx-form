@@ -1,6 +1,6 @@
 import { CommonModule, DecimalPipe } from '@angular/common';
 import { ModuleWithProviders, NgModule } from '@angular/core';
-import { ReactiveFormsModule } from '@angular/forms';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { NgxMaskModule } from 'ngx-mask';
 
 import { MatFormFieldModule } from '@angular/material/form-field';
@@ -22,6 +22,7 @@ import { NgxInputComponent } from './ngx-input/ngx-input.component';
 
 import { NgxInputAutoCompleteComponent } from './ngx-input/auto-complete/ngx-input-auto-complete.component';
 import { NgxInputMultiSelectComponent } from './ngx-input/multi-select/ngx-input-multi-select.component';
+import { NgxInputNameComponent } from './ngx-input/name/ngx-input-name.component';
 import { NgxInputNumberComponent } from './ngx-input/number/ngx-input-number.component';
 import { NgxInputTextComponent } from './ngx-input/text/ngx-input-text.component';
 
@@ -38,11 +39,13 @@ import { NgxInputTextComponent } from './ngx-input/text/ngx-input-text.component
 
         NgxInputAutoCompleteComponent,
         NgxInputMultiSelectComponent,
+        NgxInputNameComponent,
         NgxInputNumberComponent,
         NgxInputTextComponent,
     ],
     imports: [
         CommonModule,
+        FormsModule,
         ReactiveFormsModule,
         NgxMaskModule.forRoot(),
 
