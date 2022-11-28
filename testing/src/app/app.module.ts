@@ -18,6 +18,7 @@ import { NationalCodeComponent } from './national-code/national-code.component';
 import { NumberComponent } from './number/number.component';
 import { PasswordComponent } from './password/password.component';
 import { TextComponent } from './text/text.component';
+import { UrlComponent } from './url/url.component';
 import { UsernameComponent } from './username/username.component';
 
 @NgModule({
@@ -36,6 +37,7 @@ import { UsernameComponent } from './username/username.component';
         NumberComponent,
         PasswordComponent,
         TextComponent,
+        UrlComponent,
         UsernameComponent,
     ],
     imports: [BrowserModule, BrowserAnimationsModule, NgxFormModule.forRoot()],

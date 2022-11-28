@@ -9,6 +9,7 @@ import {
     INgxFormInputMobile,
     INgxFormInputNationalCode,
     INgxFormInputText,
+    INgxFormInputUrl,
     INgxFormInputUsername,
 } from '../../inputs';
 
@@ -27,6 +28,7 @@ export class NgxInputTextComponent implements OnInit {
         | INgxFormInputMobile
         | INgxFormInputNationalCode
         | INgxFormInputText
+        | INgxFormInputUrl
         | INgxFormInputUsername;
     @Input() icon?: string;
     @Input() en: boolean = false;

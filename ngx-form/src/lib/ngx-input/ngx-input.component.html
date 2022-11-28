@@ -109,6 +109,15 @@
         [counter]="input.counter"
     ></ngx-input-text>
 
+    <!-- URL -->
+    <ngx-input-text
+        *ngIf="input.type === 'URL'"
+        [control]="control"
+        [input]="input"
+        [icon]="'link'"
+        [en]="true"
+    ></ngx-input-text>
+
     <!-- USERNAME -->
     <ngx-input-text
         *ngIf="input.type === 'USERNAME'"
