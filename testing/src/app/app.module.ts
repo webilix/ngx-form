@@ -20,6 +20,7 @@ import { PasswordComponent } from './password/password.component';
 import { TextComponent } from './text/text.component';
 import { UrlComponent } from './url/url.component';
 import { UsernameComponent } from './username/username.component';
+import { TextareaComponent } from './textarea/textarea.component';
 
 @NgModule({
     declarations: [
@@ -39,6 +40,7 @@ import { UsernameComponent } from './username/username.component';
         TextComponent,
         UrlComponent,
         UsernameComponent,
+        TextareaComponent,
     ],
     imports: [BrowserModule, BrowserAnimationsModule, NgxFormModule.forRoot()],
     bootstrap: [AppComponent],

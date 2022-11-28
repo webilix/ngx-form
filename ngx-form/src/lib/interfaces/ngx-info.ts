@@ -14,6 +14,7 @@ import {
     NgxFormInputNationalCodeMethods,
     NgxFormInputNumberMethods,
     NgxFormInputPasswordMethods,
+    NgxFormInputTextareaMethods,
     NgxFormInputTextMethods,
     NgxFormInputUrlMethods,
     NgxFormInputUsernameMethods,
@@ -40,6 +41,7 @@ export const NgxFieldInputInfo: { [key in NgxFormInputTypes['type']]: INgxFieldI
     NUMBER: { title: 'مقدار عددی', methods: new NgxFormInputNumberMethods() },
     PASSWORD: { title: 'کلمه عبور', methods: new NgxFormInputPasswordMethods() },
     TEXT: { title: 'متن یک خطی', methods: new NgxFormInputTextMethods() },
+    TEXTAREA: { title: 'متن چند خطی', methods: new NgxFormInputTextareaMethods() },
     URL: { title: 'آدرس سایت', methods: new NgxFormInputUrlMethods() },
     USERNAME: { title: 'نام کاربری', methods: new NgxFormInputUsernameMethods() },
 };

@@ -15,6 +15,7 @@ import { NationalCodeComponent } from './national-code/national-code.component';
 import { NumberComponent } from './number/number.component';
 import { PasswordComponent } from './password/password.component';
 import { TextComponent } from './text/text.component';
+import { TextareaComponent } from './textarea/textarea.component';
 import { UrlComponent } from './url/url.component';
 import { UsernameComponent } from './username/username.component';
 
@@ -58,6 +59,7 @@ export class AppComponent implements OnInit {
             { name: 'number', type: 'NUMBER', title: 'مقدار عددی', optional: true },
             { name: 'password', type: 'PASSWORD', optional: true },
             { name: 'text', type: 'TEXT', title: 'متن یک خطی', optional: true },
+            { name: 'textarea', type: 'TEXTAREA', title: 'متن چند خطی', optional: true },
             { name: 'url', type: 'URL', optional: true },
             { name: 'username', type: 'USERNAME', optional: true },
         ],
@@ -77,6 +79,7 @@ export class AppComponent implements OnInit {
         { type: 'NUMBER', title: 'مقدار عددی', component: NumberComponent },
         { type: 'PASSWORD', title: 'کلمه عبور', component: PasswordComponent },
         { type: 'TEXT', title: 'متن یک خطی', component: TextComponent },
+        { type: 'TEXTAREA', title: 'متن چند خطی', component: TextareaComponent },
         { type: 'URL', title: 'آدرس سایت', component: UrlComponent },
         { type: 'USERNAME', title: 'نام کاربری', component: UsernameComponent },
     ];

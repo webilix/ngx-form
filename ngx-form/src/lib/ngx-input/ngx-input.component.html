@@ -109,6 +109,9 @@
         [counter]="input.counter"
     ></ngx-input-text>
 
+    <!-- TEXTAREA -->
+    <ngx-input-textarea *ngIf="input.type === 'TEXTAREA'" [control]="control" [input]="input"></ngx-input-textarea>
+
     <!-- URL -->
     <ngx-input-text
         *ngIf="input.type === 'URL'"

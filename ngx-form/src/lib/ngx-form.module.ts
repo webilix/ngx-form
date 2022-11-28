@@ -26,6 +26,7 @@ import { NgxInputNameComponent } from './ngx-input/name/ngx-input-name.component
 import { NgxInputNumberComponent } from './ngx-input/number/ngx-input-number.component';
 import { NgxInputPasswordComponent } from './ngx-input/password/ngx-input-password.component';
 import { NgxInputTextComponent } from './ngx-input/text/ngx-input-text.component';
+import { NgxInputTextareaComponent } from './ngx-input/textarea/ngx-input-textarea.component';
 
 @NgModule({
     declarations: [
@@ -44,6 +45,7 @@ import { NgxInputTextComponent } from './ngx-input/text/ngx-input-text.component
         NgxInputNumberComponent,
         NgxInputPasswordComponent,
         NgxInputTextComponent,
+        NgxInputTextareaComponent,
     ],
     imports: [
         CommonModule,
