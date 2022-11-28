@@ -8,6 +8,7 @@ import { AppComponent } from './app.component';
 
 import { AutoCompleteComponent } from './auto-complete/auto-complete.component';
 import { BankCardComponent } from './bank-card/bank-card.component';
+import { DomainComponent } from './domain/domain.component';
 import { EmailComponent } from './email/email.component';
 import { MobileComponent } from './mobile/mobile.component';
 import { MultiSelectComponent } from './multi-select/multi-select.component';
@@ -23,6 +24,7 @@ import { UsernameComponent } from './username/username.component';
 
         AutoCompleteComponent,
         BankCardComponent,
+        DomainComponent,
         EmailComponent,
         MobileComponent,
         MultiSelectComponent,

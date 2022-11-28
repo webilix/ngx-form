@@ -19,6 +19,6 @@ export class NgxFormInputBankCard extends NgxFormInputMethods<INgxFormInputBankC
     }
 
     value(value: any): string | null {
-        return Validator.VALUE.isString(value) && value !== '' ? value : null;
+        return Validator.VALUE.isString(value) && Validator.STRING.isBankCard(value) ? value : null;
     }
 }

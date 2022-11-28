@@ -25,8 +25,8 @@ export class NameComponent {
                 name: 'name-4',
                 type: 'NAME',
                 optional: true,
-                hideOn: (values: INgxFormValues) => values['name-2']?.last === 'نام خانوادگی',
-                hint: 'در صورتی که مقدار نام خانوادگی در گزینه دوم، نام خانوادگی باشد این گزینه نمایش داده نمی‌شود.',
+                hideOn: (values: INgxFormValues) => values['name-2']?.first === 'نام',
+                hint: 'در صورتی که مقدار نام در گزینه دوم، نام باشد باشد این گزینه نمایش داده نمی‌شود.',
             },
         ],
     };

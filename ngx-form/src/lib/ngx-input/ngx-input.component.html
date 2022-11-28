@@ -32,6 +32,15 @@
         [mask]="'0000-0000-0000-0000'"
     ></ngx-input-text>
 
+    <!-- DOMAIN -->
+    <ngx-input-text
+        *ngIf="input.type === 'DOMAIN'"
+        [control]="control"
+        [input]="input"
+        [icon]="'http'"
+        [en]="true"
+    ></ngx-input-text>
+
     <!-- EMAIL -->
     <ngx-input-text
         *ngIf="input.type === 'EMAIL'"

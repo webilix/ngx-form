@@ -52,8 +52,8 @@ export class PasswordComponent {
                 type: 'PASSWORD',
                 title: 'عدم نمایش',
                 optional: true,
-                hideOn: (values: INgxFormValues) => values['passowrd-6'] === 'PASSWORD',
-                hint: 'در صورتی که مقدار عدم بررسی PASSWORD باشد این گزینه نمایش داده نمی‌شود.',
+                hideOn: (values: INgxFormValues) => values['passowrd-6'] === 'password',
+                hint: 'در صورتی که مقدار عدم بررسی password باشد این گزینه نمایش داده نمی‌شود.',
             },
         ],
     };

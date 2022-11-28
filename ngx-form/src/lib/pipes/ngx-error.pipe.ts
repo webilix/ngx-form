@@ -80,6 +80,8 @@ export class NgxErrorPipe implements PipeTransform {
         }
 
         switch (type) {
+            case 'DOMAIN':
+                return 'فرمت استاندارد دامنه سایت رعایت نشده است.';
             default:
                 return 'مقدار وارد شده صحیح نیست.';
         }

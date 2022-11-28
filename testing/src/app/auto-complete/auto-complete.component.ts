@@ -44,8 +44,8 @@ export class AutoCompleteComponent {
                 title: 'عدم نمایش',
                 options: this.options,
                 optional: true,
-                hideOn: (values: INgxFormValues) => values['auto-complete-2'] === 'پلکو',
-                hint: 'در صورتی که مقدار اختیاری پلکو باشد این گزینه نمایش داده نمی‌شود.',
+                hideOn: (values: INgxFormValues) => values['auto-complete-2'] === 'سیمیلیس',
+                hint: 'در صورتی که مقدار اختیاری سیمیلیس باشد این گزینه نمایش داده نمی‌شود.',
             },
         ],
     };

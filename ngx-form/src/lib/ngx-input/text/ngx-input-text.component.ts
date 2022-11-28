@@ -3,6 +3,7 @@ import { FormControl } from '@angular/forms';
 
 import {
     INgxFormInputBankCard,
+    INgxFormInputDomain,
     INgxFormInputEmail,
     INgxFormInputMobile,
     INgxFormInputText,
@@ -18,6 +19,7 @@ export class NgxInputTextComponent implements OnInit {
     @Input() control?: FormControl;
     @Input() input?:
         | INgxFormInputBankCard
+        | INgxFormInputDomain
         | INgxFormInputEmail
         | INgxFormInputMobile
         | INgxFormInputText

@@ -54,8 +54,8 @@ export class MultiSelectComponent {
                 type: 'MULTI-SELECT',
                 title: 'عدم نمایش',
                 options: this.options,
-                hideOn: (values: INgxFormValues) => values['multi-select-3'].includes('3RD'),
-                hint: 'در صورتی که گزینه نمایش لیست کشویی شامل گزینه سوم باشد این گزینه نمایش داده نمی‌شود.',
+                hideOn: (values: INgxFormValues) => values['multi-select-3'].includes('2ND'),
+                hint: 'در صورتی که گزینه نمایش لیست کشویی شامل گزینه دوم باشد این گزینه نمایش داده نمی‌شود.',
             },
             {
                 name: 'multi-select-6',
