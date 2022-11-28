@@ -7,6 +7,7 @@ import { AutoCompleteComponent } from './auto-complete/auto-complete.component';
 import { BankCardComponent } from './bank-card/bank-card.component';
 import { DomainComponent } from './domain/domain.component';
 import { EmailComponent } from './email/email.component';
+import { IpComponent } from './ip/ip.component';
 import { MobileComponent } from './mobile/mobile.component';
 import { MultiSelectComponent } from './multi-select/multi-select.component';
 import { NameComponent } from './name/name.component';
@@ -36,6 +37,7 @@ export class AppComponent implements OnInit {
             { name: 'bank-card', type: 'BANK-CARD', optional: true },
             { name: 'domain', type: 'DOMAIN', optional: true },
             { name: 'email', type: 'EMAIL', optional: true },
+            { name: 'ip', type: 'IP', optional: true },
             { name: 'mobile', type: 'MOBILE', optional: true },
             {
                 name: 'multi-select',
@@ -63,6 +65,7 @@ export class AppComponent implements OnInit {
         { type: 'BANK-CARD', title: 'شماره کارت بانکی', component: BankCardComponent },
         { type: 'DOMAIN', title: 'نام دامنه', component: DomainComponent },
         { type: 'EMAIL', title: 'ایمیل', component: EmailComponent },
+        { type: 'IP', title: 'آدرس آی‌پی', component: IpComponent },
         { type: 'MOBILE', title: 'موبایل', component: MobileComponent },
         { type: 'MULTI-SELECT', title: 'چند انتخابی', component: MultiSelectComponent },
         { type: 'NAME', title: 'نام و نام خانوادگی', component: NameComponent },

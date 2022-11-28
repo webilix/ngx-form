@@ -9,7 +9,7 @@ export interface INgxFormInputDomain extends Omit<INgxFormInput, 'english'> {
     type: 'DOMAIN';
 }
 
-export class NgxFormInputDomain extends NgxFormInputMethods<INgxFormInputDomain, string | null> {
+export class NgxFormInputDomainMethods extends NgxFormInputMethods<INgxFormInputDomain, string | null> {
     control(input: INgxFormInputDomain, validators: ValidatorFn[]): FormControl<string | null> {
         input.title = input.title || 'دامنه سایت';
         validators.push(Validators.pattern(RegX.DOMAIN.get()));

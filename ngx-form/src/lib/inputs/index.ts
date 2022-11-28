@@ -4,6 +4,7 @@ export * from './auto-complete';
 export * from './bank-card';
 export * from './domain';
 export * from './email';
+export * from './ip';
 export * from './mobile';
 export * from './multi-select';
 export * from './name';

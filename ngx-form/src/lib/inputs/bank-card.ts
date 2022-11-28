@@ -10,7 +10,7 @@ export interface INgxFormInputBankCard extends Omit<INgxFormInput, 'english'> {
     type: 'BANK-CARD';
 }
 
-export class NgxFormInputBankCard extends NgxFormInputMethods<INgxFormInputBankCard, string | null> {
+export class NgxFormInputBankCardMethods extends NgxFormInputMethods<INgxFormInputBankCard, string | null> {
     control(input: INgxFormInputBankCard, validators: ValidatorFn[]): FormControl<string | null> {
         input.title = input.title || 'شماره کارت بانکی';
         validators.push(NgxBankCardValidator());

@@ -4,6 +4,7 @@ import {
     INgxFormInputComment,
     INgxFormInputDomain,
     INgxFormInputEmail,
+    INgxFormInputIp,
     INgxFormInputMobile,
     INgxFormInputMultiSelect,
     INgxFormInputName,
@@ -21,6 +22,7 @@ export type NgxFormInputTypes =
     | INgxFormInputBankCard
     | INgxFormInputDomain
     | INgxFormInputEmail
+    | INgxFormInputIp
     | INgxFormInputMobile
     | INgxFormInputMultiSelect
     | INgxFormInputName

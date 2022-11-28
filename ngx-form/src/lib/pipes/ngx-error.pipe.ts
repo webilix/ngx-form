@@ -43,6 +43,8 @@ export class NgxErrorPipe implements PipeTransform {
                 switch (type) {
                     case 'EMAIL':
                         return 'فرمت استاندارد ایمیل رعایت نشده است.';
+                    case 'IP':
+                        return 'فرمت استاندارد آدرس آی‌پی رعایت نشده است.';
                     case 'PASSWORD':
                         switch (true) {
                             case value.requiredPattern.includes('[0-9]'):

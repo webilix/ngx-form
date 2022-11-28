@@ -3,10 +3,11 @@ import { NgxFormInputTypes } from '../ngx-form.types';
 
 import {
     NgxFormInputAutoCompleteMethods,
-    NgxFormInputBankCard,
+    NgxFormInputBankCardMethods,
     NgxFormInputCommentMethods,
-    NgxFormInputDomain,
+    NgxFormInputDomainMethods,
     NgxFormInputEmailMethods,
+    NgxFormInputIpMethods,
     NgxFormInputMobileMethods,
     NgxFormInputMultiSelectMethods,
     NgxFormInputNameMethods,
@@ -26,9 +27,10 @@ export const NgxFieldInputInfo: { [key in NgxFormInputTypes['type']]: INgxFieldI
     COMMENT: { title: 'توضیحات', methods: new NgxFormInputCommentMethods() },
     // INPUTS
     'AUTO-COMPLETE': { title: 'لیست تکمیلی', methods: new NgxFormInputAutoCompleteMethods() },
-    'BANK-CARD': { title: 'شماره کارت بانکی', methods: new NgxFormInputBankCard() },
-    DOMAIN: { title: 'دامنه سایت', methods: new NgxFormInputDomain() },
+    'BANK-CARD': { title: 'شماره کارت بانکی', methods: new NgxFormInputBankCardMethods() },
+    DOMAIN: { title: 'دامنه سایت', methods: new NgxFormInputDomainMethods() },
     EMAIL: { title: 'ایمیل', methods: new NgxFormInputEmailMethods() },
+    IP: { title: 'آدرس آی‌پی', methods: new NgxFormInputIpMethods() },
     MOBILE: { title: 'موبایل', methods: new NgxFormInputMobileMethods() },
     'MULTI-SELECT': { title: 'چند انتخابی', methods: new NgxFormInputMultiSelectMethods() },
     NAME: { title: 'نام و نام خانوادگی', methods: new NgxFormInputNameMethods() },

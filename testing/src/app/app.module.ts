@@ -10,6 +10,7 @@ import { AutoCompleteComponent } from './auto-complete/auto-complete.component';
 import { BankCardComponent } from './bank-card/bank-card.component';
 import { DomainComponent } from './domain/domain.component';
 import { EmailComponent } from './email/email.component';
+import { IpComponent } from './ip/ip.component';
 import { MobileComponent } from './mobile/mobile.component';
 import { MultiSelectComponent } from './multi-select/multi-select.component';
 import { NameComponent } from './name/name.component';
@@ -26,6 +27,7 @@ import { UsernameComponent } from './username/username.component';
         BankCardComponent,
         DomainComponent,
         EmailComponent,
+        IpComponent,
         MobileComponent,
         MultiSelectComponent,
         NameComponent,

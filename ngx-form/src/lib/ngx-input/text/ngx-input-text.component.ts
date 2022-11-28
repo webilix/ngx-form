@@ -5,6 +5,7 @@ import {
     INgxFormInputBankCard,
     INgxFormInputDomain,
     INgxFormInputEmail,
+    INgxFormInputIp,
     INgxFormInputMobile,
     INgxFormInputText,
     INgxFormInputUsername,
@@ -21,6 +22,7 @@ export class NgxInputTextComponent implements OnInit {
         | INgxFormInputBankCard
         | INgxFormInputDomain
         | INgxFormInputEmail
+        | INgxFormInputIp
         | INgxFormInputMobile
         | INgxFormInputText
         | INgxFormInputUsername;

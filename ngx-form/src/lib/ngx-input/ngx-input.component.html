@@ -50,6 +50,15 @@
         [en]="true"
     ></ngx-input-text>
 
+    <!-- IP -->
+    <ngx-input-text
+        *ngIf="input.type === 'IP'"
+        [control]="control"
+        [input]="input"
+        [icon]="'language'"
+        [en]="true"
+    ></ngx-input-text>
+
     <!-- MOBILE -->
     <ngx-input-text
         *ngIf="input.type === 'MOBILE'"
