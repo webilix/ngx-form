@@ -45,6 +45,14 @@ form {
             min-width: auto;
             padding: 0;
         }
+
+        mat-select.select-en .mat-mdc-select-value {
+            text-align: left;
+
+            * {
+                font-family: var(--ngxEnFont);
+            }
+        }
     }
 
     .mat-mdc-form-field-text-suffix {
@@ -113,4 +121,16 @@ form {
 
 ::ng-deep .ngx-form-disabled {
     opacity: 0.5;
+}
+
+::ng-deep .ngx-select-search {
+    width: 100%;
+    border-width: 0;
+    border-bottom: 1px solid var(--ngxBorderColor);
+    padding: 0.25rem 1rem 0.75rem 1rem;
+    outline: none;
+}
+
+::ng-deep .ngx-select-search::placeholder {
+    text-align: right;
 }

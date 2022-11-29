@@ -1,0 +1,31 @@
+<mat-form-field *ngIf="control && input" [appearance]="appearance">
+    <mat-label>{{ input.title }}</mat-label>
+    <mat-error *ngIf="control.invalid">{{ control.errors | ngxError: input.type }}</mat-error>
+    <mat-hint *ngIf="input.hint">{{ input.hint }}</mat-hint>
+
+    <mat-select
+        [formControl]="control"
+        [ngClass]="{ 'select-en': !!input.english }"
+        (openedChange)="query = ''; searchInput.value = ''; searchInput.focus()"
+    >
+        <input
+            type="text"
+            [ngClass]="{ 'ngx-select-search': true, 'ngx-form-en': !!input.english }"
+            [ngStyle]="{ display: input.options.length > 10 ? 'block' : 'none' }"
+            (input)="query = searchInput.value || ''"
+            placeholder="جستجو"
+            #searchInput
+        />
+
+        <mat-option *ngIf="!!input.optional" [value]="null"></mat-option>
+        <ng-container *ngFor="let option of input.options">
+            <mat-option
+                [value]="option.id"
+                [ngClass]="{ 'ngx-form-en': !!input.english }"
+                *ngIf="option.title.toLowerCase().indexOf(query.toLowerCase()) !== -1"
+            >
+                {{ option.title }}
+            </mat-option>
+        </ng-container>
+    </mat-select>
+</mat-form-field>

@@ -98,6 +98,9 @@
     <!-- PASSWORD -->
     <ngx-input-password *ngIf="input.type === 'PASSWORD'" [control]="control" [input]="input"></ngx-input-password>
 
+    <!-- SELECT -->
+    <ngx-input-select *ngIf="input.type === 'SELECT'" [control]="control" [input]="input"></ngx-input-select>
+
     <!-- TEXT -->
     <ngx-input-text
         *ngIf="input.type === 'TEXT'"

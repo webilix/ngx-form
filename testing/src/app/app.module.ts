@@ -17,6 +17,7 @@ import { NameComponent } from './name/name.component';
 import { NationalCodeComponent } from './national-code/national-code.component';
 import { NumberComponent } from './number/number.component';
 import { PasswordComponent } from './password/password.component';
+import { SelectComponent } from './select/select.component';
 import { TextComponent } from './text/text.component';
 import { UrlComponent } from './url/url.component';
 import { UsernameComponent } from './username/username.component';
@@ -37,6 +38,7 @@ import { TextareaComponent } from './textarea/textarea.component';
         NationalCodeComponent,
         NumberComponent,
         PasswordComponent,
+        SelectComponent,
         TextComponent,
         UrlComponent,
         UsernameComponent,

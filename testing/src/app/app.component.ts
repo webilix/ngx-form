@@ -14,6 +14,7 @@ import { NameComponent } from './name/name.component';
 import { NationalCodeComponent } from './national-code/national-code.component';
 import { NumberComponent } from './number/number.component';
 import { PasswordComponent } from './password/password.component';
+import { SelectComponent } from './select/select.component';
 import { TextComponent } from './text/text.component';
 import { TextareaComponent } from './textarea/textarea.component';
 import { UrlComponent } from './url/url.component';
@@ -58,6 +59,18 @@ export class AppComponent implements OnInit {
             { name: 'national-code', type: 'NATIONAL-CODE', optional: true },
             { name: 'number', type: 'NUMBER', title: 'مقدار عددی', optional: true },
             { name: 'password', type: 'PASSWORD', optional: true },
+            {
+                name: 'select',
+                type: 'SELECT',
+                title: 'لیست کشویی',
+                options: [
+                    { id: '1ST', title: 'گزینه اول' },
+                    { id: '2ND', title: 'گزینه دوم' },
+                    { id: '3RD', title: 'گزینه سوم' },
+                    { id: '4TH', title: 'گزینه چهارم' },
+                ],
+                optional: true,
+            },
             { name: 'text', type: 'TEXT', title: 'متن یک خطی', optional: true },
             { name: 'textarea', type: 'TEXTAREA', title: 'متن چند خطی', optional: true },
             { name: 'url', type: 'URL', optional: true },
@@ -78,6 +91,7 @@ export class AppComponent implements OnInit {
         { type: 'NATIONAL-CODE', title: 'کد ملی', component: NationalCodeComponent },
         { type: 'NUMBER', title: 'مقدار عددی', component: NumberComponent },
         { type: 'PASSWORD', title: 'کلمه عبور', component: PasswordComponent },
+        { type: 'SELECT', title: 'لیست کشویی', component: SelectComponent },
         { type: 'TEXT', title: 'متن یک خطی', component: TextComponent },
         { type: 'TEXTAREA', title: 'متن چند خطی', component: TextareaComponent },
         { type: 'URL', title: 'آدرس سایت', component: UrlComponent },
