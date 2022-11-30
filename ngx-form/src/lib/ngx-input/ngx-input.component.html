@@ -32,6 +32,9 @@
         [mask]="'0000-0000-0000-0000'"
     ></ngx-input-text>
 
+    <!-- CHECKBOX -->
+    <ngx-input-checkbox *ngIf="input.type === 'CHECKBOX'" [control]="control" [input]="input"></ngx-input-checkbox>
+
     <!-- DOMAIN -->
     <ngx-input-text
         *ngIf="input.type === 'DOMAIN'"

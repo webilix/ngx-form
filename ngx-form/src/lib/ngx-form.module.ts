@@ -9,6 +9,7 @@ import { MatIconModule } from '@angular/material/icon';
 import { MatButtonModule } from '@angular/material/button';
 import { MatAutocompleteModule } from '@angular/material/autocomplete';
 import { MatSelectModule } from '@angular/material/select';
+import { MatCheckboxModule } from '@angular/material/checkbox';
 
 import { NgxErrorPipe } from './pipes/ngx-error.pipe';
 import { NgxAutocompleteDirective } from './directives/ngx-autocomplete.directive';
@@ -21,6 +22,7 @@ import { NgxFormComponent } from './ngx-form.component';
 import { NgxInputComponent } from './ngx-input/ngx-input.component';
 
 import { NgxInputAutoCompleteComponent } from './ngx-input/auto-complete/ngx-input-auto-complete.component';
+import { NgxInputCheckboxComponent } from './ngx-input/checkbox/ngx-input-checkbox.component';
 import { NgxInputMultiSelectComponent } from './ngx-input/multi-select/ngx-input-multi-select.component';
 import { NgxInputNameComponent } from './ngx-input/name/ngx-input-name.component';
 import { NgxInputNumberComponent } from './ngx-input/number/ngx-input-number.component';
@@ -41,6 +43,7 @@ import { NgxInputTextareaComponent } from './ngx-input/textarea/ngx-input-textar
         NgxInputComponent,
 
         NgxInputAutoCompleteComponent,
+        NgxInputCheckboxComponent,
         NgxInputMultiSelectComponent,
         NgxInputNameComponent,
         NgxInputNumberComponent,
@@ -61,6 +64,7 @@ import { NgxInputTextareaComponent } from './ngx-input/textarea/ngx-input-textar
         MatButtonModule,
         MatAutocompleteModule,
         MatSelectModule,
+        MatCheckboxModule,
     ],
     providers: [DecimalPipe],
     exports: [NgxFormComponent],

@@ -53,6 +53,11 @@ form {
                 font-family: var(--ngxEnFont);
             }
         }
+
+        .mat-mdc-checkbox {
+            text-align: justify;
+            width: 100%;
+        }
     }
 
     .mat-mdc-form-field-text-suffix {

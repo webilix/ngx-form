@@ -59,7 +59,9 @@ export class NgxFormComponent implements OnInit {
 
     private setInput(input: NgxFormInputTypes): void {
         const validators: ValidatorFn[] =
-            input.type === 'COMMENT' || input.type === 'MULTI-SELECT' || input.optional ? [] : [Validators.required];
+            input.type === 'COMMENT' || input.type === 'CHECKBOX' || input.type === 'MULTI-SELECT' || input.optional
+                ? []
+                : [Validators.required];
         this.formGroup.setControl(input.name, NgxFieldInputInfo[input.type].methods.control(input, validators));
     }
 

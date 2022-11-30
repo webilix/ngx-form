@@ -4,6 +4,7 @@ import { NgxFormInputTypes } from '../ngx-form.types';
 import {
     NgxFormInputAutoCompleteMethods,
     NgxFormInputBankCardMethods,
+    NgxFormInputCheckboxMethods,
     NgxFormInputCommentMethods,
     NgxFormInputDomainMethods,
     NgxFormInputEmailMethods,
@@ -32,6 +33,7 @@ export const NgxFieldInputInfo: { [key in NgxFormInputTypes['type']]: INgxFieldI
     // INPUTS
     'AUTO-COMPLETE': { title: 'لیست تکمیلی', methods: new NgxFormInputAutoCompleteMethods() },
     'BANK-CARD': { title: 'شماره کارت بانکی', methods: new NgxFormInputBankCardMethods() },
+    CHECKBOX: { title: 'یک انتخابی', methods: new NgxFormInputCheckboxMethods() },
     DOMAIN: { title: 'دامنه سایت', methods: new NgxFormInputDomainMethods() },
     EMAIL: { title: 'ایمیل', methods: new NgxFormInputEmailMethods() },
     IP: { title: 'آدرس آی‌پی', methods: new NgxFormInputIpMethods() },

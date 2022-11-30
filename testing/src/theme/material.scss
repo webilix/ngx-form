@@ -10,6 +10,7 @@ $typography: mat.define-typography-config(
     $font-family: Yekan,
     $subtitle-1: mat.define-typography-level(12px, 12px, 400),
     $body-1: mat.define-typography-level(12px, 12px, 400),
+    $body-2: mat.define-typography-level(12px, 12px, 400),
     $caption: mat.define-typography-level(9px, 9px, 400),
     $button: mat.define-typography-level(12px, 12px, 500),
 );

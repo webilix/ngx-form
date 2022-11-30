@@ -1,6 +1,7 @@
 import {
     INgxFormInputAutoComplete,
     INgxFormInputBankCard,
+    INgxFormInputCheckbox,
     INgxFormInputComment,
     INgxFormInputDomain,
     INgxFormInputEmail,
@@ -24,6 +25,7 @@ export type NgxFormInputTypes =
     // INPUTS
     | INgxFormInputAutoComplete
     | INgxFormInputBankCard
+    | INgxFormInputCheckbox
     | INgxFormInputDomain
     | INgxFormInputEmail
     | INgxFormInputIp
