@@ -1,0 +1,43 @@
+<mat-form-field *ngIf="control && input" [appearance]="appearance" [floatLabel]="'always'">
+    <mat-label>{{ input.title }}</mat-label>
+    <mat-error *ngIf="control.invalid">{{ control.errors | ngxError: input.type }}</mat-error>
+    <mat-hint *ngIf="input.hint">{{ input.hint }}</mat-hint>
+
+    <input
+        matInput
+        type="color"
+        [ngClass]="{ 'ngx-form-disabled': control.disabled }"
+        [name]="input.name"
+        [formControl]="control"
+        *ngIf="!input.colors || input.colors.length === 0"
+    />
+    <ng-container *ngIf="input.colors && input.colors.length !== 0">
+        <input matInput type="text" [name]="input.name" [formControl]="control" class="input-hidden" />
+        <div class="colors">
+            <div
+                *ngFor="let color of input.colors"
+                [ngClass]="{ color: true, current: color === control.value, 'ngx-form-disabled': control.disabled }"
+                [ngStyle]="{ 'background-color': color }"
+                (click)="control.setValue(color)"
+            >
+                <mat-icon
+                    [fontIcon]="'check'"
+                    class="ngx-form-icon"
+                    color="primary"
+                    *ngIf="color === control.value"
+                ></mat-icon>
+            </div>
+        </div>
+    </ng-container>
+
+    <button
+        mat-button
+        matSuffix
+        (click)="control.markAsTouched(); control.setValue(null)"
+        type="button"
+        [disabled]="control.disabled"
+        [ngClass]="{ 'ngx-form-disabled': control.disabled }"
+    >
+        <mat-icon [fontIcon]="control.value === null ? 'palette' : 'cancel'"></mat-icon>
+    </button>
+</mat-form-field>

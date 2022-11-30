@@ -6,6 +6,7 @@ import { INgxForm, NgxFormComponent } from '@ngx-form';
 import { AutoCompleteComponent } from './auto-complete/auto-complete.component';
 import { BankCardComponent } from './bank-card/bank-card.component';
 import { CheckboxComponent } from './checkbox/checkbox.component';
+import { ColorComponent } from './color/color.component';
 import { DomainComponent } from './domain/domain.component';
 import { EmailComponent } from './email/email.component';
 import { IpComponent } from './ip/ip.component';
@@ -42,6 +43,7 @@ export class AppComponent implements OnInit {
             },
             { name: 'bank-card', type: 'BANK-CARD', optional: true },
             { name: 'checkbox', type: 'CHECKBOX', message: 'یک انتخابی' },
+            { name: 'color', type: 'COLOR', optional: true },
             { name: 'domain', type: 'DOMAIN', optional: true },
             { name: 'email', type: 'EMAIL', optional: true },
             { name: 'ip', type: 'IP', optional: true },
@@ -87,6 +89,7 @@ export class AppComponent implements OnInit {
         { type: 'AUTO-COMPLETE', title: 'لیست تکمیلی', component: AutoCompleteComponent },
         { type: 'BANK-CARD', title: 'شماره کارت بانکی', component: BankCardComponent },
         { type: 'CHECKBOX', title: 'یک انتخابی', component: CheckboxComponent },
+        { type: 'COLOR', title: 'رنگ', component: ColorComponent },
         { type: 'DOMAIN', title: 'نام دامنه', component: DomainComponent },
         { type: 'EMAIL', title: 'ایمیل', component: EmailComponent },
         { type: 'IP', title: 'آدرس آی‌پی', component: IpComponent },

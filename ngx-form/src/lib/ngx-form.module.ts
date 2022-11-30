@@ -23,6 +23,7 @@ import { NgxInputComponent } from './ngx-input/ngx-input.component';
 
 import { NgxInputAutoCompleteComponent } from './ngx-input/auto-complete/ngx-input-auto-complete.component';
 import { NgxInputCheckboxComponent } from './ngx-input/checkbox/ngx-input-checkbox.component';
+import { NgxInputColorComponent } from './ngx-input/color/ngx-input-color.component';
 import { NgxInputMultiSelectComponent } from './ngx-input/multi-select/ngx-input-multi-select.component';
 import { NgxInputNameComponent } from './ngx-input/name/ngx-input-name.component';
 import { NgxInputNumberComponent } from './ngx-input/number/ngx-input-number.component';
@@ -44,6 +45,7 @@ import { NgxInputTextareaComponent } from './ngx-input/textarea/ngx-input-textar
 
         NgxInputAutoCompleteComponent,
         NgxInputCheckboxComponent,
+        NgxInputColorComponent,
         NgxInputMultiSelectComponent,
         NgxInputNameComponent,
         NgxInputNumberComponent,

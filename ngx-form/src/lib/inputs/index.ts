@@ -3,6 +3,7 @@ export * from './comment';
 export * from './auto-complete';
 export * from './bank-card';
 export * from './checkbox';
+export * from './color';
 export * from './domain';
 export * from './email';
 export * from './ip';
