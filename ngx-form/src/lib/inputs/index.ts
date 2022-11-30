@@ -11,6 +11,7 @@ export * from './multi-select';
 export * from './name';
 export * from './national-code';
 export * from './number';
+export * from './numeric';
 export * from './password';
 export * from './select';
 export * from './text';

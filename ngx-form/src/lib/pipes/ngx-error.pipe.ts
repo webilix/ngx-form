@@ -24,6 +24,9 @@ export class NgxErrorPipe implements PipeTransform {
             case 'max':
                 return `مقدار نمی‌تواند بزرگتر از ${Helper.NUMBER.format(value.max)} باشد.`;
 
+            case 'length':
+                return `مقدار باید داری ${Helper.NUMBER.format(value)} کاراکتر باشد.`;
+
             case 'minlength':
                 return `مقدار باید حداقل داری ${Helper.NUMBER.format(value.requiredLength)} کاراکتر باشد.`;
 
@@ -48,6 +51,8 @@ export class NgxErrorPipe implements PipeTransform {
                         return 'فرمت استاندارد ایمیل رعایت نشده است.';
                     case 'IP':
                         return 'فرمت استاندارد آدرس آی‌پی رعایت نشده است.';
+                    case 'NUMERIC':
+                        return 'کاراکترهای مجاز: اعداد انگلیسی';
                     case 'PASSWORD':
                         switch (true) {
                             case value.requiredPattern.includes('[0-9]'):

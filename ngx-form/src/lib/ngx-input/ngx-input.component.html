@@ -98,6 +98,17 @@
     <!-- NUMBER -->
     <ngx-input-number *ngIf="input.type === 'NUMBER'" [control]="control" [input]="input"></ngx-input-number>
 
+    <!-- NUMERIC -->
+    <ngx-input-text
+        *ngIf="input.type === 'NUMERIC'"
+        [control]="control"
+        [input]="input"
+        [icon]="'tag'"
+        [en]="true"
+        [numeric]="true"
+        [maxLength]="input.maxLength"
+    ></ngx-input-text>
+
     <!-- PASSWORD -->
     <ngx-input-password *ngIf="input.type === 'PASSWORD'" [control]="control" [input]="input"></ngx-input-password>
 
