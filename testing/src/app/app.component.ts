@@ -7,6 +7,7 @@ import { AutoCompleteComponent } from './auto-complete/auto-complete.component';
 import { BankCardComponent } from './bank-card/bank-card.component';
 import { CheckboxComponent } from './checkbox/checkbox.component';
 import { ColorComponent } from './color/color.component';
+import { DateComponent } from './date/date.component';
 import { DomainComponent } from './domain/domain.component';
 import { EmailComponent } from './email/email.component';
 import { IpComponent } from './ip/ip.component';
@@ -90,6 +91,7 @@ export class AppComponent implements OnInit {
         { type: 'BANK-CARD', title: 'شماره کارت بانکی', component: BankCardComponent },
         { type: 'CHECKBOX', title: 'یک انتخابی', component: CheckboxComponent },
         { type: 'COLOR', title: 'رنگ', component: ColorComponent },
+        { type: 'DATE', title: 'تاریخ', component: DateComponent },
         { type: 'DOMAIN', title: 'نام دامنه', component: DomainComponent },
         { type: 'EMAIL', title: 'ایمیل', component: EmailComponent },
         { type: 'IP', title: 'آدرس آی‌پی', component: IpComponent },

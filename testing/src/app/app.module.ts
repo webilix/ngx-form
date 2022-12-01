@@ -10,6 +10,7 @@ import { AutoCompleteComponent } from './auto-complete/auto-complete.component';
 import { BankCardComponent } from './bank-card/bank-card.component';
 import { CheckboxComponent } from './checkbox/checkbox.component';
 import { ColorComponent } from './color/color.component';
+import { DateComponent } from './date/date.component';
 import { DomainComponent } from './domain/domain.component';
 import { EmailComponent } from './email/email.component';
 import { IpComponent } from './ip/ip.component';
@@ -34,6 +35,7 @@ import { TextareaComponent } from './textarea/textarea.component';
         BankCardComponent,
         CheckboxComponent,
         ColorComponent,
+        DateComponent,
         DomainComponent,
         EmailComponent,
         IpComponent,

@@ -39,6 +39,12 @@ export class NgxErrorPipe implements PipeTransform {
             case 'max-count':
                 return `امکان انتخاب بیشتر از ${Helper.NUMBER.format(value)} گزینه وجود ندارد.`;
 
+            case 'min-date':
+                return `تاریخ باید برابر یا بعد از ${value} انتخاب شده باشد.`;
+
+            case 'max-date':
+                return `تاریخ باید برابر یا قبل از ${value} انتخاب شده باشد.`;
+
             case 'bank-card':
                 return `شماره کارت بانکی صحیح مشخص نشده است.`;
 

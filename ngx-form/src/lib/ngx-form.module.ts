@@ -10,7 +10,9 @@ import { MatButtonModule } from '@angular/material/button';
 import { MatAutocompleteModule } from '@angular/material/autocomplete';
 import { MatSelectModule } from '@angular/material/select';
 import { MatCheckboxModule } from '@angular/material/checkbox';
+import { MatDialogModule } from '@angular/material/dialog';
 
+import { NgxDatePipe } from './pipes/ngx-date.pipe';
 import { NgxErrorPipe } from './pipes/ngx-error.pipe';
 import { NgxAutocompleteDirective } from './directives/ngx-autocomplete.directive';
 import { NgxAutoheightDirective } from './directives/ngx-autoheight.directive';
@@ -18,12 +20,15 @@ import { NgxErrorDirective } from './directives/ngx-error.directive';
 import { NgxPersianNumberDirective } from './directives/ngx-persian-number.directive';
 
 import { INgxConfig } from './interfaces/ngx-config';
+import { NgxFormService } from './ngx-form.service';
 import { NgxFormComponent } from './ngx-form.component';
-import { NgxInputComponent } from './ngx-input/ngx-input.component';
+import { NgxDateComponent } from './components/ngx-date/ngx-date.component';
 
+import { NgxInputComponent } from './ngx-input/ngx-input.component';
 import { NgxInputAutoCompleteComponent } from './ngx-input/auto-complete/ngx-input-auto-complete.component';
 import { NgxInputCheckboxComponent } from './ngx-input/checkbox/ngx-input-checkbox.component';
 import { NgxInputColorComponent } from './ngx-input/color/ngx-input-color.component';
+import { NgxInputDateComponent } from './ngx-input/date/ngx-input-date.component';
 import { NgxInputMultiSelectComponent } from './ngx-input/multi-select/ngx-input-multi-select.component';
 import { NgxInputNameComponent } from './ngx-input/name/ngx-input-name.component';
 import { NgxInputNumberComponent } from './ngx-input/number/ngx-input-number.component';
@@ -34,6 +39,7 @@ import { NgxInputTextareaComponent } from './ngx-input/textarea/ngx-input-textar
 
 @NgModule({
     declarations: [
+        NgxDatePipe,
         NgxErrorPipe,
         NgxAutocompleteDirective,
         NgxAutoheightDirective,
@@ -41,11 +47,13 @@ import { NgxInputTextareaComponent } from './ngx-input/textarea/ngx-input-textar
         NgxPersianNumberDirective,
 
         NgxFormComponent,
-        NgxInputComponent,
+        NgxDateComponent,
 
+        NgxInputComponent,
         NgxInputAutoCompleteComponent,
         NgxInputCheckboxComponent,
         NgxInputColorComponent,
+        NgxInputDateComponent,
         NgxInputMultiSelectComponent,
         NgxInputNameComponent,
         NgxInputNumberComponent,
@@ -67,8 +75,9 @@ import { NgxInputTextareaComponent } from './ngx-input/textarea/ngx-input-textar
         MatAutocompleteModule,
         MatSelectModule,
         MatCheckboxModule,
+        MatDialogModule,
     ],
-    providers: [DecimalPipe],
+    providers: [DecimalPipe, NgxFormService],
     exports: [NgxFormComponent],
 })
 export class NgxFormModule {
