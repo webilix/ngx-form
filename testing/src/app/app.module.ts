@@ -13,6 +13,7 @@ import { ColorComponent } from './color/color.component';
 import { DateComponent } from './date/date.component';
 import { DomainComponent } from './domain/domain.component';
 import { EmailComponent } from './email/email.component';
+import { FileComponent } from './file/file.component';
 import { IpComponent } from './ip/ip.component';
 import { MobileComponent } from './mobile/mobile.component';
 import { MultiSelectComponent } from './multi-select/multi-select.component';
@@ -38,6 +39,7 @@ import { TextareaComponent } from './textarea/textarea.component';
         DateComponent,
         DomainComponent,
         EmailComponent,
+        FileComponent,
         IpComponent,
         MobileComponent,
         MultiSelectComponent,

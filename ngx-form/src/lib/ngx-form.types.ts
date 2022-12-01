@@ -7,6 +7,7 @@ import {
     INgxFormInputDate,
     INgxFormInputDomain,
     INgxFormInputEmail,
+    INgxFormInputFile,
     INgxFormInputIp,
     INgxFormInputMobile,
     INgxFormInputMultiSelect,
@@ -33,6 +34,7 @@ export type NgxFormInputTypes =
     | INgxFormInputDate
     | INgxFormInputDomain
     | INgxFormInputEmail
+    | INgxFormInputFile
     | INgxFormInputIp
     | INgxFormInputMobile
     | INgxFormInputMultiSelect

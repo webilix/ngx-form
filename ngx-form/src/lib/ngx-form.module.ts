@@ -14,6 +14,7 @@ import { MatDialogModule } from '@angular/material/dialog';
 
 import { NgxDatePipe } from './pipes/ngx-date.pipe';
 import { NgxErrorPipe } from './pipes/ngx-error.pipe';
+import { NgxFileSizePipe } from './pipes/ngx-file-size.pipe';
 import { NgxAutocompleteDirective } from './directives/ngx-autocomplete.directive';
 import { NgxAutoheightDirective } from './directives/ngx-autoheight.directive';
 import { NgxErrorDirective } from './directives/ngx-error.directive';
@@ -29,6 +30,7 @@ import { NgxInputAutoCompleteComponent } from './ngx-input/auto-complete/ngx-inp
 import { NgxInputCheckboxComponent } from './ngx-input/checkbox/ngx-input-checkbox.component';
 import { NgxInputColorComponent } from './ngx-input/color/ngx-input-color.component';
 import { NgxInputDateComponent } from './ngx-input/date/ngx-input-date.component';
+import { NgxInputFileComponent } from './ngx-input/file/ngx-input-file.component';
 import { NgxInputMultiSelectComponent } from './ngx-input/multi-select/ngx-input-multi-select.component';
 import { NgxInputNameComponent } from './ngx-input/name/ngx-input-name.component';
 import { NgxInputNumberComponent } from './ngx-input/number/ngx-input-number.component';
@@ -41,6 +43,7 @@ import { NgxInputTextareaComponent } from './ngx-input/textarea/ngx-input-textar
     declarations: [
         NgxDatePipe,
         NgxErrorPipe,
+        NgxFileSizePipe,
         NgxAutocompleteDirective,
         NgxAutoheightDirective,
         NgxErrorDirective,
@@ -54,6 +57,7 @@ import { NgxInputTextareaComponent } from './ngx-input/textarea/ngx-input-textar
         NgxInputCheckboxComponent,
         NgxInputColorComponent,
         NgxInputDateComponent,
+        NgxInputFileComponent,
         NgxInputMultiSelectComponent,
         NgxInputNameComponent,
         NgxInputNumberComponent,

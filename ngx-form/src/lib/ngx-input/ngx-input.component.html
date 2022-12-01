@@ -59,6 +59,9 @@
         [en]="true"
     ></ngx-input-text>
 
+    <!-- FILE -->
+    <ngx-input-file *ngIf="input.type === 'FILE'" [control]="control" [input]="input"></ngx-input-file>
+
     <!-- IP -->
     <ngx-input-text
         *ngIf="input.type === 'IP'"

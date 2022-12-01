@@ -7,6 +7,7 @@ export * from './color';
 export * from './date';
 export * from './domain';
 export * from './email';
+export * from './file';
 export * from './ip';
 export * from './mobile';
 export * from './multi-select';

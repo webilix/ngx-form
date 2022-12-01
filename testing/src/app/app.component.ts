@@ -10,6 +10,7 @@ import { ColorComponent } from './color/color.component';
 import { DateComponent } from './date/date.component';
 import { DomainComponent } from './domain/domain.component';
 import { EmailComponent } from './email/email.component';
+import { FileComponent } from './file/file.component';
 import { IpComponent } from './ip/ip.component';
 import { MobileComponent } from './mobile/mobile.component';
 import { MultiSelectComponent } from './multi-select/multi-select.component';
@@ -45,8 +46,10 @@ export class AppComponent implements OnInit {
             { name: 'bank-card', type: 'BANK-CARD', optional: true },
             { name: 'checkbox', type: 'CHECKBOX', message: 'یک انتخابی' },
             { name: 'color', type: 'COLOR', optional: true },
+            { name: 'date', type: 'DATE', optional: true },
             { name: 'domain', type: 'DOMAIN', optional: true },
             { name: 'email', type: 'EMAIL', optional: true },
+            { name: 'file', type: 'FILE', optional: true },
             { name: 'ip', type: 'IP', optional: true },
             { name: 'mobile', type: 'MOBILE', optional: true },
             {
@@ -94,6 +97,7 @@ export class AppComponent implements OnInit {
         { type: 'DATE', title: 'تاریخ', component: DateComponent },
         { type: 'DOMAIN', title: 'نام دامنه', component: DomainComponent },
         { type: 'EMAIL', title: 'ایمیل', component: EmailComponent },
+        { type: 'FILE', title: 'فایل', component: FileComponent },
         { type: 'IP', title: 'آدرس آی‌پی', component: IpComponent },
         { type: 'MOBILE', title: 'موبایل', component: MobileComponent },
         { type: 'MULTI-SELECT', title: 'چند انتخابی', component: MultiSelectComponent },
