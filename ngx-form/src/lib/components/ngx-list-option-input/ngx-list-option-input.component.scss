@@ -1,0 +1,31 @@
+content {
+    display: flex;
+    align-items: center;
+    background-color: var(--ngxBackgroundColor) !important;
+    border: 1px solid var(--ngxBackgroundColor);
+
+    input {
+        flex: 1;
+        padding: 0.5rem;
+    }
+
+    input.en {
+        font-family: var(--ngxEnFont);
+        direction: ltr;
+        text-align: left;
+    }
+
+    .suffix {
+        position: relative;
+        left: 0.5rem;
+    }
+
+    mat-icon {
+        padding: 0 0.5rem !important;
+        cursor: pointer;
+    }
+}
+
+content.warn {
+    border-color: var(--ngxWarnColor);
+}

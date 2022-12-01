@@ -51,6 +51,9 @@ export class NgxErrorPipe implements PipeTransform {
             case 'national-code':
                 return `کد ملی صحیح مشخص نشده است.`;
 
+            case 'duplicate':
+                return 'امکان انتخاب مقادیر تکراری وجود ندارد.';
+
             case 'pattern':
                 switch (type) {
                     case 'EMAIL':

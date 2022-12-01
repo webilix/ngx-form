@@ -6,6 +6,7 @@ export interface INgxConfig {
     iconSize: string;
 
     primaryColor: string;
+    warnColor: string;
     borderColor: string;
     backgroundColor: string;
 }

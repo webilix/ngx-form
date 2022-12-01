@@ -1,6 +1,7 @@
 import { CommonModule, DecimalPipe } from '@angular/common';
 import { ModuleWithProviders, NgModule } from '@angular/core';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { DragDropModule } from '@angular/cdk/drag-drop';
 import { NgxMaskModule } from 'ngx-mask';
 
 import { MatFormFieldModule } from '@angular/material/form-field';
@@ -12,9 +13,11 @@ import { MatSelectModule } from '@angular/material/select';
 import { MatCheckboxModule } from '@angular/material/checkbox';
 import { MatDialogModule } from '@angular/material/dialog';
 
+import { NgxBankCardPipe } from './pipes/ngx-bank-card.pipe';
 import { NgxDatePipe } from './pipes/ngx-date.pipe';
 import { NgxErrorPipe } from './pipes/ngx-error.pipe';
 import { NgxFileSizePipe } from './pipes/ngx-file-size.pipe';
+import { NgxMobilePipe } from './pipes/ngx-mobile.pipe';
 import { NgxAutocompleteDirective } from './directives/ngx-autocomplete.directive';
 import { NgxAutoheightDirective } from './directives/ngx-autoheight.directive';
 import { NgxErrorDirective } from './directives/ngx-error.directive';
@@ -23,7 +26,10 @@ import { NgxPersianNumberDirective } from './directives/ngx-persian-number.direc
 import { INgxConfig } from './interfaces/ngx-config';
 import { NgxFormService } from './ngx-form.service';
 import { NgxFormComponent } from './ngx-form.component';
+
 import { NgxDateComponent } from './components/ngx-date/ngx-date.component';
+import { NgxListOptionInputComponent } from './components/ngx-list-option-input/ngx-list-option-input.component';
+import { NgxListOptionItemComponent } from './components/ngx-list-option-item/ngx-list-option-item.component';
 
 import { NgxInputComponent } from './ngx-input/ngx-input.component';
 import { NgxInputAutoCompleteComponent } from './ngx-input/auto-complete/ngx-input-auto-complete.component';
@@ -31,6 +37,7 @@ import { NgxInputCheckboxComponent } from './ngx-input/checkbox/ngx-input-checkb
 import { NgxInputColorComponent } from './ngx-input/color/ngx-input-color.component';
 import { NgxInputDateComponent } from './ngx-input/date/ngx-input-date.component';
 import { NgxInputFileComponent } from './ngx-input/file/ngx-input-file.component';
+import { NgxInputListComponent } from './ngx-input/list/ngx-input-list.component';
 import { NgxInputMultiSelectComponent } from './ngx-input/multi-select/ngx-input-multi-select.component';
 import { NgxInputNameComponent } from './ngx-input/name/ngx-input-name.component';
 import { NgxInputNumberComponent } from './ngx-input/number/ngx-input-number.component';
@@ -41,16 +48,21 @@ import { NgxInputTextareaComponent } from './ngx-input/textarea/ngx-input-textar
 
 @NgModule({
     declarations: [
+        NgxBankCardPipe,
         NgxDatePipe,
         NgxErrorPipe,
         NgxFileSizePipe,
+        NgxMobilePipe,
         NgxAutocompleteDirective,
         NgxAutoheightDirective,
         NgxErrorDirective,
         NgxPersianNumberDirective,
 
         NgxFormComponent,
+
         NgxDateComponent,
+        NgxListOptionInputComponent,
+        NgxListOptionItemComponent,
 
         NgxInputComponent,
         NgxInputAutoCompleteComponent,
@@ -58,6 +70,7 @@ import { NgxInputTextareaComponent } from './ngx-input/textarea/ngx-input-textar
         NgxInputColorComponent,
         NgxInputDateComponent,
         NgxInputFileComponent,
+        NgxInputListComponent,
         NgxInputMultiSelectComponent,
         NgxInputNameComponent,
         NgxInputNumberComponent,
@@ -70,6 +83,7 @@ import { NgxInputTextareaComponent } from './ngx-input/textarea/ngx-input-textar
         CommonModule,
         FormsModule,
         ReactiveFormsModule,
+        DragDropModule,
         NgxMaskModule.forRoot(),
 
         MatFormFieldModule,
@@ -99,6 +113,7 @@ export class NgxFormModule {
         config.iconFont = config.iconFont || 'Material Icons Outlined';
         config.iconSize = config.iconSize || '16px';
         config.primaryColor = config.primaryColor || 'rgb(29, 91, 116)';
+        config.warnColor = config.warnColor || 'rgb(255, 49, 27)';
         config.borderColor = config.borderColor || 'rgb(187, 206, 213)';
         config.backgroundColor = config.backgroundColor || 'rgb(212, 219, 221)';
 

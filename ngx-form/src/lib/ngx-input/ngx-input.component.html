@@ -71,6 +71,9 @@
         [en]="true"
     ></ngx-input-text>
 
+    <!-- LIST -->
+    <ngx-input-list *ngIf="input.type === 'LIST'" [control]="control" [input]="input"></ngx-input-list>
+
     <!-- MOBILE -->
     <ngx-input-text
         *ngIf="input.type === 'MOBILE'"

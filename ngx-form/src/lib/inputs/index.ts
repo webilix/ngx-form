@@ -9,6 +9,7 @@ export * from './domain';
 export * from './email';
 export * from './file';
 export * from './ip';
+export * from './list';
 export * from './mobile';
 export * from './multi-select';
 export * from './name';

@@ -1,0 +1,19 @@
+<content [ngClass]="{ warn: !isValid }">
+    <input
+        matInput
+        type="text"
+        [ngClass]="{ en: !!english || !!format, 'ngx-form-disabled': !!disabled }"
+        [readonly]="!!disabled"
+        (input)="checkValid(input.value)"
+        (keydown.enter)="$event.preventDefault(); checkValue(input)"
+        [ngxPersianNumber]="isNumeric"
+        [mask]="mask"
+        #input
+    />
+    <div *ngIf="suffix" class="suffix ngx-form-en">{{ suffix }}</div>
+    <mat-icon
+        [ngClass]="{ 'ngx-form-icon': true, 'ngx-form-disabled': !!disabled }"
+        (click)="checkValue(input)"
+        [fontIcon]="'add'"
+    ></mat-icon>
+</content>

@@ -1,0 +1,59 @@
+content {
+    display: flex;
+    align-items: center;
+    border: 1px solid var(--ngxBorderColor);
+
+    .item {
+        flex: 1;
+        padding: 0.5rem;
+        white-space: nowrap;
+        overflow: hidden;
+        text-overflow: ellipsis;
+    }
+
+    input {
+        flex: 1;
+        padding: 0.5rem;
+        background-color: var(--ngxBackgroundColor);
+    }
+
+    input.en {
+        font-family: var(--ngxEnFont);
+        direction: ltr;
+        text-align: left;
+    }
+
+    .suffix {
+        background-color: var(--ngxBackgroundColor);
+        padding: 0.5rem 0 0.5rem 0.5rem;
+    }
+
+    .delete {
+        color: var(--ngxWarnColor);
+        transform: scale(0.8);
+        position: relative;
+        left: 10%;
+    }
+
+    mat-icon {
+        display: flex;
+        align-items: center;
+
+        cursor: pointer;
+        font-family: var(--ngxIconFont) !important;
+        font-size: calc(var(--ngxIconSize) - 3px) !important;
+        color: var(--ngxPrimaryColor) !important;
+        padding: 0 0.5rem !important;
+        margin: 0 !important;
+        height: auto !important;
+        width: auto !important;
+    }
+
+    mat-icon.warn {
+        color: var(--ngxWarnColor) !important;
+    }
+}
+
+content.warn {
+    border-color: var(--ngxWarnColor);
+}
