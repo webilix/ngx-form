@@ -1,5 +1,6 @@
 import { NgxFormInputTypes } from './ngx-form.types';
 import { INgxFormButton } from './interfaces/ngx-button';
+import { MatFormFieldAppearance } from '@angular/material/form-field';
 
 /**
  * Form data interface
@@ -7,19 +8,30 @@ import { INgxFormButton } from './interfaces/ngx-button';
 export interface INgxForm {
     /**
      * Submit button copyright
+     * @type { string }
      */
     submit: string;
 
     /**
      * List of form inputs
+     * @type { NgxFormInputTypes | Array<NgxFormInputTypes> }
      */
     inputs: (NgxFormInputTypes | NgxFormInputTypes[])[];
 
     /**
      * List of form extra buttons
+     * @type { Array<INgxFormButton> }
      * @optional
      */
     buttons?: INgxFormButton[];
+
+    /**
+     * Form input appearance
+     * @type { MatFormFieldAppearance }
+     * @enum 'fill', 'outline'
+     * @optional 'fill'
+     */
+    appearance?: MatFormFieldAppearance;
 }
 
 /**

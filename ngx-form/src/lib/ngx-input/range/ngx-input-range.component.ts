@@ -1,5 +1,6 @@
-import { Component, Inject, Input } from '@angular/core';
+import { Component, Input } from '@angular/core';
 import { FormControl } from '@angular/forms';
+import { MatFormFieldAppearance } from '@angular/material/form-field';
 
 import { Validator } from '@webilix/validator-library';
 
@@ -13,8 +14,7 @@ import { INgxFormInputRange } from '../../inputs';
 export class NgxInputRangeComponent {
     @Input() control?: FormControl;
     @Input() input?: INgxFormInputRange;
-
-    constructor(@Inject('NGX_APPEARANCE') public readonly appearance: 'fill' | 'outline') {}
+    @Input() appearance: MatFormFieldAppearance = 'fill';
 
     setRange(min: string, max: string): void {
         if (!this.input || !this.control) return;

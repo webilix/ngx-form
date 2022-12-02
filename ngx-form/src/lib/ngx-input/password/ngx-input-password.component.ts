@@ -1,5 +1,6 @@
-import { Component, Inject, Input } from '@angular/core';
+import { Component, Input } from '@angular/core';
 import { FormControl } from '@angular/forms';
+import { MatFormFieldAppearance } from '@angular/material/form-field';
 
 import { INgxFormInputPassword } from '../../inputs';
 
@@ -11,8 +12,7 @@ import { INgxFormInputPassword } from '../../inputs';
 export class NgxInputPasswordComponent {
     @Input() control?: FormControl;
     @Input() input?: INgxFormInputPassword;
+    @Input() appearance: MatFormFieldAppearance = 'fill';
 
     public passwordShow: boolean = false;
-
-    constructor(@Inject('NGX_APPEARANCE') public readonly appearance: 'fill' | 'outline') {}
 }

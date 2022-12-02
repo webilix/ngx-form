@@ -1,5 +1,6 @@
-import { Component, Inject, Input, OnInit } from '@angular/core';
+import { Component, Input, OnInit } from '@angular/core';
 import { FormControl } from '@angular/forms';
+import { MatFormFieldAppearance } from '@angular/material/form-field';
 
 import { INgxFormInputPeriod } from '../../inputs';
 import { NgxFormService } from '../../ngx-form.service';
@@ -13,13 +14,11 @@ import { INgxComponentDate } from '../../interfaces/components/ngx-component-dat
 export class NgxInputPeriodComponent implements OnInit {
     @Input() control?: FormControl;
     @Input() input?: INgxFormInputPeriod;
+    @Input() appearance: MatFormFieldAppearance = 'fill';
 
     public dates: (Date | null)[] = [];
 
-    constructor(
-        @Inject('NGX_APPEARANCE') public readonly appearance: 'fill' | 'outline',
-        private readonly ngxFormService: NgxFormService,
-    ) {}
+    constructor(private readonly ngxFormService: NgxFormService) {}
 
     ngOnInit(): void {
         if (!this.control) return;

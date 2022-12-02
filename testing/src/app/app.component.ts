@@ -99,6 +99,7 @@ export class AppComponent implements OnInit {
             { name: 'username', type: 'USERNAME', optional: true },
         ],
         buttons: [{ title: 'ریست کردن فرم', action: this.resetValues.bind(this) }],
+        appearance: 'fill',
     };
 
     public types: { type: string; title: string; component: ComponentType<any> }[] = [

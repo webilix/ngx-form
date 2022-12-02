@@ -1,5 +1,6 @@
-import { Component, Inject, Input } from '@angular/core';
+import { Component, Input } from '@angular/core';
 import { FormControl } from '@angular/forms';
+import { MatFormFieldAppearance } from '@angular/material/form-field';
 
 import { INgxFormInputColor } from '../../inputs';
 
@@ -11,6 +12,5 @@ import { INgxFormInputColor } from '../../inputs';
 export class NgxInputColorComponent {
     @Input() control?: FormControl;
     @Input() input?: INgxFormInputColor;
-
-    constructor(@Inject('NGX_APPEARANCE') public readonly appearance: 'fill' | 'outline') {}
+    @Input() appearance: MatFormFieldAppearance = 'fill';
 }

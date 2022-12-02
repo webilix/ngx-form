@@ -1,5 +1,6 @@
-import { Component, Inject, Input } from '@angular/core';
+import { Component, Input } from '@angular/core';
 import { FormControl } from '@angular/forms';
+import { MatFormFieldAppearance } from '@angular/material/form-field';
 
 import { INgxFormInputTextarea } from '../../inputs';
 
@@ -11,6 +12,5 @@ import { INgxFormInputTextarea } from '../../inputs';
 export class NgxInputTextareaComponent {
     @Input() control?: FormControl;
     @Input() input?: INgxFormInputTextarea;
-
-    constructor(@Inject('NGX_APPEARANCE') public readonly appearance: 'fill' | 'outline') {}
+    @Input() appearance: MatFormFieldAppearance = 'fill';
 }

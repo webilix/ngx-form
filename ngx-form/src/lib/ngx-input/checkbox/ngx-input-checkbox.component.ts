@@ -1,5 +1,6 @@
-import { Component, Inject, Input } from '@angular/core';
+import { Component, Input } from '@angular/core';
 import { FormControl } from '@angular/forms';
+import { MatFormFieldAppearance } from '@angular/material/form-field';
 
 import { INgxFormInputCheckbox } from '../../inputs';
 
@@ -11,6 +12,5 @@ import { INgxFormInputCheckbox } from '../../inputs';
 export class NgxInputCheckboxComponent {
     @Input() control?: FormControl;
     @Input() input?: INgxFormInputCheckbox;
-
-    constructor(@Inject('NGX_APPEARANCE') public readonly appearance: 'fill' | 'outline') {}
+    @Input() appearance: MatFormFieldAppearance = 'fill';
 }

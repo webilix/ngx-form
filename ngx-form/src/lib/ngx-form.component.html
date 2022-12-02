@@ -4,10 +4,16 @@
             *ngIf="!isArray(row) && !hiddenInputs.includes(row.name)"
             [group]="formGroup"
             [input]="row"
+            [appearance]="appearance"
         ></ngx-input>
         <div class="columns" *ngIf="isArray(row)">
             <ng-container *ngFor="let input of row">
-                <ngx-input *ngIf="!hiddenInputs.includes(input.name)" [group]="formGroup" [input]="input"></ngx-input>
+                <ngx-input
+                    *ngIf="!hiddenInputs.includes(input.name)"
+                    [group]="formGroup"
+                    [input]="input"
+                    [appearance]="appearance"
+                ></ngx-input>
             </ng-container>
         </div>
     </ng-container>

@@ -1,6 +1,7 @@
 import { CdkDragDrop, moveItemInArray } from '@angular/cdk/drag-drop';
-import { Component, Inject, Input, OnInit } from '@angular/core';
+import { Component, Input, OnInit } from '@angular/core';
 import { FormControl } from '@angular/forms';
+import { MatFormFieldAppearance } from '@angular/material/form-field';
 
 import { INgxFormInputOptionList } from '../../inputs';
 import { INgxFormOption } from '../../interfaces/ngx-option';
@@ -13,10 +14,9 @@ import { INgxFormOption } from '../../interfaces/ngx-option';
 export class NgxInputOptionListComponent implements OnInit {
     @Input() control?: FormControl;
     @Input() input?: INgxFormInputOptionList;
+    @Input() appearance: MatFormFieldAppearance = 'fill';
 
     public values: INgxFormOption[] = [];
-
-    constructor(@Inject('NGX_APPEARANCE') public readonly appearance: 'fill' | 'outline') {}
 
     ngOnInit(): void {
         if (!this.control) return;

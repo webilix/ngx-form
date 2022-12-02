@@ -4,7 +4,7 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { DragDropModule } from '@angular/cdk/drag-drop';
 import { NgxMaskModule } from 'ngx-mask';
 
-import { MatFormFieldModule } from '@angular/material/form-field';
+import { MatFormFieldAppearance, MatFormFieldModule } from '@angular/material/form-field';
 import { MatInputModule } from '@angular/material/input';
 import { MatIconModule } from '@angular/material/icon';
 import { MatButtonModule } from '@angular/material/button';
@@ -110,11 +110,11 @@ import { NgxInputTextareaComponent } from './ngx-input/textarea/ngx-input-textar
 })
 export class NgxFormModule {
     static forRoot(): ModuleWithProviders<NgxFormModule>;
-    static forRoot(appearance: 'fill' | 'outline'): ModuleWithProviders<NgxFormModule>;
+    static forRoot(appearance: MatFormFieldAppearance): ModuleWithProviders<NgxFormModule>;
     static forRoot(config: Partial<INgxConfig>): ModuleWithProviders<NgxFormModule>;
-    static forRoot(appearance: 'fill' | 'outline', config: Partial<INgxConfig>): ModuleWithProviders<NgxFormModule>;
+    static forRoot(appearance: MatFormFieldAppearance, config: Partial<INgxConfig>): ModuleWithProviders<NgxFormModule>;
     static forRoot(arg1?: any, arg2?: any): ModuleWithProviders<NgxFormModule> {
-        const appearance: 'fill' | 'outline' = arg1 === 'fill' || arg1 === 'outline' ? arg1 : 'fill';
+        const appearance: MatFormFieldAppearance = arg1 === 'fill' || arg1 === 'outline' ? arg1 : 'fill';
 
         const config: Partial<INgxConfig> =
             arg1 && typeof arg1 !== 'string' ? arg1 : arg2 && typeof arg2 !== 'string' ? arg2 : {};

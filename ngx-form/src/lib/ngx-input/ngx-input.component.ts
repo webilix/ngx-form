@@ -1,5 +1,6 @@
-import { Component, Inject, Input, OnInit } from '@angular/core';
+import { Component, Input, OnInit } from '@angular/core';
 import { FormControl, FormGroup } from '@angular/forms';
+import { MatFormFieldAppearance } from '@angular/material/form-field';
 
 import { NgxFormInputTypes } from '../ngx-form.types';
 
@@ -11,10 +12,9 @@ import { NgxFormInputTypes } from '../ngx-form.types';
 export class NgxInputComponent implements OnInit {
     @Input() group?: FormGroup;
     @Input() input?: NgxFormInputTypes;
+    @Input() appearance: MatFormFieldAppearance = 'fill';
 
     public control?: FormControl;
-
-    constructor(@Inject('NGX_APPEARANCE') public readonly appearance: 'fill' | 'outline') {}
 
     ngOnInit(): void {
         if (!this.group || !this.input) return;

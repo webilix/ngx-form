@@ -1,5 +1,6 @@
 import { Component, EventEmitter, Inject, Input, OnInit, Output, ViewChild } from '@angular/core';
 import { FormGroup, NgForm, ValidatorFn, Validators } from '@angular/forms';
+import { MatFormFieldAppearance } from '@angular/material/form-field';
 
 import { INgxConfig } from './interfaces/ngx-config';
 import { NgxFieldInputInfo } from './interfaces/ngx-info';
@@ -21,13 +22,19 @@ export class NgxFormComponent implements OnInit {
     protected isArray = Array.isArray;
 
     public formGroup: FormGroup = new FormGroup({});
+    protected appearance: MatFormFieldAppearance = 'fill';
     protected inputValues: INgxFormValues = {};
     protected hiddenInputs: string[] = [];
 
-    constructor(@Inject('NGX_CONFIG') private readonly ngxConfig: INgxConfig) {}
+    constructor(
+        @Inject('NGX_CONFIG') private readonly ngxConfig: INgxConfig,
+        @Inject('NGX_APPEARANCE') public readonly ngxAppearance: MatFormFieldAppearance,
+    ) {}
 
     ngOnInit(): void {
         if (!this.ngxForm) return;
+
+        this.appearance = this.ngxForm.appearance || this.ngxAppearance;
 
         this.formGroup = new FormGroup({});
         this.ngxForm.inputs.forEach((row: NgxFormInputTypes | NgxFormInputTypes[]) => {

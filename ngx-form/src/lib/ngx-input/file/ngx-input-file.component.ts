@@ -1,5 +1,6 @@
-import { Component, Inject, Input } from '@angular/core';
+import { Component, Input } from '@angular/core';
 import { FormControl } from '@angular/forms';
+import { MatFormFieldAppearance } from '@angular/material/form-field';
 
 import { INgxFormInputFile } from '../../inputs';
 
@@ -11,10 +12,9 @@ import { INgxFormInputFile } from '../../inputs';
 export class NgxInputFileComponent {
     @Input() control?: FormControl;
     @Input() input?: INgxFormInputFile;
+    @Input() appearance: MatFormFieldAppearance = 'fill';
 
     public file: File | null = null;
-
-    constructor(@Inject('NGX_APPEARANCE') public readonly appearance: 'fill' | 'outline') {}
 
     setFile(event: Event | null): void {
         if (!this.input || !this.control || this.control.disabled) return;

@@ -1,5 +1,6 @@
-import { Component, Inject, Input, OnInit } from '@angular/core';
+import { Component, Input, OnInit } from '@angular/core';
 import { FormControl } from '@angular/forms';
+import { MatFormFieldAppearance } from '@angular/material/form-field';
 
 import {
     INgxFormInputBankCard,
@@ -32,10 +33,11 @@ export class NgxInputTextComponent implements OnInit {
         | INgxFormInputText
         | INgxFormInputUrl
         | INgxFormInputUsername;
-    @Input() icon?: string;
-    @Input() en: boolean = false;
+    @Input() appearance: MatFormFieldAppearance = 'fill';
 
     // OPTIONAL
+    @Input() icon?: string;
+    @Input() en: boolean = false;
     @Input() numeric?: boolean;
     @Input() mask?: string;
     @Input() suffix?: string | { en: string };
@@ -44,8 +46,6 @@ export class NgxInputTextComponent implements OnInit {
 
     public suffixText?: string;
     public suffixLang?: 'EN' | 'FA';
-
-    constructor(@Inject('NGX_APPEARANCE') public readonly appearance: 'fill' | 'outline') {}
 
     ngOnInit(): void {
         if (!this.suffix) return;

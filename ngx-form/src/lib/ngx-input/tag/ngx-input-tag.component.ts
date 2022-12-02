@@ -1,6 +1,7 @@
-import { Component, Inject, Input, OnInit } from '@angular/core';
+import { Component, Input, OnInit } from '@angular/core';
 import { MatAutocompleteSelectedEvent } from '@angular/material/autocomplete';
 import { FormControl } from '@angular/forms';
+import { MatFormFieldAppearance } from '@angular/material/form-field';
 
 import { INgxFormInputTag } from '../../inputs';
 
@@ -12,10 +13,9 @@ import { INgxFormInputTag } from '../../inputs';
 export class NgxInputTagComponent implements OnInit {
     @Input() control?: FormControl;
     @Input() input?: INgxFormInputTag;
+    @Input() appearance: MatFormFieldAppearance = 'fill';
 
     public tags: string[] = [];
-
-    constructor(@Inject('NGX_APPEARANCE') public readonly appearance: 'fill' | 'outline') {}
 
     ngOnInit(): void {
         if (!this.input || !this.control) return;

@@ -1,5 +1,6 @@
-import { Component, Inject, Input } from '@angular/core';
+import { Component, Input } from '@angular/core';
 import { FormControl } from '@angular/forms';
+import { MatFormFieldAppearance } from '@angular/material/form-field';
 
 import { INgxFormInputDate } from '../../inputs';
 import { INgxComponentDate } from '../../interfaces/components/ngx-component-date';
@@ -13,11 +14,9 @@ import { NgxFormService } from '../../ngx-form.service';
 export class NgxInputDateComponent {
     @Input() control?: FormControl;
     @Input() input?: INgxFormInputDate;
+    @Input() appearance: MatFormFieldAppearance = 'fill';
 
-    constructor(
-        @Inject('NGX_APPEARANCE') public readonly appearance: 'fill' | 'outline',
-        private readonly ngxFormService: NgxFormService,
-    ) {}
+    constructor(private readonly ngxFormService: NgxFormService) {}
 
     setDate(): void {
         if (!this.input || !this.control || this.control.disabled) return;
