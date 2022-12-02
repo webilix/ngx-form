@@ -27,23 +27,25 @@ form {
         display: block;
         width: 100%;
 
-        input {
-            font-family: var(--ngxFaFont);
+        input,
+        textarea {
+            font-family: var(--ngxFaFont) !important;
         }
 
-        input.input-en {
-            font-family: var(--ngxEnFont);
-            direction: ltr;
-            text-align: left;
+        input.input-en,
+        textarea.input-en {
+            font-family: var(--ngxEnFont) !important;
+            direction: ltr !important;
+            text-align: left !important;
         }
 
         input.input-hidden {
-            display: none;
+            display: none !important;
         }
 
         button {
-            min-width: auto;
-            padding: 0;
+            min-width: auto !important;
+            padding: 0 !important;
         }
 
         mat-select.select-en .mat-mdc-select-value {
@@ -98,6 +100,12 @@ form {
 
     .mat-mdc-form-field-infix {
         width: 100% !important;
+    }
+
+    .mat-mdc-form-field-hint {
+        white-space: nowrap;
+        overflow: hidden;
+        text-overflow: ellipsis;
     }
 
     .ngx-form-icon {

@@ -1,4 +1,4 @@
-import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
+import { Component, EventEmitter, Input, OnChanges, OnInit, Output, SimpleChanges } from '@angular/core';
 
 import { Validator } from 'validator-library';
 
@@ -7,7 +7,7 @@ import { Validator } from 'validator-library';
     templateUrl: './ngx-list-option-item.component.html',
     styleUrls: ['./ngx-list-option-item.component.scss'],
 })
-export class NgxListOptionItemComponent implements OnInit {
+export class NgxListOptionItemComponent implements OnInit, OnChanges {
     @Input() index?: number;
     @Input() item?: string;
     @Input() format?: 'BANK-CARD' | 'DOMAIN' | 'EMAIL' | 'IP' | 'MOBILE' | 'NATIONAL-CODE' | 'NUMERIC' | 'URL';
@@ -46,6 +46,10 @@ export class NgxListOptionItemComponent implements OnInit {
                 this.mask = '9';
                 break;
         }
+    }
+
+    ngOnChanges(changes: SimpleChanges): void {
+        this.status = this.status === 'DELETE' ? 'VIEW' : this.status;
     }
 
     checkValid(value: string): string {

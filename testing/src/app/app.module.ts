@@ -64,7 +64,7 @@ import { TextareaComponent } from './textarea/textarea.component';
         UsernameComponent,
         TextareaComponent,
     ],
-    imports: [BrowserModule, BrowserAnimationsModule, NgxFormModule.forRoot()],
+    imports: [BrowserModule, BrowserAnimationsModule, NgxFormModule.forRoot('outline')],
     bootstrap: [AppComponent],
 })
 export class AppModule {}
