@@ -6,10 +6,16 @@ import { Validator } from 'validator-library';
 export const NgxMinDateValidator = (minimum: Date): ValidatorFn => {
     return (formControl: AbstractControl): ValidationErrors | null => {
         const value: Date = formControl.value;
-        if (Validator.VALUE.isEmpty(value) || !Validator.VALUE.isDate(value)) return null;
+        if (Validator.VALUE.isEmpty(value)) return null;
 
         const jalali = JalaliDateTime();
         minimum = jalali.periodDay(1, minimum).from;
-        return value.getTime() < minimum.getTime() ? { 'min-date': jalali.toTitle(minimum) } : null;
+
+        const values: Date[] = Array.isArray(value) ? value : [value];
+        for (let v = 0; v < values.length; v++)
+            if (Validator.VALUE.isDate(values[v]) && values[v].getTime() < minimum.getTime())
+                return { 'min-date': jalali.toTitle(minimum) };
+
+        return null;
     };
 };

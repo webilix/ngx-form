@@ -54,6 +54,9 @@ export class NgxErrorPipe implements PipeTransform {
             case 'duplicate':
                 return 'امکان انتخاب مقادیر تکراری وجود ندارد.';
 
+            case 'period':
+                return `تاریخ شروع باید ${value.equal ? 'قبل یا برابر با' : 'قبل از'} تاریخ پایان باشد.`;
+
             case 'pattern':
                 switch (type) {
                     case 'EMAIL':
