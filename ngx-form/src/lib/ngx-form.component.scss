@@ -62,6 +62,13 @@ form {
         }
     }
 
+    mat-form-field.mat-form-field-appearance-outline {
+        input.mat-mdc-form-field-input-control,
+        textarea.mat-mdc-form-field-input-control {
+            padding: 0.5rem 0;
+        }
+    }
+
     .mat-mdc-form-field-text-suffix {
         span.suffix-text {
             display: inline-block;
