@@ -1,7 +1,7 @@
 import { Pipe, PipeTransform } from '@angular/core';
 
-import { JalaliDateTime } from 'jalali-date-time';
-import { Validator } from 'validator-library';
+import { JalaliDateTime } from '@webilix/jalali-date-time';
+import { Validator } from '@webilix/validator-library';
 
 @Pipe({ name: 'ngxDate' })
 export class NgxDatePipe implements PipeTransform {

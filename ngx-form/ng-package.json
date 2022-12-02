@@ -2,5 +2,12 @@
     "$schema": "../node_modules/ng-packagr/ng-package.schema.json",
     "dest": "../dist/ngx-form",
     "lib": { "entryFile": "src/public-api.ts" },
-    "allowedNonPeerDependencies": ["ngx-mask", "helper-library", "regex-library", "validator-library", "tslib"]
+    "allowedNonPeerDependencies": [
+        "ngx-mask",
+        "@webilix/helper-library",
+        "@webilix/jalali-date-time",
+        "@webilix/regex-library",
+        "@webilix/validator-library",
+        "tslib"
+    ]
 }

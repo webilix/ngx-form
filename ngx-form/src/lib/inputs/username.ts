@@ -1,7 +1,7 @@
 import { FormControl, ValidatorFn, Validators } from '@angular/forms';
 
-import { RegX } from 'regex-library';
-import { Validator } from 'validator-library';
+import { RegX } from '@webilix/regex-library';
+import { Validator } from '@webilix/validator-library';
 
 import { INgxFormInput } from '../interfaces/ngx-input';
 import { NgxFormInputMethods } from '../ngx-form.methods';

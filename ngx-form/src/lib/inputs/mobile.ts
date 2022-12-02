@@ -1,6 +1,6 @@
 import { FormControl, ValidatorFn } from '@angular/forms';
 
-import { RegX } from 'regex-library';
+import { RegX } from '@webilix/regex-library';
 
 import { INgxFormInput } from '../interfaces/ngx-input';
 import { NgxFormInputMethods } from '../ngx-form.methods';

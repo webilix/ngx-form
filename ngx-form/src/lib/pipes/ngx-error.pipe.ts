@@ -1,7 +1,7 @@
 import { Pipe, PipeTransform } from '@angular/core';
 import { ValidationErrors } from '@angular/forms';
 
-import { Helper } from 'helper-library';
+import { Helper } from '@webilix/helper-library';
 
 @Pipe({ name: 'ngxError' })
 export class NgxErrorPipe implements PipeTransform {

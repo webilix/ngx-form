@@ -1,6 +1,6 @@
 import { Component, EventEmitter, Input, OnChanges, OnInit, Output, SimpleChanges } from '@angular/core';
 
-import { Validator } from 'validator-library';
+import { Validator } from '@webilix/validator-library';
 
 @Component({
     selector: 'ngx-list-option-item',

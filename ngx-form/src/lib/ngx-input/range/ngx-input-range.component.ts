@@ -1,7 +1,7 @@
 import { Component, Inject, Input } from '@angular/core';
 import { FormControl } from '@angular/forms';
 
-import { Validator } from 'validator-library';
+import { Validator } from '@webilix/validator-library';
 
 import { INgxFormInputRange } from '../../inputs';
 

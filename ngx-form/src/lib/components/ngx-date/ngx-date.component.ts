@@ -1,8 +1,8 @@
 import { Component, Inject, OnInit } from '@angular/core';
 import { MatDialogRef, MAT_DIALOG_DATA } from '@angular/material/dialog';
 
-import { JalaliDateTime, JalaliDateTimeCalendar } from 'jalali-date-time';
-import { Validator } from 'validator-library';
+import { JalaliDateTime, JalaliDateTimeCalendar } from '@webilix/jalali-date-time';
+import { Validator } from '@webilix/validator-library';
 
 import { INgxComponentDate } from '../../interfaces/components/ngx-component-date';
 

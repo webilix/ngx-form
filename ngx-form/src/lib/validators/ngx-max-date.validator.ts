@@ -1,7 +1,7 @@
 import { AbstractControl, ValidationErrors, ValidatorFn } from '@angular/forms';
 
-import { JalaliDateTime } from 'jalali-date-time';
-import { Validator } from 'validator-library';
+import { JalaliDateTime } from '@webilix/jalali-date-time';
+import { Validator } from '@webilix/validator-library';
 
 export const NgxMaxDateValidator = (maximum: Date): ValidatorFn => {
     return (formControl: AbstractControl): ValidationErrors | null => {

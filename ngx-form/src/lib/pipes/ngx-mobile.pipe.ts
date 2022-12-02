@@ -1,5 +1,6 @@
 import { Pipe, PipeTransform } from '@angular/core';
-import { Validator } from 'validator-library';
+
+import { Validator } from '@webilix/validator-library';
 
 @Pipe({ name: 'ngxMobile' })
 export class NgxMobilePipe implements PipeTransform {

@@ -1,6 +1,6 @@
 import { FormControl, ValidatorFn } from '@angular/forms';
 
-import { Validator } from 'validator-library';
+import { Validator } from '@webilix/validator-library';
 
 import { INgxFormInput } from '../interfaces/ngx-input';
 import { INgxFormName } from '../interfaces/ngx-name';

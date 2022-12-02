@@ -1,7 +1,7 @@
 import { Injectable } from '@angular/core';
 import { MatDialog } from '@angular/material/dialog';
 
-import { Validator } from 'validator-library';
+import { Validator } from '@webilix/validator-library';
 
 import { NgxDateComponent } from './components/ngx-date/ngx-date.component';
 import { INgxComponentDate } from './interfaces/components/ngx-component-date';

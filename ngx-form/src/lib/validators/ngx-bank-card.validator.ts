@@ -1,6 +1,6 @@
 import { AbstractControl, ValidationErrors, ValidatorFn } from '@angular/forms';
 
-import { Validator } from 'validator-library';
+import { Validator } from '@webilix/validator-library';
 
 export const NgxBankCardValidator = (): ValidatorFn => {
     return (formControl: AbstractControl): ValidationErrors | null => {
