@@ -12,7 +12,7 @@
             matInput
             type="text"
             [name]="input.name + '-min'"
-            [ngModel]="control.value[0]"
+            [ngModel]="control.value?.[0] || null"
             [ngxPersianNumber]="true"
             [isNnumber]="true"
             [isNegative]="!!input.negative"
@@ -34,7 +34,7 @@
             matInput
             type="text"
             [name]="input.name + '-max'"
-            [ngModel]="control.value[1]"
+            [ngModel]="control.value?.[1] || null"
             [ngxPersianNumber]="true"
             [isNnumber]="true"
             [isNegative]="!!input.negative"
