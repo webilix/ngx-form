@@ -64,6 +64,7 @@ export class NgxFormComponent implements OnInit {
             input.type === 'LIST' ||
             input.type === 'MULTI-SELECT' ||
             input.type === 'OPTION-LIST' ||
+            input.type === 'TAG' ||
             input.optional
                 ? []
                 : [Validators.required];

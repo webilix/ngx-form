@@ -140,6 +140,9 @@
     <!-- SELECT -->
     <ngx-input-select *ngIf="input.type === 'SELECT'" [control]="control" [input]="input"></ngx-input-select>
 
+    <!-- TAG -->
+    <ngx-input-tag *ngIf="input.type === 'TAG'" [control]="control" [input]="input"></ngx-input-tag>
+
     <!-- TEXT -->
     <ngx-input-text
         *ngIf="input.type === 'TEXT'"

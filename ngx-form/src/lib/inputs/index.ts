@@ -21,6 +21,7 @@ export * from './password';
 export * from './period';
 export * from './range';
 export * from './select';
+export * from './tag';
 export * from './text';
 export * from './textarea';
 export * from './url';

@@ -27,6 +27,7 @@ import { PasswordComponent } from './password/password.component';
 import { PeriodComponent } from './period/period.component';
 import { RangeComponent } from './range/range.component';
 import { SelectComponent } from './select/select.component';
+import { TagComponent } from './tag/tag.component';
 import { TextComponent } from './text/text.component';
 import { UrlComponent } from './url/url.component';
 import { UsernameComponent } from './username/username.component';
@@ -58,6 +59,7 @@ import { TextareaComponent } from './textarea/textarea.component';
         RangeComponent,
         SelectComponent,
         TextComponent,
+        TagComponent,
         UrlComponent,
         UsernameComponent,
         TextareaComponent,

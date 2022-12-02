@@ -24,6 +24,7 @@ import { PasswordComponent } from './password/password.component';
 import { PeriodComponent } from './period/period.component';
 import { RangeComponent } from './range/range.component';
 import { SelectComponent } from './select/select.component';
+import { TagComponent } from './tag/tag.component';
 import { TextComponent } from './text/text.component';
 import { TextareaComponent } from './textarea/textarea.component';
 import { UrlComponent } from './url/url.component';
@@ -89,6 +90,7 @@ export class AppComponent implements OnInit {
                 ],
                 optional: true,
             },
+            { name: 'tag', type: 'TAG', tags: ['اول', 'دوم', 'سوم', 'چهارم', 'پنجم'] },
             { name: 'text', type: 'TEXT', title: 'متن یک خطی', optional: true },
             { name: 'textarea', type: 'TEXTAREA', title: 'متن چند خطی', optional: true },
             { name: 'url', type: 'URL', optional: true },
@@ -119,6 +121,7 @@ export class AppComponent implements OnInit {
         { type: 'PERIOD', title: 'محدوده زمانی', component: PeriodComponent },
         { type: 'RANGE', title: 'محدوده عددی', component: RangeComponent },
         { type: 'SELECT', title: 'لیست کشویی', component: SelectComponent },
+        { type: 'TAG', title: 'تگ', component: TagComponent },
         { type: 'TEXT', title: 'متن یک خطی', component: TextComponent },
         { type: 'TEXTAREA', title: 'متن چند خطی', component: TextareaComponent },
         { type: 'URL', title: 'آدرس سایت', component: UrlComponent },

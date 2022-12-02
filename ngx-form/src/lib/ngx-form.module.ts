@@ -12,6 +12,7 @@ import { MatAutocompleteModule } from '@angular/material/autocomplete';
 import { MatSelectModule } from '@angular/material/select';
 import { MatCheckboxModule } from '@angular/material/checkbox';
 import { MatDialogModule } from '@angular/material/dialog';
+import { MatChipsModule } from '@angular/material/chips';
 
 import { NgxBankCardPipe } from './pipes/ngx-bank-card.pipe';
 import { NgxDatePipe } from './pipes/ngx-date.pipe';
@@ -46,6 +47,7 @@ import { NgxInputPasswordComponent } from './ngx-input/password/ngx-input-passwo
 import { NgxInputPeriodComponent } from './ngx-input/period/ngx-input-period.component';
 import { NgxInputRangeComponent } from './ngx-input/range/ngx-input-range.component';
 import { NgxInputSelectComponent } from './ngx-input/select/ngx-input-select.component';
+import { NgxInputTagComponent } from './ngx-input/tag/ngx-input-tag.component';
 import { NgxInputTextComponent } from './ngx-input/text/ngx-input-text.component';
 import { NgxInputTextareaComponent } from './ngx-input/textarea/ngx-input-textarea.component';
 
@@ -82,6 +84,7 @@ import { NgxInputTextareaComponent } from './ngx-input/textarea/ngx-input-textar
         NgxInputPeriodComponent,
         NgxInputRangeComponent,
         NgxInputSelectComponent,
+        NgxInputTagComponent,
         NgxInputTextComponent,
         NgxInputTextareaComponent,
     ],
@@ -100,6 +103,7 @@ import { NgxInputTextareaComponent } from './ngx-input/textarea/ngx-input-textar
         MatSelectModule,
         MatCheckboxModule,
         MatDialogModule,
+        MatChipsModule,
     ],
     providers: [DecimalPipe, NgxFormService],
     exports: [NgxFormComponent],
