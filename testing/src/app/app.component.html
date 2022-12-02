@@ -2,8 +2,8 @@
     <section class="header">
         <select [dir]="'rtl'" (change)="setType(typeSelect.value)" #typeSelect>
             <option value="" [selected]="type === null"></option>
-            <option *ngFor="let t of types" [value]="t.type" [selected]="type === t.type">
-                {{ t.title }}
+            <option *ngFor="let t of types; let index = index" [value]="t.type" [selected]="type === t.type">
+                {{ index + 1 | number }}: {{ t.title }}
             </option>
         </select>
     </section>
