@@ -41,6 +41,7 @@ import { NgxInputListComponent } from './ngx-input/list/ngx-input-list.component
 import { NgxInputMultiSelectComponent } from './ngx-input/multi-select/ngx-input-multi-select.component';
 import { NgxInputNameComponent } from './ngx-input/name/ngx-input-name.component';
 import { NgxInputNumberComponent } from './ngx-input/number/ngx-input-number.component';
+import { NgxInputOptionListComponent } from './ngx-input/option-list/ngx-input-option-list.component';
 import { NgxInputPasswordComponent } from './ngx-input/password/ngx-input-password.component';
 import { NgxInputSelectComponent } from './ngx-input/select/ngx-input-select.component';
 import { NgxInputTextComponent } from './ngx-input/text/ngx-input-text.component';
@@ -74,6 +75,7 @@ import { NgxInputTextareaComponent } from './ngx-input/textarea/ngx-input-textar
         NgxInputMultiSelectComponent,
         NgxInputNameComponent,
         NgxInputNumberComponent,
+        NgxInputOptionListComponent,
         NgxInputPasswordComponent,
         NgxInputSelectComponent,
         NgxInputTextComponent,

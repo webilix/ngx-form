@@ -121,6 +121,13 @@
         [maxLength]="input.maxLength"
     ></ngx-input-text>
 
+    <!-- OPTION LIST -->
+    <ngx-input-option-list
+        *ngIf="input.type === 'OPTION-LIST'"
+        [control]="control"
+        [input]="input"
+    ></ngx-input-option-list>
+
     <!-- PASSWORD -->
     <ngx-input-password *ngIf="input.type === 'PASSWORD'" [control]="control" [input]="input"></ngx-input-password>
 

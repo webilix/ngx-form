@@ -19,6 +19,7 @@ import { NameComponent } from './name/name.component';
 import { NationalCodeComponent } from './national-code/national-code.component';
 import { NumberComponent } from './number/number.component';
 import { NumericComponent } from './numeric/numeric.component';
+import { OptionListComponent } from './option-list/option-list.component';
 import { PasswordComponent } from './password/password.component';
 import { SelectComponent } from './select/select.component';
 import { TextComponent } from './text/text.component';
@@ -70,6 +71,7 @@ export class AppComponent implements OnInit {
             { name: 'national-code', type: 'NATIONAL-CODE', optional: true },
             { name: 'number', type: 'NUMBER', title: 'مقدار عددی', optional: true },
             { name: 'numeric', type: 'NUMERIC', title: 'عبارت عددی', optional: true },
+            { name: 'option-list', type: 'OPTION-LIST', title: 'لیست گزینه‌ها' },
             { name: 'password', type: 'PASSWORD', optional: true },
             {
                 name: 'select',
@@ -108,6 +110,7 @@ export class AppComponent implements OnInit {
         { type: 'NATIONAL-CODE', title: 'کد ملی', component: NationalCodeComponent },
         { type: 'NUMBER', title: 'مقدار عددی', component: NumberComponent },
         { type: 'NUMERIC', title: 'عبارت عددی', component: NumericComponent },
+        { type: 'OPTION-LIST', title: 'لیست گزینه‌ها', component: OptionListComponent },
         { type: 'PASSWORD', title: 'کلمه عبور', component: PasswordComponent },
         { type: 'SELECT', title: 'لیست کشویی', component: SelectComponent },
         { type: 'TEXT', title: 'متن یک خطی', component: TextComponent },
