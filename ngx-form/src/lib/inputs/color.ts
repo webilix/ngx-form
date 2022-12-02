@@ -7,6 +7,13 @@ import { NgxFormInputMethods } from '../ngx-form.methods';
 
 export interface INgxFormInputColor extends Omit<INgxFormInput, 'english'> {
     type: 'COLOR';
+
+    /**
+     * Default colors list
+     * @type { Array<string> }
+     * @description In case of **undefined** or **empty list**, default HTML color input will be shown
+     * @optional
+     */
     colors?: string[];
 }
 

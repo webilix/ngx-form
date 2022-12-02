@@ -8,8 +8,30 @@ import { NgxLengthValidator } from '../validators';
 
 export interface INgxFormInputNumeric extends Omit<INgxFormInput, 'english'> {
     type: 'NUMERIC';
+
+    /**
+     * Input caption copyright text
+     * @type { string }
+     * @override title
+     */
     title: string;
+
+    /**
+     * Minimum acceptable value length
+     * @type { number }
+     * @optional
+     *
+     * **NOTE:** To restrict length to specific value, use same value for **minimum** and **maximum** length
+     */
     minLength?: number;
+
+    /**
+     * Maximum acceptable value length
+     * @type { number }
+     * @optional
+     *
+     * **NOTE:** To restrict length to specific value, use same value for **minimum** and **maximum** length
+     */
     maxLength?: number;
 }
 

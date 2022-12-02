@@ -8,11 +8,47 @@ import { NgxFormInputMethods } from '../ngx-form.methods';
 
 export interface INgxFormInputUsername extends Omit<INgxFormInput, 'english'> {
     type: 'USERNAME';
+
+    /**
+     * Minimum value length
+     * @type { number }
+     * @optional 3
+     */
     minLength?: number;
+
+    /**
+     * Accept dash **(-)** letter in value
+     * @type { boolean }
+     * @optional true
+     */
     useDash?: boolean;
+
+    /**
+     * Accept dot **(.)** letter in value
+     * @type { boolean }
+     * @optional true
+     */
     useDot?: boolean;
+
+    /**
+     * Value must starts with **lower case english** letter
+     * @type { boolean }
+     * @optional true
+     */
     startWithChar?: boolean;
+
+    /**
+     * Value must ends with **lower case english** letter
+     * @type { boolean }
+     * @optional true
+     */
     endWithChar?: boolean;
+
+    /**
+     * Deactive all username validation checks
+     * @type { boolean }
+     * @optional false
+     */
     unverified?: boolean;
 }
 

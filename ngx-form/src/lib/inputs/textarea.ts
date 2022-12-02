@@ -7,10 +7,39 @@ import { NgxFormInputMethods } from '../ngx-form.methods';
 
 export interface INgxFormInputTextarea extends INgxFormInput {
     type: 'TEXTAREA';
+
+    /**
+     * Input caption copyright text
+     * @type { string }
+     * @override title
+     */
     title: string;
+
+    /**
+     * Textarea input minimum hight
+     * @type { number }
+     * @optional 75
+     */
     height?: number;
+
+    /**
+     * Activate textarea auto-height functionality
+     * @type { boolean }
+     * @optional false
+     */
     autoHeight?: boolean;
+
+    /**
+     * Textarea input maximum hight
+     * @type { number }
+     */
     maxLength?: number;
+
+    /**
+     * Show value length counter
+     * @type { boolean }
+     * @optional false
+     */
     counter?: boolean;
 }
 

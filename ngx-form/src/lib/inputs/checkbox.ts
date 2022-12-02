@@ -5,7 +5,18 @@ import { NgxFormInputMethods } from '../ngx-form.methods';
 
 export interface INgxFormInputCheckbox extends Omit<INgxFormInput, 'title' | 'value' | 'optional'> {
     type: 'CHECKBOX';
+
+    /**
+     * Checkbox copyright message
+     * @type { string }
+     */
     message: string;
+
+    /**
+     * Input value
+     * @type { boolean }
+     * @optional
+     */
     value?: boolean;
 }
 

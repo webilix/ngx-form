@@ -5,6 +5,12 @@ import { NgxFormInputMethods } from '../ngx-form.methods';
 
 export interface INgxFormInputFile extends Omit<INgxFormInput, 'english' | 'value'> {
     type: 'FILE';
+
+    /**
+     * Acceptable file mime types
+     * @type { Array<string> }
+     * @optional
+     */
     mimes?: string[];
 }
 

@@ -5,7 +5,19 @@ import { NgxFormInputMethods } from '../ngx-form.methods';
 
 export interface INgxFormInputComment extends Omit<INgxFormInput, 'optional' | 'disableOn'> {
     type: 'COMMENT';
+
+    /**
+     * Input caption copyright text
+     * @type { string }
+     * @override title
+     */
     title: string;
+
+    /**
+     * Input value
+     * @type { string }
+     * @override value
+     */
     value: string;
 }
 

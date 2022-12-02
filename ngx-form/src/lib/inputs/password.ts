@@ -8,10 +8,40 @@ import { NgxFormInputMethods } from '../ngx-form.methods';
 
 export interface INgxFormInputPassword extends Omit<INgxFormInput, 'english' | 'value'> {
     type: 'PASSWORD';
+
+    /**
+     * Minimum value length
+     * @type { number }
+     * @optional 8
+     */
     minLength?: number;
+
+    /**
+     * Force to use at least one **English lower case** letter in value
+     * @type { boolean }
+     * @optional true
+     */
     forceLowerCase?: boolean;
+
+    /**
+     * Force to use at least one **English upper case** letter in value
+     * @type { boolean }
+     * @optional true
+     */
     forceUpperCase?: boolean;
+
+    /**
+     * Force to use at least one **English number** letter in value
+     * @type { boolean }
+     * @optional true
+     */
     forceNumber?: boolean;
+
+    /**
+     * Deactive all password validation checks
+     * @type { boolean }
+     * @optional false
+     */
     unverified?: boolean;
 }
 

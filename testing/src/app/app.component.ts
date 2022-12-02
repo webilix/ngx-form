@@ -41,6 +41,8 @@ export class AppComponent implements OnInit {
     public ngxForm: INgxForm = {
         submit: 'نمایش مقادیر ثبت شده در فرم',
         inputs: [
+            { name: 'comment', type: 'COMMENT', title: 'توضیحات', value: 'متن توضیحات به این صورت نمایش داده می‌شود.' },
+
             {
                 name: 'auto-complete',
                 type: 'AUTO-COMPLETE',

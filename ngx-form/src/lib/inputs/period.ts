@@ -8,9 +8,34 @@ import { NgxMaxDateValidator, NgxMinDateValidator, NgxPeriodValidator } from '..
 
 export interface INgxFormInputPeriod extends Omit<INgxFormInput, 'english' | 'value'> {
     type: 'PERIOD';
-    value?: Date[];
+
+    /**
+     * Input value
+     * @type { [Date, Date] }
+     * @override value
+     * @optional
+     */
+    value?: [Date, Date];
+
+    /**
+     * Accept same values as **minimum** and **maximum**
+     * @type { boolean }
+     * @optional false
+     */
     equal?: boolean;
+
+    /**
+     * Minimum acceptable value
+     * @type { Date }
+     * @optional
+     */
     minDate?: Date;
+
+    /**
+     * Maximum acceptable value
+     * @type { Date }
+     * @optional
+     */
     maxDate?: Date;
 }
 

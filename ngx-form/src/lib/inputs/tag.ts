@@ -8,9 +8,33 @@ import { NgxMaxCountValidator, NgxMinCountValidator } from '../validators';
 
 export interface INgxFormInputTag extends Omit<INgxFormInput, 'english' | 'value' | 'optional'> {
     type: 'TAG';
+
+    /**
+     * Input value
+     * @type { Array<string> }
+     * @override value
+     * @optional
+     */
     value?: string[];
+
+    /**
+     * Default tags list
+     * @type { Array<string> }
+     */
     tags: string[];
+
+    /**
+     * Minimum number of required entered tags
+     * @type { number }
+     * @optional
+     */
     minCount?: number;
+
+    /**
+     * Maximum number of required entered tags
+     * @type { number }
+     * @optional
+     */
     maxCount?: number;
 }
 

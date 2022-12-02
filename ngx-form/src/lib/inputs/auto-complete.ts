@@ -5,9 +5,23 @@ import { Validator } from 'validator-library';
 import { INgxFormInput } from '../interfaces/ngx-input';
 import { NgxFormInputMethods } from '../ngx-form.methods';
 
+/**
+ * AUTO-COMPLETE input interface
+ */
 export interface INgxFormInputAutoComplete extends INgxFormInput {
     type: 'AUTO-COMPLETE';
+
+    /**
+     * Input caption copyright text
+     * @type { string }
+     * @override title
+     */
     title: string;
+
+    /**
+     * Input options
+     * @type { Array<string> }
+     */
     options: string[];
 }
 

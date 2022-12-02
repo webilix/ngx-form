@@ -8,8 +8,27 @@ import { NgxMaxDateValidator, NgxMinDateValidator } from '../validators';
 
 export interface INgxFormInputDate extends Omit<INgxFormInput, 'english' | 'value'> {
     type: 'DATE';
+
+    /**
+     * Input value
+     * @type { Date }
+     * @override value
+     * @optional
+     */
     value?: Date;
+
+    /**
+     * Minimum acceptable value
+     * @type { Date }
+     * @optional
+     */
     minDate?: Date;
+
+    /**
+     * Maximum acceptable value
+     * @type { Date }
+     * @optional
+     */
     maxDate?: Date;
 }
 

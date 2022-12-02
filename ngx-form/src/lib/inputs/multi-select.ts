@@ -7,11 +7,48 @@ import { NgxMaxCountValidator, NgxMinCountValidator } from '../validators';
 
 export interface INgxFormInputMultiSelect extends Omit<INgxFormInput, 'value' | 'optional'> {
     type: 'MULTI-SELECT';
+
+    /**
+     * Input caption copyright text
+     * @type { string }
+     * @override title
+     */
     title: string;
+
+    /**
+     * Input value
+     * @type { Array<string> }
+     * @override value
+     * @optional
+     */
     value?: string[];
+
+    /**
+     * Input options list
+     * @type { Array<INgxFormOption> }
+     */
     options: INgxFormOption[];
+
+    /**
+     * Minimum number of required selected options
+     * @type { number }
+     * @optional
+     */
     minCount?: number;
+
+    /**
+     * Maximum number of acceptable selected options
+     * @type { number }
+     * @optional
+     */
     maxCount?: number;
+
+    /**
+     * Input view method
+     * @type { string }
+     * @enum 'CHECKBOX', 'SELECT', 'TAG'
+     * @optional CHECKBOX
+     */
     view?: 'CHECKBOX' | 'SELECT' | 'TAG';
 }
 

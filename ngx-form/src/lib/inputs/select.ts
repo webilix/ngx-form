@@ -6,7 +6,18 @@ import { INgxFormOption } from '../interfaces/ngx-option';
 
 export interface INgxFormInputSelect extends INgxFormInput {
     type: 'SELECT';
+
+    /**
+     * Input caption copyright text
+     * @type { string }
+     * @override title
+     */
     title: string;
+
+    /**
+     * Input options list
+     * @type { Array<INgxFormOption> }
+     */
     options: INgxFormOption[];
 }
 

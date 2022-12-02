@@ -8,12 +8,55 @@ import { NgxRangeValidator } from '../validators';
 
 export interface INgxFormInputRange extends Omit<INgxFormInput, 'english' | 'value'> {
     type: 'RANGE';
+
+    /**
+     * Input caption copyright text
+     * @type { string }
+     * @override title
+     */
     title: string;
-    value?: number[];
+
+    /**
+     * Input value
+     * @type { [number, number] }
+     * @override value
+     * @optional
+     */
+    value?: [number, number];
+
+    /**
+     * Accept same values as **minimum** and **maximum**
+     * @type { boolean }
+     * @optional false
+     */
     equal?: boolean;
+
+    /**
+     * Minimum acceptable value
+     * @type { number }
+     * @optional
+     */
     minimum?: number;
+
+    /**
+     * Maximum acceptable value
+     * @type { number }
+     * @optional
+     */
     maximum?: number;
+
+    /**
+     * Accept negative values
+     * @type { boolean }
+     * @optional false
+     */
     negative?: boolean;
+
+    /**
+     * Accept decimal values
+     * @type { boolean }
+     * @optional false
+     */
     decimal?: boolean;
 }
 

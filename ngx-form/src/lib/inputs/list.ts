@@ -8,12 +8,56 @@ import { NgxDuplicateValidator, NgxMaxCountValidator, NgxMinCountValidator } fro
 
 export interface INgxFormInputList extends Omit<INgxFormInput, 'optional' | 'value'> {
     type: 'LIST';
+
+    /**
+     * Input caption copyright text
+     * @type { string }
+     * @override title
+     */
     title: string;
+
+    /**
+     * Input value
+     * @type { Array<string> }
+     * @override value
+     * @optional
+     */
     value?: string[];
+
+    /**
+     * Acceptable list items format
+     * @type { string }
+     * @enum 'BANK-CARD', 'DOMAIN', 'EMAIL', 'IP', 'MOBILE', 'NATIONAL-CODE', 'NUMERIC', 'URL'
+     * @optional
+     */
     format?: 'BANK-CARD' | 'DOMAIN' | 'EMAIL' | 'IP' | 'MOBILE' | 'NATIONAL-CODE' | 'NUMERIC' | 'URL';
+
+    /**
+     * Activate list sort functionality
+     * @type { boolean }
+     * @optional false
+     */
     sort?: boolean;
+
+    /**
+     * Accept duplicate values on list
+     * @type { boolean }
+     * @optional false
+     */
     duplicate?: boolean;
+
+    /**
+     * Minimum number of required values in list
+     * @type { number }
+     * @optional
+     */
     minCount?: number;
+
+    /**
+     * Maximum number of acceptable values in list
+     * @type { number }
+     * @optional
+     */
     maxCount?: number;
 }
 

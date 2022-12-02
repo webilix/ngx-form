@@ -8,10 +8,44 @@ import { NgxLengthValidator } from '../validators';
 
 export interface INgxFormInputText extends INgxFormInput {
     type: 'TEXT';
+
+    /**
+     * Input caption copyright text
+     * @type { string }
+     * @override title
+     */
     title: string;
+
+    /**
+     * Suffix copyright text
+     * @type { string }
+     * @optional
+     */
     suffix?: string;
+
+    /**
+     * Minimum acceptable value length
+     * @type { number }
+     * @optional
+     *
+     * **NOTE:** To restrict length to specific value, use same value for **minimum** and **maximum** length
+     */
     minLength?: number;
+
+    /**
+     * Maximum acceptable value length
+     * @type { number }
+     * @optional
+     *
+     * **NOTE:** To restrict length to specific value, use same value for **minimum** and **maximum** length
+     */
     maxLength?: number;
+
+    /**
+     * Show value length counter
+     * @type { boolean }
+     * @optional false
+     */
     counter?: boolean;
 }
 

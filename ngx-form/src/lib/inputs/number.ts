@@ -7,11 +7,48 @@ import { NgxFormInputMethods } from '../ngx-form.methods';
 
 export interface INgxFormInputNumber extends Omit<INgxFormInput, 'english' | 'value'> {
     type: 'NUMBER';
+
+    /**
+     * Input caption copyright text
+     * @type { string }
+     * @override title
+     */
     title: string;
+
+    /**
+     * Input value
+     * @type { number }
+     * @override value
+     * @optional
+     */
     value?: number;
+
+    /**
+     * Minimum acceptable value
+     * @type { number }
+     * @optional
+     */
     minimum?: number;
+
+    /**
+     * Maximum acceptable value
+     * @type { number }
+     * @optional
+     */
     maximum?: number;
+
+    /**
+     * Accept negative values
+     * @type { boolean }
+     * @optional false
+     */
     negative?: boolean;
+
+    /**
+     * Accept decimal values
+     * @type { boolean }
+     * @optional false
+     */
     decimal?: boolean;
 }
 

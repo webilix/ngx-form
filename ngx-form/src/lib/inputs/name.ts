@@ -8,6 +8,13 @@ import { NgxFormInputMethods } from '../ngx-form.methods';
 
 export interface INgxFormInputName extends Omit<INgxFormInput, 'title' | 'value' | 'english'> {
     type: 'NAME';
+
+    /**
+     * Input Value
+     * @type { INgxFormName }
+     * @override value
+     * @optional
+     */
     value?: INgxFormName;
 }
 
