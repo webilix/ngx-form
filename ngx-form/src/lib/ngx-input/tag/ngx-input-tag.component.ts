@@ -21,6 +21,14 @@ export class NgxInputTagComponent implements OnInit {
         if (!this.input || !this.control) return;
 
         this.input.tags = this.input.tags.sort((t1: string, t2: string) => t1.localeCompare(t2));
+        this.control.valueChanges.subscribe({
+            next: () => this.setValues(),
+        });
+        this.setValues();
+    }
+
+    setValues(): void {
+        if (!this.control) return;
         this.tags = Array.isArray(this.control.value) ? this.control.value : [];
     }
 

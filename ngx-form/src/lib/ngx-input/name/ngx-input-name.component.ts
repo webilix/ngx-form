@@ -20,18 +20,25 @@ export class NgxInputNameComponent implements OnInit {
     ngOnInit(): void {
         if (!this.control) return;
 
-        const value: { first: string; last: string } | null = this.control.value;
-        if (value === null) return;
-
-        this.first = value.first;
-        this.last = value.last;
+        this.control.valueChanges.subscribe({
+            next: () => this.setValues(),
+        });
+        this.setValues();
     }
 
-    setValue(): void {
+    setValues(): void {
         if (!this.control) return;
 
-        const first: string = this.first.trim();
-        const last: string = this.last.trim();
+        const value: { first: string; last: string } | null = this.control.value;
+        this.first = value?.first || '';
+        this.last = value?.last || '';
+    }
+
+    setName(first: string, last: string): void {
+        if (!this.control) return;
+
+        first = (first || '').trim();
+        last = (last || '').trim();
 
         this.control.markAsTouched();
         const value: { first: string; last: string } | null = first !== '' && last !== '' ? { first, last } : null;

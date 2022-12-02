@@ -12,19 +12,21 @@
             matInput
             type="text"
             [name]="input.name + '-first'"
-            [(ngModel)]="first"
+            [ngModel]="first"
             [ngClass]="{ empty: first === '' && !control.disabled, 'ngx-form-disabled': control.disabled }"
             [readonly]="control.disabled"
-            (input)="setValue()"
+            (input)="setName(firstName.value, lastName.value)"
+            #firstName
         />
         <input
             matInput
             type="text"
             [name]="input.name + '-last'"
-            [(ngModel)]="last"
+            [ngModel]="last"
             [ngClass]="{ empty: last === '' && !control.disabled, 'ngx-form-disabled': control.disabled }"
             [readonly]="control.disabled"
-            (input)="setValue()"
+            (input)="setName(firstName.value, lastName.value)"
+            #lastName
         />
     </div>
 </mat-form-field>

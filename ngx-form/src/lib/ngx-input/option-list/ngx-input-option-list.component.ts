@@ -20,6 +20,15 @@ export class NgxInputOptionListComponent implements OnInit {
 
     ngOnInit(): void {
         if (!this.control) return;
+
+        this.control.valueChanges.subscribe({
+            next: () => this.setValues(),
+        });
+        this.setValues();
+    }
+
+    setValues(): void {
+        if (!this.control) return;
         this.values = Array.isArray(this.control.value) ? this.control.value : [];
     }
 

@@ -24,6 +24,14 @@ export class NgxInputPeriodComponent implements OnInit {
     ngOnInit(): void {
         if (!this.control) return;
 
+        this.control.valueChanges.subscribe({
+            next: () => this.setValues(),
+        });
+        this.setValues();
+    }
+
+    setValues(): void {
+        if (!this.control) return;
         this.dates = Array.isArray(this.control.value) ? this.control.value : [null, null];
     }
 
