@@ -19,6 +19,7 @@ export * from './numeric';
 export * from './option-list';
 export * from './password';
 export * from './period';
+export * from './range';
 export * from './select';
 export * from './text';
 export * from './textarea';

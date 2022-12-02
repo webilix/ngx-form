@@ -44,6 +44,7 @@ import { NgxInputNumberComponent } from './ngx-input/number/ngx-input-number.com
 import { NgxInputOptionListComponent } from './ngx-input/option-list/ngx-input-option-list.component';
 import { NgxInputPasswordComponent } from './ngx-input/password/ngx-input-password.component';
 import { NgxInputPeriodComponent } from './ngx-input/period/ngx-input-period.component';
+import { NgxInputRangeComponent } from './ngx-input/range/ngx-input-range.component';
 import { NgxInputSelectComponent } from './ngx-input/select/ngx-input-select.component';
 import { NgxInputTextComponent } from './ngx-input/text/ngx-input-text.component';
 import { NgxInputTextareaComponent } from './ngx-input/textarea/ngx-input-textarea.component';
@@ -79,6 +80,7 @@ import { NgxInputTextareaComponent } from './ngx-input/textarea/ngx-input-textar
         NgxInputOptionListComponent,
         NgxInputPasswordComponent,
         NgxInputPeriodComponent,
+        NgxInputRangeComponent,
         NgxInputSelectComponent,
         NgxInputTextComponent,
         NgxInputTextareaComponent,

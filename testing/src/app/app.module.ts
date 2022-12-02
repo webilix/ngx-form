@@ -25,6 +25,7 @@ import { NumericComponent } from './numeric/numeric.component';
 import { OptionListComponent } from './option-list/option-list.component';
 import { PasswordComponent } from './password/password.component';
 import { PeriodComponent } from './period/period.component';
+import { RangeComponent } from './range/range.component';
 import { SelectComponent } from './select/select.component';
 import { TextComponent } from './text/text.component';
 import { UrlComponent } from './url/url.component';
@@ -54,6 +55,7 @@ import { TextareaComponent } from './textarea/textarea.component';
         OptionListComponent,
         PasswordComponent,
         PeriodComponent,
+        RangeComponent,
         SelectComponent,
         TextComponent,
         UrlComponent,

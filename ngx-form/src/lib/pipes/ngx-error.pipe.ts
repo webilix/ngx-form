@@ -57,6 +57,9 @@ export class NgxErrorPipe implements PipeTransform {
             case 'period':
                 return `تاریخ شروع باید ${value.equal ? 'قبل یا برابر با' : 'قبل از'} تاریخ پایان باشد.`;
 
+            case 'range':
+                return `حداقل مقدار باید ${value.equal ? 'کوچکتر یا برابر با' : 'کوچکتر از'} حداکثر مقدار باشد.`;
+
             case 'pattern':
                 switch (type) {
                     case 'EMAIL':

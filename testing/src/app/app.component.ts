@@ -22,6 +22,7 @@ import { NumericComponent } from './numeric/numeric.component';
 import { OptionListComponent } from './option-list/option-list.component';
 import { PasswordComponent } from './password/password.component';
 import { PeriodComponent } from './period/period.component';
+import { RangeComponent } from './range/range.component';
 import { SelectComponent } from './select/select.component';
 import { TextComponent } from './text/text.component';
 import { TextareaComponent } from './textarea/textarea.component';
@@ -75,6 +76,7 @@ export class AppComponent implements OnInit {
             { name: 'option-list', type: 'OPTION-LIST', title: 'لیست گزینه‌ها' },
             { name: 'password', type: 'PASSWORD', optional: true },
             { name: 'period', type: 'PERIOD', optional: true },
+            { name: 'range', type: 'RANGE', title: 'محدوده عددی', optional: true },
             {
                 name: 'select',
                 type: 'SELECT',
@@ -115,6 +117,7 @@ export class AppComponent implements OnInit {
         { type: 'OPTION-LIST', title: 'لیست گزینه‌ها', component: OptionListComponent },
         { type: 'PASSWORD', title: 'کلمه عبور', component: PasswordComponent },
         { type: 'PERIOD', title: 'محدوده زمانی', component: PeriodComponent },
+        { type: 'RANGE', title: 'محدوده عددی', component: RangeComponent },
         { type: 'SELECT', title: 'لیست کشویی', component: SelectComponent },
         { type: 'TEXT', title: 'متن یک خطی', component: TextComponent },
         { type: 'TEXTAREA', title: 'متن چند خطی', component: TextareaComponent },
