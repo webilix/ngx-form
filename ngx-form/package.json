@@ -1,6 +1,23 @@
 {
     "name": "@webilix/ngx-form",
     "version": "0.0.3",
+    "description": "Persian form library for Angular",
+    "repository": {
+        "type": "git",
+        "url": "git+https://github.com/webilix/ngx-form.git"
+    },
+    "keywords": [
+        "angular",
+        "form",
+        "persian",
+        "farsi"
+    ],
+    "author": "Ali Amirnezhad",
+    "license": "MIT",
+    "bugs": {
+        "url": "https://github.com/webilix/ngx-form/issues"
+    },
+    "homepage": "https://github.com/webilix/ngx-form#readme",
     "peerDependencies": {
         "@angular/common": "^15.0.2",
         "@angular/core": "^15.0.2",

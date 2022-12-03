@@ -1,6 +1,6 @@
 # @webilix/ngx-form
 
-Angular Persian form library
+Persian form library for Angular
 
 [Full Help](https://github.com/webilix/ngx-form/blob/master/ngx-form/README.md)
 
