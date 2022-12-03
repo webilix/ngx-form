@@ -2,7 +2,7 @@
 
 Persian form library for Angular
 
-**This library uses Angular +15**
+**This library uses Angular 15.0.2+**
 
 ---
 

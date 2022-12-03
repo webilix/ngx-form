@@ -1,6 +1,6 @@
 {
     "name": "@webilix/ngx-form",
-    "version": "1.0.0",
+    "version": "1.1.0",
     "description": "Persian form library for Angular",
     "repository": {
         "type": "git",
@@ -24,10 +24,10 @@
         "@angular/forms": "^15.0.2",
         "@angular/material": "^15.0.1",
         "ngx-mask": "^14.2.4",
-        "@webilix/helper-library": "^1.0.0",
+        "@webilix/helper-library": "^1.1.0",
         "@webilix/jalali-date-time": "^1.0.0",
-        "@webilix/regex-library": "^1.0.0",
-        "@webilix/validator-library": "^1.0.0"
+        "@webilix/regex-library": "^1.1.0",
+        "@webilix/validator-library": "^1.1.0"
     },
     "dependencies": {
         "tslib": "^2.3.0"

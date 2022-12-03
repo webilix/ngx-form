@@ -1,5 +1,22 @@
-input[type='color'] {
-    padding: 0 !important;
+.input {
+    display: flex;
+    align-items: center;
+
+    .value {
+        flex: 1;
+        text-align: center;
+    }
+
+    .select {
+        flex: 1;
+        border: 1px solid var(--ngxBorderColor);
+    }
+
+    input[type='color'] {
+        padding: 0 !important;
+        width: 0 !important;
+        visibility: hidden;
+    }
 }
 
 .colors {
