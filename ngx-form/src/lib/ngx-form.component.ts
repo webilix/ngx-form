@@ -126,6 +126,7 @@ export class NgxFormComponent implements OnInit {
         this.ngxForm.inputs.forEach((row: NgxFormInputTypes | NgxFormInputTypes[]) => {
             const inputs: NgxFormInputTypes[] = Array.isArray(row) ? row : [row];
             inputs.forEach((input: NgxFormInputTypes) => {
+                if (input.type === 'COMMENT') return;
                 values[input.name] = this.formGroup.get(input.name)?.errors === null ? this.getValue(input) : null;
             });
         });

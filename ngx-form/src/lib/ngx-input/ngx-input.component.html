@@ -7,7 +7,7 @@
             matInput
             type="text"
             [name]="input.name"
-            [formControl]="control"
+            [ngModel]="input.value"
             [ngClass]="{ 'input-en': input.english }"
             [readonly]="true"
         />

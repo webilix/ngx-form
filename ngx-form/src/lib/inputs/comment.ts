@@ -17,16 +17,18 @@ export interface INgxFormInputComment extends Omit<INgxFormInput, 'optional' | '
      * Input value
      * @type { string }
      * @override value
+     *
+     * **NOTE:** Comment values will be omitted in form input values
      */
     value: string;
 }
 
 export class NgxFormInputCommentMethods extends NgxFormInputMethods<INgxFormInputComment, string | null> {
     control(input: INgxFormInputComment, validators: ValidatorFn[]): FormControl<string | null> {
-        return new FormControl<string | null>(input.value, validators);
+        return new FormControl<string | null>('', validators);
     }
 
     value(value: any): string | null {
-        return value;
+        return null;
     }
 }
