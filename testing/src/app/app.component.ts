@@ -1,7 +1,7 @@
 import { Component, OnInit, ViewChild } from '@angular/core';
 import { ComponentType } from '@angular/cdk/overlay';
 
-import { INgxForm, NgxFormComponent } from '@ngx-form';
+import { INgxForm, NgxFormComponent, NgxFormInputTypes } from '@ngx-form';
 
 import { AutoCompleteComponent } from './auto-complete/auto-complete.component';
 import { BankCardComponent } from './bank-card/bank-card.component';
@@ -38,66 +38,69 @@ import { UsernameComponent } from './username/username.component';
 export class AppComponent implements OnInit {
     @ViewChild('ngxFormComponent') ngxFormComponent?: NgxFormComponent;
 
+    public column: number = 1;
+    public inputs: NgxFormInputTypes[] = [
+        { name: 'comment', type: 'COMMENT', title: 'توضیحات', value: 'متن توضیحات به این صورت نمایش داده می‌شود.' },
+
+        {
+            name: 'auto-complete',
+            type: 'AUTO-COMPLETE',
+            title: 'لیست تکمیلی',
+            options: ['سیمیلیس', 'مپانگا', 'کت اتو', 'پلکو'],
+            optional: true,
+        },
+        { name: 'bank-card', type: 'BANK-CARD', optional: true },
+        { name: 'checkbox', type: 'CHECKBOX', message: 'یک انتخابی' },
+        { name: 'color', type: 'COLOR', optional: true },
+        { name: 'date', type: 'DATE', optional: true },
+        { name: 'domain', type: 'DOMAIN', optional: true },
+        { name: 'email', type: 'EMAIL', optional: true },
+        { name: 'file', type: 'FILE', optional: true },
+        { name: 'ip', type: 'IP', optional: true },
+        { name: 'list', type: 'LIST', title: 'لیست' },
+        { name: 'mobile', type: 'MOBILE', optional: true },
+        {
+            name: 'multi-select',
+            type: 'MULTI-SELECT',
+            title: 'چند انتخابی',
+            options: [
+                { id: '1ST', title: 'گزینه اول' },
+                { id: '2ND', title: 'گزینه دوم' },
+                { id: '3RD', title: 'گزینه سوم' },
+                { id: '4TH', title: 'گزینه چهارم' },
+            ],
+            view: 'SELECT',
+        },
+        { name: 'name', type: 'NAME', optional: true },
+        { name: 'national-code', type: 'NATIONAL-CODE', optional: true },
+        { name: 'number', type: 'NUMBER', title: 'مقدار عددی', optional: true },
+        { name: 'numeric', type: 'NUMERIC', title: 'عبارت عددی', optional: true },
+        { name: 'option-list', type: 'OPTION-LIST', title: 'لیست گزینه‌ها' },
+        { name: 'password', type: 'PASSWORD', optional: true },
+        { name: 'period', type: 'PERIOD', optional: true },
+        { name: 'range', type: 'RANGE', title: 'محدوده عددی', optional: true },
+        {
+            name: 'select',
+            type: 'SELECT',
+            title: 'لیست کشویی',
+            options: [
+                { id: '1ST', title: 'گزینه اول' },
+                { id: '2ND', title: 'گزینه دوم' },
+                { id: '3RD', title: 'گزینه سوم' },
+                { id: '4TH', title: 'گزینه چهارم' },
+            ],
+            optional: true,
+        },
+        { name: 'tag', type: 'TAG', tags: ['اول', 'دوم', 'سوم', 'چهارم', 'پنجم'] },
+        { name: 'text', type: 'TEXT', title: 'متن یک خطی', optional: true },
+        { name: 'textarea', type: 'TEXTAREA', title: 'متن چند خطی', optional: true },
+        { name: 'url', type: 'URL', optional: true },
+        { name: 'username', type: 'USERNAME', optional: true },
+    ];
+
     public ngxForm: INgxForm = {
         submit: 'نمایش مقادیر ثبت شده در فرم',
-        inputs: [
-            { name: 'comment', type: 'COMMENT', title: 'توضیحات', value: 'متن توضیحات به این صورت نمایش داده می‌شود.' },
-
-            {
-                name: 'auto-complete',
-                type: 'AUTO-COMPLETE',
-                title: 'لیست تکمیلی',
-                options: ['سیمیلیس', 'مپانگا', 'کت اتو', 'پلکو'],
-                optional: true,
-            },
-            { name: 'bank-card', type: 'BANK-CARD', optional: true },
-            { name: 'checkbox', type: 'CHECKBOX', message: 'یک انتخابی' },
-            { name: 'color', type: 'COLOR', optional: true },
-            { name: 'date', type: 'DATE', optional: true },
-            { name: 'domain', type: 'DOMAIN', optional: true },
-            { name: 'email', type: 'EMAIL', optional: true },
-            { name: 'file', type: 'FILE', optional: true },
-            { name: 'ip', type: 'IP', optional: true },
-            { name: 'list', type: 'LIST', title: 'لیست' },
-            { name: 'mobile', type: 'MOBILE', optional: true },
-            {
-                name: 'multi-select',
-                type: 'MULTI-SELECT',
-                title: 'چند انتخابی',
-                options: [
-                    { id: '1ST', title: 'گزینه اول' },
-                    { id: '2ND', title: 'گزینه دوم' },
-                    { id: '3RD', title: 'گزینه سوم' },
-                    { id: '4TH', title: 'گزینه چهارم' },
-                ],
-                view: 'SELECT',
-            },
-            { name: 'name', type: 'NAME', optional: true },
-            { name: 'national-code', type: 'NATIONAL-CODE', optional: true },
-            { name: 'number', type: 'NUMBER', title: 'مقدار عددی', optional: true },
-            { name: 'numeric', type: 'NUMERIC', title: 'عبارت عددی', optional: true },
-            { name: 'option-list', type: 'OPTION-LIST', title: 'لیست گزینه‌ها' },
-            { name: 'password', type: 'PASSWORD', optional: true },
-            { name: 'period', type: 'PERIOD', optional: true },
-            { name: 'range', type: 'RANGE', title: 'محدوده عددی', optional: true },
-            {
-                name: 'select',
-                type: 'SELECT',
-                title: 'لیست کشویی',
-                options: [
-                    { id: '1ST', title: 'گزینه اول' },
-                    { id: '2ND', title: 'گزینه دوم' },
-                    { id: '3RD', title: 'گزینه سوم' },
-                    { id: '4TH', title: 'گزینه چهارم' },
-                ],
-                optional: true,
-            },
-            { name: 'tag', type: 'TAG', tags: ['اول', 'دوم', 'سوم', 'چهارم', 'پنجم'] },
-            { name: 'text', type: 'TEXT', title: 'متن یک خطی', optional: true },
-            { name: 'textarea', type: 'TEXTAREA', title: 'متن چند خطی', optional: true },
-            { name: 'url', type: 'URL', optional: true },
-            { name: 'username', type: 'USERNAME', optional: true },
-        ],
+        inputs: [],
         buttons: [{ title: 'ریست کردن فرم', action: this.resetValues.bind(this) }],
         appearance: 'fill',
     };
@@ -140,12 +143,28 @@ export class AppComponent implements OnInit {
     ngOnInit(): void {
         const type: string | null = localStorage.getItem(this.localStorage);
         this.setType(this.types.find((t) => t.type === type)?.type || '');
+
+        this.setColumn(1);
     }
 
     public showValues = console.log;
 
     private resetValues(): void {
         this.ngxFormComponent?.ngForm?.resetForm();
+    }
+
+    setColumn(column: number): void {
+        if (column === 1) {
+            this.ngxForm.inputs = [...this.inputs];
+            return;
+        }
+
+        this.ngxForm.inputs = [];
+
+        const inputs: NgxFormInputTypes[] = [...this.inputs];
+        while (inputs.length !== 0) {
+            this.ngxForm.inputs.push(inputs.splice(0, column));
+        }
     }
 
     public setType(type: string): void {

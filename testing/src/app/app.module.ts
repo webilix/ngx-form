@@ -1,6 +1,7 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { FormsModule } from '@angular/forms';
 
 import { NgxFormModule } from '@ngx-form';
 
@@ -64,7 +65,7 @@ import { TextareaComponent } from './textarea/textarea.component';
         UsernameComponent,
         TextareaComponent,
     ],
-    imports: [BrowserModule, BrowserAnimationsModule, NgxFormModule.forRoot('outline')],
+    imports: [BrowserModule, BrowserAnimationsModule, FormsModule, NgxFormModule.forRoot('outline')],
     bootstrap: [AppComponent],
 })
 export class AppModule {}

@@ -1,5 +1,16 @@
 <content>
     <section class="header">
+        <select
+            *ngIf="!type || !title || !component"
+            class="column"
+            [dir]="'rtl'"
+            [ngModel]="column"
+            (change)="setColumn(+columnSelect.value)"
+            #columnSelect
+        >
+            <option *ngFor="let c of [1, 2, 3]" [value]="c">{{ c }}</option>
+        </select>
+
         <select [dir]="'rtl'" (change)="setType(typeSelect.value)" #typeSelect>
             <option value="" [selected]="type === null"></option>
             <option *ngFor="let t of types; let index = index" [value]="t.type" [selected]="type === t.type">

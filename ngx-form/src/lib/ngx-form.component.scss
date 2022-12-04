@@ -3,10 +3,18 @@ form {
     flex-direction: column;
     row-gap: 0.5rem;
 
+    ngx-input {
+        display: block;
+    }
+
     .columns {
         display: flex;
         align-items: flex-start;
         column-gap: 1rem;
+
+        ngx-input {
+            flex: 1;
+        }
     }
 
     .buttons {
