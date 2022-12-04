@@ -37,12 +37,12 @@ form {
 
         input,
         textarea {
-            font-family: var(--ngxFaFont) !important;
+            font-family: var(--ngxFormFaFont) !important;
         }
 
         input.input-en,
         textarea.input-en {
-            font-family: var(--ngxEnFont) !important;
+            font-family: var(--ngxFormEnFont) !important;
             direction: ltr !important;
             text-align: left !important;
         }
@@ -60,7 +60,7 @@ form {
             text-align: left;
 
             * {
-                font-family: var(--ngxEnFont);
+                font-family: var(--ngxFormEnFont);
             }
         }
 
@@ -84,7 +84,7 @@ form {
         }
 
         span.suffix-en {
-            font-family: var(--ngxEnFont);
+            font-family: var(--ngxFormEnFont);
             margin: 0 !important;
         }
 
@@ -100,9 +100,9 @@ form {
             display: flex;
             align-items: center;
 
-            font-family: var(--ngxIconFont) !important;
-            font-size: var(--ngxIconSize) !important;
-            color: var(--ngxPrimaryColor) !important;
+            font-family: var(--ngxFormIconFont) !important;
+            font-size: var(--ngxFormIconSize) !important;
+            color: var(--ngxFormPrimaryColor) !important;
             margin: 0 1rem !important;
             height: auto !important;
             width: auto !important;
@@ -127,9 +127,9 @@ form {
         display: flex;
         align-items: center;
 
-        font-family: var(--ngxIconFont) !important;
-        font-size: var(--ngxIconSize) !important;
-        color: var(--ngxPrimaryColor) !important;
+        font-family: var(--ngxFormIconFont) !important;
+        font-size: var(--ngxFormIconSize) !important;
+        color: var(--ngxFormPrimaryColor) !important;
         margin: 0 !important;
         height: auto !important;
         width: auto !important;
@@ -137,7 +137,7 @@ form {
 }
 
 ::ng-deep .ngx-form-en {
-    font-family: var(--ngxEnFont);
+    font-family: var(--ngxFormEnFont);
     direction: ltr;
     text-align: left;
 
@@ -154,7 +154,7 @@ form {
 ::ng-deep .ngx-select-search {
     width: 100%;
     border-width: 0;
-    border-bottom: 1px solid var(--ngxBorderColor);
+    border-bottom: 1px solid var(--ngxFormBorderColor);
     padding: 0.25rem 1rem 0.75rem 1rem;
     outline: none;
 }

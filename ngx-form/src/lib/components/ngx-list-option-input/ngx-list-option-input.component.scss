@@ -1,8 +1,8 @@
 content {
     display: flex;
     align-items: center;
-    background-color: var(--ngxBackgroundColor) !important;
-    border: 1px solid var(--ngxBackgroundColor);
+    background-color: var(--ngxFormBackgroundColor) !important;
+    border: 1px solid var(--ngxFormBackgroundColor);
 
     input {
         flex: 1;
@@ -10,7 +10,7 @@ content {
     }
 
     input.en {
-        font-family: var(--ngxEnFont);
+        font-family: var(--ngxFormEnFont);
         direction: ltr;
         text-align: left;
     }
@@ -27,5 +27,5 @@ content {
 }
 
 content.warn {
-    border-color: var(--ngxWarnColor);
+    border-color: var(--ngxFormWarnColor);
 }

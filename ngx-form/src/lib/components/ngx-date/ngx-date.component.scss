@@ -6,8 +6,8 @@
         align-items: center;
         justify-content: center;
 
-        font-family: var(--ngxIconFont) !important;
-        font-size: var(--ngxIconSize) !important;
+        font-family: var(--ngxFormIconFont) !important;
+        font-size: var(--ngxFormIconSize) !important;
     }
 }
 
@@ -17,7 +17,7 @@
     right: 0;
     bottom: 0;
     left: 0;
-    background-color: var(--ngxBackgroundColor);
+    background-color: var(--ngxFormBackgroundColor);
     opacity: 0.5;
     z-index: 1;
 }
@@ -31,14 +31,14 @@ section.header {
     .title {
         flex: 1;
         font-weight: 600;
-        color: var(--ngxPrimaryColor);
+        color: var(--ngxFormPrimaryColor);
     }
 
     mat-icon {
         margin: 0 !important;
         width: 25px !important;
         height: 25px !important;
-        color: var(--ngxPrimaryColor);
+        color: var(--ngxFormPrimaryColor);
         cursor: pointer;
     }
 }
@@ -74,7 +74,7 @@ section.icons {
 section.names {
     display: flex;
     align-items: center;
-    background-color: var(--ngxBackgroundColor);
+    background-color: var(--ngxFormBackgroundColor);
     column-gap: 0.5rem;
     margin-bottom: 0.5rem;
     padding: 0.75rem 0.5rem;
@@ -83,7 +83,7 @@ section.names {
     .name {
         flex: 1;
         text-align: center;
-        color: var(--ngxPrimaryColor);
+        color: var(--ngxFormPrimaryColor);
     }
 
     .month {
@@ -100,7 +100,7 @@ section.names {
 
             mat-icon {
                 flex: 1;
-                color: var(--ngxPrimaryColor);
+                color: var(--ngxFormPrimaryColor);
             }
 
             input {
@@ -108,7 +108,7 @@ section.names {
                 text-align: center;
                 border-width: 0;
                 outline: none;
-                color: var(--ngxPrimaryColor);
+                color: var(--ngxFormPrimaryColor);
             }
         }
 
@@ -149,12 +149,12 @@ section.days {
     }
 
     .today {
-        border-color: var(--ngxBorderColor);
+        border-color: var(--ngxFormBorderColor);
     }
 
     .current {
-        border-color: var(--ngxPrimaryColor);
-        background-color: var(--ngxBackgroundColor);
+        border-color: var(--ngxFormPrimaryColor);
+        background-color: var(--ngxFormBackgroundColor);
     }
 
     .disable {

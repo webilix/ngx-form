@@ -11,7 +11,7 @@
         <div
             [ngStyle]="{
                 'background-color': control.value || 'transparent',
-                'border-color': control.value || 'var(--ngxBorderColor)'
+                'border-color': control.value || 'var(--ngxFormBorderColor)'
             }"
             [ngClass]="{ select: true, 'ngx-form-disabled': control.disabled }"
             (click)="colorInput.click()"

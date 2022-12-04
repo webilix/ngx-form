@@ -2,7 +2,6 @@ import { Component, EventEmitter, Inject, Input, OnInit, Output, ViewChild } fro
 import { FormGroup, NgForm, ValidatorFn, Validators } from '@angular/forms';
 import { MatFormFieldAppearance } from '@angular/material/form-field';
 
-import { INgxConfig } from './interfaces/ngx-config';
 import { NgxFieldInputInfo } from './interfaces/ngx-info';
 
 import { INgxForm, INgxFormValues } from './ngx-form.interfaces';
@@ -26,10 +25,7 @@ export class NgxFormComponent implements OnInit {
     protected inputValues: INgxFormValues = {};
     protected hiddenInputs: string[] = [];
 
-    constructor(
-        @Inject('NGX_CONFIG') private readonly ngxConfig: INgxConfig,
-        @Inject('NGX_APPEARANCE') public readonly ngxAppearance: MatFormFieldAppearance,
-    ) {}
+    constructor(@Inject('NGX_FORM_APPEARANCE') public readonly ngxAppearance: MatFormFieldAppearance) {}
 
     ngOnInit(): void {
         if (!this.ngxForm) return;
@@ -60,8 +56,6 @@ export class NgxFormComponent implements OnInit {
                 this.checkVisibility();
             },
         });
-
-        this.setStyles();
     }
 
     private setInput(input: NgxFormInputTypes): void {
@@ -139,23 +133,5 @@ export class NgxFormComponent implements OnInit {
 
         const values: INgxFormValues = this.getValues();
         this.ngxSubmit.emit(values);
-    }
-
-    private setStyles(): void {
-        const root: string =
-            ':root {' +
-            `--ngxFaFont:${this.ngxConfig.faFont};` +
-            `--ngxEnFont:${this.ngxConfig.enFont};` +
-            `--ngxIconFont:${this.ngxConfig.iconFont};` +
-            `--ngxIconSize:${this.ngxConfig.iconSize};` +
-            `--ngxPrimaryColor:${this.ngxConfig.primaryColor};` +
-            `--ngxWarnColor:${this.ngxConfig.warnColor};` +
-            `--ngxBorderColor:${this.ngxConfig.borderColor};` +
-            `--ngxBackgroundColor:${this.ngxConfig.backgroundColor};` +
-            '}';
-
-        const style: HTMLStyleElement = document.createElement('style');
-        style.innerHTML = root;
-        document.getElementsByTagName('head')[0].appendChild(style);
     }
 }

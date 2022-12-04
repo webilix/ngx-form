@@ -32,7 +32,7 @@
         direction: ltr;
 
         .title {
-            font-family: var(--ngxEnFont);
+            font-family: var(--ngxFormEnFont);
             text-align: left;
         }
     }
@@ -44,15 +44,15 @@
 
     .option {
         padding: 0.25rem 0.5rem;
-        border: 1px solid var(--ngxBorderColor);
+        border: 1px solid var(--ngxFormBorderColor);
         border-radius: 4px;
         flex-grow: 1;
         cursor: pointer;
     }
 
     .option-selected {
-        border-color: var(--ngxPrimaryColor);
-        background-color: var(--ngxBackgroundColor);
+        border-color: var(--ngxFormPrimaryColor);
+        background-color: var(--ngxFormBackgroundColor);
     }
 }
 
@@ -60,7 +60,7 @@
     flex-direction: row-reverse;
 
     .option {
-        font-family: var(--ngxEnFont);
+        font-family: var(--ngxFormEnFont);
         direction: ltr;
         text-align: left;
     }
@@ -72,7 +72,7 @@
         text-align: left !important;
 
         mat-select-trigger {
-            font-family: var(--ngxEnFont);
+            font-family: var(--ngxFormEnFont);
         }
     }
 }

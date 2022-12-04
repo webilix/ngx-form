@@ -9,7 +9,7 @@
 
     .select {
         flex: 1;
-        border: 1px solid var(--ngxBorderColor);
+        border: 1px solid var(--ngxFormBorderColor);
     }
 
     input[type='color'] {
@@ -34,6 +34,6 @@
     }
 
     .current {
-        border: 1px solid var(--ngxPrimaryColor);
+        border: 1px solid var(--ngxFormPrimaryColor);
     }
 }

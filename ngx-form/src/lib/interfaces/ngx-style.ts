@@ -1,7 +1,7 @@
 /**
  * NgxForm config
  */
-export interface INgxConfig {
+export interface INgxStyle {
     /**
      * Farsi (Persian) font name
      * @type { string }

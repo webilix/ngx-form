@@ -47,10 +47,10 @@
                         "styles": ["testing/src/theme/material.scss", "testing/src/theme/styles.scss"],
                         "scripts": [],
                         "allowedCommonJsDependencies": [
-                            "helper-library",
-                            "jalali-date-time",
-                            "regex-library",
-                            "validator-library"
+                            "@webilix/helper-library",
+                            "@webilix/jalali-date-time",
+                            "@webilix/regex-library",
+                            "@webilix/validator-library"
                         ]
                     },
                     "configurations": {

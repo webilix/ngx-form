@@ -1,7 +1,7 @@
 content {
     display: flex;
     align-items: center;
-    border: 1px solid var(--ngxBorderColor);
+    border: 1px solid var(--ngxFormBorderColor);
 
     .item {
         flex: 1;
@@ -14,22 +14,22 @@ content {
     input {
         flex: 1;
         padding: 0.5rem;
-        background-color: var(--ngxBackgroundColor);
+        background-color: var(--ngxFormBackgroundColor);
     }
 
     input.en {
-        font-family: var(--ngxEnFont);
+        font-family: var(--ngxFormEnFont);
         direction: ltr;
         text-align: left;
     }
 
     .suffix {
-        background-color: var(--ngxBackgroundColor);
+        background-color: var(--ngxFormBackgroundColor);
         padding: 0.5rem 0 0.5rem 0.5rem;
     }
 
     .delete {
-        color: var(--ngxWarnColor);
+        color: var(--ngxFormWarnColor);
         transform: scale(0.8);
         position: relative;
         left: 10%;
@@ -40,9 +40,9 @@ content {
         align-items: center;
 
         cursor: pointer;
-        font-family: var(--ngxIconFont) !important;
-        font-size: calc(var(--ngxIconSize) - 3px) !important;
-        color: var(--ngxPrimaryColor) !important;
+        font-family: var(--ngxFormIconFont) !important;
+        font-size: calc(var(--ngxFormIconSize) - 3px) !important;
+        color: var(--ngxFormPrimaryColor) !important;
         padding: 0 0.5rem !important;
         margin: 0 !important;
         height: auto !important;
@@ -50,10 +50,10 @@ content {
     }
 
     mat-icon.warn {
-        color: var(--ngxWarnColor) !important;
+        color: var(--ngxFormWarnColor) !important;
     }
 }
 
 content.warn {
-    border-color: var(--ngxWarnColor);
+    border-color: var(--ngxFormWarnColor);
 }

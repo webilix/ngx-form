@@ -24,7 +24,7 @@ import { NgxAutoheightDirective } from './directives/ngx-autoheight.directive';
 import { NgxErrorDirective } from './directives/ngx-error.directive';
 import { NgxPersianNumberDirective } from './directives/ngx-persian-number.directive';
 
-import { INgxConfig } from './interfaces/ngx-config';
+import { INgxStyle } from './interfaces/ngx-style';
 import { NgxFormService } from './ngx-form.service';
 import { NgxFormComponent } from './ngx-form.component';
 
@@ -111,28 +111,32 @@ import { NgxInputTextareaComponent } from './ngx-input/textarea/ngx-input-textar
 export class NgxFormModule {
     static forRoot(): ModuleWithProviders<NgxFormModule>;
     static forRoot(appearance: MatFormFieldAppearance): ModuleWithProviders<NgxFormModule>;
-    static forRoot(config: Partial<INgxConfig>): ModuleWithProviders<NgxFormModule>;
-    static forRoot(appearance: MatFormFieldAppearance, config: Partial<INgxConfig>): ModuleWithProviders<NgxFormModule>;
+    static forRoot(style: Partial<INgxStyle>): ModuleWithProviders<NgxFormModule>;
+    static forRoot(appearance: MatFormFieldAppearance, style: Partial<INgxStyle>): ModuleWithProviders<NgxFormModule>;
     static forRoot(arg1?: any, arg2?: any): ModuleWithProviders<NgxFormModule> {
-        const appearance: MatFormFieldAppearance = arg1 === 'fill' || arg1 === 'outline' ? arg1 : 'fill';
-
-        const config: Partial<INgxConfig> =
+        const style: Partial<INgxStyle> =
             arg1 && typeof arg1 !== 'string' ? arg1 : arg2 && typeof arg2 !== 'string' ? arg2 : {};
-        config.faFont = config.faFont || 'Yekan';
-        config.enFont = config.enFont || "Roboto, 'Helvetica Neue', sans-serif";
-        config.iconFont = config.iconFont || 'Material Icons Outlined';
-        config.iconSize = config.iconSize || '16px';
-        config.primaryColor = config.primaryColor || 'rgb(29, 91, 116)';
-        config.warnColor = config.warnColor || 'rgb(255, 49, 27)';
-        config.borderColor = config.borderColor || 'rgb(187, 206, 213)';
-        config.backgroundColor = config.backgroundColor || 'rgb(212, 219, 221)';
 
+        const root: string =
+            ':root {' +
+            `--ngxFormFaFont:${style.faFont || 'Yekan'};` +
+            `--ngxFormEnFont:${style.enFont || "Roboto, 'Helvetica Neue', sans-serif"};` +
+            `--ngxFormIconFont:${style.iconFont || 'Material Icons Outlined'};` +
+            `--ngxFormIconSize:${style.iconSize || '16px'};` +
+            `--ngxFormPrimaryColor:${style.primaryColor || 'rgb(29, 91, 116)'};` +
+            `--ngxFormWarnColor:${style.warnColor || 'rgb(255, 49, 27)'};` +
+            `--ngxFormBorderColor:${style.borderColor || 'rgb(187, 206, 213)'};` +
+            `--ngxFormBackgroundColor:${style.backgroundColor || 'rgb(212, 219, 221)'};` +
+            '}';
+
+        const html: HTMLStyleElement = document.createElement('style');
+        html.innerHTML = root;
+        document.getElementsByTagName('head')[0].appendChild(html);
+
+        const appearance: MatFormFieldAppearance = arg1 === 'fill' || arg1 === 'outline' ? arg1 : 'fill';
         return {
             ngModule: NgxFormModule,
-            providers: [
-                { provide: 'NGX_APPEARANCE', useValue: appearance },
-                { provide: 'NGX_CONFIG', useValue: config },
-            ],
+            providers: [{ provide: 'NGX_FORM_APPEARANCE', useValue: appearance }],
         };
     }
 }
