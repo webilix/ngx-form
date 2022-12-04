@@ -9,7 +9,7 @@ export const NgxMaxDateValidator = (maximum: Date): ValidatorFn => {
         if (Validator.VALUE.isEmpty(value)) return null;
 
         const jalali = JalaliDateTime();
-        maximum = jalali.periodDay(1, maximum).from;
+        maximum = jalali.periodDay(1, maximum).to;
 
         const values: Date[] = Array.isArray(value) ? value : [value];
         for (let v = 0; v < values.length; v++)
