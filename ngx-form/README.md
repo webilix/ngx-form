@@ -150,7 +150,7 @@ interface INgxConfig {
     /**
      * Form inputs background color
      * @type { string }
-     * @optional 'rgb(212, 219, 221)'
+     * @optional 'rgb(232, 239, 241)'
      */
     backgroundColor: string;
 }

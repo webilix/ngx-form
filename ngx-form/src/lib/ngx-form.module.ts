@@ -126,7 +126,7 @@ export class NgxFormModule {
             `--ngxFormPrimaryColor:${style.primaryColor || 'rgb(29, 91, 116)'};` +
             `--ngxFormWarnColor:${style.warnColor || 'rgb(255, 49, 27)'};` +
             `--ngxFormBorderColor:${style.borderColor || 'rgb(187, 206, 213)'};` +
-            `--ngxFormBackgroundColor:${style.backgroundColor || 'rgb(212, 219, 221)'};` +
+            `--ngxFormBackgroundColor:${style.backgroundColor || 'rgb(232, 239, 241)'};` +
             '}';
 
         const html: HTMLStyleElement = document.createElement('style');
