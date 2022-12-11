@@ -1,0 +1,52 @@
+.header {
+    display: flex;
+    align-items: center;
+    background-color: var(--ngxFormBackgroundColor);
+    padding: 0.5rem 0.5rem 0.5rem 0;
+
+    .label {
+        flex: 1;
+        color: rgba(0, 0, 0, 0.6);
+    }
+}
+
+.files {
+    display: flex;
+    flex-direction: column;
+    row-gap: 0.25rem;
+    margin-top: 0.5rem;
+
+    .file {
+        display: flex;
+        flex-direction: row-reverse;
+        align-items: center;
+        column-gap: 0.5rem;
+        border: 1px solid var(--ngxFormBorderColor);
+        padding-right: 0.5rem;
+
+        .name {
+            flex: 1;
+            white-space: nowrap;
+            overflow: hidden;
+            text-overflow: ellipsis;
+        }
+    }
+}
+
+mat-icon {
+    display: flex;
+    align-items: center;
+
+    cursor: pointer;
+    font-family: var(--ngxFormIconFont) !important;
+    font-size: var(--ngxFormIconSize) !important;
+    color: var(--ngxFormPrimaryColor) !important;
+    padding: 0 0.5rem !important;
+    margin: 0 !important;
+    height: auto !important;
+    width: auto !important;
+}
+
+mat-icon.delete {
+    color: var(--ngxFormWarnColor) !important;
+}

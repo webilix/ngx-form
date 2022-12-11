@@ -11,6 +11,7 @@ import {
     INgxFormInputIp,
     INgxFormInputList,
     INgxFormInputMobile,
+    INgxFormInputMultiFile,
     INgxFormInputMultiSelect,
     INgxFormInputName,
     INgxFormInputNationalCode,
@@ -43,6 +44,7 @@ export type NgxFormInputTypes =
     | INgxFormInputIp
     | INgxFormInputList
     | INgxFormInputMobile
+    | INgxFormInputMultiFile
     | INgxFormInputMultiSelect
     | INgxFormInputName
     | INgxFormInputNationalCode

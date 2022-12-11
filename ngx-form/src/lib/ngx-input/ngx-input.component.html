@@ -117,6 +117,14 @@
         [suffix]="{ en: '09' }"
     ></ngx-input-text>
 
+    <!-- MULTI-FILE -->
+    <ngx-input-multi-file
+        *ngIf="input.type === 'MULTI-FILE'"
+        [control]="control"
+        [input]="input"
+        [appearance]="appearance"
+    ></ngx-input-multi-file>
+
     <!-- MULTI-SELECT -->
     <ngx-input-multi-select
         *ngIf="input.type === 'MULTI-SELECT'"

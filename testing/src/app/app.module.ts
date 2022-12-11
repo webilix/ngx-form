@@ -18,6 +18,7 @@ import { FileComponent } from './file/file.component';
 import { IpComponent } from './ip/ip.component';
 import { ListComponent } from './list/list.component';
 import { MobileComponent } from './mobile/mobile.component';
+import { MultiFileComponent } from './multi-file/multi-file.component';
 import { MultiSelectComponent } from './multi-select/multi-select.component';
 import { NameComponent } from './name/name.component';
 import { NationalCodeComponent } from './national-code/national-code.component';
@@ -49,6 +50,7 @@ import { TextareaComponent } from './textarea/textarea.component';
         IpComponent,
         ListComponent,
         MobileComponent,
+        MultiFileComponent,
         MultiSelectComponent,
         NameComponent,
         NationalCodeComponent,

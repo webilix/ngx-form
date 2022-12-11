@@ -14,6 +14,7 @@ import { FileComponent } from './file/file.component';
 import { IpComponent } from './ip/ip.component';
 import { ListComponent } from './list/list.component';
 import { MobileComponent } from './mobile/mobile.component';
+import { MultiFileComponent } from './multi-file/multi-file.component';
 import { MultiSelectComponent } from './multi-select/multi-select.component';
 import { NameComponent } from './name/name.component';
 import { NationalCodeComponent } from './national-code/national-code.component';
@@ -59,6 +60,7 @@ export class AppComponent implements OnInit {
         { name: 'ip', type: 'IP', optional: true },
         { name: 'list', type: 'LIST', title: 'لیست' },
         { name: 'mobile', type: 'MOBILE', optional: true },
+        { name: 'multi-file', type: 'MULTI-FILE' },
         {
             name: 'multi-select',
             type: 'MULTI-SELECT',
@@ -117,6 +119,7 @@ export class AppComponent implements OnInit {
         { type: 'IP', title: 'آدرس آی‌پی', component: IpComponent },
         { type: 'LIST', title: 'لیست', component: ListComponent },
         { type: 'MOBILE', title: 'موبایل', component: MobileComponent },
+        { type: 'MULTI-FILE', title: 'فایل‌ها', component: MultiFileComponent },
         { type: 'MULTI-SELECT', title: 'چند انتخابی', component: MultiSelectComponent },
         { type: 'NAME', title: 'نام و نام خانوادگی', component: NameComponent },
         { type: 'NATIONAL-CODE', title: 'کد ملی', component: NationalCodeComponent },

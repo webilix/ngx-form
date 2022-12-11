@@ -63,6 +63,7 @@ export class NgxFormComponent implements OnInit {
             input.type === 'COMMENT' ||
             input.type === 'CHECKBOX' ||
             input.type === 'LIST' ||
+            input.type === 'MULTI-FILE' ||
             input.type === 'MULTI-SELECT' ||
             input.type === 'OPTION-LIST' ||
             input.type === 'TAG' ||

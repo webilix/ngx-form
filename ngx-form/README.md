@@ -172,6 +172,7 @@ interface INgxConfig {
 -   IP
 -   LIST
 -   MOBILE
+-   MULTI-FILE
 -   MULTI-SELECT
 -   NAME
 -   NATIONAL-CODE

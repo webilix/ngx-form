@@ -11,6 +11,7 @@ export * from './file';
 export * from './ip';
 export * from './list';
 export * from './mobile';
+export * from './multi-file';
 export * from './multi-select';
 export * from './name';
 export * from './national-code';

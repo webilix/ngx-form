@@ -39,6 +39,7 @@ import { NgxInputColorComponent } from './ngx-input/color/ngx-input-color.compon
 import { NgxInputDateComponent } from './ngx-input/date/ngx-input-date.component';
 import { NgxInputFileComponent } from './ngx-input/file/ngx-input-file.component';
 import { NgxInputListComponent } from './ngx-input/list/ngx-input-list.component';
+import { NgxInputMultiFileComponent } from './ngx-input/multi-file/ngx-input-multi-file.component';
 import { NgxInputMultiSelectComponent } from './ngx-input/multi-select/ngx-input-multi-select.component';
 import { NgxInputNameComponent } from './ngx-input/name/ngx-input-name.component';
 import { NgxInputNumberComponent } from './ngx-input/number/ngx-input-number.component';
@@ -76,6 +77,7 @@ import { NgxInputTextareaComponent } from './ngx-input/textarea/ngx-input-textar
         NgxInputDateComponent,
         NgxInputFileComponent,
         NgxInputListComponent,
+        NgxInputMultiFileComponent,
         NgxInputMultiSelectComponent,
         NgxInputNameComponent,
         NgxInputNumberComponent,

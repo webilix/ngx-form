@@ -1,0 +1,25 @@
+<mat-form-field *ngIf="control && input" [appearance]="appearance">
+    <mat-error *ngIf="control.invalid">{{ control.errors | ngxError: input.type }}</mat-error>
+    <mat-hint *ngIf="input.hint">{{ input.hint }}</mat-hint>
+    <input matInput type="text" [name]="input.name" [formControl]="control" class="input-hidden" />
+    <input
+        type="file"
+        class="input-hidden"
+        [accept]="(input.mimes || ['*']).join(',')"
+        (change)="setFile($event); fileUpload.value = ''"
+        #fileUpload
+    />
+
+    <div [ngClass]="{ header: true, 'ngx-form-disabled': control.disabled }">
+        <div class="label">{{ input.title + (input.minCount ? ' *' : '') }}</div>
+        <mat-icon [fontIcon]="'note_add'" (click)="fileUpload.click()"></mat-icon>
+    </div>
+
+    <div [ngClass]="{ files: true, 'ngx-form-disabled': control.disabled }" *ngIf="files.length !== 0">
+        <div class="file" *ngFor="let file of files; let index = index">
+            <mat-icon [fontIcon]="'close'" class="delete" (click)="deleteFile(index)"></mat-icon>
+            <div class="name ngx-form-en">{{ file.name }}</div>
+            <div class="size">{{ file.size | ngxFileSize }}</div>
+        </div>
+    </div>
+</mat-form-field>
