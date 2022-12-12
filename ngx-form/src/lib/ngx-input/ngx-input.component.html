@@ -159,6 +159,9 @@
         [control]="control"
         [input]="input"
         [appearance]="appearance"
+        [icon]="'numbers'"
+        [negative]="input.negative"
+        [decimal]="input.decimal"
     ></ngx-input-number>
 
     <!-- NUMERIC -->
@@ -196,6 +199,17 @@
         [input]="input"
         [appearance]="appearance"
     ></ngx-input-period>
+
+    <!-- PRICE -->
+    <ngx-input-number
+        *ngIf="input.type === 'PRICE'"
+        [control]="control"
+        [input]="input"
+        [appearance]="appearance"
+        [suffix]="input.currency"
+        [negative]="false"
+        [decimal]="false"
+    ></ngx-input-number>
 
     <!-- RANGE -->
     <ngx-input-range

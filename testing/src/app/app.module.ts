@@ -27,6 +27,7 @@ import { NumericComponent } from './numeric/numeric.component';
 import { OptionListComponent } from './option-list/option-list.component';
 import { PasswordComponent } from './password/password.component';
 import { PeriodComponent } from './period/period.component';
+import { PriceComponent } from './price/price.component';
 import { RangeComponent } from './range/range.component';
 import { SelectComponent } from './select/select.component';
 import { TagComponent } from './tag/tag.component';
@@ -59,6 +60,7 @@ import { TextareaComponent } from './textarea/textarea.component';
         OptionListComponent,
         PasswordComponent,
         PeriodComponent,
+        PriceComponent,
         RangeComponent,
         SelectComponent,
         TextComponent,

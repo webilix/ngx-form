@@ -181,6 +181,7 @@ interface INgxConfig {
 -   OPTION-LIST
 -   PASSWORD
 -   PERIOD
+-   PRICE
 -   RANGE
 -   SELECT
 -   TAG

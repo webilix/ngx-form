@@ -80,6 +80,7 @@ form {
     .mat-mdc-form-field-text-suffix {
         span.suffix-text {
             display: inline-block;
+            white-space: nowrap;
             margin: 0 1rem 0 0 !important;
         }
 

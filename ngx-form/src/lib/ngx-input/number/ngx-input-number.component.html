@@ -2,8 +2,11 @@
     <mat-label>{{ input.title }}</mat-label>
     <mat-error *ngIf="control.invalid">{{ control.errors | ngxError: input.type }}</mat-error>
     <mat-hint *ngIf="input.hint">{{ input.hint }}</mat-hint>
-    <span matIconSuffix [ngClass]="{ 'suffix-disabled': control.disabled }">
-        <mat-icon [fontIcon]="'numbers'"></mat-icon>
+    <span matTextSuffix [ngClass]="{ 'suffix-text': true, 'suffix-disabled': control.disabled }" *ngIf="suffix">
+        {{ suffix }}
+    </span>
+    <span matIconSuffix [ngClass]="{ 'suffix-disabled': control.disabled }" *ngIf="icon">
+        <mat-icon [fontIcon]="icon"></mat-icon>
     </span>
 
     <input
@@ -13,14 +16,14 @@
         [formControl]="control"
         [ngxPersianNumber]="true"
         [isNnumber]="true"
-        [isNegative]="!!input.negative"
-        [isDecimal]="!!input.decimal"
+        [isNegative]="!!negative"
+        [isDecimal]="!!decimal"
         inputmode="numeric"
         class="input-en"
-        [mask]="input.decimal ? 'separator.3' : 'separator.0'"
+        [mask]="decimal ? 'separator.3' : 'separator.0'"
         thousandSeparator=","
         [specialCharacters]="[',', '.', '-']"
-        [allowNegativeNumbers]="!!input.negative"
+        [allowNegativeNumbers]="!!negative"
         [dropSpecialCharacters]="false"
         maxlength="15"
     />

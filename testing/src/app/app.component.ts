@@ -23,6 +23,7 @@ import { NumericComponent } from './numeric/numeric.component';
 import { OptionListComponent } from './option-list/option-list.component';
 import { PasswordComponent } from './password/password.component';
 import { PeriodComponent } from './period/period.component';
+import { PriceComponent } from './price/price.component';
 import { RangeComponent } from './range/range.component';
 import { SelectComponent } from './select/select.component';
 import { TagComponent } from './tag/tag.component';
@@ -80,6 +81,7 @@ export class AppComponent implements OnInit {
         { name: 'option-list', type: 'OPTION-LIST', title: 'لیست گزینه‌ها' },
         { name: 'password', type: 'PASSWORD', optional: true },
         { name: 'period', type: 'PERIOD', optional: true },
+        { name: 'price', type: 'PRICE', title: 'قیمت', optional: true },
         { name: 'range', type: 'RANGE', title: 'محدوده عددی', optional: true },
         {
             name: 'select',
@@ -128,6 +130,7 @@ export class AppComponent implements OnInit {
         { type: 'OPTION-LIST', title: 'لیست گزینه‌ها', component: OptionListComponent },
         { type: 'PASSWORD', title: 'کلمه عبور', component: PasswordComponent },
         { type: 'PERIOD', title: 'محدوده زمانی', component: PeriodComponent },
+        { type: 'PRICE', title: 'قیمت', component: PriceComponent },
         { type: 'RANGE', title: 'محدوده عددی', component: RangeComponent },
         { type: 'SELECT', title: 'لیست کشویی', component: SelectComponent },
         { type: 'TAG', title: 'تگ', component: TagComponent },
