@@ -1,7 +1,7 @@
 <content>
     <section class="header">
         <select
-            *ngIf="!type || !title || !component"
+            *ngIf="!type || !title"
             class="column"
             [dir]="'rtl'"
             [ngModel]="column"
@@ -19,11 +19,11 @@
         </select>
     </section>
 
-    <section class="form" *ngIf="type && title && component">
-        <ng-container *ngComponentOutlet="component"></ng-container>
+    <section class="form" *ngIf="type && title">
+        <app-input [inputs]="inputs"></app-input>
     </section>
 
-    <section class="form" *ngIf="!type || !title || !component">
+    <section class="form" *ngIf="!type || !title">
         <ngx-form [ngxForm]="ngxForm" (ngxSubmit)="showValues($event)" #ngxFormComponent>
             <div class="comment">این متن در پایین فرم نمایش داده می‌شود.</div>
         </ngx-form>

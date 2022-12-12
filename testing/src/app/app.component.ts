@@ -1,36 +1,37 @@
 import { Component, OnInit, ViewChild } from '@angular/core';
-import { ComponentType } from '@angular/cdk/overlay';
 
 import { INgxForm, NgxFormComponent, NgxFormInputTypes } from '@ngx-form';
 
-import { AutoCompleteComponent } from './auto-complete/auto-complete.component';
-import { BankCardComponent } from './bank-card/bank-card.component';
-import { CheckboxComponent } from './checkbox/checkbox.component';
-import { ColorComponent } from './color/color.component';
-import { DateComponent } from './date/date.component';
-import { DomainComponent } from './domain/domain.component';
-import { EmailComponent } from './email/email.component';
-import { FileComponent } from './file/file.component';
-import { IpComponent } from './ip/ip.component';
-import { ListComponent } from './list/list.component';
-import { MobileComponent } from './mobile/mobile.component';
-import { MultiFileComponent } from './multi-file/multi-file.component';
-import { MultiSelectComponent } from './multi-select/multi-select.component';
-import { NameComponent } from './name/name.component';
-import { NationalCodeComponent } from './national-code/national-code.component';
-import { NumberComponent } from './number/number.component';
-import { NumericComponent } from './numeric/numeric.component';
-import { OptionListComponent } from './option-list/option-list.component';
-import { PasswordComponent } from './password/password.component';
-import { PeriodComponent } from './period/period.component';
-import { PriceComponent } from './price/price.component';
-import { RangeComponent } from './range/range.component';
-import { SelectComponent } from './select/select.component';
-import { TagComponent } from './tag/tag.component';
-import { TextComponent } from './text/text.component';
-import { TextareaComponent } from './textarea/textarea.component';
-import { UrlComponent } from './url/url.component';
-import { UsernameComponent } from './username/username.component';
+import {
+    AutoCompleteInputs,
+    BankCardInputs,
+    CheckboxInputs,
+    ColorInputs,
+    DateInputs,
+    DomainInputs,
+    EmailInputs,
+    FileInputs,
+    IpInputs,
+    ListInputs,
+    MobileInputs,
+    MultiFileInputs,
+    MultiSelectInputs,
+    NameInputs,
+    NationalCodeInputs,
+    NumberInputs,
+    NumericInputs,
+    OptionListInputs,
+    PasswordInputs,
+    PeriodInputs,
+    PriceInputs,
+    RangeInputs,
+    SelectInputs,
+    TagInputs,
+    TextareaInputs,
+    TextInputs,
+    UrlInputs,
+    UsernameInputs,
+} from './inputs';
 
 @Component({
     selector: 'app-root',
@@ -41,7 +42,7 @@ export class AppComponent implements OnInit {
     @ViewChild('ngxFormComponent') ngxFormComponent?: NgxFormComponent;
 
     public column: number = 1;
-    public inputs: NgxFormInputTypes[] = [
+    public ngxInputs: NgxFormInputTypes[] = [
         { name: 'comment', type: 'COMMENT', title: 'توضیحات', value: 'متن توضیحات به این صورت نمایش داده می‌شود.' },
 
         {
@@ -109,40 +110,40 @@ export class AppComponent implements OnInit {
         appearance: 'fill',
     };
 
-    public types: { type: string; title: string; component: ComponentType<any> }[] = [
-        { type: 'AUTO-COMPLETE', title: 'لیست تکمیلی', component: AutoCompleteComponent },
-        { type: 'BANK-CARD', title: 'شماره کارت بانکی', component: BankCardComponent },
-        { type: 'CHECKBOX', title: 'یک انتخابی', component: CheckboxComponent },
-        { type: 'COLOR', title: 'رنگ', component: ColorComponent },
-        { type: 'DATE', title: 'تاریخ', component: DateComponent },
-        { type: 'DOMAIN', title: 'نام دامنه', component: DomainComponent },
-        { type: 'EMAIL', title: 'ایمیل', component: EmailComponent },
-        { type: 'FILE', title: 'فایل', component: FileComponent },
-        { type: 'IP', title: 'آدرس آی‌پی', component: IpComponent },
-        { type: 'LIST', title: 'لیست', component: ListComponent },
-        { type: 'MOBILE', title: 'موبایل', component: MobileComponent },
-        { type: 'MULTI-FILE', title: 'فایل‌ها', component: MultiFileComponent },
-        { type: 'MULTI-SELECT', title: 'چند انتخابی', component: MultiSelectComponent },
-        { type: 'NAME', title: 'نام و نام خانوادگی', component: NameComponent },
-        { type: 'NATIONAL-CODE', title: 'کد ملی', component: NationalCodeComponent },
-        { type: 'NUMBER', title: 'مقدار عددی', component: NumberComponent },
-        { type: 'NUMERIC', title: 'عبارت عددی', component: NumericComponent },
-        { type: 'OPTION-LIST', title: 'لیست گزینه‌ها', component: OptionListComponent },
-        { type: 'PASSWORD', title: 'کلمه عبور', component: PasswordComponent },
-        { type: 'PERIOD', title: 'محدوده زمانی', component: PeriodComponent },
-        { type: 'PRICE', title: 'قیمت', component: PriceComponent },
-        { type: 'RANGE', title: 'محدوده عددی', component: RangeComponent },
-        { type: 'SELECT', title: 'لیست کشویی', component: SelectComponent },
-        { type: 'TAG', title: 'تگ', component: TagComponent },
-        { type: 'TEXT', title: 'متن یک خطی', component: TextComponent },
-        { type: 'TEXTAREA', title: 'متن چند خطی', component: TextareaComponent },
-        { type: 'URL', title: 'آدرس سایت', component: UrlComponent },
-        { type: 'USERNAME', title: 'نام کاربری', component: UsernameComponent },
+    public types: { type: string; title: string; inputs: (NgxFormInputTypes | NgxFormInputTypes[])[] }[] = [
+        { type: 'AUTO-COMPLETE', title: 'لیست تکمیلی', inputs: AutoCompleteInputs },
+        { type: 'BANK-CARD', title: 'شماره کارت بانکی', inputs: BankCardInputs },
+        { type: 'CHECKBOX', title: 'یک انتخابی', inputs: CheckboxInputs },
+        { type: 'COLOR', title: 'رنگ', inputs: ColorInputs },
+        { type: 'DATE', title: 'تاریخ', inputs: DateInputs },
+        { type: 'DOMAIN', title: 'نام دامنه', inputs: DomainInputs },
+        { type: 'EMAIL', title: 'ایمیل', inputs: EmailInputs },
+        { type: 'FILE', title: 'فایل', inputs: FileInputs },
+        { type: 'IP', title: 'آدرس آی‌پی', inputs: IpInputs },
+        { type: 'LIST', title: 'لیست', inputs: ListInputs },
+        { type: 'MOBILE', title: 'موبایل', inputs: MobileInputs },
+        { type: 'MULTI-FILE', title: 'فایل‌ها', inputs: MultiFileInputs },
+        { type: 'MULTI-SELECT', title: 'چند انتخابی', inputs: MultiSelectInputs },
+        { type: 'NAME', title: 'نام و نام خانوادگی', inputs: NameInputs },
+        { type: 'NATIONAL-CODE', title: 'کد ملی', inputs: NationalCodeInputs },
+        { type: 'NUMBER', title: 'مقدار عددی', inputs: NumberInputs },
+        { type: 'NUMERIC', title: 'عبارت عددی', inputs: NumericInputs },
+        { type: 'OPTION-LIST', title: 'لیست گزینه‌ها', inputs: OptionListInputs },
+        { type: 'PASSWORD', title: 'کلمه عبور', inputs: PasswordInputs },
+        { type: 'PERIOD', title: 'محدوده زمانی', inputs: PeriodInputs },
+        { type: 'PRICE', title: 'قیمت', inputs: PriceInputs },
+        { type: 'RANGE', title: 'محدوده عددی', inputs: RangeInputs },
+        { type: 'SELECT', title: 'لیست کشویی', inputs: SelectInputs },
+        { type: 'TAG', title: 'تگ', inputs: TagInputs },
+        { type: 'TEXT', title: 'متن یک خطی', inputs: TextInputs },
+        { type: 'TEXTAREA', title: 'متن چند خطی', inputs: TextareaInputs },
+        { type: 'URL', title: 'آدرس سایت', inputs: UrlInputs },
+        { type: 'USERNAME', title: 'نام کاربری', inputs: UsernameInputs },
     ];
 
     public type: string | null = null;
     public title: string | null = null;
-    public component?: ComponentType<any>;
+    public inputs: (NgxFormInputTypes | NgxFormInputTypes[])[] = [];
 
     public localStorage: string = 'NGX-FORM-INPUT-TYPE';
 
@@ -161,13 +162,13 @@ export class AppComponent implements OnInit {
 
     setColumn(column: number): void {
         if (column === 1) {
-            this.ngxForm.inputs = [...this.inputs];
+            this.ngxForm.inputs = [...this.ngxInputs];
             return;
         }
 
         this.ngxForm.inputs = [];
 
-        const inputs: NgxFormInputTypes[] = [...this.inputs];
+        const inputs: NgxFormInputTypes[] = [...this.ngxInputs];
         while (inputs.length !== 0) {
             this.ngxForm.inputs.push(inputs.splice(0, column));
         }
@@ -178,7 +179,7 @@ export class AppComponent implements OnInit {
             localStorage.removeItem(this.localStorage);
             this.type = null;
             this.title = null;
-            this.component = undefined;
+            this.inputs = [];
         } else {
             const data = this.types.find((t) => t.type === type);
             if (!data) return;
@@ -186,7 +187,7 @@ export class AppComponent implements OnInit {
             localStorage.setItem(this.localStorage, type);
             this.type = type;
             this.title = data.title;
-            this.component = data.component;
+            this.inputs = data.inputs;
         }
     }
 }
