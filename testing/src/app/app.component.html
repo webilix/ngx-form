@@ -24,7 +24,12 @@
     </section>
 
     <section class="form" *ngIf="!type || !title">
-        <ngx-form [ngxForm]="ngxForm" (ngxSubmit)="showValues($event)" #ngxFormComponent>
+        <ngx-form
+            [ngxForm]="ngxForm"
+            (ngxSubmit)="showValues('ngxSubmit', $event)"
+            (ngxChange)="showValues('ngxChange', $event)"
+            #ngxFormComponent
+        >
             <div class="comment">این متن در پایین فرم نمایش داده می‌شود.</div>
         </ngx-form>
     </section>

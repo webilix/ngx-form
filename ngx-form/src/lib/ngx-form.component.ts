@@ -17,6 +17,7 @@ export class NgxFormComponent implements OnInit {
 
     @Input() ngxForm?: INgxForm;
     @Output() protected ngxSubmit: EventEmitter<INgxFormValues> = new EventEmitter<INgxFormValues>();
+    @Output() protected ngxChange: EventEmitter<INgxFormValues> = new EventEmitter<INgxFormValues>();
 
     protected isArray = Array.isArray;
 
@@ -38,9 +39,6 @@ export class NgxFormComponent implements OnInit {
             inputs.forEach((input: NgxFormInputTypes) => this.setInput(input));
         });
 
-        this.checkAvailability();
-        this.checkVisibility();
-
         this.formGroup.valueChanges.subscribe({
             next: () => {
                 let check: boolean = false;
@@ -52,10 +50,16 @@ export class NgxFormComponent implements OnInit {
                 if (!check) return;
 
                 this.inputValues = { ...this.formGroup.value };
-                this.checkAvailability();
-                this.checkVisibility();
+                const values: INgxFormValues = this.getValues();
+                this.checkAvailability(values);
+                this.checkVisibility(values);
+                this.ngxChange.emit(values);
             },
         });
+
+        const values: INgxFormValues = this.getValues();
+        this.checkAvailability(values);
+        this.checkVisibility(values);
     }
 
     private setInput(input: NgxFormInputTypes): void {
@@ -73,10 +77,9 @@ export class NgxFormComponent implements OnInit {
         this.formGroup.setControl(input.name, NgxFieldInputInfo[input.type].methods.control(input, validators));
     }
 
-    private checkAvailability(): void {
+    private checkAvailability(values: INgxFormValues): void {
         if (!this.ngxForm) return;
 
-        const values: INgxFormValues = this.getValues();
         this.ngxForm.inputs.forEach((row: NgxFormInputTypes | NgxFormInputTypes[]) => {
             const inputs: NgxFormInputTypes[] = Array.isArray(row) ? row : [row];
             inputs.forEach((input: NgxFormInputTypes) => {
@@ -88,11 +91,10 @@ export class NgxFormComponent implements OnInit {
         });
     }
 
-    private checkVisibility(): void {
+    private checkVisibility(values: INgxFormValues): void {
         this.hiddenInputs = [];
         if (!this.ngxForm) return;
 
-        const values: INgxFormValues = this.getValues();
         this.ngxForm.inputs.forEach((row: NgxFormInputTypes | NgxFormInputTypes[]) => {
             const inputs: NgxFormInputTypes[] = Array.isArray(row) ? row : [row];
             inputs.forEach((input: NgxFormInputTypes) => {
