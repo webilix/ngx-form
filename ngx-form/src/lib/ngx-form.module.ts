@@ -118,7 +118,6 @@ export class NgxFormModule {
     static forRoot(arg1?: any, arg2?: any): ModuleWithProviders<NgxFormModule> {
         const style: Partial<INgxStyle> =
             arg1 && typeof arg1 !== 'string' ? arg1 : arg2 && typeof arg2 !== 'string' ? arg2 : {};
-
         const root: string =
             ':root {' +
             `--ngxFormFaFont:${style.faFont || 'Yekan'};` +
@@ -130,7 +129,6 @@ export class NgxFormModule {
             `--ngxFormBorderColor:${style.borderColor || 'rgb(187, 206, 213)'};` +
             `--ngxFormBackgroundColor:${style.backgroundColor || 'rgb(232, 239, 241)'};` +
             '}';
-
         const html: HTMLStyleElement = document.createElement('style');
         html.innerHTML = root;
         document.getElementsByTagName('head')[0].appendChild(html);
