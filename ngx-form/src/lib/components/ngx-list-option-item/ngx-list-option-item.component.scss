@@ -18,7 +18,7 @@ content {
     }
 
     input.en {
-        font-family: var(--ngxFormEnFont);
+        font-family: var(--ngxFormEnFont) !important;
         direction: ltr;
         text-align: left;
     }

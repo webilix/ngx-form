@@ -10,14 +10,9 @@ content {
     }
 
     input.en {
-        font-family: var(--ngxFormEnFont);
+        font-family: var(--ngxFormEnFont) !important;
         direction: ltr;
         text-align: left;
-    }
-
-    .suffix {
-        position: relative;
-        left: 0.5rem;
     }
 
     mat-icon {
