@@ -2,14 +2,13 @@ import { FormControl, ValidatorFn, Validators } from '@angular/forms';
 
 import { RegX } from '@webilix/regex-library';
 
-import { INgxFormInput } from '../interfaces/ngx-input';
-import { NgxFormInputMethods } from '../ngx-form.methods';
+import { INgxFormInput, NgxFormMethods } from '../interfaces';
 
 export interface INgxFormInputDomain extends Omit<INgxFormInput, 'english'> {
     type: 'DOMAIN';
 }
 
-export class NgxFormInputDomainMethods extends NgxFormInputMethods<INgxFormInputDomain, string | null> {
+export class NgxFormInputDomainMethods extends NgxFormMethods<INgxFormInputDomain, string | null> {
     control(input: INgxFormInputDomain, validators: ValidatorFn[]): FormControl<string | null> {
         input.title = input.title || 'دامنه سایت';
         validators.push(Validators.pattern(RegX.DOMAIN.get()));

@@ -1,4 +1,4 @@
-import { NgxFormInputMethods } from '../ngx-form.methods';
+import { NgxFormMethods } from './ngx-methods';
 import { NgxFormInputTypes } from '../ngx-form.types';
 
 import {
@@ -35,7 +35,7 @@ import {
 
 interface INgxFieldInputInfo {
     title: string;
-    methods: NgxFormInputMethods<any, any>;
+    methods: NgxFormMethods<any, any>;
 }
 
 export const NgxFieldInputInfo: { [key in NgxFormInputTypes['type']]: INgxFieldInputInfo } = {

@@ -2,8 +2,7 @@ import { FormControl, ValidatorFn, Validators } from '@angular/forms';
 
 import { Validator } from '@webilix/validator-library';
 
-import { INgxFormInput } from '../interfaces/ngx-input';
-import { NgxFormInputMethods } from '../ngx-form.methods';
+import { INgxFormInput, NgxFormMethods } from '../interfaces';
 import { NgxLengthValidator } from '../validators';
 
 export interface INgxFormInputText extends INgxFormInput {
@@ -49,7 +48,7 @@ export interface INgxFormInputText extends INgxFormInput {
     counter?: boolean;
 }
 
-export class NgxFormInputTextMethods extends NgxFormInputMethods<INgxFormInputText, string | null> {
+export class NgxFormInputTextMethods extends NgxFormMethods<INgxFormInputText, string | null> {
     control(input: INgxFormInputText, validators: ValidatorFn[]): FormControl<string | null> {
         const minLength: number | null = input.minLength && input.minLength > 0 ? input.minLength : null;
         const maxLength: number | null = input.maxLength && input.maxLength > 0 ? input.maxLength : null;

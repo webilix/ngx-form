@@ -2,8 +2,7 @@ import { FormControl, ValidatorFn } from '@angular/forms';
 
 import { Validator } from '@webilix/validator-library';
 
-import { INgxFormInput } from '../interfaces/ngx-input';
-import { NgxFormInputMethods } from '../ngx-form.methods';
+import { INgxFormInput, NgxFormMethods } from '../interfaces';
 import { NgxMaxDateValidator, NgxMinDateValidator } from '../validators';
 
 export interface INgxFormInputDate extends Omit<INgxFormInput, 'english' | 'value'> {
@@ -32,7 +31,7 @@ export interface INgxFormInputDate extends Omit<INgxFormInput, 'english' | 'valu
     maxDate?: Date;
 }
 
-export class NgxFormInputDateMethods extends NgxFormInputMethods<INgxFormInputDate, Date | null> {
+export class NgxFormInputDateMethods extends NgxFormMethods<INgxFormInputDate, Date | null> {
     control(input: INgxFormInputDate, validators: ValidatorFn[]): FormControl<Date | null> {
         input.title = input.title || 'تاریخ';
         if (input.minDate) validators.push(NgxMinDateValidator(input.minDate));

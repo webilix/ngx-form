@@ -3,7 +3,7 @@ import { FormControl } from '@angular/forms';
 import { MatFormFieldAppearance } from '@angular/material/form-field';
 
 import { INgxFormInputDate } from '../../inputs';
-import { INgxComponentDate } from '../../interfaces/components/ngx-component-date';
+import { INgxComponentDate } from '../../interfaces';
 import { NgxFormService } from '../../ngx-form.service';
 
 @Component({

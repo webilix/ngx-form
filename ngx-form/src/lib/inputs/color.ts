@@ -2,8 +2,7 @@ import { FormControl, ValidatorFn } from '@angular/forms';
 
 import { Validator } from '@webilix/validator-library';
 
-import { INgxFormInput } from '../interfaces/ngx-input';
-import { NgxFormInputMethods } from '../ngx-form.methods';
+import { INgxFormInput, NgxFormMethods } from '../interfaces';
 
 export interface INgxFormInputColor extends Omit<INgxFormInput, 'english'> {
     type: 'COLOR';
@@ -17,7 +16,7 @@ export interface INgxFormInputColor extends Omit<INgxFormInput, 'english'> {
     colors?: string[];
 }
 
-export class NgxFormInputColorMethods extends NgxFormInputMethods<INgxFormInputColor, string | null> {
+export class NgxFormInputColorMethods extends NgxFormMethods<INgxFormInputColor, string | null> {
     control(input: INgxFormInputColor, validators: ValidatorFn[]): FormControl<string | null> {
         input.title = input.title || 'رنگ';
 

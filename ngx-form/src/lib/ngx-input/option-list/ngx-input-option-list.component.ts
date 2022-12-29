@@ -4,7 +4,7 @@ import { FormControl } from '@angular/forms';
 import { MatFormFieldAppearance } from '@angular/material/form-field';
 
 import { INgxFormInputOptionList } from '../../inputs';
-import { INgxFormOption } from '../../interfaces/ngx-option';
+import { INgxFormOption } from '../../interfaces';
 
 @Component({
     selector: 'ngx-input-option-list',

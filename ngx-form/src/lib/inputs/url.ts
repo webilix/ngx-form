@@ -2,14 +2,13 @@ import { FormControl, ValidatorFn, Validators } from '@angular/forms';
 
 import { RegX } from '@webilix/regex-library';
 
-import { INgxFormInput } from '../interfaces/ngx-input';
-import { NgxFormInputMethods } from '../ngx-form.methods';
+import { INgxFormInput, NgxFormMethods } from '../interfaces';
 
 export interface INgxFormInputUrl extends Omit<INgxFormInput, 'english'> {
     type: 'URL';
 }
 
-export class NgxFormInputUrlMethods extends NgxFormInputMethods<INgxFormInputUrl, string | null> {
+export class NgxFormInputUrlMethods extends NgxFormMethods<INgxFormInputUrl, string | null> {
     control(input: INgxFormInputUrl, validators: ValidatorFn[]): FormControl<string | null> {
         input.title = input.title || 'آدرس سایت';
         validators.push(Validators.pattern(RegX.URL.get(true)));

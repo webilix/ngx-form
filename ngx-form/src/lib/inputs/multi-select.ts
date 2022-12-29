@@ -1,8 +1,6 @@
 import { FormControl, ValidatorFn } from '@angular/forms';
 
-import { INgxFormInput } from '../interfaces/ngx-input';
-import { INgxFormOption } from '../interfaces/ngx-option';
-import { NgxFormInputMethods } from '../ngx-form.methods';
+import { INgxFormInput, INgxFormOption, NgxFormMethods } from '../interfaces';
 import { NgxMaxCountValidator, NgxMinCountValidator } from '../validators';
 
 export interface INgxFormInputMultiSelect extends Omit<INgxFormInput, 'value' | 'optional'> {
@@ -52,7 +50,7 @@ export interface INgxFormInputMultiSelect extends Omit<INgxFormInput, 'value' | 
     view?: 'CHECKBOX' | 'SELECT' | 'TAG';
 }
 
-export class NgxFormInputMultiSelectMethods extends NgxFormInputMethods<INgxFormInputMultiSelect, string[] | null> {
+export class NgxFormInputMultiSelectMethods extends NgxFormMethods<INgxFormInputMultiSelect, string[] | null> {
     control(input: INgxFormInputMultiSelect, validators: ValidatorFn[]): FormControl<string[] | null> {
         const options: string[] = input.options.map((option) => option.id);
         const value: string[] = (input.value || []).filter((value: string) => options.includes(value));

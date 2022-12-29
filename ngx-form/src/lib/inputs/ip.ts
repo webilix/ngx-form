@@ -2,14 +2,13 @@ import { FormControl, ValidatorFn, Validators } from '@angular/forms';
 
 import { RegX } from '@webilix/regex-library';
 
-import { INgxFormInput } from '../interfaces/ngx-input';
-import { NgxFormInputMethods } from '../ngx-form.methods';
+import { INgxFormInput, NgxFormMethods } from '../interfaces';
 
 export interface INgxFormInputIp extends Omit<INgxFormInput, 'english'> {
     type: 'IP';
 }
 
-export class NgxFormInputIpMethods extends NgxFormInputMethods<INgxFormInputIp, string | null> {
+export class NgxFormInputIpMethods extends NgxFormMethods<INgxFormInputIp, string | null> {
     control(input: INgxFormInputIp, validators: ValidatorFn[]): FormControl<string | null> {
         input.title = input.title || 'آدرس آی‌پی';
         validators.push(Validators.pattern(RegX.IP4.get()));

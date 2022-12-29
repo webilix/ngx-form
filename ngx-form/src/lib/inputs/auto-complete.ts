@@ -2,8 +2,7 @@ import { FormControl, ValidatorFn, Validators } from '@angular/forms';
 
 import { Validator } from '@webilix/validator-library';
 
-import { INgxFormInput } from '../interfaces/ngx-input';
-import { NgxFormInputMethods } from '../ngx-form.methods';
+import { INgxFormInput, NgxFormMethods } from '../interfaces';
 
 /**
  * AUTO-COMPLETE input interface
@@ -25,7 +24,7 @@ export interface INgxFormInputAutoComplete extends INgxFormInput {
     options: string[];
 }
 
-export class NgxFormInputAutoCompleteMethods extends NgxFormInputMethods<INgxFormInputAutoComplete, string | null> {
+export class NgxFormInputAutoCompleteMethods extends NgxFormMethods<INgxFormInputAutoComplete, string | null> {
     control(input: INgxFormInputAutoComplete, validators: ValidatorFn[]): FormControl<string | null> {
         input.options = input.options.sort((o1: string, o2: string) => o1.localeCompare(o2));
         return new FormControl<string | null>(input.value || null, validators);

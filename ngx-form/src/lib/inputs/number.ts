@@ -2,8 +2,7 @@ import { FormControl, ValidatorFn, Validators } from '@angular/forms';
 
 import { Validator } from '@webilix/validator-library';
 
-import { INgxFormInput } from '../interfaces/ngx-input';
-import { NgxFormInputMethods } from '../ngx-form.methods';
+import { INgxFormInput, NgxFormMethods } from '../interfaces';
 
 export interface INgxFormInputNumber extends Omit<INgxFormInput, 'english' | 'value'> {
     type: 'NUMBER';
@@ -52,7 +51,7 @@ export interface INgxFormInputNumber extends Omit<INgxFormInput, 'english' | 'va
     decimal?: boolean;
 }
 
-export class NgxFormInputNumberMethods extends NgxFormInputMethods<INgxFormInputNumber, number | null> {
+export class NgxFormInputNumberMethods extends NgxFormMethods<INgxFormInputNumber, number | null> {
     control(input: INgxFormInputNumber, validators: ValidatorFn[]): FormControl<number | null> {
         if (input.minimum) validators.push(Validators.min(input.minimum));
         if (input.maximum) validators.push(Validators.max(input.maximum));

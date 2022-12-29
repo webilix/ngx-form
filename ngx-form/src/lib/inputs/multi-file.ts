@@ -1,7 +1,6 @@
 import { FormControl, ValidatorFn } from '@angular/forms';
 
-import { INgxFormInput } from '../interfaces/ngx-input';
-import { NgxFormInputMethods } from '../ngx-form.methods';
+import { INgxFormInput, NgxFormMethods } from '../interfaces';
 import { NgxDuplicateValidator, NgxMaxCountValidator, NgxMinCountValidator } from '../validators';
 
 export interface INgxFormInputMultiFile extends Omit<INgxFormInput, 'english' | 'value' | 'optional'> {
@@ -29,7 +28,7 @@ export interface INgxFormInputMultiFile extends Omit<INgxFormInput, 'english' | 
     maxCount?: number;
 }
 
-export class NgxFormInputMultiFileMethods extends NgxFormInputMethods<INgxFormInputMultiFile, File[] | null> {
+export class NgxFormInputMultiFileMethods extends NgxFormMethods<INgxFormInputMultiFile, File[] | null> {
     control(input: INgxFormInputMultiFile, validators: ValidatorFn[]): FormControl<File[] | null> {
         input.title = input.title || 'فایل‌ها';
         validators.push(

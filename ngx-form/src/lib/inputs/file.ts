@@ -1,7 +1,6 @@
 import { FormControl, ValidatorFn } from '@angular/forms';
 
-import { INgxFormInput } from '../interfaces/ngx-input';
-import { NgxFormInputMethods } from '../ngx-form.methods';
+import { INgxFormInput, NgxFormMethods } from '../interfaces';
 
 export interface INgxFormInputFile extends Omit<INgxFormInput, 'english' | 'value'> {
     type: 'FILE';
@@ -14,7 +13,7 @@ export interface INgxFormInputFile extends Omit<INgxFormInput, 'english' | 'valu
     mimes?: string[];
 }
 
-export class NgxFormInputFileMethods extends NgxFormInputMethods<INgxFormInputFile, File | null> {
+export class NgxFormInputFileMethods extends NgxFormMethods<INgxFormInputFile, File | null> {
     control(input: INgxFormInputFile, validators: ValidatorFn[]): FormControl<File | null> {
         input.title = input.title || 'فایل';
         return new FormControl<File | null>(null, validators);

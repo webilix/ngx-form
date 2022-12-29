@@ -2,14 +2,13 @@ import { FormControl, ValidatorFn } from '@angular/forms';
 
 import { RegX } from '@webilix/regex-library';
 
-import { INgxFormInput } from '../interfaces/ngx-input';
-import { NgxFormInputMethods } from '../ngx-form.methods';
+import { INgxFormInput, NgxFormMethods } from '../interfaces';
 
 export interface INgxFormInputMobile extends Omit<INgxFormInput, 'english'> {
     type: 'MOBILE';
 }
 
-export class NgxFormInputMobileMethods extends NgxFormInputMethods<INgxFormInputMobile, string | null> {
+export class NgxFormInputMobileMethods extends NgxFormMethods<INgxFormInputMobile, string | null> {
     control(input: INgxFormInputMobile, validators: ValidatorFn[]): FormControl<string | null> {
         input.title = input.title || 'موبایل';
 

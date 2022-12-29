@@ -2,7 +2,7 @@ import { Component, EventEmitter, Inject, Input, OnInit, Output, ViewChild } fro
 import { FormGroup, NgForm, ValidatorFn, Validators } from '@angular/forms';
 import { MatFormFieldAppearance } from '@angular/material/form-field';
 
-import { NgxFieldInputInfo } from './interfaces/ngx-info';
+import { NgxFieldInputInfo } from './interfaces';
 
 import { INgxForm, INgxFormValues } from './ngx-form.interfaces';
 import { NgxFormInputTypes } from './ngx-form.types';

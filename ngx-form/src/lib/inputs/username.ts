@@ -3,8 +3,7 @@ import { FormControl, ValidatorFn, Validators } from '@angular/forms';
 import { RegX } from '@webilix/regex-library';
 import { Validator } from '@webilix/validator-library';
 
-import { INgxFormInput } from '../interfaces/ngx-input';
-import { NgxFormInputMethods } from '../ngx-form.methods';
+import { INgxFormInput, NgxFormMethods } from '../interfaces';
 
 export interface INgxFormInputUsername extends Omit<INgxFormInput, 'english'> {
     type: 'USERNAME';
@@ -52,7 +51,7 @@ export interface INgxFormInputUsername extends Omit<INgxFormInput, 'english'> {
     unverified?: boolean;
 }
 
-export class NgxFormInputUsernameMethods extends NgxFormInputMethods<INgxFormInputUsername, string | null> {
+export class NgxFormInputUsernameMethods extends NgxFormMethods<INgxFormInputUsername, string | null> {
     control(input: INgxFormInputUsername, validators: ValidatorFn[]): FormControl<string | null> {
         input.title = input.title || 'نام کاربری';
         if (!input.unverified) {

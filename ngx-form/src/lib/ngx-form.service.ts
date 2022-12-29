@@ -3,8 +3,8 @@ import { MatDialog } from '@angular/material/dialog';
 
 import { Validator } from '@webilix/validator-library';
 
+import { INgxComponentDate } from './interfaces';
 import { NgxDateComponent } from './components/ngx-date/ngx-date.component';
-import { INgxComponentDate } from './interfaces/components/ngx-component-date';
 
 @Injectable()
 export class NgxFormService {

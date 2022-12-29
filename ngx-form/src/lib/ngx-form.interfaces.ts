@@ -1,6 +1,7 @@
-import { NgxFormInputTypes } from './ngx-form.types';
-import { INgxFormButton } from './interfaces/ngx-button';
 import { MatFormFieldAppearance } from '@angular/material/form-field';
+
+import { INgxFormButton } from './interfaces';
+import { NgxFormInputTypes } from './ngx-form.types';
 
 /**
  * Form data interface

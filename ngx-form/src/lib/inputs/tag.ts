@@ -2,8 +2,7 @@ import { ValidatorFn, FormControl } from '@angular/forms';
 
 import { Validator } from '@webilix/validator-library';
 
-import { INgxFormInput } from '../interfaces/ngx-input';
-import { NgxFormInputMethods } from '../ngx-form.methods';
+import { INgxFormInput, NgxFormMethods } from '../interfaces';
 import { NgxMaxCountValidator, NgxMinCountValidator } from '../validators';
 
 export interface INgxFormInputTag extends Omit<INgxFormInput, 'english' | 'value' | 'optional'> {
@@ -38,7 +37,7 @@ export interface INgxFormInputTag extends Omit<INgxFormInput, 'english' | 'value
     maxCount?: number;
 }
 
-export class NgxFormInputTagMethods extends NgxFormInputMethods<INgxFormInputTag, string[] | null> {
+export class NgxFormInputTagMethods extends NgxFormMethods<INgxFormInputTag, string[] | null> {
     control(input: INgxFormInputTag, validators: ValidatorFn[]): FormControl<string[] | null> {
         input.title = input.title || 'تگ';
         if (input.minCount) validators.push(NgxMinCountValidator<string>(input.minCount));

@@ -14,17 +14,15 @@ import { MatCheckboxModule } from '@angular/material/checkbox';
 import { MatDialogModule } from '@angular/material/dialog';
 import { MatChipsModule } from '@angular/material/chips';
 
-import { NgxBankCardPipe } from './pipes/ngx-bank-card.pipe';
-import { NgxDatePipe } from './pipes/ngx-date.pipe';
-import { NgxErrorPipe } from './pipes/ngx-error.pipe';
-import { NgxFileSizePipe } from './pipes/ngx-file-size.pipe';
-import { NgxMobilePipe } from './pipes/ngx-mobile.pipe';
-import { NgxAutocompleteDirective } from './directives/ngx-autocomplete.directive';
-import { NgxAutoheightDirective } from './directives/ngx-autoheight.directive';
-import { NgxErrorDirective } from './directives/ngx-error.directive';
-import { NgxPersianNumberDirective } from './directives/ngx-persian-number.directive';
+import {
+    NgxAutocompleteDirective,
+    NgxAutoheightDirective,
+    NgxErrorDirective,
+    NgxPersianNumberDirective,
+} from './directives';
+import { INgxStyle } from './interfaces';
+import { NgxBankCardPipe, NgxDatePipe, NgxErrorPipe, NgxFileSizePipe, NgxMobilePipe } from './pipes';
 
-import { INgxStyle } from './interfaces/ngx-style';
 import { NgxFormService } from './ngx-form.service';
 import { NgxFormComponent } from './ngx-form.component';
 
@@ -54,15 +52,15 @@ import { NgxInputTextareaComponent } from './ngx-input/textarea/ngx-input-textar
 
 @NgModule({
     declarations: [
+        NgxAutocompleteDirective,
+        NgxAutoheightDirective,
+        NgxErrorDirective,
+        NgxPersianNumberDirective,
         NgxBankCardPipe,
         NgxDatePipe,
         NgxErrorPipe,
         NgxFileSizePipe,
         NgxMobilePipe,
-        NgxAutocompleteDirective,
-        NgxAutoheightDirective,
-        NgxErrorDirective,
-        NgxPersianNumberDirective,
 
         NgxFormComponent,
 
@@ -118,6 +116,7 @@ export class NgxFormModule {
     static forRoot(arg1?: any, arg2?: any): ModuleWithProviders<NgxFormModule> {
         const style: Partial<INgxStyle> =
             arg1 && typeof arg1 !== 'string' ? arg1 : arg2 && typeof arg2 !== 'string' ? arg2 : {};
+
         const root: string =
             ':root {' +
             `--ngxFormFaFont:${style.faFont || 'Yekan'};` +
@@ -129,6 +128,7 @@ export class NgxFormModule {
             `--ngxFormBorderColor:${style.borderColor || 'rgb(187, 206, 213)'};` +
             `--ngxFormBackgroundColor:${style.backgroundColor || 'rgb(232, 239, 241)'};` +
             '}';
+
         const html: HTMLStyleElement = document.createElement('style');
         html.innerHTML = root;
         document.getElementsByTagName('head')[0].appendChild(html);

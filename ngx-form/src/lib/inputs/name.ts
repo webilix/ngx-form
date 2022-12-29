@@ -2,9 +2,7 @@ import { FormControl, ValidatorFn } from '@angular/forms';
 
 import { Validator } from '@webilix/validator-library';
 
-import { INgxFormInput } from '../interfaces/ngx-input';
-import { INgxFormName } from '../interfaces/ngx-name';
-import { NgxFormInputMethods } from '../ngx-form.methods';
+import { INgxFormInput, INgxFormName, NgxFormMethods } from '../interfaces';
 
 export interface INgxFormInputName extends Omit<INgxFormInput, 'title' | 'value' | 'english'> {
     type: 'NAME';
@@ -18,7 +16,7 @@ export interface INgxFormInputName extends Omit<INgxFormInput, 'title' | 'value'
     value?: INgxFormName;
 }
 
-export class NgxFormInputNameMethods extends NgxFormInputMethods<INgxFormInputName, INgxFormName | null> {
+export class NgxFormInputNameMethods extends NgxFormMethods<INgxFormInputName, INgxFormName | null> {
     control(input: INgxFormInputName, validators: ValidatorFn[]): FormControl<INgxFormName | null> {
         const value: INgxFormName | null =
             Validator.VALUE.isObject(input.value) && input.value && input.value.first && input.value.last

@@ -2,9 +2,7 @@ import { FormControl, ValidatorFn } from '@angular/forms';
 
 import { Validator } from '@webilix/validator-library';
 
-import { INgxFormInput } from '../interfaces/ngx-input';
-import { INgxFormOption } from '../interfaces/ngx-option';
-import { NgxFormInputMethods } from '../ngx-form.methods';
+import { INgxFormInput, INgxFormOption, NgxFormMethods } from '../interfaces';
 import { NgxDuplicateValidator, NgxMaxCountValidator, NgxMinCountValidator } from '../validators';
 
 export interface INgxFormInputOptionList extends Omit<INgxFormInput, 'optional' | 'value'> {
@@ -62,10 +60,7 @@ export interface INgxFormInputOptionList extends Omit<INgxFormInput, 'optional' 
     maxCount?: number;
 }
 
-export class NgxFormInputOptionListMethods extends NgxFormInputMethods<
-    INgxFormInputOptionList,
-    INgxFormOption[] | null
-> {
+export class NgxFormInputOptionListMethods extends NgxFormMethods<INgxFormInputOptionList, INgxFormOption[] | null> {
     control(input: INgxFormInputOptionList, validators: ValidatorFn[]): FormControl<INgxFormOption[] | null> {
         if (!input.duplicate)
             validators.push(NgxDuplicateValidator<INgxFormOption>((value: INgxFormOption) => value.title));

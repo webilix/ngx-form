@@ -2,8 +2,7 @@ import { ValidatorFn, FormControl, Validators } from '@angular/forms';
 
 import { Validator } from '@webilix/validator-library';
 
-import { INgxFormInput } from '../interfaces/ngx-input';
-import { NgxFormInputMethods } from '../ngx-form.methods';
+import { INgxFormInput, NgxFormMethods } from '../interfaces';
 
 export interface INgxFormInputTextarea extends INgxFormInput {
     type: 'TEXTAREA';
@@ -43,7 +42,7 @@ export interface INgxFormInputTextarea extends INgxFormInput {
     counter?: boolean;
 }
 
-export class NgxFormInputTextareaMethods extends NgxFormInputMethods<INgxFormInputTextarea, string | null> {
+export class NgxFormInputTextareaMethods extends NgxFormMethods<INgxFormInputTextarea, string | null> {
     control(input: INgxFormInputTextarea, validators: ValidatorFn[]): FormControl<string | null> {
         if (input.maxLength && input.maxLength > 0) validators.push(Validators.maxLength(input.maxLength));
 

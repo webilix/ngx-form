@@ -3,8 +3,8 @@ import { FormControl } from '@angular/forms';
 import { MatFormFieldAppearance } from '@angular/material/form-field';
 
 import { INgxFormInputPeriod } from '../../inputs';
+import { INgxComponentDate } from '../../interfaces';
 import { NgxFormService } from '../../ngx-form.service';
-import { INgxComponentDate } from '../../interfaces/components/ngx-component-date';
 
 @Component({
     selector: 'ngx-input-period',

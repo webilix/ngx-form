@@ -1,8 +1,6 @@
 import { ValidatorFn, FormControl } from '@angular/forms';
 
-import { INgxFormInput } from '../interfaces/ngx-input';
-import { NgxFormInputMethods } from '../ngx-form.methods';
-import { INgxFormOption } from '../interfaces/ngx-option';
+import { INgxFormInput, INgxFormOption, NgxFormMethods } from '../interfaces';
 
 export interface INgxFormInputSelect extends INgxFormInput {
     type: 'SELECT';
@@ -21,7 +19,7 @@ export interface INgxFormInputSelect extends INgxFormInput {
     options: INgxFormOption[];
 }
 
-export class NgxFormInputSelectMethods extends NgxFormInputMethods<INgxFormInputSelect, string | null> {
+export class NgxFormInputSelectMethods extends NgxFormMethods<INgxFormInputSelect, string | null> {
     control(input: INgxFormInputSelect, validators: ValidatorFn[]): FormControl<string | null> {
         const value: string | null =
             input.value && input.options.find((o) => o.id === input.value) ? input.value : null;

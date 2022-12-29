@@ -2,15 +2,14 @@ import { FormControl, ValidatorFn } from '@angular/forms';
 
 import { Validator } from '@webilix/validator-library';
 
-import { INgxFormInput } from '../interfaces/ngx-input';
-import { NgxFormInputMethods } from '../ngx-form.methods';
+import { INgxFormInput, NgxFormMethods } from '../interfaces';
 import { NgxBankCardValidator } from '../validators';
 
 export interface INgxFormInputBankCard extends Omit<INgxFormInput, 'english'> {
     type: 'BANK-CARD';
 }
 
-export class NgxFormInputBankCardMethods extends NgxFormInputMethods<INgxFormInputBankCard, string | null> {
+export class NgxFormInputBankCardMethods extends NgxFormMethods<INgxFormInputBankCard, string | null> {
     control(input: INgxFormInputBankCard, validators: ValidatorFn[]): FormControl<string | null> {
         input.title = input.title || 'شماره کارت بانکی';
         validators.push(NgxBankCardValidator());

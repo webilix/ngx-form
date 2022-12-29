@@ -2,8 +2,7 @@ import { FormControl, ValidatorFn } from '@angular/forms';
 
 import { Validator } from '@webilix/validator-library';
 
-import { INgxFormInput } from '../interfaces/ngx-input';
-import { NgxFormInputMethods } from '../ngx-form.methods';
+import { INgxFormInput, NgxFormMethods } from '../interfaces';
 import { NgxDuplicateValidator, NgxMaxCountValidator, NgxMinCountValidator } from '../validators';
 
 export interface INgxFormInputList extends Omit<INgxFormInput, 'optional' | 'value'> {
@@ -61,7 +60,7 @@ export interface INgxFormInputList extends Omit<INgxFormInput, 'optional' | 'val
     maxCount?: number;
 }
 
-export class NgxFormInputListMethods extends NgxFormInputMethods<INgxFormInputList, string[] | null> {
+export class NgxFormInputListMethods extends NgxFormMethods<INgxFormInputList, string[] | null> {
     control(input: INgxFormInputList, validators: ValidatorFn[]): FormControl<string[] | null> {
         if (!input.duplicate) validators.push(NgxDuplicateValidator<string>((value: string) => value));
         if (input.minCount) validators.push(NgxMinCountValidator<string>(input.minCount));

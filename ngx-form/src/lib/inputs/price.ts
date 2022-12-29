@@ -2,8 +2,7 @@ import { FormControl, ValidatorFn, Validators } from '@angular/forms';
 
 import { Validator } from '@webilix/validator-library';
 
-import { INgxFormInput } from '../interfaces/ngx-input';
-import { NgxFormInputMethods } from '../ngx-form.methods';
+import { INgxFormInput, NgxFormMethods } from '../interfaces';
 
 export interface INgxFormInputPrice extends Omit<INgxFormInput, 'english' | 'value'> {
     type: 'PRICE';
@@ -45,7 +44,7 @@ export interface INgxFormInputPrice extends Omit<INgxFormInput, 'english' | 'val
     currency?: string;
 }
 
-export class NgxFormInputPriceMethods extends NgxFormInputMethods<INgxFormInputPrice, number | null> {
+export class NgxFormInputPriceMethods extends NgxFormMethods<INgxFormInputPrice, number | null> {
     control(input: INgxFormInputPrice, validators: ValidatorFn[]): FormControl<number | null> {
         input.currency = input.currency || 'ریال';
         if (input.minimum) validators.push(Validators.min(input.minimum));

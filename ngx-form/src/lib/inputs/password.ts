@@ -3,8 +3,7 @@ import { FormControl, ValidatorFn, Validators } from '@angular/forms';
 import { RegX } from '@webilix/regex-library';
 import { Validator } from '@webilix/validator-library';
 
-import { INgxFormInput } from '../interfaces/ngx-input';
-import { NgxFormInputMethods } from '../ngx-form.methods';
+import { INgxFormInput, NgxFormMethods } from '../interfaces';
 
 export interface INgxFormInputPassword extends Omit<INgxFormInput, 'english' | 'value'> {
     type: 'PASSWORD';
@@ -45,7 +44,7 @@ export interface INgxFormInputPassword extends Omit<INgxFormInput, 'english' | '
     unverified?: boolean;
 }
 
-export class NgxFormInputPasswordMethods extends NgxFormInputMethods<INgxFormInputPassword, string | null> {
+export class NgxFormInputPasswordMethods extends NgxFormMethods<INgxFormInputPassword, string | null> {
     control(input: INgxFormInputPassword, validators: ValidatorFn[]): FormControl<string | null> {
         input.title = input.title || 'کلمه عبور';
         if (!input.unverified) {
