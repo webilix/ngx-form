@@ -4,14 +4,14 @@ import { MatDialogRef, MAT_DIALOG_DATA } from '@angular/material/dialog';
 import { JalaliDateTime, JalaliDateTimeCalendar } from '@webilix/jalali-date-time';
 import { Validator } from '@webilix/validator-library';
 
-import { INgxComponentDate } from '../../interfaces';
+import { INgxDate } from './ngx-date.interface';
 
 @Component({
     templateUrl: './ngx-date.component.html',
     styleUrls: ['./ngx-date.component.scss'],
 })
 export class NgxDateComponent implements OnInit {
-    public config: INgxComponentDate = this.data.config;
+    public config: INgxDate = this.data.config;
 
     private jalali = JalaliDateTime();
 
@@ -32,7 +32,7 @@ export class NgxDateComponent implements OnInit {
     ];
 
     constructor(
-        @Inject(MAT_DIALOG_DATA) private readonly data: { config: INgxComponentDate },
+        @Inject(MAT_DIALOG_DATA) private readonly data: { config: INgxDate },
         private readonly dialogRef: MatDialogRef<NgxDateComponent>,
     ) {}
 

@@ -1,5 +1,3 @@
-export * from './components/ngx-component-date';
-
 export * from './ngx-button';
 export * from './ngx-info';
 export * from './ngx-input';

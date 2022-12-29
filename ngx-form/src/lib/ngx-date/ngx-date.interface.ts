@@ -1,4 +1,4 @@
-export interface INgxComponentDate {
+export interface INgxDate {
     title?: string;
     value?: Date;
     minDate?: Date;

@@ -11,7 +11,6 @@ import { MatButtonModule } from '@angular/material/button';
 import { MatAutocompleteModule } from '@angular/material/autocomplete';
 import { MatSelectModule } from '@angular/material/select';
 import { MatCheckboxModule } from '@angular/material/checkbox';
-import { MatDialogModule } from '@angular/material/dialog';
 import { MatChipsModule } from '@angular/material/chips';
 
 import {
@@ -20,10 +19,10 @@ import {
     NgxErrorDirective,
     NgxPersianNumberDirective,
 } from '../directives';
+import { NgxDateModule } from '../ngx-date';
 import { NgxBankCardPipe, NgxDatePipe, NgxErrorPipe, NgxFileSizePipe, NgxMobilePipe } from '../pipes';
 
 import {
-    NgxDateComponent,
     NgxInputAutoCompleteComponent,
     NgxInputCheckboxComponent,
     NgxInputColorComponent,
@@ -48,7 +47,6 @@ import {
 } from './components';
 import { INgxFormStyle } from './interfaces';
 
-import { NgxFormService } from './ngx-form.service';
 import { NgxFormComponent } from './ngx-form.component';
 
 @NgModule({
@@ -65,7 +63,6 @@ import { NgxFormComponent } from './ngx-form.component';
 
         NgxFormComponent,
 
-        NgxDateComponent,
         NgxListOptionInputComponent,
         NgxListOptionItemComponent,
 
@@ -103,10 +100,11 @@ import { NgxFormComponent } from './ngx-form.component';
         MatAutocompleteModule,
         MatSelectModule,
         MatCheckboxModule,
-        MatDialogModule,
         MatChipsModule,
+
+        NgxDateModule,
     ],
-    providers: [DecimalPipe, NgxFormService, provideEnvironmentNgxMask()],
+    providers: [DecimalPipe, provideEnvironmentNgxMask()],
     exports: [NgxFormComponent],
 })
 export class NgxFormModule {
@@ -131,6 +129,12 @@ export class NgxFormModule {
             `--ngxFormWarnColor:${style.warnColor || 'rgb(255, 49, 27)'};` +
             `--ngxFormBorderColor:${style.borderColor || 'rgb(187, 206, 213)'};` +
             `--ngxFormBackgroundColor:${style.backgroundColor || 'rgb(232, 239, 241)'};` +
+            '' +
+            `--ngxDateIconFont:${style.iconFont || 'Material Icons Outlined'};` +
+            `--ngxDateIconSize:${style.iconSize || '16px'};` +
+            `--ngxDatePrimaryColor:${style.primaryColor || 'rgb(29, 91, 116)'};` +
+            `--ngxDateBorderColor:${style.borderColor || 'rgb(187, 206, 213)'};` +
+            `--ngxDateBackgroundColor:${style.backgroundColor || 'rgb(232, 239, 241)'};` +
             '}';
 
         const html: HTMLStyleElement = document.createElement('style');

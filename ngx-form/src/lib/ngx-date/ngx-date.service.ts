@@ -3,14 +3,14 @@ import { MatDialog } from '@angular/material/dialog';
 
 import { Validator } from '@webilix/validator-library';
 
-import { NgxDateComponent } from './components';
-import { INgxComponentDate } from './interfaces';
+import { NgxDateComponent } from './ngx-date.component';
+import { INgxDate } from './ngx-date.interface';
 
 @Injectable()
-export class NgxFormService {
+export class NgxDateService {
     constructor(private readonly dialog: MatDialog) {}
 
-    getDate(config: INgxComponentDate): Promise<Date> {
+    getDate(config: INgxDate): Promise<Date> {
         return new Promise<Date>((resolve, reject) => {
             this.dialog
                 .open(NgxDateComponent, {

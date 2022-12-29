@@ -2,9 +2,9 @@ import { Component, Input } from '@angular/core';
 import { FormControl } from '@angular/forms';
 import { MatFormFieldAppearance } from '@angular/material/form-field';
 
+import { INgxDate, NgxDateService } from '../../../../ngx-date';
+
 import { INgxFormInputDate } from '../../../inputs';
-import { INgxComponentDate } from '../../../interfaces';
-import { NgxFormService } from '../../../ngx-form.service';
 
 @Component({
     selector: 'ngx-input-date',
@@ -16,18 +16,18 @@ export class NgxInputDateComponent {
     @Input() input?: INgxFormInputDate;
     @Input() appearance: MatFormFieldAppearance = 'fill';
 
-    constructor(private readonly ngxFormService: NgxFormService) {}
+    constructor(private readonly ngxDateService: NgxDateService) {}
 
     setDate(): void {
         if (!this.input || !this.control || this.control.disabled) return;
 
-        const config: INgxComponentDate = {
+        const config: INgxDate = {
             title: this.input.title,
             value: this.control.value,
             minDate: this.input.minDate,
             maxDate: this.input.maxDate,
         };
-        this.ngxFormService.getDate(config).then(
+        this.ngxDateService.getDate(config).then(
             (date: Date) => {
                 this.control?.setValue(date);
                 this.control?.markAsTouched();

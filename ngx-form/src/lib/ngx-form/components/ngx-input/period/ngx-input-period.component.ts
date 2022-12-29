@@ -2,9 +2,9 @@ import { Component, Input, OnInit } from '@angular/core';
 import { FormControl } from '@angular/forms';
 import { MatFormFieldAppearance } from '@angular/material/form-field';
 
+import { INgxDate, NgxDateService } from '../../../../ngx-date';
+
 import { INgxFormInputPeriod } from '../../../inputs';
-import { INgxComponentDate } from '../../../interfaces';
-import { NgxFormService } from '../../../ngx-form.service';
 
 @Component({
     selector: 'ngx-input-period',
@@ -18,7 +18,7 @@ export class NgxInputPeriodComponent implements OnInit {
 
     public dates: (Date | null)[] = [];
 
-    constructor(private readonly ngxFormService: NgxFormService) {}
+    constructor(private readonly ngxDateService: NgxDateService) {}
 
     ngOnInit(): void {
         if (!this.control) return;
@@ -37,13 +37,13 @@ export class NgxInputPeriodComponent implements OnInit {
     setDate(index: number): void {
         if (!this.input || !this.control || (index !== 0 && index !== 1)) return;
 
-        const config: INgxComponentDate = {
+        const config: INgxDate = {
             title: this.input.title,
             value: this.control.value,
             minDate: this.input.minDate,
             maxDate: this.input.maxDate,
         };
-        this.ngxFormService.getDate(config).then(
+        this.ngxDateService.getDate(config).then(
             (date: Date) => {
                 this.dates[index] = date;
                 this.control?.setValue([...this.dates]);

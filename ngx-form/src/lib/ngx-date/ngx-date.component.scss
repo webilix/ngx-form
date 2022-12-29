@@ -6,8 +6,8 @@
         align-items: center;
         justify-content: center;
 
-        font-family: var(--ngxFormIconFont) !important;
-        font-size: var(--ngxFormIconSize) !important;
+        font-family: var(--ngxDateIconFont) !important;
+        font-size: var(--ngxDateIconSize) !important;
     }
 }
 
@@ -17,7 +17,7 @@
     right: 0;
     bottom: 0;
     left: 0;
-    background-color: var(--ngxFormBackgroundColor);
+    background-color: var(--ngxDateBackgroundColor);
     opacity: 0.5;
     z-index: 1;
 }
@@ -25,20 +25,21 @@
 section.header {
     display: flex;
     align-items: center;
+    background-color: var(--ngxDateBackgroundColor);
 
     padding: 1rem;
 
     .title {
         flex: 1;
         font-weight: 600;
-        color: var(--ngxFormPrimaryColor);
+        color: var(--ngxDatePrimaryColor);
     }
 
     mat-icon {
         margin: 0 !important;
         width: 25px !important;
         height: 25px !important;
-        color: var(--ngxFormPrimaryColor);
+        color: var(--ngxDatePrimaryColor);
         cursor: pointer;
     }
 }
@@ -74,7 +75,7 @@ section.icons {
 section.names {
     display: flex;
     align-items: center;
-    background-color: var(--ngxFormBackgroundColor);
+    background-color: var(--ngxDateBackgroundColor);
     column-gap: 0.5rem;
     margin-bottom: 0.5rem;
     padding: 0.75rem 0.5rem;
@@ -83,7 +84,7 @@ section.names {
     .name {
         flex: 1;
         text-align: center;
-        color: var(--ngxFormPrimaryColor);
+        color: var(--ngxDatePrimaryColor);
     }
 
     .month {
@@ -100,7 +101,7 @@ section.names {
 
             mat-icon {
                 flex: 1;
-                color: var(--ngxFormPrimaryColor);
+                color: var(--ngxDatePrimaryColor);
             }
 
             input {
@@ -108,7 +109,7 @@ section.names {
                 text-align: center;
                 border-width: 0;
                 outline: none;
-                color: var(--ngxFormPrimaryColor);
+                color: var(--ngxDatePrimaryColor);
             }
         }
 
@@ -149,12 +150,12 @@ section.days {
     }
 
     .today {
-        border-color: var(--ngxFormBorderColor);
+        border-color: var(--ngxDateBorderColor);
     }
 
     .current {
-        border-color: var(--ngxFormPrimaryColor);
-        background-color: var(--ngxFormBackgroundColor);
+        border-color: var(--ngxDatePrimaryColor);
+        background-color: var(--ngxDateBackgroundColor);
     }
 
     .disable {

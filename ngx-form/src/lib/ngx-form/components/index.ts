@@ -1,4 +1,3 @@
-export * from './ngx-date/ngx-date.component';
 export * from './ngx-list-option-input/ngx-list-option-input.component';
 export * from './ngx-list-option-item/ngx-list-option-item.component';
 
