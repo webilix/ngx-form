@@ -2,7 +2,8 @@ import { ValidatorFn, FormControl } from '@angular/forms';
 
 import { Validator } from '@webilix/validator-library';
 
-import { INgxFormInput, NgxFormMethods } from '../interfaces';
+import { NgxFormMethods } from '../classes';
+import { INgxFormInput } from '../interfaces';
 import { NgxMaxCountValidator, NgxMinCountValidator } from '../validators';
 
 export interface INgxFormInputTag extends Omit<INgxFormInput, 'english' | 'value' | 'optional'> {

@@ -2,7 +2,8 @@ import { FormControl, ValidatorFn } from '@angular/forms';
 
 import { RegX } from '@webilix/regex-library';
 
-import { INgxFormInput, NgxFormMethods } from '../interfaces';
+import { NgxFormMethods } from '../classes';
+import { INgxFormInput } from '../interfaces';
 
 export interface INgxFormInputMobile extends Omit<INgxFormInput, 'english'> {
     type: 'MOBILE';

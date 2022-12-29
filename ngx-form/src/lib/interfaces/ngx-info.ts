@@ -1,6 +1,5 @@
-import { NgxFormMethods } from './ngx-methods';
+import { NgxFormMethods } from '../classes';
 import { NgxFormInputTypes } from '../ngx-form.types';
-
 import {
     NgxFormInputAutoCompleteMethods,
     NgxFormInputBankCardMethods,

@@ -3,7 +3,8 @@ import { FormControl, ValidatorFn, Validators } from '@angular/forms';
 import { RegX } from '@webilix/regex-library';
 import { Validator } from '@webilix/validator-library';
 
-import { INgxFormInput, NgxFormMethods } from '../interfaces';
+import { NgxFormMethods } from '../classes';
+import { INgxFormInput } from '../interfaces';
 
 export interface INgxFormInputPassword extends Omit<INgxFormInput, 'english' | 'value'> {
     type: 'PASSWORD';

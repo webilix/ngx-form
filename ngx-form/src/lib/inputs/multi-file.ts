@@ -1,6 +1,7 @@
 import { FormControl, ValidatorFn } from '@angular/forms';
 
-import { INgxFormInput, NgxFormMethods } from '../interfaces';
+import { NgxFormMethods } from '../classes';
+import { INgxFormInput } from '../interfaces';
 import { NgxDuplicateValidator, NgxMaxCountValidator, NgxMinCountValidator } from '../validators';
 
 export interface INgxFormInputMultiFile extends Omit<INgxFormInput, 'english' | 'value' | 'optional'> {

@@ -1,6 +1,7 @@
 import { FormControl, ValidatorFn } from '@angular/forms';
 
-import { INgxFormInput, NgxFormMethods } from '../interfaces';
+import { NgxFormMethods } from '../classes';
+import { INgxFormInput } from '../interfaces';
 
 export interface INgxFormInputCheckbox extends Omit<INgxFormInput, 'title' | 'value' | 'optional'> {
     type: 'CHECKBOX';

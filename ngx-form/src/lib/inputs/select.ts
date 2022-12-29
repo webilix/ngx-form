@@ -1,6 +1,7 @@
 import { ValidatorFn, FormControl } from '@angular/forms';
 
-import { INgxFormInput, INgxFormOption, NgxFormMethods } from '../interfaces';
+import { NgxFormMethods } from '../classes';
+import { INgxFormInput, INgxFormOption } from '../interfaces';
 
 export interface INgxFormInputSelect extends INgxFormInput {
     type: 'SELECT';

@@ -1,6 +1,7 @@
 import { FormControl, ValidatorFn } from '@angular/forms';
 
-import { INgxFormInput, INgxFormOption, NgxFormMethods } from '../interfaces';
+import { NgxFormMethods } from '../classes';
+import { INgxFormInput, INgxFormOption } from '../interfaces';
 import { NgxMaxCountValidator, NgxMinCountValidator } from '../validators';
 
 export interface INgxFormInputMultiSelect extends Omit<INgxFormInput, 'value' | 'optional'> {

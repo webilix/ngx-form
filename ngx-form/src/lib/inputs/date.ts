@@ -2,7 +2,8 @@ import { FormControl, ValidatorFn } from '@angular/forms';
 
 import { Validator } from '@webilix/validator-library';
 
-import { INgxFormInput, NgxFormMethods } from '../interfaces';
+import { NgxFormMethods } from '../classes';
+import { INgxFormInput } from '../interfaces';
 import { NgxMaxDateValidator, NgxMinDateValidator } from '../validators';
 
 export interface INgxFormInputDate extends Omit<INgxFormInput, 'english' | 'value'> {

@@ -2,7 +2,8 @@ import { FormControl, ValidatorFn, Validators } from '@angular/forms';
 
 import { Validator } from '@webilix/validator-library';
 
-import { INgxFormInput, NgxFormMethods } from '../interfaces';
+import { NgxFormMethods } from '../classes';
+import { INgxFormInput } from '../interfaces';
 
 export interface INgxFormInputPrice extends Omit<INgxFormInput, 'english' | 'value'> {
     type: 'PRICE';
