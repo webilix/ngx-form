@@ -7,12 +7,12 @@ export class NgxErrorDirective {
 
     @HostListener('submit') onSubmit(): void {
         if (this.formGroupDirective && this.formGroupDirective.control.invalid) {
-            const ngInvalidControl: HTMLElement = this.elementRef.nativeElement.querySelector('.ng-invalid');
-            if (ngInvalidControl) return this.scrollToElement(ngInvalidControl);
+            const invalidControl: HTMLElement = this.elementRef.nativeElement.querySelector('.ng-invalid');
+            if (invalidControl) return this.scrollToElement(invalidControl);
         }
 
-        const dfInvalidControl: HTMLElement = this.elementRef.nativeElement.querySelector('.karbon-invalid');
-        if (dfInvalidControl) this.scrollToElement(dfInvalidControl);
+        const invalidControl: HTMLElement = this.elementRef.nativeElement.querySelector('.ngx-form-invalid');
+        if (invalidControl) this.scrollToElement(invalidControl);
     }
 
     private scrollToElement(element: HTMLElement): void {
