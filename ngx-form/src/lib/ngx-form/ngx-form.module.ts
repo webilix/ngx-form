@@ -13,14 +13,9 @@ import { MatSelectModule } from '@angular/material/select';
 import { MatCheckboxModule } from '@angular/material/checkbox';
 import { MatChipsModule } from '@angular/material/chips';
 
-import {
-    NgxAutocompleteDirective,
-    NgxAutoheightDirective,
-    NgxErrorDirective,
-    NgxPersianNumberDirective,
-} from '../directives';
 import { NgxDateModule } from '../ngx-date';
-import { NgxBankCardPipe, NgxDatePipe, NgxErrorPipe, NgxFileSizePipe, NgxMobilePipe } from '../pipes';
+import { NgxDirectiveModule } from '../ngx-directive';
+import { NgxPipeModule } from '../ngx-pipe';
 
 import {
     NgxInputAutoCompleteComponent,
@@ -51,16 +46,6 @@ import { NgxFormComponent } from './ngx-form.component';
 
 @NgModule({
     declarations: [
-        NgxAutocompleteDirective,
-        NgxAutoheightDirective,
-        NgxErrorDirective,
-        NgxPersianNumberDirective,
-        NgxBankCardPipe,
-        NgxDatePipe,
-        NgxErrorPipe,
-        NgxFileSizePipe,
-        NgxMobilePipe,
-
         NgxFormComponent,
 
         NgxListOptionInputComponent,
@@ -102,7 +87,9 @@ import { NgxFormComponent } from './ngx-form.component';
         MatCheckboxModule,
         MatChipsModule,
 
+        NgxDirectiveModule,
         NgxDateModule,
+        NgxPipeModule,
     ],
     providers: [DecimalPipe, provideEnvironmentNgxMask()],
     exports: [NgxFormComponent],
