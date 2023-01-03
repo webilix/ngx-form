@@ -1,0 +1,8 @@
+<input
+    matInput
+    type="text"
+    [(ngModel)]="domain"
+    [ngClass]="{ en: true, error: error, 'ngx-form-invalid': error }"
+    (change)="changed.emit(error ? null : domain)"
+/>
+<mat-icon [fontIcon]="'language'"></mat-icon>

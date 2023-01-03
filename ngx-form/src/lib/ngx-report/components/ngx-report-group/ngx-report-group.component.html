@@ -1,0 +1,45 @@
+<content *ngIf="report && inputs.length !== 0" [ngStyle]="{ borderLeftWidth: level === 0 ? 1 : 0 }">
+    <header>
+        <div class="join">
+            <div [ngClass]="{ selected: report.join === 'AND' }" (click)="setJoin('AND')">و</div>
+            <div [ngClass]="{ selected: report.join === 'OR' }" (click)="setJoin('OR')">یا</div>
+        </div>
+
+        <div class="buttons">
+            <button mat-button type="button" (click)="addCondition()">
+                <mat-icon [fontIcon]="'add'"></mat-icon>
+            </button>
+            <button mat-button type="button" (click)="addGroup()">
+                <mat-icon [fontIcon]="'account_tree'"></mat-icon>
+            </button>
+            <button mat-button type="button" (click)="deleted.emit()" *ngIf="level !== 0">
+                <mat-icon [fontIcon]="'delete'" class="warn"></mat-icon>
+            </button>
+        </div>
+    </header>
+
+    <div class="empty ngx-form-invalid" *ngIf="report.conditions.length === 0">شرایطی ثبت نشده است.</div>
+    <div class="conditions" *ngIf="report.conditions.length !== 0">
+        <div
+            *ngFor="let condition of report.conditions; let index = index"
+            [ngClass]="{ condition: true, after: index < report.conditions.length - 1 }"
+        >
+            <ngx-report-group
+                *ngIf="isGroup(condition)"
+                [inputs]="inputs"
+                [report]="getReport(condition)"
+                [level]="level + 1"
+                (changed)="changed.emit()"
+                (deleted)="deleteCondition(index)"
+            ></ngx-report-group>
+
+            <ngx-report-condition
+                *ngIf="!isGroup(condition)"
+                [inputs]="inputs"
+                [condition]="getCondition(condition)"
+                (changed)="changed.emit()"
+                (deleted)="deleteCondition(index)"
+            ></ngx-report-condition>
+        </div>
+    </div>
+</content>

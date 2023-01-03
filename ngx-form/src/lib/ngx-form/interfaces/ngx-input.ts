@@ -1,4 +1,4 @@
-import { INgxFormValues } from '../ngx-form.interfaces';
+import { INgxFormValues } from '../ngx-form.interface';
 
 /**
  * Basic form input interface

@@ -1,0 +1,83 @@
+content {
+    display: flex;
+    align-items: flex-start;
+
+    padding: 2px;
+    border: 1px solid var(--ngxReportBorderColor);
+    border-left-width: 0;
+
+    .condition {
+        flex: 1;
+        display: flex;
+        flex-direction: column;
+        row-gap: 2px;
+
+        .data {
+            display: flex;
+            column-gap: 2px;
+
+            .input,
+            .operator {
+                flex: 2;
+                display: flex;
+                align-items: center;
+
+                background-color: var(--ngxReportBackgroundColor);
+                border-right: 4px solid var(--ngxReportBackgroundColor);
+
+                .title {
+                    flex: 1;
+                    width: 0;
+                    padding-right: calc(0.5rem - 4px);
+                    color: var(--ngxReportPrimaryColor);
+                    font-size: calc(var(--ngxReportFontSize) - 1px);
+
+                    white-space: nowrap;
+                    overflow: hidden;
+                    text-overflow: ellipsis;
+                }
+            }
+
+            .operator {
+                flex: 1;
+            }
+
+            .error {
+                border-right-color: var(--ngxReportWarnColor);
+            }
+        }
+
+        .value {
+            * {
+                display: flex;
+                align-items: center;
+                height: 28px;
+            }
+
+            ::ng-deep mat-icon {
+                background-color: var(--ngxReportBackgroundColor);
+            }
+        }
+    }
+}
+
+button {
+    border-radius: 0;
+}
+
+::ng-deep .ngx-report-menu {
+    .mat-mdc-menu-content {
+        padding: 0;
+        direction: rtl;
+
+        button {
+            padding: 0.75rem 1rem;
+            min-height: auto;
+
+            .title {
+                color: var(--ngxReportPrimaryColor);
+                font-size: calc(var(--ngxReportFontSize) - 1px);
+            }
+        }
+    }
+}

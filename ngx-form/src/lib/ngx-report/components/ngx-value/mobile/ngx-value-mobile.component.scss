@@ -1,0 +1,10 @@
+:host {
+    display: block;
+    background-color: var(--ngxReportBackgroundColor);
+}
+
+.prefix {
+    line-height: 1;
+    font-family: var(--ngxReportEnFont);
+    font-size: calc(var(--ngxReportFontSize) - 1px);
+}

@@ -1,0 +1,117 @@
+<content *ngIf="condition && inputs.length !== 0">
+    <div class="condition">
+        <div class="data">
+            <div
+                [ngClass]="{ input: true, error: !input, 'ngx-form-invalid': !input }"
+                [matMenuTriggerFor]="inputsMenu"
+            >
+                <div class="title">{{ input?.title || '&nbsp;' }}</div>
+                <mat-icon [fontIcon]="'keyboard_double_arrow_down'"></mat-icon>
+                <mat-menu #inputsMenu="matMenu" class="ngx-report-menu">
+                    <button mat-menu-item type="button" *ngFor="let i of inputs" (click)="setInput(i.name)">
+                        <div class="title">{{ i.title }}</div>
+                    </button>
+                </mat-menu>
+            </div>
+
+            <div *ngIf="!input" class="operator"></div>
+            <div
+                *ngIf="input"
+                [ngClass]="{
+                    operator: true,
+                    error: input && !condition.operator,
+                    'ngx-form-invalid': input && !condition.operator
+                }"
+                [matMenuTriggerFor]="operatorsMenu"
+            >
+                <div class="title">
+                    {{ condition.operator ? operatorsInfo[condition.operator].title : '&nbsp;' }}
+                </div>
+                <mat-icon [fontIcon]="'keyboard_double_arrow_down'"></mat-icon>
+                <mat-menu #operatorsMenu="matMenu" class="ngx-report-menu">
+                    <button mat-menu-item type="button" *ngFor="let o of operators" (click)="setOperator(o)">
+                        <div class="title">{{ operatorsInfo[o].title }}</div>
+                    </button>
+                </mat-menu>
+            </div>
+        </div>
+        <div class="value" *ngIf="valueShow">
+            <ng-container [ngSwitch]="valueType">
+                <ngx-value-bank-card
+                    *ngSwitchCase="'BANK-CARD'"
+                    [input]="input"
+                    [operator]="condition.operator"
+                    [value]="condition.value"
+                    (changed)="setValue($event)"
+                ></ngx-value-bank-card>
+                <ngx-value-date
+                    *ngSwitchCase="'DATE'"
+                    [input]="input"
+                    [operator]="condition.operator"
+                    [value]="condition.value"
+                    (changed)="setValue($event)"
+                ></ngx-value-date>
+                <ngx-value-domain
+                    *ngSwitchCase="'DOMAIN'"
+                    [input]="input"
+                    [operator]="condition.operator"
+                    [value]="condition.value"
+                    (changed)="setValue($event)"
+                ></ngx-value-domain>
+                <ngx-value-email
+                    *ngSwitchCase="'EMAIL'"
+                    [input]="input"
+                    [operator]="condition.operator"
+                    [value]="condition.value"
+                    (changed)="setValue($event)"
+                ></ngx-value-email>
+                <ngx-value-ip
+                    *ngSwitchCase="'IP'"
+                    [input]="input"
+                    [operator]="condition.operator"
+                    [value]="condition.value"
+                    (changed)="setValue($event)"
+                ></ngx-value-ip>
+                <ngx-value-mobile
+                    *ngSwitchCase="'MOBILE'"
+                    [input]="input"
+                    [operator]="condition.operator"
+                    [value]="condition.value"
+                    (changed)="setValue($event)"
+                ></ngx-value-mobile>
+                <ngx-value-national-code
+                    *ngSwitchCase="'NATIONAL-CODE'"
+                    [input]="input"
+                    [operator]="condition.operator"
+                    [value]="condition.value"
+                    (changed)="setValue($event)"
+                ></ngx-value-national-code>
+                <ngx-value-number
+                    *ngSwitchCase="'NUMBER'"
+                    [input]="input"
+                    [operator]="condition.operator"
+                    [value]="condition.value"
+                    (changed)="setValue($event)"
+                ></ngx-value-number>
+                <ngx-value-option
+                    *ngSwitchCase="'OPTION'"
+                    [input]="input"
+                    [operator]="condition.operator"
+                    [value]="condition.value"
+                    (changed)="setValue($event)"
+                ></ngx-value-option>
+                <ngx-value-text
+                    *ngSwitchCase="'TEXT'"
+                    [input]="input"
+                    [operator]="condition.operator"
+                    [value]="condition.value"
+                    (changed)="setValue($event)"
+                ></ngx-value-text>
+            </ng-container>
+        </div>
+    </div>
+
+    <button mat-button type="button" (click)="deleted.emit()">
+        <mat-icon [fontIcon]="'delete'" class="warn"></mat-icon>
+    </button>
+</content>

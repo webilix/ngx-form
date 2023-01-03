@@ -1,0 +1,24 @@
+:host {
+    display: flex;
+    column-gap: 2px;
+
+    .date {
+        flex: 1;
+        display: flex;
+        align-items: center;
+        background-color: var(--ngxReportBackgroundColor);
+
+        div {
+            flex: 1;
+            height: 28px;
+            line-height: 28px;
+            padding-right: calc(0.5rem - 4px);
+            font-size: calc(var(--ngxReportFontSize) - 1px);
+            border-right: 4px solid var(--ngxReportBackgroundColor);
+        }
+
+        .error {
+            border-right-color: var(--ngxReportWarnColor);
+        }
+    }
+}

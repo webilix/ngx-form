@@ -1,0 +1,58 @@
+:host {
+    display: block;
+    direction: rtl;
+    font-family: var(--ngxReportFaFont);
+}
+
+:host ::ng-deep * {
+    font-family: var(--ngxReportFaFont);
+    font-size: var(--ngxReportFontSize);
+}
+
+:host ::ng-deep button {
+    min-width: auto;
+    padding: 0;
+    height: 28px !important;
+    overflow: hidden;
+}
+
+:host ::ng-deep mat-icon {
+    display: flex !important;
+    align-items: center;
+    justify-content: center;
+
+    cursor: pointer;
+    font-family: var(--ngxReportIconFont) !important;
+    font-size: calc(var(--ngxReportIconSize) - 2px) !important;
+    color: var(--ngxReportPrimaryColor);
+    height: 28px !important;
+    width: 28px !important;
+    margin: 0 !important;
+    overflow: hidden;
+}
+
+:host ::ng-deep mat-icon.warn {
+    color: var(--ngxReportWarnColor);
+}
+
+:host ::ng-deep input {
+    flex: 1;
+    height: 28px;
+    border: 0;
+    outline: none;
+    background: var(--ngxReportBackgroundColor);
+    font-family: var(--ngxReportFaFont);
+    font-size: calc(var(--ngxReportFontSize) - 1px);
+    padding-right: calc(0.5rem - 4px);
+    border-right: 4px solid var(--ngxReportBackgroundColor);
+}
+
+:host ::ng-deep input.en {
+    direction: ltr;
+    text-align: left;
+    font-family: var(--ngxReportEnFont);
+}
+
+:host ::ng-deep input.error {
+    border-right-color: var(--ngxReportWarnColor);
+}

@@ -1,0 +1,53 @@
+:host {
+    height: auto !important;
+
+    .values {
+        display: block;
+        width: 100%;
+        max-height: 85px;
+        overflow: auto;
+        background-color: var(--ngxReportBackgroundColor);
+        border-right: 4px solid var(--ngxReportBackgroundColor);
+
+        .value {
+            display: flex;
+            align-items: center;
+
+            cursor: pointer;
+            padding: 0 0 0 0.5rem;
+            position: relative;
+            right: -4px;
+
+            mat-icon {
+                color: inherit;
+            }
+
+            .title {
+                flex: 1;
+                width: 0;
+                font-size: calc(var(--ngxReportFontSize) - 1px);
+
+                display: block;
+                white-space: nowrap;
+                overflow: hidden;
+                text-overflow: ellipsis;
+            }
+        }
+
+        .en {
+            direction: ltr;
+            text-align: left;
+            padding: 0 0.5rem 0 0;
+            right: 0;
+            left: -4px;
+
+            .title {
+                font-family: var(--ngxReportEnFont);
+            }
+        }
+    }
+
+    .error {
+        border-right-color: var(--ngxReportWarnColor);
+    }
+}

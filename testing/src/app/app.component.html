@@ -24,6 +24,7 @@
     </section>
 
     <section class="form" *ngIf="!type || !title">
+        <app-report></app-report>
         <ngx-form
             [ngxForm]="ngxForm"
             (ngxSubmit)="showValues('ngxSubmit', $event)"

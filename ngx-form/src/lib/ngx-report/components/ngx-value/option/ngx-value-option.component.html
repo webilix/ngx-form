@@ -1,0 +1,6 @@
+<div [ngClass]="{ values: true, error: ids.length === 0, 'ngx-form-invalid': ids.length === 0 }">
+    <div *ngFor="let option of options" [ngClass]="{ value: true, en: !!en }" (click)="setChanged(option.id)">
+        <mat-icon [fontIcon]="ids.includes(option.id) ? 'check_box' : 'check_box_outline_blank'"></mat-icon>
+        <div class="title">{{ option.title }}</div>
+    </div>
+</div>

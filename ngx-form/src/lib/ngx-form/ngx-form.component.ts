@@ -4,8 +4,8 @@ import { MatFormFieldAppearance } from '@angular/material/form-field';
 
 import { NgxFieldInputInfo } from './interfaces';
 
-import { INgxForm, INgxFormValues } from './ngx-form.interfaces';
-import { NgxFormInputTypes } from './ngx-form.types';
+import { INgxForm, INgxFormValues } from './ngx-form.interface';
+import { NgxFormInputTypes } from './ngx-form.type';
 
 @Component({
     selector: 'ngx-form',

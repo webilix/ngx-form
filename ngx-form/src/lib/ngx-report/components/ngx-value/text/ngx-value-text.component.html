@@ -1,0 +1,6 @@
+<input
+    type="text"
+    [(ngModel)]="value"
+    [ngClass]="{ en: en, error: value === null, 'ngx-form-invalid': value === null }"
+    (change)="changed.emit(value)"
+/>

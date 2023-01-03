@@ -1,0 +1,10 @@
+:host {
+    display: flex;
+    column-gap: 2px;
+
+    input {
+        flex: 1;
+        padding-left: 0.5rem;
+        width: 100%;
+    }
+}
