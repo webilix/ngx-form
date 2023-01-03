@@ -1,0 +1,10 @@
+<input
+    type="text"
+    [ngxPersianNumber]="!!mask"
+    [inputMode]="!!mask ? 'numeric' : 'text'"
+    [(ngModel)]="inputValue"
+    [ngClass]="{ en: true, error: error, 'ngx-form-invalid': error }"
+    [mask]="mask || ''"
+    (change)="changed.emit(error ? null : inputValue)"
+/>
+<mat-icon [fontIcon]="icon"></mat-icon>

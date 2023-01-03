@@ -1,5 +1,4 @@
 import { NgxFormMethods } from '../classes';
-import { NgxFormInputTypes } from '../ngx-form.type';
 import {
     NgxFormInputAutoCompleteMethods,
     NgxFormInputBankCardMethods,
@@ -31,13 +30,14 @@ import {
     NgxFormInputUrlMethods,
     NgxFormInputUsernameMethods,
 } from '../inputs';
+import { NgxFormInputs } from '../ngx-form.type';
 
 interface INgxFieldInputInfo {
     title: string;
     methods: NgxFormMethods<any, any>;
 }
 
-export const NgxFieldInputInfo: { [key in NgxFormInputTypes['type']]: INgxFieldInputInfo } = {
+export const NgxFieldInputInfo: { [key in NgxFormInputs['type']]: INgxFieldInputInfo } = {
     // VIEWS
     COMMENT: { title: 'توضیحات', methods: new NgxFormInputCommentMethods() },
     // INPUTS

@@ -1,8 +1,0 @@
-<input
-    matInput
-    type="text"
-    [(ngModel)]="email"
-    [ngClass]="{ en: true, error: error, 'ngx-form-invalid': error }"
-    (change)="changed.emit(error ? null : email)"
-/>
-<mat-icon [fontIcon]="'alternate_email'"></mat-icon>

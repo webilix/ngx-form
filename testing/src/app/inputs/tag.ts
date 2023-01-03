@@ -1,8 +1,8 @@
-import { INgxFormValues, NgxFormInputTypes } from '@ngx-form';
+import { INgxFormValues, NgxFormInputs } from '@ngx-form';
 
 const tags: string[] = ['اول', 'دوم', 'سوم', 'چهارم', 'پنجم'];
 
-export const TagInputs: (NgxFormInputTypes | NgxFormInputTypes[])[] = [
+export const TagInputs: (NgxFormInputs | NgxFormInputs[])[] = [
     { name: 'tag-1', type: 'TAG', tags: tags, value: ['دوم', 'ششم'] },
     { name: 'tag-2', type: 'TAG', tags: tags, title: 'محدودیت تعداد', minCount: 2, maxCount: 5 },
     { name: 'tag-3', type: 'TAG', tags: tags, title: 'اختیاری' },

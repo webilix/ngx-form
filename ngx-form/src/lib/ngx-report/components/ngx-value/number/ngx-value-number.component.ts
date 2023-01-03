@@ -1,7 +1,7 @@
 import { Component, EventEmitter, Input, OnChanges, Output, SimpleChange, SimpleChanges } from '@angular/core';
 
 import { INgxReportInputNumber } from '../../../inputs';
-import { NgxReportInputTypes, NgxReportOperators } from '../../../ngx-report.type';
+import { NgxReportInputs, NgxReportOperators } from '../../../ngx-report.type';
 
 @Component({
     selector: 'ngx-value-number',
@@ -9,7 +9,7 @@ import { NgxReportInputTypes, NgxReportOperators } from '../../../ngx-report.typ
     styleUrls: ['./ngx-value-number.component.scss'],
 })
 export class NgxValueNumberComponent implements OnChanges {
-    @Input() input?: NgxReportInputTypes;
+    @Input() input?: NgxReportInputs;
     @Input() operator: NgxReportOperators | null = null;
     @Input() value: number | [number, number] | null = null;
     @Output() changed: EventEmitter<number | [number, number] | null> = new EventEmitter<

@@ -1,6 +1,6 @@
-import { INgxFormValues, NgxFormInputTypes } from '@ngx-form';
+import { INgxFormValues, NgxFormInputs } from '@ngx-form';
 
-export const UrlInputs: (NgxFormInputTypes | NgxFormInputTypes[])[] = [
+export const UrlInputs: (NgxFormInputs | NgxFormInputs[])[] = [
     { name: 'url-1', type: 'URL', value: 'https://domain.com' },
     { name: 'url-2', type: 'URL', title: 'اختیاری', optional: true },
     {

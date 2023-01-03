@@ -1,6 +1,6 @@
-import { INgxFormValues, NgxFormInputTypes } from '@ngx-form';
+import { INgxFormValues, NgxFormInputs } from '@ngx-form';
 
-export const PasswordInputs: (NgxFormInputTypes | NgxFormInputTypes[])[] = [
+export const PasswordInputs: (NgxFormInputs | NgxFormInputs[])[] = [
     { name: 'passowrd-1', type: 'PASSWORD' },
     { name: 'passowrd-2', type: 'PASSWORD', title: 'حداقل طول', optional: true, minLength: 3 },
     {

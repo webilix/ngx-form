@@ -1,6 +1,6 @@
-import { INgxFormValues, NgxFormInputTypes } from '@ngx-form';
+import { INgxFormValues, NgxFormInputs } from '@ngx-form';
 
-export const ListInputs: (NgxFormInputTypes | NgxFormInputTypes[])[] = [
+export const ListInputs: (NgxFormInputs | NgxFormInputs[])[] = [
     {
         name: 'list-1',
         type: 'LIST',

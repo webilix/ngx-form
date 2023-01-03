@@ -1,6 +1,6 @@
-import { INgxFormValues, NgxFormInputTypes } from '@ngx-form';
+import { INgxFormValues, NgxFormInputs } from '@ngx-form';
 
-export const MultiFileInputs: (NgxFormInputTypes | NgxFormInputTypes[])[] = [
+export const MultiFileInputs: (NgxFormInputs | NgxFormInputs[])[] = [
     { name: 'multi-file-1', type: 'MULTI-FILE' },
     { name: 'multi-file-2', type: 'MULTI-FILE', title: 'محدودت تعداد', minCount: 2, maxCount: 5 },
     {

@@ -1,6 +1,6 @@
 import { Component, Input, OnChanges, SimpleChanges } from '@angular/core';
 
-import { INgxForm, NgxFormInputTypes } from '@ngx-form';
+import { INgxForm, NgxFormInputs } from '@ngx-form';
 
 @Component({
     selector: 'app-input',
@@ -8,7 +8,7 @@ import { INgxForm, NgxFormInputTypes } from '@ngx-form';
     styleUrls: ['./input.component.scss'],
 })
 export class InputComponent implements OnChanges {
-    @Input() inputs: (NgxFormInputTypes | NgxFormInputTypes[])[] = [];
+    @Input() inputs: (NgxFormInputs | NgxFormInputs[])[] = [];
 
     public showValues = console.log;
 

@@ -1,6 +1,6 @@
-import { INgxFormValues, NgxFormInputTypes } from '@ngx-form';
+import { INgxFormValues, NgxFormInputs } from '@ngx-form';
 
-export const TextInputs: (NgxFormInputTypes | NgxFormInputTypes[])[] = [
+export const TextInputs: (NgxFormInputs | NgxFormInputs[])[] = [
     { name: 'text-1', type: 'TEXT', title: 'متن یک خطی', value: 'مقدار مشخص شده برای متن یک خطی' },
     { name: 'text-2', type: 'TEXT', title: 'اختیاری', optional: true },
     { name: 'text-3', type: 'TEXT', title: 'انگلیسی', optional: true, english: true },

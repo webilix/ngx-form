@@ -1,6 +1,6 @@
-import { INgxFormValues, NgxFormInputTypes } from '@ngx-form';
+import { INgxFormValues, NgxFormInputs } from '@ngx-form';
 
-export const FileInputs: (NgxFormInputTypes | NgxFormInputTypes[])[] = [
+export const FileInputs: (NgxFormInputs | NgxFormInputs[])[] = [
     { name: 'file-1', type: 'FILE' },
     { name: 'file-2', type: 'FILE', title: 'تصاویر', optional: true, mimes: ['image/jpeg', 'image/png'] },
     { name: 'file-3', type: 'FILE', title: 'اختیاری', optional: true },

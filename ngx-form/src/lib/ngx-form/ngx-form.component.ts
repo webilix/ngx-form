@@ -5,7 +5,7 @@ import { MatFormFieldAppearance } from '@angular/material/form-field';
 import { NgxFieldInputInfo } from './interfaces';
 
 import { INgxForm, INgxFormValues } from './ngx-form.interface';
-import { NgxFormInputTypes } from './ngx-form.type';
+import { NgxFormInputs } from './ngx-form.type';
 
 @Component({
     selector: 'ngx-form',
@@ -34,9 +34,9 @@ export class NgxFormComponent implements OnInit {
         this.appearance = this.ngxForm.appearance || this.ngxAppearance;
 
         this.formGroup = new FormGroup({});
-        this.ngxForm.inputs.forEach((row: NgxFormInputTypes | NgxFormInputTypes[]) => {
-            const inputs: NgxFormInputTypes[] = Array.isArray(row) ? row : [row];
-            inputs.forEach((input: NgxFormInputTypes) => this.setInput(input));
+        this.ngxForm.inputs.forEach((row: NgxFormInputs | NgxFormInputs[]) => {
+            const inputs: NgxFormInputs[] = Array.isArray(row) ? row : [row];
+            inputs.forEach((input: NgxFormInputs) => this.setInput(input));
         });
 
         this.formGroup.valueChanges.subscribe({
@@ -62,7 +62,7 @@ export class NgxFormComponent implements OnInit {
         this.checkVisibility(values);
     }
 
-    private setInput(input: NgxFormInputTypes): void {
+    private setInput(input: NgxFormInputs): void {
         const validators: ValidatorFn[] =
             input.type === 'COMMENT' ||
             input.type === 'CHECKBOX' ||
@@ -80,9 +80,9 @@ export class NgxFormComponent implements OnInit {
     private checkAvailability(values: INgxFormValues): void {
         if (!this.ngxForm) return;
 
-        this.ngxForm.inputs.forEach((row: NgxFormInputTypes | NgxFormInputTypes[]) => {
-            const inputs: NgxFormInputTypes[] = Array.isArray(row) ? row : [row];
-            inputs.forEach((input: NgxFormInputTypes) => {
+        this.ngxForm.inputs.forEach((row: NgxFormInputs | NgxFormInputs[]) => {
+            const inputs: NgxFormInputs[] = Array.isArray(row) ? row : [row];
+            inputs.forEach((input: NgxFormInputs) => {
                 if (input.type === 'COMMENT' || !input.disableOn) return;
 
                 const disabled: boolean = input.disableOn(values);
@@ -95,9 +95,9 @@ export class NgxFormComponent implements OnInit {
         this.hiddenInputs = [];
         if (!this.ngxForm) return;
 
-        this.ngxForm.inputs.forEach((row: NgxFormInputTypes | NgxFormInputTypes[]) => {
-            const inputs: NgxFormInputTypes[] = Array.isArray(row) ? row : [row];
-            inputs.forEach((input: NgxFormInputTypes) => {
+        this.ngxForm.inputs.forEach((row: NgxFormInputs | NgxFormInputs[]) => {
+            const inputs: NgxFormInputs[] = Array.isArray(row) ? row : [row];
+            inputs.forEach((input: NgxFormInputs) => {
                 if (!input.hideOn) return;
 
                 const hidden: boolean = input.hideOn(values);
@@ -107,7 +107,7 @@ export class NgxFormComponent implements OnInit {
         });
     }
 
-    private getValue(input: NgxFormInputTypes): any {
+    private getValue(input: NgxFormInputs): any {
         if (!this.formGroup || !this.formGroup.get(input.name)) return null;
         if (this.formGroup.get(input.name)?.disabled) return null;
         if (this.hiddenInputs.includes(input.name)) return null;
@@ -120,9 +120,9 @@ export class NgxFormComponent implements OnInit {
         if (!this.ngxForm) return {};
 
         const values: INgxFormValues = {};
-        this.ngxForm.inputs.forEach((row: NgxFormInputTypes | NgxFormInputTypes[]) => {
-            const inputs: NgxFormInputTypes[] = Array.isArray(row) ? row : [row];
-            inputs.forEach((input: NgxFormInputTypes) => {
+        this.ngxForm.inputs.forEach((row: NgxFormInputs | NgxFormInputs[]) => {
+            const inputs: NgxFormInputs[] = Array.isArray(row) ? row : [row];
+            inputs.forEach((input: NgxFormInputs) => {
                 if (input.type === 'COMMENT') return;
                 values[input.name] = this.formGroup.get(input.name)?.errors === null ? this.getValue(input) : null;
             });

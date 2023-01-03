@@ -1,6 +1,6 @@
-import { INgxFormValues, NgxFormInputTypes } from '@ngx-form';
+import { INgxFormValues, NgxFormInputs } from '@ngx-form';
 
-export const RangeInputs: (NgxFormInputTypes | NgxFormInputTypes[])[] = [
+export const RangeInputs: (NgxFormInputs | NgxFormInputs[])[] = [
     { name: 'range-1', type: 'RANGE', title: 'محدوده عددی', value: [1, 9] },
     { name: 'range-2', type: 'RANGE', title: 'مقدار برابر', optional: true, equal: true },
     { name: 'range-3', type: 'RANGE', title: 'مقدار منفی', optional: true, negative: true },

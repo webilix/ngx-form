@@ -1,6 +1,6 @@
-import { INgxFormValues, NgxFormInputTypes } from '@ngx-form';
+import { INgxFormValues, NgxFormInputs } from '@ngx-form';
 
-export const CheckboxInputs: (NgxFormInputTypes | NgxFormInputTypes[])[] = [
+export const CheckboxInputs: (NgxFormInputs | NgxFormInputs[])[] = [
     { name: 'checkbox-1', type: 'CHECKBOX', message: 'گزینه یک انتخابی', value: true },
     {
         name: 'checkbox-2',

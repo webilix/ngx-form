@@ -1,6 +1,6 @@
-import { INgxFormValues, NgxFormInputTypes } from '@ngx-form';
+import { INgxFormValues, NgxFormInputs } from '@ngx-form';
 
-export const BankCardInputs: (NgxFormInputTypes | NgxFormInputTypes[])[] = [
+export const BankCardInputs: (NgxFormInputs | NgxFormInputs[])[] = [
     { name: 'bank-card-1', type: 'BANK-CARD', value: '1234567890123452' },
     { name: 'bank-card-2', type: 'BANK-CARD', title: 'اختیاری', optional: true },
     {

@@ -1,6 +1,6 @@
 import { Component } from '@angular/core';
 
-import { INgxReport, NgxReportInputTypes } from '@ngx-form';
+import { INgxReport, NgxReportInputs } from '@ngx-form';
 
 @Component({
     selector: 'app-report',
@@ -8,7 +8,7 @@ import { INgxReport, NgxReportInputTypes } from '@ngx-form';
     styleUrls: ['./report.component.scss'],
 })
 export class ReportComponent {
-    public ngxInputs: NgxReportInputTypes[] = [
+    public ngxInputs: NgxReportInputs[] = [
         { name: 'bank-card', type: 'BANK-CARD', title: 'شماره کارت بانکی' },
         { name: 'checkbox', type: 'CHECKBOX', title: 'یک انتخابی' },
         {

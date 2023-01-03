@@ -15,7 +15,7 @@ import {
     INgxReportInputUrl,
 } from './inputs';
 
-export type NgxReportInputTypes =
+export type NgxReportInputs =
     | INgxReportInputBankCard
     | INgxReportInputCheckbox
     | INgxReportInputDate

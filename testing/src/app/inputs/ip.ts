@@ -1,6 +1,6 @@
-import { INgxFormValues, NgxFormInputTypes } from '@ngx-form';
+import { INgxFormValues, NgxFormInputs } from '@ngx-form';
 
-export const IpInputs: (NgxFormInputTypes | NgxFormInputTypes[])[] = [
+export const IpInputs: (NgxFormInputs | NgxFormInputs[])[] = [
     { name: 'ip-1', type: 'IP', value: '127.0.0.1' },
     { name: 'ip-2', type: 'IP', title: 'اختیاری', optional: true },
     {

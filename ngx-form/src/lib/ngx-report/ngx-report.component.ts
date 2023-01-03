@@ -2,7 +2,7 @@ import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
 
 import { INgxReport } from './ngx-report.interface';
 import { NgxReportService } from './ngx-report.service';
-import { NgxReportInputTypes } from './ngx-report.type';
+import { NgxReportInputs } from './ngx-report.type';
 
 @Component({
     selector: 'ngx-report',
@@ -10,7 +10,7 @@ import { NgxReportInputTypes } from './ngx-report.type';
     styleUrls: ['./ngx-report.component.scss'],
 })
 export class NgxReportComponent implements OnInit {
-    @Input() ngxInputs: NgxReportInputTypes[] = [];
+    @Input() ngxInputs: NgxReportInputs[] = [];
     @Input() ngxReport: INgxReport | null = null;
     @Output() ngxReportChange: EventEmitter<INgxReport | null> = new EventEmitter<INgxReport | null>();
     @Output() changed: EventEmitter<INgxReport> = new EventEmitter<INgxReport>();

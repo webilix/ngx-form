@@ -1,6 +1,6 @@
-import { INgxFormValues, NgxFormInputTypes } from '@ngx-form';
+import { INgxFormValues, NgxFormInputs } from '@ngx-form';
 
-export const TextareaInputs: (NgxFormInputTypes | NgxFormInputTypes[])[] = [
+export const TextareaInputs: (NgxFormInputs | NgxFormInputs[])[] = [
     { name: 'textarea-1', type: 'TEXTAREA', title: 'متن چند خطی', value: 'متن\nچند\nخطی' },
     { name: 'textarea-2', type: 'TEXTAREA', title: 'اختیاری', optional: true },
     {

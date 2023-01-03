@@ -1,6 +1,6 @@
-import { INgxFormValues, NgxFormInputTypes } from '@ngx-form';
+import { INgxFormValues, NgxFormInputs } from '@ngx-form';
 
-export const PeriodInputs: (NgxFormInputTypes | NgxFormInputTypes[])[] = [
+export const PeriodInputs: (NgxFormInputs | NgxFormInputs[])[] = [
     { name: 'period-1', type: 'PERIOD', value: [new Date(), new Date(new Date().getTime() + 24 * 3600 * 1000)] },
     { name: 'period-2', type: 'PERIOD', title: 'حداقل تاریخ', optional: true, minDate: new Date() },
     { name: 'period-3', type: 'PERIOD', title: 'حداکثر تاریخ', optional: true, maxDate: new Date() },

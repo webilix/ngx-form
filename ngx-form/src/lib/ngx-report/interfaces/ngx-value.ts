@@ -1,4 +1,4 @@
-import { NgxReportInputTypes, NgxReportOperators } from '../ngx-report.type';
+import { NgxReportInputs, NgxReportOperators } from '../ngx-report.type';
 
 export type NgxReportValueTypes =
     | 'BANK-CARD'
@@ -17,7 +17,7 @@ export interface INgxReportValue {
     extra?: Partial<{ [key in NgxReportOperators]: NgxReportValueTypes }>;
 }
 
-export const NgxReportValuesInfo: { [key in NgxReportInputTypes['type']]: INgxReportValue } = {
+export const NgxReportValuesInfo: { [key in NgxReportInputs['type']]: INgxReportValue } = {
     'BANK-CARD': { default: 'BANK-CARD' },
     CHECKBOX: { default: null },
     DATE: { default: 'DATE' },

@@ -1,6 +1,6 @@
-import { INgxFormValues, NgxFormInputTypes } from '@ngx-form';
+import { INgxFormValues, NgxFormInputs } from '@ngx-form';
 
-export const MobileInputs: (NgxFormInputTypes | NgxFormInputTypes[])[] = [
+export const MobileInputs: (NgxFormInputs | NgxFormInputs[])[] = [
     { name: 'mobile-1', type: 'MOBILE', value: '09123456789' },
     { name: 'mobile-2', type: 'MOBILE', title: 'اختیاری', optional: true },
     {

@@ -1,8 +1,8 @@
-import { INgxFormValues, NgxFormInputTypes } from '@ngx-form';
+import { INgxFormValues, NgxFormInputs } from '@ngx-form';
 
 const options: string[] = ['سیمیلیس', 'مپانگا', 'کت اتو', 'پلکو'];
 
-export const AutoCompleteInputs: (NgxFormInputTypes | NgxFormInputTypes[])[] = [
+export const AutoCompleteInputs: (NgxFormInputs | NgxFormInputs[])[] = [
     { name: 'auto-complete-1', type: 'AUTO-COMPLETE', title: 'لیست تکمیلی', value: 'پلکو', options: options },
     { name: 'auto-complete-2', type: 'AUTO-COMPLETE', title: 'اختیاری', options: options, optional: true },
     {

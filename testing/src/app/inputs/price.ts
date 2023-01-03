@@ -1,6 +1,6 @@
-import { INgxFormValues, NgxFormInputTypes } from '@ngx-form';
+import { INgxFormValues, NgxFormInputs } from '@ngx-form';
 
-export const PriceInputs: (NgxFormInputTypes | NgxFormInputTypes[])[] = [
+export const PriceInputs: (NgxFormInputs | NgxFormInputs[])[] = [
     { name: 'price-1', type: 'PRICE', title: 'قیمت', value: 5000000 },
     { name: 'price-2', type: 'PRICE', title: 'اختیاری', optional: true },
     { name: 'price-3', type: 'PRICE', title: 'تغییر واحد پولی', currency: 'تومان', optional: true },

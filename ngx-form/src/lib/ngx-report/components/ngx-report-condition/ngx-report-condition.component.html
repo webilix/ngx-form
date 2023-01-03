@@ -37,13 +37,15 @@
         </div>
         <div class="value" *ngIf="valueShow">
             <ng-container [ngSwitch]="valueType">
-                <ngx-value-bank-card
+                <ngx-value-data
                     *ngSwitchCase="'BANK-CARD'"
                     [input]="input"
                     [operator]="condition.operator"
                     [value]="condition.value"
                     (changed)="setValue($event)"
-                ></ngx-value-bank-card>
+                    [icon]="'payment'"
+                    [mask]="'0000-0000-0000-0000'"
+                ></ngx-value-data>
                 <ngx-value-date
                     *ngSwitchCase="'DATE'"
                     [input]="input"
@@ -51,27 +53,30 @@
                     [value]="condition.value"
                     (changed)="setValue($event)"
                 ></ngx-value-date>
-                <ngx-value-domain
+                <ngx-value-data
                     *ngSwitchCase="'DOMAIN'"
                     [input]="input"
                     [operator]="condition.operator"
                     [value]="condition.value"
                     (changed)="setValue($event)"
-                ></ngx-value-domain>
-                <ngx-value-email
+                    [icon]="'language'"
+                ></ngx-value-data>
+                <ngx-value-data
                     *ngSwitchCase="'EMAIL'"
                     [input]="input"
                     [operator]="condition.operator"
                     [value]="condition.value"
                     (changed)="setValue($event)"
-                ></ngx-value-email>
-                <ngx-value-ip
+                    [icon]="'alternate_email'"
+                ></ngx-value-data>
+                <ngx-value-data
                     *ngSwitchCase="'IP'"
                     [input]="input"
                     [operator]="condition.operator"
                     [value]="condition.value"
                     (changed)="setValue($event)"
-                ></ngx-value-ip>
+                    [icon]="'location_on'"
+                ></ngx-value-data>
                 <ngx-value-mobile
                     *ngSwitchCase="'MOBILE'"
                     [input]="input"
@@ -79,13 +84,15 @@
                     [value]="condition.value"
                     (changed)="setValue($event)"
                 ></ngx-value-mobile>
-                <ngx-value-national-code
+                <ngx-value-data
                     *ngSwitchCase="'NATIONAL-CODE'"
                     [input]="input"
                     [operator]="condition.operator"
                     [value]="condition.value"
                     (changed)="setValue($event)"
-                ></ngx-value-national-code>
+                    [icon]="'badge'"
+                    [mask]="'0000000000'"
+                ></ngx-value-data>
                 <ngx-value-number
                     *ngSwitchCase="'NUMBER'"
                     [input]="input"

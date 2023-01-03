@@ -3,7 +3,7 @@ import { Component, EventEmitter, Input, OnChanges, Output, SimpleChange, Simple
 import { NgxDateService } from '../../../../ngx-date';
 
 import { INgxReportInputDate } from '../../../inputs';
-import { NgxReportInputTypes, NgxReportOperators } from '../../../ngx-report.type';
+import { NgxReportInputs, NgxReportOperators } from '../../../ngx-report.type';
 
 @Component({
     selector: 'ngx-value-date',
@@ -11,7 +11,7 @@ import { NgxReportInputTypes, NgxReportOperators } from '../../../ngx-report.typ
     styleUrls: ['./ngx-value-date.component.scss'],
 })
 export class NgxValueDateComponent implements OnChanges {
-    @Input() input?: NgxReportInputTypes;
+    @Input() input?: NgxReportInputs;
     @Input() operator: NgxReportOperators | null = null;
     @Input() value: Date | [Date, Date] | null = null;
     @Output() changed: EventEmitter<Date | [Date, Date] | null> = new EventEmitter<Date | [Date, Date] | null>();

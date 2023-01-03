@@ -1,9 +1,0 @@
-<input
-    matInput
-    type="text"
-    inputmode="numeric"
-    [(ngModel)]="ip"
-    [ngClass]="{ en: true, error: error, 'ngx-form-invalid': error }"
-    (change)="changed.emit(error ? null : ip)"
-/>
-<mat-icon [fontIcon]="'location_on'"></mat-icon>

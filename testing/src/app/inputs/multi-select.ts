@@ -1,4 +1,4 @@
-import { INgxFormValues, NgxFormInputTypes } from '@ngx-form';
+import { INgxFormValues, NgxFormInputs } from '@ngx-form';
 
 const options = [
     { id: '1ST', title: 'گزینه اول' },
@@ -9,7 +9,7 @@ const options = [
 ];
 const optionsEN = ['1ST', '2ND', '3RD', '4TH', '5TH'].map((en) => ({ id: en, title: en }));
 
-export const MultiSelectInputs: (NgxFormInputTypes | NgxFormInputTypes[])[] = [
+export const MultiSelectInputs: (NgxFormInputs | NgxFormInputs[])[] = [
     { name: 'multi-select-1', type: 'MULTI-SELECT', title: 'چند انتخابی', value: ['1ST'], options: options },
     { name: 'multi-select-2', type: 'MULTI-SELECT', title: 'نمایش تگ', options: options, view: 'TAG' },
     { name: 'multi-select-3', type: 'MULTI-SELECT', title: 'نمایش لیست کشویی', options: options, view: 'SELECT' },

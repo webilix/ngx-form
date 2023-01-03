@@ -2,7 +2,7 @@ import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
 
 import { INgxReportInputSelect } from '../../../inputs';
 import { INgxReportOption } from '../../../interfaces';
-import { NgxReportInputTypes, NgxReportOperators } from '../../../ngx-report.type';
+import { NgxReportInputs, NgxReportOperators } from '../../../ngx-report.type';
 
 @Component({
     selector: 'ngx-value-option',
@@ -10,7 +10,7 @@ import { NgxReportInputTypes, NgxReportOperators } from '../../../ngx-report.typ
     styleUrls: ['./ngx-value-option.component.scss'],
 })
 export class NgxValueOptionComponent implements OnInit {
-    @Input() input?: NgxReportInputTypes;
+    @Input() input?: NgxReportInputs;
     @Input() operator: NgxReportOperators | null = null;
     @Input() value: string[] | null = null;
     @Output() changed: EventEmitter<string[] | null> = new EventEmitter<string[] | null>();

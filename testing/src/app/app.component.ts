@@ -1,6 +1,6 @@
 import { Component, OnInit, ViewChild } from '@angular/core';
 
-import { INgxForm, NgxFormComponent, NgxFormInputTypes } from '@ngx-form';
+import { INgxForm, NgxFormComponent, NgxFormInputs } from '@ngx-form';
 
 import {
     AutoCompleteInputs,
@@ -42,7 +42,7 @@ export class AppComponent implements OnInit {
     @ViewChild('ngxFormComponent') ngxFormComponent?: NgxFormComponent;
 
     public column: number = 1;
-    public ngxInputs: NgxFormInputTypes[] = [
+    public ngxInputs: NgxFormInputs[] = [
         { name: 'comment', type: 'COMMENT', title: 'توضیحات', value: 'متن توضیحات به این صورت نمایش داده می‌شود.' },
 
         {
@@ -110,7 +110,7 @@ export class AppComponent implements OnInit {
         appearance: 'fill',
     };
 
-    public types: { type: string; title: string; inputs: (NgxFormInputTypes | NgxFormInputTypes[])[] }[] = [
+    public types: { type: string; title: string; inputs: (NgxFormInputs | NgxFormInputs[])[] }[] = [
         { type: 'AUTO-COMPLETE', title: 'لیست تکمیلی', inputs: AutoCompleteInputs },
         { type: 'BANK-CARD', title: 'شماره کارت بانکی', inputs: BankCardInputs },
         { type: 'CHECKBOX', title: 'یک انتخابی', inputs: CheckboxInputs },
@@ -142,7 +142,7 @@ export class AppComponent implements OnInit {
     ];
 
     public type: string | null = null;
-    public inputs: (NgxFormInputTypes | NgxFormInputTypes[])[] = [];
+    public inputs: (NgxFormInputs | NgxFormInputs[])[] = [];
 
     public localStorage: string = 'NGX-FORM-INPUT-TYPE';
 
@@ -167,7 +167,7 @@ export class AppComponent implements OnInit {
 
         this.ngxForm.inputs = [];
 
-        const inputs: NgxFormInputTypes[] = [...this.ngxInputs];
+        const inputs: NgxFormInputs[] = [...this.ngxInputs];
         while (inputs.length !== 0) {
             this.ngxForm.inputs.push(inputs.splice(0, column));
         }

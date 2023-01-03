@@ -3,7 +3,7 @@ import { Injectable } from '@angular/core';
 import { NgxReportOperatorsInfo } from './interfaces';
 
 import { INgxReport, INgxReportCondition } from './ngx-report.interface';
-import { NgxReportInputTypes } from './ngx-report.type';
+import { NgxReportInputs } from './ngx-report.type';
 
 @Injectable()
 export class NgxReportService {
@@ -15,10 +15,10 @@ export class NgxReportService {
         return report.conditions.length === 0;
     }
 
-    private conditionHasError(inputs: NgxReportInputTypes[], condition: INgxReportCondition): boolean {
+    private conditionHasError(inputs: NgxReportInputs[], condition: INgxReportCondition): boolean {
         if (condition.input === null || condition.operator === null) return true;
 
-        const input = inputs.find((i: NgxReportInputTypes) => i.name === condition.input);
+        const input = inputs.find((i: NgxReportInputs) => i.name === condition.input);
         if (!input) return true;
 
         if (NgxReportOperatorsInfo[condition.operator].types === 'ALL') return false;
@@ -29,7 +29,7 @@ export class NgxReportService {
         return false;
     }
 
-    hasError(inputs: NgxReportInputTypes[], report: INgxReport): boolean {
+    hasError(inputs: NgxReportInputs[], report: INgxReport): boolean {
         if (this.groupHasError(report)) return true;
 
         for (let c = 0; c < report.conditions.length; c++) {

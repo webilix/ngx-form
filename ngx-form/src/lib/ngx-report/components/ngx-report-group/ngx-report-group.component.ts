@@ -2,7 +2,7 @@ import { Component, EventEmitter, Input, Output } from '@angular/core';
 
 import { INgxReport, INgxReportCondition } from '../../ngx-report.interface';
 import { NgxReportService } from '../../ngx-report.service';
-import { NgxReportInputTypes } from '../../ngx-report.type';
+import { NgxReportInputs } from '../../ngx-report.type';
 
 @Component({
     selector: 'ngx-report-group',
@@ -10,7 +10,7 @@ import { NgxReportInputTypes } from '../../ngx-report.type';
     styleUrls: ['./ngx-report-group.component.scss'],
 })
 export class NgxReportGroupComponent {
-    @Input() inputs: NgxReportInputTypes[] = [];
+    @Input() inputs: NgxReportInputs[] = [];
     @Input() report?: INgxReport;
     @Input() level: number = 0;
     @Output() changed: EventEmitter<void> = new EventEmitter<void>();

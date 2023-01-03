@@ -1,7 +1,7 @@
 import { Component, EventEmitter, Input, Output } from '@angular/core';
 
 import { INgxReportInputText } from '../../../inputs';
-import { NgxReportInputTypes, NgxReportOperators } from '../../../ngx-report.type';
+import { NgxReportInputs, NgxReportOperators } from '../../../ngx-report.type';
 
 @Component({
     selector: 'ngx-value-text',
@@ -9,7 +9,7 @@ import { NgxReportInputTypes, NgxReportOperators } from '../../../ngx-report.typ
     styleUrls: ['./ngx-value-text.component.scss'],
 })
 export class NgxValueTextComponent {
-    @Input() input?: NgxReportInputTypes;
+    @Input() input?: NgxReportInputs;
     @Input() operator: NgxReportOperators | null = null;
     @Input() value: string | null = null;
     @Output() changed: EventEmitter<string | null> = new EventEmitter<string | null>();

@@ -1,8 +1,8 @@
-import { NgxReportInputTypes, NgxReportOperators } from '../ngx-report.type';
+import { NgxReportInputs, NgxReportOperators } from '../ngx-report.type';
 
 export interface INgxReportOperator {
     title: string;
-    types: 'ALL' | NgxReportInputTypes['type'][];
+    types: 'ALL' | NgxReportInputs['type'][];
     value: boolean;
 }
 

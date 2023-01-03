@@ -229,9 +229,9 @@ import { NgxReportModule } from '@webilix/ngx-form';
 
 ```ts
 /* TypeScript */
-import { INgxReport, NgxReportInputTypes } from '@webilix/ngx-form';
+import { INgxReport, NgxReportInputs } from '@webilix/ngx-form';
 
- public ngxInputs: NgxReportInputTypes[] = [
+ public ngxInputs: NgxReportInputs[] = [
         { name: 'bank-card', type: 'BANK-CARD', title: 'شماره کارت بانکی' },
         { name: 'checkbox', type: 'CHECKBOX', title: 'یک انتخابی' },
         ...

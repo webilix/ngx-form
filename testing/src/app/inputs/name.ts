@@ -1,6 +1,6 @@
-import { INgxFormValues, NgxFormInputTypes } from '@ngx-form';
+import { INgxFormValues, NgxFormInputs } from '@ngx-form';
 
-export const NameInputs: (NgxFormInputTypes | NgxFormInputTypes[])[] = [
+export const NameInputs: (NgxFormInputs | NgxFormInputs[])[] = [
     { name: 'name-1', type: 'NAME', value: { first: 'نام', last: 'نام خانوادگی' } },
     { name: 'name-2', type: 'NAME', optional: true },
     {

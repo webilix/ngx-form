@@ -9,7 +9,7 @@ import {
 } from '../../interfaces';
 
 import { INgxReportCondition } from '../../ngx-report.interface';
-import { NgxReportInputTypes, NgxReportOperators } from '../../ngx-report.type';
+import { NgxReportInputs, NgxReportOperators } from '../../ngx-report.type';
 
 @Component({
     selector: 'ngx-report-condition',
@@ -17,14 +17,14 @@ import { NgxReportInputTypes, NgxReportOperators } from '../../ngx-report.type';
     styleUrls: ['./ngx-report-condition.component.scss'],
 })
 export class NgxReportConditionComponent implements OnInit {
-    @Input() inputs: NgxReportInputTypes[] = [];
+    @Input() inputs: NgxReportInputs[] = [];
     @Input() condition?: INgxReportCondition;
     @Output() changed: EventEmitter<void> = new EventEmitter<void>();
     @Output() deleted: EventEmitter<void> = new EventEmitter<void>();
 
     public operatorsInfo = NgxReportOperatorsInfo;
     public operators: NgxReportOperators[] = [];
-    public input?: NgxReportInputTypes;
+    public input?: NgxReportInputs;
 
     get valueShow(): boolean {
         if (!this.condition || !this.condition.input || !this.condition.operator) return false;
@@ -44,7 +44,7 @@ export class NgxReportConditionComponent implements OnInit {
 
     ngOnInit(): void {
         if (this.condition?.input) {
-            this.input = this.inputs.find((i: NgxReportInputTypes) => i.name === this.condition?.input);
+            this.input = this.inputs.find((i: NgxReportInputs) => i.name === this.condition?.input);
             if (!this.input) {
                 this.condition.input = null;
                 this.condition.operator = null;
@@ -58,7 +58,7 @@ export class NgxReportConditionComponent implements OnInit {
 
     setInput(name: string): void {
         if (!this.condition) return;
-        if (!this.inputs.find((i: NgxReportInputTypes) => i.name === name)) return;
+        if (!this.inputs.find((i: NgxReportInputs) => i.name === name)) return;
 
         this.condition.input = name;
         this.condition.operator = null;
@@ -71,7 +71,7 @@ export class NgxReportConditionComponent implements OnInit {
     updateOperators(): void {
         this.operators = [];
 
-        this.input = this.inputs.find((i: NgxReportInputTypes) => i.name === this.condition?.input);
+        this.input = this.inputs.find((i: NgxReportInputs) => i.name === this.condition?.input);
         if (!this.input) return;
 
         NgxReportOperatorsList.forEach((operator: NgxReportOperators) => {

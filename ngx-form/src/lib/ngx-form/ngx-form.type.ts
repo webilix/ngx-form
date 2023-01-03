@@ -30,7 +30,7 @@ import {
     INgxFormInputUsername,
 } from './inputs';
 
-export type NgxFormInputTypes =
+export type NgxFormInputs =
     // VIEWS
     | INgxFormInputComment
     // INPUTS
