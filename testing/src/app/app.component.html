@@ -1,30 +1,42 @@
 <content>
     <section class="header">
-        <select
-            *ngIf="!type || !title"
-            class="column"
-            [dir]="'rtl'"
-            [ngModel]="column"
-            (change)="setColumn(+columnSelect.value)"
-            #columnSelect
+        <button
+            mat-button
+            type="button"
+            color="primary"
+            style="color: #fff; font-weight: 600"
+            (click)="setType(type === 'REPORT' ? '' : 'REPORT')"
         >
-            <option *ngFor="let c of [1, 2, 3]" [value]="c">{{ c }}</option>
-        </select>
+            {{ type === 'REPORT' ? 'HIDE' : '' }} REPORT
+        </button>
 
-        <select [dir]="'rtl'" (change)="setType(typeSelect.value)" #typeSelect>
-            <option value="" [selected]="type === null"></option>
-            <option *ngFor="let t of types; let index = index" [value]="t.type" [selected]="type === t.type">
-                {{ index + 1 | number }}: {{ t.title }}
-            </option>
-        </select>
+        <ng-container *ngIf="type !== 'REPORT'">
+            <select
+                *ngIf="!type"
+                class="column"
+                [dir]="'rtl'"
+                [ngModel]="column"
+                (change)="setColumn(+columnSelect.value)"
+                #columnSelect
+            >
+                <option *ngFor="let c of [1, 2, 3]" [value]="c">{{ c }}</option>
+            </select>
+
+            <select [dir]="'rtl'" (change)="setType(typeSelect.value)" #typeSelect>
+                <option value="" [selected]="type === null"></option>
+                <option *ngFor="let t of types; let index = index" [value]="t.type" [selected]="type === t.type">
+                    {{ index + 1 | number }}: {{ t.title }}
+                </option>
+            </select>
+        </ng-container>
     </section>
 
-    <section class="form" *ngIf="type && title">
-        <app-input [inputs]="inputs"></app-input>
+    <section class="form" *ngIf="type">
+        <app-input *ngIf="type !== 'REPORT'" [inputs]="inputs"></app-input>
+        <app-report *ngIf="type === 'REPORT'"></app-report>
     </section>
 
-    <section class="form" *ngIf="!type || !title">
-        <app-report></app-report>
+    <section class="form" *ngIf="!type">
         <ngx-form
             [ngxForm]="ngxForm"
             (ngxSubmit)="showValues('ngxSubmit', $event)"

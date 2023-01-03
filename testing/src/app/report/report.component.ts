@@ -53,22 +53,41 @@ export class ReportComponent {
     public ngxReport: INgxReport | null = {
         join: 'AND',
         conditions: [
-            { input: 'url', operator: 'DOMAIN', value: 'domain.com' },
-            { input: 'textarea', operator: 'EWITH', value: 'Multi-line text' },
-            { input: 'text', operator: 'BWITH', value: 'شروع با' },
-            { input: 'select', operator: 'NIN', value: ['option-3'] },
-            { input: 'number', operator: 'BETWEEN', value: [12, 21] },
-            { input: 'national-code', operator: 'EQ', value: '0123456789' },
-            { input: 'multi-select', operator: 'IN', value: ['option-1', 'option-2'] },
-            { input: 'mobile', operator: 'EQ', value: '09123456789' },
-            { input: 'ip', operator: 'EQ', value: '127.0.0.1' },
-            { input: 'email', operator: 'EQ', value: 'email@domain.com' },
-            { input: 'domain', operator: 'EQ', value: 'domain.com' },
-            { input: 'date', operator: 'BETWEEN', value: [new Date(), new Date()] },
             { input: 'checkbox', operator: 'EMPTY', value: null },
-            { input: 'bank-card', operator: 'EQ', value: '1234567812349995' },
+            { input: 'number', operator: 'BETWEEN', value: [12, 21] },
+            { input: 'date', operator: 'BETWEEN', value: [new Date(), new Date()] },
+            {
+                join: 'OR',
+                conditions: [
+                    { input: 'bank-card', operator: 'EQ', value: '1234567812349995' },
+                    { input: 'domain', operator: 'EQ', value: 'domain.com' },
+                    { input: 'email', operator: 'EQ', value: 'email@domain.com' },
+                    { input: 'ip', operator: 'EQ', value: '127.0.0.1' },
+                    { input: 'mobile', operator: 'EQ', value: '09123456789' },
+                    { input: 'national-code', operator: 'EQ', value: '0123456789' },
+                    { input: 'url', operator: 'DOMAIN', value: 'domain.com' },
+                ],
+            },
+            {
+                join: 'OR',
+                conditions: [
+                    { input: 'text', operator: 'BWITH', value: 'شروع با' },
+                    { input: 'textarea', operator: 'EWITH', value: 'Multi-line text' },
+                ],
+            },
+            {
+                join: 'OR',
+                conditions: [
+                    { input: 'multi-select', operator: 'IN', value: ['option-1', 'option-2'] },
+                    { input: 'select', operator: 'NIN', value: ['option-3'] },
+                ],
+            },
         ],
     };
 
     public log = console.log;
+
+    showValues(report: INgxReport): void {
+        this.log(report);
+    }
 }

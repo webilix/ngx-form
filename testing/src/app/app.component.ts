@@ -142,14 +142,13 @@ export class AppComponent implements OnInit {
     ];
 
     public type: string | null = null;
-    public title: string | null = null;
     public inputs: (NgxFormInputTypes | NgxFormInputTypes[])[] = [];
 
     public localStorage: string = 'NGX-FORM-INPUT-TYPE';
 
     ngOnInit(): void {
         const type: string | null = localStorage.getItem(this.localStorage);
-        this.setType(this.types.find((t) => t.type === type)?.type || '');
+        this.setType(type === 'REPORT' ? 'REPORT' : this.types.find((t) => t.type === type)?.type || '');
 
         this.setColumn(1);
     }
@@ -178,16 +177,16 @@ export class AppComponent implements OnInit {
         if (type === '') {
             localStorage.removeItem(this.localStorage);
             this.type = null;
-            this.title = null;
             this.inputs = [];
         } else {
-            const data = this.types.find((t) => t.type === type);
-            if (!data) return;
+            if (type !== 'REPORT') {
+                const data = this.types.find((t) => t.type === type);
+                if (!data) return;
+                this.inputs = data.inputs;
+            }
 
             localStorage.setItem(this.localStorage, type);
             this.type = type;
-            this.title = data.title;
-            this.inputs = data.inputs;
         }
     }
 }

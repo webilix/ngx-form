@@ -6,8 +6,6 @@ Persian form library for Angular
 
 ---
 
-<div style="margin-top: 2rem; text-align: center;">
-
-![alt text](https://github.com/webilix/ngx-form/blob/master/testing/src/assets/preview.png?raw=true '@webilix/ngx-form')
-
-</div>
+| ngx-form                                                                                                                                          | ngx-report                                                                                                                                            |
+| ------------------------------------------------------------------------------------------------------------------------------------------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------- |
+| ![alt text](https://github.com/webilix/ngx-form/blob/master/testing/src/assets/ngx-form.preview.png?raw=true '@webilix/ngx-form : NgxFormModule') | ![alt text](https://github.com/webilix/ngx-form/blob/master/testing/src/assets/ngx-report.preview.png?raw=true '@webilix/ngx-form : NgxReportModule') |

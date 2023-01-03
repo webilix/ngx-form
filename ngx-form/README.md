@@ -1,18 +1,8 @@
 # @webilix/ngx-form
 
-Persian form library for Angular
+Persian form / report library for Angular
 
 **This library uses Angular 15.0.2+**
-
----
-
-## Table of contents
-
--   [Installation](#installation)
--   [Usage](#usage)
--   [Configuration](#configuration)
--   [Input Types](#input-types)
--   [Preview](#preview)
 
 ---
 
@@ -35,7 +25,22 @@ npm install --save @webilix/ngx-form
 
 ---
 
-## Usage
+## Table of contents
+
+-   NgxFormModule
+    -   [NgxFormModule Usage](#ngxformmodule-usage)
+    -   [NgxFormModule Configuration](#ngxformmodule-configuration)
+    -   [NgxFormModule Input Types](#ngxformmodule-input-types)
+    -   [NgxFormModule Preview](#ngxformmodule-preview)
+-   NgxReportModule
+    -   [NgxReportModule Usage](#ngxreportmodule-usage)
+    -   [NgxReportModule Configuration](#ngxreportmodule-configuration)
+    -   [NgxReportModule Input Types](#ngxreportmodule-input-types)
+    -   [NgxReportModule Preview](#ngxreportmodule-preview)
+
+---
+
+## NgxFormModule Usage
 
 -   **Import NgxFormModule**
 
@@ -91,13 +96,13 @@ showValues(values: INgxFormValues): void {
 
 ---
 
-## Configuration
+## NgxFormModule Configuration
 
 ```js
 /**
  * NgxForm config
  */
-interface INgxConfig {
+export interface INgxFormStyle {
     /**
      * Farsi (Persian) font name
      * @type { string }
@@ -158,7 +163,7 @@ interface INgxConfig {
 
 ---
 
-## Input Types
+## NgxFormModule Input Types
 
 -   AUTO-COMPLETE
 -   BANK-CARD
@@ -192,10 +197,172 @@ interface INgxConfig {
 
 ---
 
-## Preview
+## NgxFormModule Preview
 
 <div style="margin-top: 2rem; text-align: center;">
 
-![alt text](https://github.com/webilix/ngx-form/blob/master/testing/src/assets/preview.png?raw=true '@webilix/ngx-form')
+![alt text](https://github.com/webilix/ngx-form/blob/master/testing/src/assets/ngx-form.preview.png?raw=true '@webilix/ngx-form : NgxFormModule')
+
+</div>
+
+---
+
+## NgxReportModule Usage
+
+-   **Import NgxReportModule**
+
+```ts
+/* TypeScript */
+import { NgxReportModule } from '@webilix/ngx-form';
+
+@NgModule({
+   ...
+   imports: [
+       ...
+       NgxReportModule.forRoot()
+   ],
+   ...
+})
+```
+
+-   **Create ngxInputs && ngxReport in component**
+
+```ts
+/* TypeScript */
+import { INgxReport, NgxReportInputTypes } from '@webilix/ngx-form';
+
+ public ngxInputs: NgxReportInputTypes[] = [
+        { name: 'bank-card', type: 'BANK-CARD', title: 'شماره کارت بانکی' },
+        { name: 'checkbox', type: 'CHECKBOX', title: 'یک انتخابی' },
+        ...
+ ]
+
+ public ngxReport: INgxReport | null = null;
+```
+
+-   **Add ngxReport code to component template**
+
+```html
+<!-- HTML -->
+<ngx-report [ngxInputs]="ngxInputs" [(ngxReport)]="ngxReport" (changed)="showValues($event)"></ngx-report>
+```
+
+-   **Process report**
+
+```js
+/* TypeScript */
+import { INgxReport } from '@webilix/ngx-form';
+
+showValues(report: INgxReport): void {
+    // report = {
+    //     join: 'AND',
+    //     conditions: [
+    //         {input: 'bank-card', operator: 'EQ', value: '1234567812349995'},
+    //         ...
+    //     ],
+    // }
+}
+```
+
+---
+
+## NgxReportModule Configuration
+
+```js
+/**
+ * NgxReport config
+ */
+export interface INgxReportStyle {
+    /**
+     * Farsi (Persian) font name
+     * @type { string }
+     * @optional 'Yekan'
+     */
+    faFont: string;
+
+    /**
+     * English font name
+     * @type { string }
+     * @optional 'Roboto, "Helvetica Neue", sans-serif'
+     */
+    enFont: string;
+
+    /**
+     * Font size
+     * @type { string }
+     * @optional '12px'
+     */
+    faSize: string;
+
+    /**
+     * Material icon font name
+     * @type { string }
+     * @optional 'Material Icons Outlined'
+     */
+    iconFont: string;
+
+    /**
+     * Material icon font size
+     * @type { string }
+     * @optional '16px'
+     */
+    iconSize: string;
+
+    /**
+     * Report inputs primary color
+     * @type { string }
+     * @optional 'rgb(29, 91, 116)'
+     */
+    primaryColor: string;
+
+    /**
+     * Report inputs warn color
+     * @type { string }
+     * @optional 'rgb(255, 49, 27)'
+     */
+    warnColor: string;
+
+    /**
+     * Report inputs border color
+     * @type { string }
+     * @optional 'rgb(187, 206, 213)'
+     */
+    borderColor: string;
+
+    /**
+     * Report inputs background color
+     * @type { string }
+     * @optional 'rgb(232, 239, 241)'
+     */
+    backgroundColor: string;
+}
+```
+
+---
+
+## NgxReportModule Input Types
+
+-   BANK-CARD
+-   CHECKBOX
+-   DATE
+-   DOMAIN
+-   EMAIL
+-   IP
+-   MOBILE
+-   MULTI-SELECT
+-   NATIONAL-CODE
+-   NUMBER
+-   SELECT
+-   TEXT
+-   TEXTAREA
+-   URL
+
+---
+
+## NgxReportModule Preview
+
+<div style="margin-top: 2rem; text-align: center;">
+
+![alt text](https://github.com/webilix/ngx-form/blob/master/testing/src/assets/ngx-report.preview.png?raw=true '@webilix/ngx-form : NgxReportModule')
 
 </div>

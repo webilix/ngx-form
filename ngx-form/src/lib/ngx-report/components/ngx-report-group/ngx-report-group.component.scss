@@ -46,6 +46,7 @@ header {
     text-align: center;
     font-weight: 600;
     color: var(--ngxReportWarnColor);
+    font-size: calc(var(--ngxReportFontSize) - 1px);
     opacity: 0.75;
 }
 
