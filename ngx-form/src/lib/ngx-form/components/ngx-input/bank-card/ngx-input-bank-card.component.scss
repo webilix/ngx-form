@@ -1,0 +1,19 @@
+.content {
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+
+    .bank {
+        flex: 1;
+        white-space: nowrap;
+        overflow: hidden;
+        text-overflow: ellipsis;
+
+        opacity: 0.5;
+        font-size: 90%;
+    }
+
+    input {
+        max-width: 150px;
+    }
+}

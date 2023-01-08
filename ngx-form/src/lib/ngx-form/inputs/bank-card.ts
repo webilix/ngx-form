@@ -8,6 +8,12 @@ import { NgxBankCardValidator } from '../validators';
 
 export interface INgxFormInputBankCard extends Omit<INgxFormInput, 'english'> {
     type: 'BANK-CARD';
+
+    /**
+     * Show bank title
+     * @type { boolean }
+     */
+    showBank?: boolean;
 }
 
 export class NgxFormInputBankCardMethods extends NgxFormMethods<INgxFormInputBankCard, string | null> {

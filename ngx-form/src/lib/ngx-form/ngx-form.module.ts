@@ -19,6 +19,7 @@ import { NgxPipeModule } from '../ngx-pipe';
 
 import {
     NgxInputAutoCompleteComponent,
+    NgxInputBankCardComponent,
     NgxInputCheckboxComponent,
     NgxInputColorComponent,
     NgxInputComponent,
@@ -53,6 +54,7 @@ import { NgxFormComponent } from './ngx-form.component';
 
         NgxInputComponent,
         NgxInputAutoCompleteComponent,
+        NgxInputBankCardComponent,
         NgxInputCheckboxComponent,
         NgxInputColorComponent,
         NgxInputDateComponent,

@@ -23,16 +23,12 @@
     ></ngx-input-auto-complete>
 
     <!-- BANK CARD -->
-    <ngx-input-text
+    <ngx-input-bank-card
         *ngIf="input.type === 'BANK-CARD'"
         [control]="control"
         [input]="input"
         [appearance]="appearance"
-        [icon]="'credit_card'"
-        [en]="true"
-        [numeric]="true"
-        [mask]="'0000-0000-0000-0000'"
-    ></ngx-input-text>
+    ></ngx-input-bank-card>
 
     <!-- CHECKBOX -->
     <ngx-input-checkbox
