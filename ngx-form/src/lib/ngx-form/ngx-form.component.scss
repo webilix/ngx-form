@@ -153,14 +153,25 @@ form {
     opacity: 0.5;
 }
 
+::ng-deep .ngx-select-panel {
+    padding: 0 !important;
+}
+
 ::ng-deep .ngx-select-search {
     width: 100%;
     border-width: 0;
+    background-color: var(--ngxFormBackgroundColor);
     border-bottom: 1px solid var(--ngxFormBorderColor);
-    padding: 0.25rem 1rem 0.75rem 1rem;
+    padding: 1.25rem 1rem;
     outline: none;
+    font-size: 90%;
+    z-index: 2;
+
+    position: sticky;
+    top: 0;
 }
 
 ::ng-deep .ngx-select-search::placeholder {
+    font-size: 90%;
     text-align: right;
 }
