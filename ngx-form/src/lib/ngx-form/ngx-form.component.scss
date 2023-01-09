@@ -119,6 +119,7 @@ form {
         width: 100% !important;
     }
 
+    .ngx-form-overflow,
     .mat-mdc-form-field-hint {
         white-space: nowrap;
         overflow: hidden;
@@ -155,6 +156,12 @@ form {
 
 ::ng-deep .ngx-select-panel {
     padding: 0 !important;
+
+    .mat-mdc-option * {
+        white-space: nowrap !important;
+        overflow: hidden;
+        text-overflow: ellipsis;
+    }
 }
 
 ::ng-deep .ngx-select-search {

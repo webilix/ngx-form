@@ -43,7 +43,7 @@ export class NgxInputMultiSelectComponent implements OnInit {
         const ids: string[] = this.input.options.map((o) => o.id);
         this.values = this.values.filter((v: string) => ids.includes(v));
 
-        if (this.values.length > 2) return `${this.values.length} ${this.input.english ? 'Items' : 'گزینه'}`;
+        if (this.values.length > 3) return `${this.values.length} ${this.input.english ? 'Items' : 'گزینه'}`;
 
         return this.input.options
             .filter((option) => this.values.includes(option.id))
