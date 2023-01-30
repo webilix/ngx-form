@@ -196,6 +196,14 @@
         [appearance]="appearance"
     ></ngx-input-period>
 
+    <!-- PLATE -->
+    <ngx-input-plate
+        *ngIf="input.type === 'PLATE'"
+        [control]="control"
+        [input]="input"
+        [appearance]="appearance"
+    ></ngx-input-plate>
+
     <!-- PRICE -->
     <ngx-input-number
         *ngIf="input.type === 'PRICE'"

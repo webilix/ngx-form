@@ -20,6 +20,7 @@ import {
     INgxFormInputOptionList,
     INgxFormInputPassword,
     INgxFormInputPeriod,
+    INgxFormInputPlate,
     INgxFormInputPrice,
     INgxFormInputRange,
     INgxFormInputSelect,
@@ -54,6 +55,7 @@ export type NgxFormInputs =
     | INgxFormInputOptionList
     | INgxFormInputPassword
     | INgxFormInputPeriod
+    | INgxFormInputPlate
     | INgxFormInputPrice
     | INgxFormInputRange
     | INgxFormInputSelect

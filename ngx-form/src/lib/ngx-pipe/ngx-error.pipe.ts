@@ -57,6 +57,9 @@ export class NgxErrorPipe implements PipeTransform {
             case 'period':
                 return `تاریخ شروع باید ${value.equal ? 'قبل یا برابر با' : 'قبل از'} تاریخ پایان باشد.`;
 
+            case 'plate':
+                return `شماره پلاک به صورت کامل مشخص نشده است.`;
+
             case 'range':
                 return `حداقل مقدار باید ${value.equal ? 'کوچکتر یا برابر با' : 'کوچکتر از'} حداکثر مقدار باشد.`;
 

@@ -16,6 +16,7 @@ export * from './ngx-input/number/ngx-input-number.component';
 export * from './ngx-input/option-list/ngx-input-option-list.component';
 export * from './ngx-input/password/ngx-input-password.component';
 export * from './ngx-input/period/ngx-input-period.component';
+export * from './ngx-input/plate/ngx-input-plate.component';
 export * from './ngx-input/range/ngx-input-range.component';
 export * from './ngx-input/select/ngx-input-select.component';
 export * from './ngx-input/tag/ngx-input-tag.component';

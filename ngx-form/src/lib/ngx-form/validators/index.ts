@@ -7,4 +7,5 @@ export * from './ngx-min-count.validator';
 export * from './ngx-min-date.validator';
 export * from './ngx-national-code.validator';
 export * from './ngx-period.validator';
+export * from './ngx-plate-validator';
 export * from './ngx-range.validator';

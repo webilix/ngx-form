@@ -186,6 +186,7 @@ export interface INgxFormStyle {
 -   OPTION-LIST
 -   PASSWORD
 -   PERIOD
+-   PLATE
 -   PRICE
 -   RANGE
 -   SELECT

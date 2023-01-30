@@ -23,6 +23,7 @@ import {
     OptionListInputs,
     PasswordInputs,
     PeriodInputs,
+    PlateInputs,
     PriceInputs,
     RangeInputs,
     SelectInputs,
@@ -82,6 +83,7 @@ export class AppComponent implements OnInit {
         { name: 'option-list', type: 'OPTION-LIST', title: 'لیست گزینه‌ها' },
         { name: 'password', type: 'PASSWORD', optional: true },
         { name: 'period', type: 'PERIOD', optional: true },
+        { name: 'plate', type: 'PLATE', optional: true },
         { name: 'price', type: 'PRICE', title: 'قیمت', optional: true },
         { name: 'range', type: 'RANGE', title: 'محدوده عددی', optional: true },
         {
@@ -131,6 +133,7 @@ export class AppComponent implements OnInit {
         { type: 'OPTION-LIST', title: 'لیست گزینه‌ها', inputs: OptionListInputs },
         { type: 'PASSWORD', title: 'کلمه عبور', inputs: PasswordInputs },
         { type: 'PERIOD', title: 'محدوده زمانی', inputs: PeriodInputs },
+        { type: 'PLATE', title: 'شماره پلاک', inputs: PlateInputs },
         { type: 'PRICE', title: 'قیمت', inputs: PriceInputs },
         { type: 'RANGE', title: 'محدوده عددی', inputs: RangeInputs },
         { type: 'SELECT', title: 'لیست کشویی', inputs: SelectInputs },

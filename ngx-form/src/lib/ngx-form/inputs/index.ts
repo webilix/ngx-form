@@ -20,6 +20,7 @@ export * from './numeric';
 export * from './option-list';
 export * from './password';
 export * from './period';
+export * from './plate';
 export * from './price';
 export * from './range';
 export * from './select';
