@@ -17,7 +17,7 @@ export class NgxInputComponent implements OnInit {
     public control?: FormControl;
 
     ngOnInit(): void {
-        if (!this.group || !this.input) return;
+        if (!this.group || !this.input || this.input.type === 'COMMENT') return;
         this.control = this.group.get(this.input.name) as FormControl;
     }
 }

@@ -1,4 +1,4 @@
-<ng-container *ngIf="input && control">
+<ng-container *ngIf="input && (input.type === 'COMMENT' || control)">
     <!-- COMMENT -->
     <mat-form-field *ngIf="input.type === 'COMMENT'" [appearance]="appearance">
         <mat-label>{{ input.title }}</mat-label>
@@ -6,7 +6,6 @@
         <input
             matInput
             type="text"
-            [name]="input.name"
             [ngModel]="input.value"
             [ngClass]="{ 'input-en': input.english }"
             [readonly]="true"

@@ -44,7 +44,7 @@ export class AppComponent implements OnInit {
 
     public column: number = 1;
     public ngxInputs: NgxFormInputs[] = [
-        { name: 'comment', type: 'COMMENT', title: 'توضیحات', value: 'متن توضیحات به این صورت نمایش داده می‌شود.' },
+        { type: 'COMMENT', title: 'توضیحات', value: 'متن توضیحات به این صورت نمایش داده می‌شود.' },
 
         {
             name: 'auto-complete',

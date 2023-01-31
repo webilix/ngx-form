@@ -3,7 +3,7 @@ import { FormControl, ValidatorFn } from '@angular/forms';
 import { NgxFormMethods } from '../classes';
 import { INgxFormInput } from '../interfaces';
 
-export interface INgxFormInputComment extends Omit<INgxFormInput, 'optional' | 'disableOn'> {
+export interface INgxFormInputComment extends Omit<INgxFormInput, 'name' | 'optional' | 'disableOn' | 'hideOn'> {
     type: 'COMMENT';
 
     /**

@@ -74,7 +74,9 @@ export class NgxFormComponent implements OnInit {
             input.optional
                 ? []
                 : [Validators.required];
-        this.formGroup.setControl(input.name, NgxFieldInputInfo[input.type].methods.control(input, validators));
+
+        const name: string = input.type === 'COMMENT' ? '' : input.name;
+        this.formGroup.setControl(name, NgxFieldInputInfo[input.type].methods.control(input, validators));
     }
 
     private checkAvailability(values: INgxFormValues): void {
@@ -98,7 +100,7 @@ export class NgxFormComponent implements OnInit {
         this.ngxForm.inputs.forEach((row: NgxFormInputs | NgxFormInputs[]) => {
             const inputs: NgxFormInputs[] = Array.isArray(row) ? row : [row];
             inputs.forEach((input: NgxFormInputs) => {
-                if (!input.hideOn) return;
+                if (input.type === 'COMMENT' || !input.hideOn) return;
 
                 const hidden: boolean = input.hideOn(values);
                 hidden ? this.formGroup.get(input.name)?.disable() : this.formGroup.get(input.name)?.enable();
@@ -108,6 +110,7 @@ export class NgxFormComponent implements OnInit {
     }
 
     private getValue(input: NgxFormInputs): any {
+        if (input.type === 'COMMENT') return null;
         if (!this.formGroup || !this.formGroup.get(input.name)) return null;
         if (this.formGroup.get(input.name)?.disabled) return null;
         if (this.hiddenInputs.includes(input.name)) return null;

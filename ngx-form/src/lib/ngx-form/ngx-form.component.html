@@ -1,7 +1,7 @@
 <form *ngIf="ngxForm" class="ngxForm" [formGroup]="formGroup" (ngSubmit)="checkValues()" dir="rtl" #formObject="ngForm">
     <ng-container *ngFor="let row of ngxForm.inputs || []">
         <ngx-input
-            *ngIf="!isArray(row) && !hiddenInputs.includes(row.name)"
+            *ngIf="!isArray(row) && (row.type === 'COMMENT' || !hiddenInputs.includes(row.name))"
             [group]="formGroup"
             [input]="row"
             [appearance]="appearance"
@@ -9,7 +9,7 @@
         <div class="columns" *ngIf="isArray(row)">
             <ng-container *ngFor="let input of row">
                 <ngx-input
-                    *ngIf="!hiddenInputs.includes(input.name)"
+                    *ngIf="input.type === 'COMMENT' || !hiddenInputs.includes(input.name)"
                     [group]="formGroup"
                     [input]="input"
                     [appearance]="appearance"
