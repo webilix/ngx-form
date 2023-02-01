@@ -2,7 +2,7 @@ import { Component, Input } from '@angular/core';
 import { FormControl } from '@angular/forms';
 import { MatFormFieldAppearance } from '@angular/material/form-field';
 
-import { Validator } from '@webilix/validator-library';
+import { Helper } from '@webilix/helper-library';
 
 import { INgxFormInputRange } from '../../../inputs';
 
@@ -22,10 +22,7 @@ export class NgxInputRangeComponent {
         const minimum: number | null = min.length === 0 ? null : +min.replace(/,/gi, '');
         const maximum: number | null = max.length === 0 ? null : +max.replace(/,/gi, '');
 
-        this.control.setValue([
-            Validator.VALUE.isNumber(minimum) ? minimum : null,
-            Validator.VALUE.isNumber(maximum) ? maximum : null,
-        ]);
+        this.control.setValue([Helper.IS.number(minimum) ? minimum : null, Helper.IS.number(maximum) ? maximum : null]);
         this.control.markAllAsTouched();
     }
 }

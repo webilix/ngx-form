@@ -1,6 +1,6 @@
 import { FormControl, ValidatorFn } from '@angular/forms';
 
-import { Validator } from '@webilix/validator-library';
+import { Helper } from '@webilix/helper-library';
 
 import { NgxFormMethods } from '../classes';
 import { INgxFormInput } from '../interfaces';
@@ -48,8 +48,8 @@ export class NgxFormInputPeriodMethods extends NgxFormMethods<INgxFormInputPerio
 
         const value: (Date | null)[] = Array.isArray(input.value)
             ? [
-                  Validator.VALUE.isDate(input.value[0]) ? input.value[0] : null,
-                  Validator.VALUE.isDate(input.value[1]) ? input.value[1] : null,
+                  Helper.IS.date(input.value[0]) ? input.value[0] : null,
+                  Helper.IS.date(input.value[1]) ? input.value[1] : null,
               ]
             : [null, null];
         return new FormControl<(Date | null)[] | null>(value, validators);
@@ -57,7 +57,7 @@ export class NgxFormInputPeriodMethods extends NgxFormMethods<INgxFormInputPerio
 
     value(value: any): (Date | null)[] | null {
         return Array.isArray(value)
-            ? [Validator.VALUE.isDate(value[0]) ? value[0] : null, Validator.VALUE.isDate(value[1]) ? value[1] : null]
+            ? [Helper.IS.date(value[0]) ? value[0] : null, Helper.IS.date(value[1]) ? value[1] : null]
             : [null, null];
     }
 }

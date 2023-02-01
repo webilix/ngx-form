@@ -1,12 +1,11 @@
 import { Pipe, PipeTransform } from '@angular/core';
-import { Helper } from '@webilix/helper-library';
 
-import { Validator } from '@webilix/validator-library';
+import { Helper } from '@webilix/helper-library';
 
 @Pipe({ name: 'ngxBankCard' })
 export class NgxBankCardPipe implements PipeTransform {
     transform(value: string): string {
-        if (!Validator.VALUE.isString(value) || !Validator.STRING.isBankCard(value)) return '';
+        if (!Helper.IS.string(value) || !Helper.IS.STRING.bankCard(value)) return '';
 
         return Helper.STRING.getBankCardView(value);
     }

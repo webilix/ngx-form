@@ -1,14 +1,14 @@
 import { AbstractControl, ValidationErrors, ValidatorFn } from '@angular/forms';
 
 import { JalaliDateTime } from '@webilix/jalali-date-time';
-import { Validator } from '@webilix/validator-library';
+import { Helper } from '@webilix/helper-library';
 
 export const NgxPeriodValidator = (required: boolean, equal: boolean): ValidatorFn => {
     return (formControl: AbstractControl): ValidationErrors | null => {
         const values: Date[] = Array.isArray(formControl.value) ? formControl.value : [null, null];
 
-        const minimum: Date | null = Validator.VALUE.isDate(values[0]) ? values[0] : null;
-        const maximum: Date | null = Validator.VALUE.isDate(values[1]) ? values[1] : null;
+        const minimum: Date | null = Helper.IS.date(values[0]) ? values[0] : null;
+        const maximum: Date | null = Helper.IS.date(values[1]) ? values[1] : null;
         if (required && (minimum === null || maximum === null)) return { required: true };
 
         if (minimum === null || maximum === null) return null;

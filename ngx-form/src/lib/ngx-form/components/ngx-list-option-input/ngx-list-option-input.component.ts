@@ -1,6 +1,6 @@
 import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
 
-import { Validator } from '@webilix/validator-library';
+import { Helper } from '@webilix/helper-library';
 
 @Component({
     selector: 'ngx-list-option-input',
@@ -50,36 +50,36 @@ export class NgxListOptionInputComponent implements OnInit {
         switch (this.format) {
             case 'BANK-CARD':
                 value = value.replace(/-/gi, '');
-                this.isValid = Validator.STRING.isBankCard(value);
+                this.isValid = Helper.IS.STRING.bankCard(value);
                 break;
 
             case 'DOMAIN':
-                this.isValid = Validator.STRING.isDomain(value);
+                this.isValid = Helper.IS.STRING.domain(value);
                 break;
 
             case 'EMAIL':
-                this.isValid = Validator.STRING.isEmail(value);
+                this.isValid = Helper.IS.STRING.email(value);
                 break;
 
             case 'IP':
-                this.isValid = Validator.STRING.isIP4(value);
+                this.isValid = Helper.IS.STRING.ip4(value);
                 break;
 
             case 'MOBILE':
                 value = '09' + value.replace(/-/gi, '');
-                this.isValid = Validator.STRING.isMobile(value);
+                this.isValid = Helper.IS.STRING.mobile(value);
                 break;
 
             case 'NATIONAL-CODE':
-                this.isValid = Validator.STRING.isNationalCode(value);
+                this.isValid = Helper.IS.STRING.nationalCode(value);
                 break;
 
             case 'NUMERIC':
-                this.isValid = Validator.STRING.isNumeric(value);
+                this.isValid = Helper.IS.STRING.numeric(value);
                 break;
 
             case 'URL':
-                this.isValid = Validator.STRING.isUrl(value);
+                this.isValid = Helper.IS.STRING.url(value);
                 break;
         }
 

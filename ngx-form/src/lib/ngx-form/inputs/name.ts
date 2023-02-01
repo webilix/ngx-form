@@ -1,6 +1,6 @@
 import { FormControl, ValidatorFn } from '@angular/forms';
 
-import { Validator } from '@webilix/validator-library';
+import { Helper } from '@webilix/helper-library';
 
 import { NgxFormMethods } from '../classes';
 import { INgxFormInput, INgxFormName } from '../interfaces';
@@ -20,13 +20,11 @@ export interface INgxFormInputName extends Omit<INgxFormInput, 'title' | 'value'
 export class NgxFormInputNameMethods extends NgxFormMethods<INgxFormInputName, INgxFormName | null> {
     control(input: INgxFormInputName, validators: ValidatorFn[]): FormControl<INgxFormName | null> {
         const value: INgxFormName | null =
-            Validator.VALUE.isObject(input.value) && input.value && input.value.first && input.value.last
-                ? input.value
-                : null;
+            Helper.IS.object(input.value) && input.value && input.value.first && input.value.last ? input.value : null;
         return new FormControl<INgxFormName | null>(value, validators);
     }
 
     value(value: any): INgxFormName | null {
-        return Validator.VALUE.isObject(value) ? value : null;
+        return Helper.IS.object(value) ? value : null;
     }
 }

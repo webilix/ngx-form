@@ -1,6 +1,6 @@
 import { FormControl, ValidatorFn } from '@angular/forms';
 
-import { Validator } from '@webilix/validator-library';
+import { Helper } from '@webilix/helper-library';
 
 import { NgxFormMethods } from '../classes';
 import { INgxFormInput } from '../interfaces';
@@ -68,7 +68,7 @@ export class NgxFormInputListMethods extends NgxFormMethods<INgxFormInputList, s
         if (input.maxCount) validators.push(NgxMaxCountValidator<string>(input.maxCount));
 
         const value: string[] = (Array.isArray(input.value) ? input.value : []).filter(
-            (value: string) => Validator.VALUE.isString(value) && value.length > 0,
+            (value: string) => Helper.IS.string(value) && value.length > 0,
         );
         return new FormControl<string[] | null>(value, validators);
     }

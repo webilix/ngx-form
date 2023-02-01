@@ -1,6 +1,6 @@
 import { FormControl, ValidatorFn, Validators } from '@angular/forms';
 
-import { Validator } from '@webilix/validator-library';
+import { Helper } from '@webilix/helper-library';
 
 import { NgxFormMethods } from '../classes';
 import { INgxFormInput } from '../interfaces';
@@ -54,13 +54,13 @@ export class NgxFormInputPriceMethods extends NgxFormMethods<INgxFormInputPrice,
         const value: number | null =
             input.value === undefined
                 ? null
-                : Validator.VALUE.isNumber(input.value) && input.value >= 0 && input.value % 1 === 0
+                : Helper.IS.number(input.value) && input.value >= 0 && input.value % 1 === 0
                 ? input.value
                 : null;
         return new FormControl<number | null>(value, validators);
     }
 
     value(value: any): number | null {
-        return Validator.VALUE.isNumber(value) ? value : null;
+        return Helper.IS.number(value) ? value : null;
     }
 }

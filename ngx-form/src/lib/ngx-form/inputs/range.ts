@@ -1,6 +1,6 @@
 import { FormControl, ValidatorFn } from '@angular/forms';
 
-import { Validator } from '@webilix/validator-library';
+import { Helper } from '@webilix/helper-library';
 
 import { NgxFormMethods } from '../classes';
 import { INgxFormInput } from '../interfaces';
@@ -66,8 +66,8 @@ export class NgxFormInputRangeMethods extends NgxFormMethods<INgxFormInputRange,
 
         const value: (number | null)[] = Array.isArray(input.value)
             ? [
-                  Validator.VALUE.isNumber(input.value[0]) ? input.value[0] : null,
-                  Validator.VALUE.isNumber(input.value[1]) ? input.value[1] : null,
+                  Helper.IS.number(input.value[0]) ? input.value[0] : null,
+                  Helper.IS.number(input.value[1]) ? input.value[1] : null,
               ]
             : [null, null];
         return new FormControl<(number | null)[] | null>(value, validators);
@@ -75,10 +75,7 @@ export class NgxFormInputRangeMethods extends NgxFormMethods<INgxFormInputRange,
 
     value(value: any): (number | null)[] | null {
         return Array.isArray(value)
-            ? [
-                  Validator.VALUE.isNumber(value[0]) ? value[0] : null,
-                  Validator.VALUE.isNumber(value[1]) ? value[1] : null,
-              ]
+            ? [Helper.IS.number(value[0]) ? value[0] : null, Helper.IS.number(value[1]) ? value[1] : null]
             : [null, null];
     }
 }

@@ -1,6 +1,6 @@
 import { ValidatorFn, FormControl, Validators } from '@angular/forms';
 
-import { Validator } from '@webilix/validator-library';
+import { Helper } from '@webilix/helper-library';
 
 import { NgxFormMethods } from '../classes';
 import { INgxFormInput } from '../interfaces';
@@ -51,6 +51,6 @@ export class NgxFormInputTextareaMethods extends NgxFormMethods<INgxFormInputTex
     }
 
     value(value: any): string | null {
-        return Validator.VALUE.isString(value) && value !== '' ? value : null;
+        return Helper.IS.string(value) && value !== '' ? value : null;
     }
 }

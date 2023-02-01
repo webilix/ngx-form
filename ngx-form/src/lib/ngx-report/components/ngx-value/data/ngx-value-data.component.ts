@@ -1,7 +1,7 @@
 import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
 
 import { RegX } from '@webilix/regex-library';
-import { Validator } from '@webilix/validator-library';
+import { Helper } from '@webilix/helper-library';
 
 import { NgxReportInputs, NgxReportOperators } from '../../../ngx-report.type';
 
@@ -24,7 +24,7 @@ export class NgxValueDataComponent implements OnInit {
 
         switch (this.input.type) {
             case 'BANK-CARD':
-                return !Validator.STRING.isBankCard(this.inputValue || '');
+                return !Helper.IS.STRING.bankCard(this.inputValue || '');
 
             case 'DOMAIN':
                 return !RegX.DOMAIN.verify(this.inputValue || '');
@@ -36,7 +36,7 @@ export class NgxValueDataComponent implements OnInit {
                 return !RegX.IP4.verify(this.inputValue || '');
 
             case 'NATIONAL-CODE':
-                return !Validator.STRING.isNationalCode(this.inputValue || '');
+                return !Helper.IS.STRING.nationalCode(this.inputValue || '');
 
             default:
                 return false;

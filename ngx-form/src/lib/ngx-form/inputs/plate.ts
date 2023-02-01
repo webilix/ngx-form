@@ -1,7 +1,6 @@
 import { ValidatorFn, FormControl } from '@angular/forms';
 
 import { Helper } from '@webilix/helper-library';
-import { Validator } from '@webilix/validator-library';
 
 import { NgxFormMethods } from '../classes';
 import { INgxFormInput } from '../interfaces';
@@ -30,7 +29,7 @@ export class NgxFormInputPlateMethods extends NgxFormMethods<INgxFormInputPlate,
 
     value = (value: any): (string | null)[] | null => {
         const plate: (string | null)[] = Array.isArray(value)
-            ? [0, 1, 2, 3].map((i) => (Validator.VALUE.isString(value?.[i]) ? value?.[i] || null : null))
+            ? [0, 1, 2, 3].map((i) => (Helper.IS.string(value?.[i]) ? value?.[i] || null : null))
             : [null, null, null, null];
         return plate.includes(null) ? null : plate;
     };

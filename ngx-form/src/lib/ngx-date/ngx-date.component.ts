@@ -2,7 +2,7 @@ import { Component, Inject, OnInit } from '@angular/core';
 import { MatDialogRef, MAT_DIALOG_DATA } from '@angular/material/dialog';
 
 import { JalaliDateTime, JalaliDateTimeCalendar } from '@webilix/jalali-date-time';
-import { Validator } from '@webilix/validator-library';
+import { Helper } from '@webilix/helper-library';
 
 import { INgxDate } from './ngx-date.interface';
 
@@ -46,11 +46,7 @@ export class NgxDateComponent implements OnInit {
             : '9999-99-99';
 
         const value: Date | null =
-            this.config.value === undefined
-                ? null
-                : Validator.VALUE.isDate(this.config.value)
-                ? this.config.value
-                : null;
+            this.config.value === undefined ? null : Helper.IS.date(this.config.value) ? this.config.value : null;
 
         this.current = value ? this.jalali.toString(value, { format: 'Y-M-D' }) : '';
         this.month = this.jalali.toString(value || new Date(), { format: 'Y-M' });

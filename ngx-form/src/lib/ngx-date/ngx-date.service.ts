@@ -1,7 +1,7 @@
 import { Injectable } from '@angular/core';
 import { MatDialog } from '@angular/material/dialog';
 
-import { Validator } from '@webilix/validator-library';
+import { Helper } from '@webilix/helper-library';
 
 import { NgxDateComponent } from './ngx-date.component';
 import { INgxDate } from './ngx-date.interface';
@@ -24,7 +24,7 @@ export class NgxDateService {
                 })
                 .afterClosed()
                 .subscribe((date: Date) => {
-                    if (Validator.VALUE.isDate(date)) resolve(date);
+                    if (Helper.IS.date(date)) resolve(date);
                     else reject();
                 });
         });

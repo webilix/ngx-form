@@ -1,6 +1,6 @@
 import { FormControl, ValidatorFn, Validators } from '@angular/forms';
 
-import { Validator } from '@webilix/validator-library';
+import { Helper } from '@webilix/helper-library';
 
 import { NgxFormMethods } from '../classes';
 import { INgxFormInput } from '../interfaces';
@@ -58,11 +58,11 @@ export class NgxFormInputNumberMethods extends NgxFormMethods<INgxFormInputNumbe
         if (input.maximum) validators.push(Validators.max(input.maximum));
 
         const value: number | null =
-            input.value === undefined ? null : Validator.VALUE.isNumber(input.value) ? input.value : null;
+            input.value === undefined ? null : Helper.IS.number(input.value) ? input.value : null;
         return new FormControl<number | null>(value, validators);
     }
 
     value(value: any): number | null {
-        return Validator.VALUE.isNumber(value) ? value : null;
+        return Helper.IS.number(value) ? value : null;
     }
 }

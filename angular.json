@@ -49,8 +49,7 @@
                         "allowedCommonJsDependencies": [
                             "@webilix/helper-library",
                             "@webilix/jalali-date-time",
-                            "@webilix/regex-library",
-                            "@webilix/validator-library"
+                            "@webilix/regex-library"
                         ]
                     },
                     "configurations": {

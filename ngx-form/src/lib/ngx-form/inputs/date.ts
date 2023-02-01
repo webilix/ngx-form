@@ -1,6 +1,6 @@
 import { FormControl, ValidatorFn } from '@angular/forms';
 
-import { Validator } from '@webilix/validator-library';
+import { Helper } from '@webilix/helper-library';
 
 import { NgxFormMethods } from '../classes';
 import { INgxFormInput } from '../interfaces';
@@ -38,12 +38,11 @@ export class NgxFormInputDateMethods extends NgxFormMethods<INgxFormInputDate, D
         if (input.minDate) validators.push(NgxMinDateValidator(input.minDate));
         if (input.maxDate) validators.push(NgxMaxDateValidator(input.maxDate));
 
-        const value: Date | null =
-            input.value === undefined ? null : Validator.VALUE.isDate(input.value) ? input.value : null;
+        const value: Date | null = input.value === undefined ? null : Helper.IS.date(input.value) ? input.value : null;
         return new FormControl<Date | null>(value, validators);
     }
 
     value(value: any): Date | null {
-        return Validator.VALUE.isDate(value) ? value : null;
+        return Helper.IS.date(value) ? value : null;
     }
 }

@@ -1,6 +1,6 @@
 import { FormControl, ValidatorFn } from '@angular/forms';
 
-import { Validator } from '@webilix/validator-library';
+import { Helper } from '@webilix/helper-library';
 
 import { NgxFormMethods } from '../classes';
 import { INgxFormInput } from '../interfaces';
@@ -25,6 +25,6 @@ export class NgxFormInputBankCardMethods extends NgxFormMethods<INgxFormInputBan
     }
 
     value(value: any): string | null {
-        return Validator.VALUE.isString(value) && Validator.STRING.isBankCard(value) ? value : null;
+        return Helper.IS.string(value) && Helper.IS.STRING.bankCard(value) ? value : null;
     }
 }

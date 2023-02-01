@@ -1,6 +1,6 @@
 import { FormControl, ValidatorFn } from '@angular/forms';
 
-import { Validator } from '@webilix/validator-library';
+import { Helper } from '@webilix/helper-library';
 
 import { NgxFormMethods } from '../classes';
 import { INgxFormInput } from '../interfaces';
@@ -33,7 +33,7 @@ export class NgxFormInputColorMethods extends NgxFormMethods<INgxFormInputColor,
     }
 
     value(value: any, input: INgxFormInputColor): string | null {
-        return Validator.VALUE.isString(value) && value !== ''
+        return Helper.IS.string(value) && value !== ''
             ? input.colors && input.colors.length !== 0
                 ? input.colors.find((color) => color === value)
                     ? value

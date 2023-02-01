@@ -1,6 +1,6 @@
 import { FormControl, ValidatorFn } from '@angular/forms';
 
-import { Validator } from '@webilix/validator-library';
+import { Helper } from '@webilix/helper-library';
 
 import { NgxFormMethods } from '../classes';
 import { INgxFormInput, INgxFormOption } from '../interfaces';
@@ -70,9 +70,9 @@ export class NgxFormInputOptionListMethods extends NgxFormMethods<INgxFormInputO
 
         const value: INgxFormOption[] = (Array.isArray(input.value) ? input.value : [])
             .filter((value: INgxFormOption) => {
-                if (!Validator.VALUE.isObject(value)) return null;
-                if (!Validator.VALUE.isString(value['id']) || value['id'].length === 0) return null;
-                if (!Validator.VALUE.isString(value['title']) || value['title'].length === 0) return null;
+                if (!Helper.IS.object(value)) return null;
+                if (!Helper.IS.string(value['id']) || value['id'].length === 0) return null;
+                if (!Helper.IS.string(value['title']) || value['title'].length === 0) return null;
                 return value;
             })
             .filter((value: INgxFormOption) => value !== null);
