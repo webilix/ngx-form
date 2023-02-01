@@ -1,5 +1,6 @@
 import { ValidatorFn, FormControl } from '@angular/forms';
 
+import { Helper } from '@webilix/helper-library';
 import { Validator } from '@webilix/validator-library';
 
 import { NgxFormMethods } from '../classes';
@@ -23,9 +24,7 @@ export class NgxFormInputPlateMethods extends NgxFormMethods<INgxFormInputPlate,
         input.title = input.title || 'شماره پلاک';
         validators.push(NgxPlateValidator(!input.optional));
 
-        const value: (string | null)[] = Array.isArray(input.value)
-            ? [0, 1, 2, 3].map((i) => (Validator.VALUE.isString(input.value?.[i]) ? input.value?.[i] || null : null))
-            : [null, null, null, null];
+        const value: (string | null)[] = Helper.PLATE.getPlate(input.value || []);
         return new FormControl<(string | null)[] | null>(value, validators);
     };
 

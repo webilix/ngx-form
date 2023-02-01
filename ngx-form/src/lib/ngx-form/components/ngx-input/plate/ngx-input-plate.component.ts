@@ -2,6 +2,8 @@ import { Component, Input } from '@angular/core';
 import { FormControl } from '@angular/forms';
 import { MatFormFieldAppearance } from '@angular/material/form-field';
 
+import { Helper } from '@webilix/helper-library';
+
 import { INgxFormInputPlate } from '../../../inputs';
 
 @Component({
@@ -14,7 +16,7 @@ export class NgxInputPlateComponent {
     @Input() input?: INgxFormInputPlate;
     @Input() appearance: MatFormFieldAppearance = 'fill';
 
-    public letters: string[] = 'ابپتثجدزژسشصطعفقکگلمنوهی'.split('');
+    public letters: string[] = Helper.PLATE.letters;
 
     setPlate(left: string, letter: string, right: string, iran: string): void {
         if (!this.input || !this.control) return;
