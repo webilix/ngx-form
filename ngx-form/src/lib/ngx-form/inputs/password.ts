@@ -1,6 +1,5 @@
 import { FormControl, ValidatorFn, Validators } from '@angular/forms';
 
-import { RegX } from '@webilix/regex-library';
 import { Helper } from '@webilix/helper-library';
 
 import { NgxFormMethods } from '../classes';
@@ -53,11 +52,11 @@ export class NgxFormInputPasswordMethods extends NgxFormMethods<INgxFormInputPas
 
             validators.push(Validators.minLength(input.minLength));
             if (input.forceLowerCase !== false)
-                validators.push(Validators.pattern(RegX.PASSWORD.get(input.minLength, true, false, false)));
+                validators.push(Validators.pattern(Helper.RE.PASSWORD.get(input.minLength, true, false, false)));
             if (input.forceUpperCase !== false)
-                validators.push(Validators.pattern(RegX.PASSWORD.get(input.minLength, false, true, false)));
+                validators.push(Validators.pattern(Helper.RE.PASSWORD.get(input.minLength, false, true, false)));
             if (input.forceNumber !== false)
-                validators.push(Validators.pattern(RegX.PASSWORD.get(input.minLength, false, false, true)));
+                validators.push(Validators.pattern(Helper.RE.PASSWORD.get(input.minLength, false, false, true)));
         }
 
         return new FormControl<string | null>(null, validators);

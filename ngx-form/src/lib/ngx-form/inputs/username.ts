@@ -1,6 +1,5 @@
 import { FormControl, ValidatorFn, Validators } from '@angular/forms';
 
-import { RegX } from '@webilix/regex-library';
 import { Helper } from '@webilix/helper-library';
 
 import { NgxFormMethods } from '../classes';
@@ -63,7 +62,13 @@ export class NgxFormInputUsernameMethods extends NgxFormMethods<INgxFormInputUse
             if (input.endWithChar !== false) validators.push(Validators.pattern(/[a-z]{1}$/));
             validators.push(
                 Validators.pattern(
-                    RegX.USERNAME.get(input.minLength, input.useDash !== false, input.useDot !== false, false, false),
+                    Helper.RE.USERNAME.get(
+                        input.minLength,
+                        input.useDash !== false,
+                        input.useDot !== false,
+                        false,
+                        false,
+                    ),
                 ),
             );
         }

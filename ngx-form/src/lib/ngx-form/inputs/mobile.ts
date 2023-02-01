@@ -1,6 +1,6 @@
 import { FormControl, ValidatorFn } from '@angular/forms';
 
-import { RegX } from '@webilix/regex-library';
+import { Helper } from '@webilix/helper-library';
 
 import { NgxFormMethods } from '../classes';
 import { INgxFormInput } from '../interfaces';
@@ -15,7 +15,7 @@ export class NgxFormInputMobileMethods extends NgxFormMethods<INgxFormInputMobil
 
         const value: string | null =
             typeof input.value === 'string'
-                ? RegX.MOBILE.verify(input.value)
+                ? Helper.RE.MOBILE.verify(input.value)
                     ? input.value.substring(2)
                     : null
                 : null;
@@ -23,6 +23,6 @@ export class NgxFormInputMobileMethods extends NgxFormMethods<INgxFormInputMobil
     }
 
     value(value: any): string | null {
-        return RegX.MOBILE.verify(`09${value}`) ? `09${value}` : null;
+        return Helper.RE.MOBILE.verify(`09${value}`) ? `09${value}` : null;
     }
 }

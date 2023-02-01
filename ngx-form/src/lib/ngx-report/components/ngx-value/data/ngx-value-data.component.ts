@@ -1,6 +1,5 @@
 import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
 
-import { RegX } from '@webilix/regex-library';
 import { Helper } from '@webilix/helper-library';
 
 import { NgxReportInputs, NgxReportOperators } from '../../../ngx-report.type';
@@ -27,13 +26,13 @@ export class NgxValueDataComponent implements OnInit {
                 return !Helper.IS.STRING.bankCard(this.inputValue || '');
 
             case 'DOMAIN':
-                return !RegX.DOMAIN.verify(this.inputValue || '');
+                return !Helper.RE.DOMAIN.verify(this.inputValue || '');
 
             case 'EMAIL':
-                return !RegX.EMAIL.verify(this.inputValue || '');
+                return !Helper.RE.EMAIL.verify(this.inputValue || '');
 
             case 'IP':
-                return !RegX.IP4.verify(this.inputValue || '');
+                return !Helper.RE.IP4.verify(this.inputValue || '');
 
             case 'NATIONAL-CODE':
                 return !Helper.IS.STRING.nationalCode(this.inputValue || '');

@@ -1,6 +1,6 @@
 import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
 
-import { RegX } from '@webilix/regex-library';
+import { Helper } from '@webilix/helper-library';
 
 import { NgxReportInputs, NgxReportOperators } from '../../../ngx-report.type';
 
@@ -18,7 +18,7 @@ export class NgxValueMobileComponent implements OnInit {
     public mobile: string | null = null;
 
     get error(): boolean {
-        return !RegX.MOBILE.verify('09' + (this.mobile || ''));
+        return !Helper.RE.MOBILE.verify('09' + (this.mobile || ''));
     }
 
     ngOnInit(): void {
