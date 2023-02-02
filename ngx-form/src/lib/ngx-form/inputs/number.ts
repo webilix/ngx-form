@@ -24,6 +24,13 @@ export interface INgxFormInputNumber extends Omit<INgxFormInput, 'english' | 'va
     value?: number;
 
     /**
+     * Suffix copyright text
+     * @type { string }
+     * @optional
+     */
+    suffix?: string;
+
+    /**
      * Minimum acceptable value
      * @type { number }
      * @optional
