@@ -16,10 +16,8 @@
             [mask]="'00'"
             [disabled]="control.disabled"
             (blur)="setPlate(plateLeft.value, plateLetter.value, plateRight.value, plateIran.value)"
-            (keyup)="
-                setPlate(plateLeft.value, plateLetter.value, plateRight.value, plateIran.value);
-                (plateLeft.value || '').length === 2 ? plateLetter.focus() : null
-            "
+            (keyup)="setPlate(plateLeft.value, plateLetter.value, plateRight.value, plateIran.value)"
+            (input)="(plateLeft.value || '').length === 2 ? plateLetter.focus() : null"
             #plateLeft
         />
         <mat-select
@@ -46,10 +44,8 @@
             [mask]="'000'"
             [disabled]="control.disabled"
             (blur)="setPlate(plateLeft.value, plateLetter.value, plateRight.value, plateIran.value)"
-            (keyup)="
-                setPlate(plateLeft.value, plateLetter.value, plateRight.value, plateIran.value);
-                (plateRight.value || '').length === 3 ? plateIran.focus() : null
-            "
+            (keyup)="setPlate(plateLeft.value, plateLetter.value, plateRight.value, plateIran.value)"
+            (input)="(plateRight.value || '').length === 3 ? plateIran.focus() : null"
             #plateRight
         />
         <input
