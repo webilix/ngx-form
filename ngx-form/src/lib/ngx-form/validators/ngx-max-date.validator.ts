@@ -9,7 +9,7 @@ export const NgxMaxDateValidator = (maximum: Date, hour?: boolean): ValidatorFn 
         if (Helper.IS.empty(value)) return null;
 
         const jalali = JalaliDateTime();
-        const seconds = (maximum.getHours() * 60 + maximum.getMinutes()) * 60;
+        const seconds = (maximum.getHours() * 60 + maximum.getMinutes()) * 60 + 59;
         maximum = !hour
             ? jalali.periodDay(1, maximum).to
             : new Date(jalali.periodDay(1, maximum).from.getTime() + seconds * 1000);
