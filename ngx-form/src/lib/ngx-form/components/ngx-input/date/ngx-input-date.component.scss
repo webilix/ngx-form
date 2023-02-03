@@ -1,0 +1,48 @@
+.ngx-form-date {
+    display: flex;
+    align-items: center;
+
+    .ngx-form-overflow {
+        flex: 1;
+    }
+
+    .ngx-form-date-time {
+        padding-right: 1rem;
+        display: flex;
+        flex-direction: row-reverse;
+        align-items: center;
+
+        mat-select {
+            width: 35px;
+
+            ::ng-deep .mat-mdc-select-value {
+                text-align: center;
+                line-height: 1;
+            }
+
+            ::ng-deep .mat-mdc-select-arrow-wrapper {
+                display: none;
+            }
+        }
+
+        .colon {
+            font-weight: 600;
+        }
+    }
+}
+
+::ng-deep .ngx-date-time-panel {
+    padding: 0 !important;
+    display: grid !important;
+    grid-template-columns: repeat(6, 1fr);
+    direction: ltr;
+
+    .mat-mdc-option {
+        min-height: auto;
+        padding: 1.5rem 0 !important;
+
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+}

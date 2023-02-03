@@ -18,6 +18,14 @@ export interface INgxFormInputDate extends Omit<INgxFormInput, 'english' | 'valu
     value?: Date;
 
     /**
+     * Show/Select hour and minute
+     * @type { boolean }
+     * @override value
+     * @optional
+     */
+    hour?: boolean;
+
+    /**
      * Minimum acceptable value
      * @type { Date }
      * @optional
