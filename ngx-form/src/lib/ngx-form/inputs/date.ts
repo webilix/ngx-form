@@ -43,8 +43,8 @@ export interface INgxFormInputDate extends Omit<INgxFormInput, 'english' | 'valu
 export class NgxFormInputDateMethods extends NgxFormMethods<INgxFormInputDate, Date | null> {
     control(input: INgxFormInputDate, validators: ValidatorFn[]): FormControl<Date | null> {
         input.title = input.title || 'تاریخ';
-        if (input.minDate) validators.push(NgxMinDateValidator(input.minDate));
-        if (input.maxDate) validators.push(NgxMaxDateValidator(input.maxDate));
+        if (input.minDate) validators.push(NgxMinDateValidator(input.minDate, !!input.hour));
+        if (input.maxDate) validators.push(NgxMaxDateValidator(input.maxDate, !!input.hour));
 
         const value: Date | null = input.value === undefined ? null : Helper.IS.date(input.value) ? input.value : null;
         return new FormControl<Date | null>(value, validators);
