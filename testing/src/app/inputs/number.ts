@@ -11,7 +11,7 @@ export const NumberInputs: (NgxFormInputs | NgxFormInputs[])[] = [
         type: 'NUMBER',
         title: 'غیرفعال شدن',
         optional: true,
-        disableOn: (values: INgxFormValues) => values['number-2'] === 0,
+        disableOn: (values: INgxFormValues) => values['number-3'] === 0,
         hint: 'در صورتی که مقدار اختیاری 0 باشد این گزینه غیرفعال می‌شود.',
     },
     {
@@ -19,7 +19,7 @@ export const NumberInputs: (NgxFormInputs | NgxFormInputs[])[] = [
         type: 'NUMBER',
         title: 'عدم نمایش',
         optional: true,
-        hideOn: (values: INgxFormValues) => values['number-2'] === 0,
+        hideOn: (values: INgxFormValues) => values['number-3'] === 0,
         hint: 'در صورتی که مقدار اختیاری 0 باشد این گزینه نمایش داده نمی‌شود.',
     },
     { name: 'number-8', type: 'NUMBER', title: 'محدودیت مقدار', optional: true, minimum: 10, maximum: 20 },

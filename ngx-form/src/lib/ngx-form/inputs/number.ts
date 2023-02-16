@@ -70,6 +70,9 @@ export class NgxFormInputNumberMethods extends NgxFormMethods<INgxFormInputNumbe
     }
 
     value(value: any): number | null {
+        if (Helper.IS.empty(value)) return null;
+
+        value = Helper.IS.string(value) ? +value.replace(/,/g, '') : value;
         return Helper.IS.number(value) ? value : null;
     }
 }
