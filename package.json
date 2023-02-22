@@ -4,10 +4,10 @@
     "scripts": {
         "ng": "ng",
         "start": "ng serve",
-        "build": "ng build",
+        "build": "rimraf dist && ng build ngx-form",
         "watch": "ng build --watch --configuration development",
         "test": "ng test",
-        "publish": "ng build ngx-form && cd dist/ngx-form/ && npm publish --access public"
+        "publish": "npm run build && cd dist/ngx-form/ && npm publish --access public"
     },
     "private": true,
     "dependencies": {
