@@ -4,6 +4,7 @@ import { Helper } from '@webilix/helper-library';
 
 import { NgxFormMethods } from '../classes';
 import { INgxFormInput } from '../interfaces';
+import { NgxMaxValidator, NgxMinValidator } from '../validators';
 
 export interface INgxFormInputNumber extends Omit<INgxFormInput, 'english' | 'value'> {
     type: 'NUMBER';
@@ -61,8 +62,8 @@ export interface INgxFormInputNumber extends Omit<INgxFormInput, 'english' | 'va
 
 export class NgxFormInputNumberMethods extends NgxFormMethods<INgxFormInputNumber, number | null> {
     control(input: INgxFormInputNumber, validators: ValidatorFn[]): FormControl<number | null> {
-        if (input.minimum) validators.push(Validators.min(input.minimum));
-        if (input.maximum) validators.push(Validators.max(input.maximum));
+        if (input.minimum) validators.push(NgxMinValidator(input.minimum));
+        if (input.maximum) validators.push(NgxMaxValidator(input.maximum));
 
         const value: number | null =
             input.value === undefined ? null : Helper.IS.number(input.value) ? input.value : null;

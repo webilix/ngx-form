@@ -4,6 +4,7 @@ import { Helper } from '@webilix/helper-library';
 
 import { NgxFormMethods } from '../classes';
 import { INgxFormInput } from '../interfaces';
+import { NgxMaxValidator, NgxMinValidator } from '../validators';
 
 export interface INgxFormInputPrice extends Omit<INgxFormInput, 'english' | 'value'> {
     type: 'PRICE';
@@ -48,8 +49,8 @@ export interface INgxFormInputPrice extends Omit<INgxFormInput, 'english' | 'val
 export class NgxFormInputPriceMethods extends NgxFormMethods<INgxFormInputPrice, number | null> {
     control(input: INgxFormInputPrice, validators: ValidatorFn[]): FormControl<number | null> {
         input.currency = input.currency || 'ریال';
-        if (input.minimum) validators.push(Validators.min(input.minimum));
-        if (input.maximum) validators.push(Validators.max(input.maximum));
+        if (input.minimum) validators.push(NgxMinValidator(input.minimum));
+        if (input.maximum) validators.push(NgxMaxValidator(input.maximum));
 
         const value: number | null =
             input.value === undefined
@@ -61,6 +62,9 @@ export class NgxFormInputPriceMethods extends NgxFormMethods<INgxFormInputPrice,
     }
 
     value(value: any): number | null {
+        if (Helper.IS.empty(value)) return null;
+
+        value = Helper.IS.string(value) ? +value.replace(/,/g, '') : value;
         return Helper.IS.number(value) ? value : null;
     }
 }

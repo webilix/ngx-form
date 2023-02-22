@@ -18,11 +18,11 @@ export class NgxErrorPipe implements PipeTransform {
             case 'required':
                 return 'مقدار الزامی است.';
 
-            case 'min':
-                return `مقدار نمی‌تواند کوچکتر از ${Helper.NUMBER.format(value.min)} باشد.`;
+            case 'minimum':
+                return `مقدار نمی‌تواند کوچکتر از ${Helper.NUMBER.format(value)} باشد.`;
 
-            case 'max':
-                return `مقدار نمی‌تواند بزرگتر از ${Helper.NUMBER.format(value.max)} باشد.`;
+            case 'maximum':
+                return `مقدار نمی‌تواند بزرگتر از ${Helper.NUMBER.format(value)} باشد.`;
 
             case 'length':
                 return `مقدار باید داری ${Helper.NUMBER.format(value)} کاراکتر باشد.`;
