@@ -70,9 +70,19 @@
     .mat-mdc-select-value {
         direction: ltr !important;
         text-align: left !important;
+        padding-left: 0.5rem !important;
 
         mat-select-trigger {
             font-family: var(--ngxFormEnFont);
+        }
+    }
+}
+
+::ng-deep .ngx-select-panel {
+    .ngx-form-en {
+        span {
+            margin-left: 0 !important;
+            margin-right: auto !important;
         }
     }
 }
