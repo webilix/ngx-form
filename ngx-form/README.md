@@ -27,6 +27,7 @@ npm install --save @webilix/ngx-form
 
 ## Table of contents
 
+-   [Versions](#versions)
 -   NgxFormModule
     -   [NgxFormModule Usage](#ngxformmodule-usage)
     -   [NgxFormModule Configuration](#ngxformmodule-configuration)
@@ -37,6 +38,15 @@ npm install --save @webilix/ngx-form
     -   [NgxReportModule Configuration](#ngxreportmodule-configuration)
     -   [NgxReportModule Input Types](#ngxreportmodule-input-types)
     -   [NgxReportModule Preview](#ngxreportmodule-preview)
+
+---
+
+## Versions
+
+| NgxForm  | Angular |
+| -------- | ------- |
+| <=2.3.14 | 15.1.0  |
+| Current  | 15.2.1  |
 
 ---
 
