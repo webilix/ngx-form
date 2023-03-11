@@ -14,7 +14,9 @@ export class NgxFormInputDomainMethods extends NgxFormMethods<INgxFormInputDomai
         input.title = input.title || 'دامنه سایت';
         validators.push(Validators.pattern(Helper.RE.DOMAIN.get()));
 
-        return new FormControl<string | null>(input.value || null, validators);
+        const value: string | null =
+            input.value === undefined ? null : Helper.RE.DOMAIN.verify(input.value) ? input.value : null;
+        return new FormControl<string | null>(value, validators);
     }
 
     value(value: any): string | null {

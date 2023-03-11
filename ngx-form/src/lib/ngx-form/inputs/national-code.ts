@@ -15,10 +15,12 @@ export class NgxFormInputNationalCodeMethods extends NgxFormMethods<INgxFormInpu
         input.title = input.title || 'کد ملی';
         validators.push(NgxNationalCodeValidator());
 
-        return new FormControl<string | null>(input.value || null, validators);
+        const value: string | null =
+            input.value === undefined ? null : Helper.IS.STRING.nationalCode(input.value) ? input.value : null;
+        return new FormControl<string | null>(value, validators);
     }
 
     value(value: any): string | null {
-        return Helper.IS.string(value) && Helper.IS.STRING.nationalCode(value) ? value : null;
+        return Helper.IS.STRING.nationalCode(value) ? value : null;
     }
 }

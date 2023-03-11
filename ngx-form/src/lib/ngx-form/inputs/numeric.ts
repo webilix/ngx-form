@@ -47,10 +47,12 @@ export class NgxFormInputNumericMethods extends NgxFormMethods<INgxFormInputNume
             if (maxLength && maxLength > 0) validators.push(Validators.maxLength(maxLength));
         }
 
+        const value: string | null =
+            input.value === undefined ? null : Helper.RE.NUMERIC.verify(input.value) ? input.value : null;
         return new FormControl<string | null>(input.value || null, validators);
     }
 
     value(value: any): string | null {
-        return Helper.IS.string(value) && value !== '' ? value : null;
+        return Helper.RE.NUMERIC.verify(value) ? value : null;
     }
 }

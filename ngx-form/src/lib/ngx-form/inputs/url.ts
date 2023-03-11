@@ -14,7 +14,9 @@ export class NgxFormInputUrlMethods extends NgxFormMethods<INgxFormInputUrl, str
         input.title = input.title || 'آدرس سایت';
         validators.push(Validators.pattern(Helper.RE.URL.get(true)));
 
-        return new FormControl<string | null>(input.value || null, validators);
+        const value: string | null =
+            input.value === undefined ? null : Helper.RE.URL.verify(input.value, true) ? input.value : null;
+        return new FormControl<string | null>(value, validators);
     }
 
     value(value: any): string | null {

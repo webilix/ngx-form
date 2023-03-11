@@ -21,10 +21,12 @@ export class NgxFormInputBankCardMethods extends NgxFormMethods<INgxFormInputBan
         input.title = input.title || 'شماره کارت بانکی';
         validators.push(NgxBankCardValidator());
 
-        return new FormControl<string | null>(input.value || null, validators);
+        const value: string | null =
+            input.value === undefined ? null : Helper.IS.STRING.bankCard(input.value) ? input.value : null;
+        return new FormControl<string | null>(value, validators);
     }
 
     value(value: any): string | null {
-        return Helper.IS.string(value) && Helper.IS.STRING.bankCard(value) ? value : null;
+        return Helper.IS.STRING.bankCard(value) ? value : null;
     }
 }

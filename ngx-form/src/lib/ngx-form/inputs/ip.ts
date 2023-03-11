@@ -14,7 +14,9 @@ export class NgxFormInputIpMethods extends NgxFormMethods<INgxFormInputIp, strin
         input.title = input.title || 'آدرس آی‌پی';
         validators.push(Validators.pattern(Helper.RE.IP4.get()));
 
-        return new FormControl<string | null>(input.value || null, validators);
+        const value: string | null =
+            input.value === undefined ? null : Helper.RE.IP4.verify(input.value) ? input.value : null;
+        return new FormControl<string | null>(value, validators);
     }
 
     value(value: any): string | null {

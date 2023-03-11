@@ -22,7 +22,7 @@ export class NgxFormInputTimeMethods extends NgxFormMethods<INgxFormInputTime, s
         validators.push(Validators.pattern(Helper.RE.TIME.get()));
 
         const value: string | null =
-            typeof input.value === 'string' ? (Helper.RE.TIME.verify(input.value) ? input.value : null) : null;
+            input.value === undefined ? null : Helper.RE.TIME.verify(input.value) ? input.value : null;
         return new FormControl<string | null>(value, validators);
     }
 
