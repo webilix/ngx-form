@@ -39,6 +39,7 @@ import {
     NgxInputTagComponent,
     NgxInputTextareaComponent,
     NgxInputTextComponent,
+    NgxInputTimeComponent,
     NgxListOptionInputComponent,
     NgxListOptionItemComponent,
 } from './components';
@@ -74,6 +75,7 @@ import { NgxFormComponent } from './ngx-form.component';
         NgxInputTagComponent,
         NgxInputTextComponent,
         NgxInputTextareaComponent,
+        NgxInputTimeComponent,
     ],
     imports: [
         CommonModule,

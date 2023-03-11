@@ -1,0 +1,63 @@
+<mat-form-field *ngIf="control && input" [appearance]="appearance" [floatLabel]="'always'">
+    <mat-label>{{ input.title }}</mat-label>
+    <mat-error *ngIf="control.invalid">{{ control.errors | ngxError : input.type }}</mat-error>
+    <mat-hint *ngIf="input.hint">{{ input.hint }}</mat-hint>
+    <input matInput type="text" [name]="input.name" [formControl]="control" class="input-hidden" />
+    <span matIconSuffix [ngClass]="{ 'suffix-disabled': control.disabled }">
+        <mat-icon [fontIcon]="'alarm'"></mat-icon>
+    </span>
+
+    <div class="time">
+        <mat-select
+            panelClass="ngx-time-panel"
+            [ngModel]="hour"
+            [ngClass]="{ 'select-en': true, 'ngx-form-disabled': control.disabled }"
+            [disabled]="control.disabled"
+            (valueChange)="setTime(timeHour.value, timeMinute.value, timeSecond.value)"
+            #timeHour
+        >
+            <mat-option [value]="null"></mat-option>
+            <mat-option
+                *ngFor="let item of [].constructor(24); let index = index"
+                [value]="index.toString().padStart(2, '0')"
+                class="ngx-form-en"
+            >
+                {{ index.toString().padStart(2, '0') }}
+            </mat-option>
+        </mat-select>
+        <div class="colon">:</div>
+        <mat-select
+            panelClass="ngx-time-panel"
+            [ngModel]="minute"
+            [ngClass]="{ 'select-en': true, 'ngx-form-disabled': control.disabled || hour === null }"
+            [disabled]="control.disabled || hour === null"
+            (valueChange)="setTime(timeHour.value, timeMinute.value, timeSecond.value)"
+            #timeMinute
+        >
+            <mat-option
+                *ngFor="let item of [].constructor(60); let index = index"
+                [value]="index.toString().padStart(2, '0')"
+                class="ngx-form-en"
+            >
+                {{ index.toString().padStart(2, '0') }}
+            </mat-option>
+        </mat-select>
+        <div class="colon">:</div>
+        <mat-select
+            panelClass="ngx-time-panel"
+            [ngModel]="second"
+            [ngClass]="{ 'select-en': true, 'ngx-form-disabled': control.disabled || hour === null || !input.second }"
+            [disabled]="control.disabled || hour === null || !input.second"
+            (valueChange)="setTime(timeHour.value, timeMinute.value, timeSecond.value)"
+            #timeSecond
+        >
+            <mat-option
+                *ngFor="let item of [].constructor(60); let index = index"
+                [value]="index.toString().padStart(2, '0')"
+                class="ngx-form-en"
+            >
+                {{ index.toString().padStart(2, '0') }}
+            </mat-option>
+        </mat-select>
+    </div>
+</mat-form-field>

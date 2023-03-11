@@ -203,6 +203,7 @@ export interface INgxFormStyle {
 -   TAG
 -   TEXT
 -   TEXTAREA
+-   TIME
 -   URL
 -   USERNAME
 

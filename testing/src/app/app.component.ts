@@ -30,6 +30,7 @@ import {
     TagInputs,
     TextareaInputs,
     TextInputs,
+    TimeInputs,
     UrlInputs,
     UsernameInputs,
 } from './inputs';
@@ -101,6 +102,7 @@ export class AppComponent implements OnInit {
         { name: 'tag', type: 'TAG', tags: ['اول', 'دوم', 'سوم', 'چهارم', 'پنجم'] },
         { name: 'text', type: 'TEXT', title: 'متن یک خطی', optional: true },
         { name: 'textarea', type: 'TEXTAREA', title: 'متن چند خطی', optional: true },
+        { name: 'time', type: 'TIME', optional: true },
         { name: 'url', type: 'URL', optional: true },
         { name: 'username', type: 'USERNAME', optional: true },
     ];
@@ -140,6 +142,7 @@ export class AppComponent implements OnInit {
         { type: 'TAG', title: 'تگ', inputs: TagInputs },
         { type: 'TEXT', title: 'متن یک خطی', inputs: TextInputs },
         { type: 'TEXTAREA', title: 'متن چند خطی', inputs: TextareaInputs },
+        { type: 'TIME', title: 'ساعت', inputs: TimeInputs },
         { type: 'URL', title: 'آدرس سایت', inputs: UrlInputs },
         { type: 'USERNAME', title: 'نام کاربری', inputs: UsernameInputs },
     ];

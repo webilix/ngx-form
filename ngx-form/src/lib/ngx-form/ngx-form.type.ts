@@ -27,6 +27,7 @@ import {
     INgxFormInputTag,
     INgxFormInputText,
     INgxFormInputTextarea,
+    INgxFormInputTime,
     INgxFormInputUrl,
     INgxFormInputUsername,
 } from './inputs';
@@ -62,5 +63,6 @@ export type NgxFormInputs =
     | INgxFormInputTag
     | INgxFormInputText
     | INgxFormInputTextarea
+    | INgxFormInputTime
     | INgxFormInputUrl
     | INgxFormInputUsername;

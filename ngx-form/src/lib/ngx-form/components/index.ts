@@ -22,3 +22,4 @@ export * from './ngx-input/select/ngx-input-select.component';
 export * from './ngx-input/tag/ngx-input-tag.component';
 export * from './ngx-input/text/ngx-input-text.component';
 export * from './ngx-input/textarea/ngx-input-textarea.component';
+export * from './ngx-input/time/ngx-input-time.component';

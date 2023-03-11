@@ -1,0 +1,52 @@
+.time {
+    display: flex;
+    flex-direction: row-reverse;
+    align-items: center;
+    column-gap: 0.5rem;
+    position: relative;
+    margin-left: 2rem;
+
+    mat-select {
+        flex: 1;
+        text-align: center;
+        padding: 0.25rem !important;
+        background-color: var(--ngxFormBackgroundColor);
+
+        ::ng-deep .mat-mdc-select-value {
+            text-align: center;
+            line-height: 1;
+        }
+
+        ::ng-deep .mat-mdc-select-arrow-wrapper {
+            display: none;
+        }
+    }
+
+    .colon {
+        font-family: var(--ngxFormEnFont);
+    }
+}
+
+::ng-deep .ngx-time-panel {
+    padding: 0 !important;
+    display: grid !important;
+    grid-template-columns: repeat(5, 1fr);
+    direction: ltr;
+
+    .mat-mdc-option {
+        min-height: auto;
+        padding: 1.5rem 0 !important;
+
+        display: flex;
+        align-items: center;
+        justify-content: center;
+
+        span {
+            margin: 0 !important;
+        }
+    }
+
+    .mat-pseudo-checkbox {
+        display: none;
+    }
+}

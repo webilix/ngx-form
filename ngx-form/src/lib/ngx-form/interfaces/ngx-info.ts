@@ -28,6 +28,7 @@ import {
     NgxFormInputTagMethods,
     NgxFormInputTextareaMethods,
     NgxFormInputTextMethods,
+    NgxFormInputTimeMethods,
     NgxFormInputUrlMethods,
     NgxFormInputUsernameMethods,
 } from '../inputs';
@@ -69,6 +70,7 @@ export const NgxFieldInputInfo: { [key in NgxFormInputs['type']]: INgxFieldInput
     TAG: { title: 'تگ', methods: new NgxFormInputTagMethods() },
     TEXT: { title: 'متن یک خطی', methods: new NgxFormInputTextMethods() },
     TEXTAREA: { title: 'متن چند خطی', methods: new NgxFormInputTextareaMethods() },
+    TIME: { title: 'ساعت', methods: new NgxFormInputTimeMethods() },
     URL: { title: 'آدرس سایت', methods: new NgxFormInputUrlMethods() },
     USERNAME: { title: 'نام کاربری', methods: new NgxFormInputUsernameMethods() },
 };

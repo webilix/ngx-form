@@ -259,6 +259,14 @@
         [appearance]="appearance"
     ></ngx-input-textarea>
 
+    <!-- TIME -->
+    <ngx-input-time
+        *ngIf="input.type === 'TIME'"
+        [control]="control"
+        [input]="input"
+        [appearance]="appearance"
+    ></ngx-input-time>
+
     <!-- URL -->
     <ngx-input-text
         *ngIf="input.type === 'URL'"
