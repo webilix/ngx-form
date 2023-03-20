@@ -46,6 +46,7 @@ npm install --save @webilix/ngx-form
 | NgxForm  | Angular |
 | -------- | ------- |
 | <=2.3.14 | 15.1.0  |
+| <=2.5.0  | 15.2.1  |
 | Current  | 15.2.3  |
 
 ---
