@@ -185,6 +185,7 @@ export interface INgxFormStyle {
 -   DOMAIN
 -   EMAIL
 -   FILE
+-   ICON
 -   IP
 -   LIST
 -   MOBILE

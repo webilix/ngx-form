@@ -91,6 +91,14 @@
         [en]="true"
     ></ngx-input-text>
 
+    <!-- ICON -->
+    <ngx-input-icon
+        *ngIf="input.type === 'ICON'"
+        [control]="control"
+        [input]="input"
+        [appearance]="appearance"
+    ></ngx-input-icon>
+
     <!-- LIST -->
     <ngx-input-list
         *ngIf="input.type === 'LIST'"

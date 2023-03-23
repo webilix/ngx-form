@@ -8,6 +8,7 @@ export * from './ngx-input/checkbox/ngx-input-checkbox.component';
 export * from './ngx-input/color/ngx-input-color.component';
 export * from './ngx-input/date/ngx-input-date.component';
 export * from './ngx-input/file/ngx-input-file.component';
+export * from './ngx-input/icon/ngx-input-icon.component';
 export * from './ngx-input/list/ngx-input-list.component';
 export * from './ngx-input/multi-file/ngx-input-multi-file.component';
 export * from './ngx-input/multi-select/ngx-input-multi-select.component';
