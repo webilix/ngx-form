@@ -52,13 +52,15 @@ export class NgxInputTagComponent implements OnInit {
         input.value = '';
     }
 
-    selectTag(event: any): void {
+    selectTag(event: any, input: HTMLInputElement): void {
         const tag: string = (event as MatAutocompleteSelectedEvent).option.viewValue.trim();
         if (!this.control || this.control.disabled || tag === '' || this.tags.includes(tag)) return;
 
         this.tags.push(tag);
         this.control.setValue([...this.tags]);
         this.control.markAsTouched();
+
+        input.value = '';
     }
 
     deleteTag(index: number): void {
