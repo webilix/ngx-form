@@ -1,0 +1,12 @@
+::ng-deep .ngx-select-panel {
+    .ngx-form-en {
+        .mat-pseudo-checkbox {
+            margin: 0 !important;
+        }
+
+        span {
+            margin-left: 0 !important;
+            margin-right: auto !important;
+        }
+    }
+}
