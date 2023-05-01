@@ -7,6 +7,7 @@ import {
     INgxFormInputDomain,
     INgxFormInputEmail,
     INgxFormInputIp,
+    INgxFormInputMask,
     INgxFormInputMobile,
     INgxFormInputNationalCode,
     INgxFormInputNumeric,
@@ -27,6 +28,7 @@ export class NgxInputTextComponent implements OnInit {
         | INgxFormInputDomain
         | INgxFormInputEmail
         | INgxFormInputIp
+        | INgxFormInputMask
         | INgxFormInputMobile
         | INgxFormInputNationalCode
         | INgxFormInputNumeric

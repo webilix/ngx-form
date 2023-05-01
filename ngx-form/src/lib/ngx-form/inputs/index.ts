@@ -11,6 +11,7 @@ export * from './file';
 export * from './icon';
 export * from './ip';
 export * from './list';
+export * from './mask';
 export * from './mobile';
 export * from './multi-file';
 export * from './multi-select';

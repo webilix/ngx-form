@@ -188,6 +188,7 @@ export interface INgxFormStyle {
 -   ICON
 -   IP
 -   LIST
+-   MASK
 -   MOBILE
 -   MULTI-FILE
 -   MULTI-SELECT

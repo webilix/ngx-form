@@ -1,6 +1,7 @@
 import { Component, EventEmitter, Inject, Input, OnInit, Output, ViewChild } from '@angular/core';
 import { FormGroup, NgForm, ValidatorFn, Validators } from '@angular/forms';
 import { MatFormFieldAppearance } from '@angular/material/form-field';
+import { NgxMaskService } from 'ngx-mask';
 
 import { NgxFieldInputInfo } from './interfaces';
 
@@ -26,7 +27,11 @@ export class NgxFormComponent implements OnInit {
     protected inputValues: INgxFormValues = {};
     protected hiddenInputs: string[] = [];
 
-    constructor(@Inject('NGX_FORM_APPEARANCE') public readonly ngxAppearance: MatFormFieldAppearance) {}
+    constructor(
+        @Inject('NGX_FORM_APPEARANCE') public readonly ngxAppearance: MatFormFieldAppearance,
+        // private readonly ngxMaskPipe: NgxMaskPipe,
+        private readonly ngxMaskService: NgxMaskService,
+    ) {}
 
     ngOnInit(): void {
         if (!this.ngxForm) return;
@@ -115,8 +120,15 @@ export class NgxFormComponent implements OnInit {
         if (this.formGroup.get(input.name)?.disabled) return null;
         if (this.hiddenInputs.includes(input.name)) return null;
 
-        const value: any = this.formGroup.get(input.name)?.value;
-        return NgxFieldInputInfo[input.type].methods.value(value, input);
+        const inputValue: any = this.formGroup.get(input.name)?.value;
+        const returnValue: any = NgxFieldInputInfo[input.type].methods.value(inputValue, input);
+        switch (input.type) {
+            case 'MASK':
+                return this.ngxMaskService.applyMask(returnValue, input.mask);
+
+            default:
+                return returnValue;
+        }
     }
 
     private getValues(): INgxFormValues {

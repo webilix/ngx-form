@@ -107,6 +107,18 @@
         [appearance]="appearance"
     ></ngx-input-list>
 
+    <!-- MASK -->
+    <ngx-input-text
+        *ngIf="input.type === 'MASK'"
+        [control]="control"
+        [input]="input"
+        [appearance]="appearance"
+        [icon]="input.icon || 'password'"
+        [en]="true"
+        [numeric]="true"
+        [mask]="input.mask"
+    ></ngx-input-text>
+
     <!-- MOBILE -->
     <ngx-input-text
         *ngIf="input.type === 'MOBILE'"

@@ -14,6 +14,7 @@ import {
     IconInputs,
     IpInputs,
     ListInputs,
+    MaskInputs,
     MobileInputs,
     MultiFileInputs,
     MultiSelectInputs,
@@ -78,6 +79,7 @@ export class AppComponent implements OnInit {
         },
         { name: 'ip', type: 'IP', optional: true },
         { name: 'list', type: 'LIST', title: 'لیست' },
+        { name: 'mask', type: 'MASK', title: 'فرمت عددی', mask: '00-000-0000', optional: true },
         { name: 'mobile', type: 'MOBILE', optional: true },
         { name: 'multi-file', type: 'MULTI-FILE' },
         {
@@ -141,6 +143,7 @@ export class AppComponent implements OnInit {
         { type: 'ICON', title: 'آیکون', inputs: IconInputs },
         { type: 'IP', title: 'آدرس آی‌پی', inputs: IpInputs },
         { type: 'LIST', title: 'لیست', inputs: ListInputs },
+        { type: 'MASK', title: 'فرمت عددی', inputs: MaskInputs },
         { type: 'MOBILE', title: 'موبایل', inputs: MobileInputs },
         { type: 'MULTI-FILE', title: 'فایل‌ها', inputs: MultiFileInputs },
         { type: 'MULTI-SELECT', title: 'چند انتخابی', inputs: MultiSelectInputs },
