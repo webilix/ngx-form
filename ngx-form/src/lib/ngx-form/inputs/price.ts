@@ -44,6 +44,13 @@ export interface INgxFormInputPrice extends Omit<INgxFormInput, 'english' | 'val
      * @optional 'ریال'
      */
     currency?: string;
+
+    /**
+     * Show text value
+     * @type { boolean }
+     * @optional false
+     */
+    showText?: boolean;
 }
 
 export class NgxFormInputPriceMethods extends NgxFormMethods<INgxFormInputPrice, number | null> {

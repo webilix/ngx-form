@@ -21,4 +21,5 @@ export const PriceInputs: (NgxFormInputs | NgxFormInputs[])[] = [
         hint: 'در صورتی که مقدار اختیاری 0 باشد این گزینه نمایش داده نمی‌شود.',
     },
     { name: 'price-6', type: 'PRICE', title: 'محدودیت مقدار', optional: true, minimum: 10, maximum: 20 },
+    { name: 'price-7', type: 'PRICE', title: 'نمایش حروف', optional: true, showText: true },
 ];
