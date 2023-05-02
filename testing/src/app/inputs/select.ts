@@ -46,4 +46,10 @@ export const SelectInputs: (NgxFormInputs | NgxFormInputs[])[] = [
         ],
         optional: true,
     },
+    {
+        name: 'select-7',
+        type: 'SELECT',
+        title: 'یک گزینه',
+        options: [{ id: '1ST', title: 'گزینه اول' }],
+    },
 ];

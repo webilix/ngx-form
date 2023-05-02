@@ -22,8 +22,10 @@ export interface INgxFormInputSelect extends INgxFormInput {
 
 export class NgxFormInputSelectMethods extends NgxFormMethods<INgxFormInputSelect, string | null> {
     control(input: INgxFormInputSelect, validators: ValidatorFn[]): FormControl<string | null> {
-        const value: string | null =
-            input.value && input.options.find((o) => o.id === input.value) ? input.value : null;
+        let value: string | null = input.value && input.options.find((o) => o.id === input.value) ? input.value : null;
+
+        // Select default value if there is only one option and value is required
+        if (input.options.length === 1 && !input.optional) value = input.options[0].id;
 
         return new FormControl<string | null>(value, validators);
     }
