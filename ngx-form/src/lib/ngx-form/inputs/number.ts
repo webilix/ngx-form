@@ -58,6 +58,13 @@ export interface INgxFormInputNumber extends Omit<INgxFormInput, 'english' | 'va
      * @optional false
      */
     decimal?: boolean;
+
+    /**
+     * Hint text (shown on focus)
+     * @type { string }
+     * @optional
+     */
+    text?: 'LETTER' | 'HOUR' | 'MINUTE' | 'SECOND';
 }
 
 export class NgxFormInputNumberMethods extends NgxFormMethods<INgxFormInputNumber, number | null> {
