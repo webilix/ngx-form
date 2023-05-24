@@ -9,9 +9,9 @@ import { NgxReportInputs, NgxReportOperators } from '../../../ngx-report.type';
     styleUrls: ['./ngx-value-number.component.scss'],
 })
 export class NgxValueNumberComponent implements OnChanges {
-    @Input() input?: NgxReportInputs;
-    @Input() operator: NgxReportOperators | null = null;
-    @Input() value: number | [number, number] | null = null;
+    @Input({ required: true }) input!: NgxReportInputs;
+    @Input({ required: true }) operator!: NgxReportOperators | null;
+    @Input({ required: true }) value!: number | [number, number] | null;
     @Output() changed: EventEmitter<number | [number, number] | null> = new EventEmitter<
         number | [number, number] | null
     >();

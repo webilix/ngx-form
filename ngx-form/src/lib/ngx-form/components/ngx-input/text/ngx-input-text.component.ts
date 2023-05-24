@@ -22,8 +22,8 @@ import {
     styleUrls: ['./ngx-input-text.component.scss'],
 })
 export class NgxInputTextComponent implements OnInit {
-    @Input() control?: FormControl;
-    @Input() input?:
+    @Input({ required: true }) control!: FormControl;
+    @Input({ required: true }) input!:
         | INgxFormInputBankCard
         | INgxFormInputDomain
         | INgxFormInputEmail
@@ -35,16 +35,15 @@ export class NgxInputTextComponent implements OnInit {
         | INgxFormInputText
         | INgxFormInputUrl
         | INgxFormInputUsername;
-    @Input() appearance: MatFormFieldAppearance = 'fill';
+    @Input({ required: true }) appearance!: MatFormFieldAppearance;
 
-    // OPTIONAL
-    @Input() icon?: string;
-    @Input() en: boolean = false;
-    @Input() numeric?: boolean;
-    @Input() mask?: string;
-    @Input() suffix?: string | { en: string };
-    @Input() maxLength?: number;
-    @Input() counter?: boolean;
+    @Input({ required: false }) icon?: string;
+    @Input({ required: false }) en: boolean = false;
+    @Input({ required: false }) numeric?: boolean;
+    @Input({ required: false }) mask?: string;
+    @Input({ required: false }) suffix?: string | { en: string };
+    @Input({ required: false }) maxLength?: number;
+    @Input({ required: false }) counter?: boolean;
 
     public suffixText?: string;
     public suffixLang?: 'EN' | 'FA';

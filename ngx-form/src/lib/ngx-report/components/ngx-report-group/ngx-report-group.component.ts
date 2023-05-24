@@ -10,9 +10,9 @@ import { NgxReportInputs } from '../../ngx-report.type';
     styleUrls: ['./ngx-report-group.component.scss'],
 })
 export class NgxReportGroupComponent {
-    @Input() inputs: NgxReportInputs[] = [];
-    @Input() report?: INgxReport;
-    @Input() level: number = 0;
+    @Input({ required: true }) inputs!: NgxReportInputs[];
+    @Input({ required: true }) report!: INgxReport;
+    @Input({ required: false }) level: number = 0;
     @Output() changed: EventEmitter<void> = new EventEmitter<void>();
     @Output() deleted: EventEmitter<void> = new EventEmitter<void>();
 
@@ -29,29 +29,21 @@ export class NgxReportGroupComponent {
     }
 
     setJoin(value: 'AND' | 'OR'): void {
-        if (!this.report) return;
-
         this.report.join = value;
         this.changed.emit();
     }
 
     addGroup(): void {
-        if (!this.report) return;
-
         this.report.conditions.push({ join: 'AND', conditions: [] });
         this.changed.emit();
     }
 
     addCondition(): void {
-        if (!this.report) return;
-
         this.report.conditions.push({ input: null, operator: null, value: null });
         this.changed.emit();
     }
 
     deleteCondition(index: number): void {
-        if (!this.report) return;
-
         this.report.conditions = this.report.conditions.filter((_, i: number) => i !== index);
         this.changed.emit();
     }

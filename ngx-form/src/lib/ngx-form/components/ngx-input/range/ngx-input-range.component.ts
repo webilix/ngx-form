@@ -12,13 +12,11 @@ import { INgxFormInputRange } from '../../../inputs';
     styleUrls: ['./ngx-input-range.component.scss'],
 })
 export class NgxInputRangeComponent {
-    @Input() control?: FormControl;
-    @Input() input?: INgxFormInputRange;
-    @Input() appearance: MatFormFieldAppearance = 'fill';
+    @Input({ required: true }) control!: FormControl;
+    @Input({ required: true }) input!: INgxFormInputRange;
+    @Input({ required: true }) appearance!: MatFormFieldAppearance;
 
     setRange(min: string, max: string): void {
-        if (!this.input || !this.control) return;
-
         const minimum: number | null = min.length === 0 ? null : +min.replace(/,/gi, '');
         const maximum: number | null = max.length === 0 ? null : +max.replace(/,/gi, '');
 

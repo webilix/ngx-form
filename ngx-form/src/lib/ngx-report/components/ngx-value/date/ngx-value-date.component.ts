@@ -11,9 +11,9 @@ import { NgxReportInputs, NgxReportOperators } from '../../../ngx-report.type';
     styleUrls: ['./ngx-value-date.component.scss'],
 })
 export class NgxValueDateComponent implements OnChanges {
-    @Input() input?: NgxReportInputs;
-    @Input() operator: NgxReportOperators | null = null;
-    @Input() value: Date | [Date, Date] | null = null;
+    @Input({ required: true }) input!: NgxReportInputs;
+    @Input({ required: true }) operator!: NgxReportOperators | null;
+    @Input({ required: true }) value!: Date | [Date, Date] | null;
     @Output() changed: EventEmitter<Date | [Date, Date] | null> = new EventEmitter<Date | [Date, Date] | null>();
 
     public dates: [Date | null, Date | null] = [null, null];

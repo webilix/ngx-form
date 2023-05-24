@@ -15,7 +15,7 @@
 
     <!-- AUTO COMPLETE -->
     <ngx-input-auto-complete
-        *ngIf="input.type === 'AUTO-COMPLETE'"
+        *ngIf="control && input.type === 'AUTO-COMPLETE'"
         [control]="control"
         [input]="input"
         [appearance]="appearance"
@@ -23,7 +23,7 @@
 
     <!-- BANK CARD -->
     <ngx-input-bank-card
-        *ngIf="input.type === 'BANK-CARD'"
+        *ngIf="control && input.type === 'BANK-CARD'"
         [control]="control"
         [input]="input"
         [appearance]="appearance"
@@ -31,7 +31,7 @@
 
     <!-- CHECKBOX -->
     <ngx-input-checkbox
-        *ngIf="input.type === 'CHECKBOX'"
+        *ngIf="control && input.type === 'CHECKBOX'"
         [control]="control"
         [input]="input"
         [appearance]="appearance"
@@ -39,7 +39,7 @@
 
     <!-- COLOR -->
     <ngx-input-color
-        *ngIf="input.type === 'COLOR'"
+        *ngIf="control && input.type === 'COLOR'"
         [control]="control"
         [input]="input"
         [appearance]="appearance"
@@ -47,7 +47,7 @@
 
     <!-- DATE -->
     <ngx-input-date
-        *ngIf="input.type === 'DATE'"
+        *ngIf="control && input.type === 'DATE'"
         [control]="control"
         [input]="input"
         [appearance]="appearance"
@@ -55,7 +55,7 @@
 
     <!-- DOMAIN -->
     <ngx-input-text
-        *ngIf="input.type === 'DOMAIN'"
+        *ngIf="control && input.type === 'DOMAIN'"
         [control]="control"
         [input]="input"
         [appearance]="appearance"
@@ -65,7 +65,7 @@
 
     <!-- EMAIL -->
     <ngx-input-text
-        *ngIf="input.type === 'EMAIL'"
+        *ngIf="control && input.type === 'EMAIL'"
         [control]="control"
         [input]="input"
         [appearance]="appearance"
@@ -75,7 +75,7 @@
 
     <!-- FILE -->
     <ngx-input-file
-        *ngIf="input.type === 'FILE'"
+        *ngIf="control && input.type === 'FILE'"
         [control]="control"
         [input]="input"
         [appearance]="appearance"
@@ -83,7 +83,7 @@
 
     <!-- IP -->
     <ngx-input-text
-        *ngIf="input.type === 'IP'"
+        *ngIf="control && input.type === 'IP'"
         [control]="control"
         [input]="input"
         [appearance]="appearance"
@@ -93,7 +93,7 @@
 
     <!-- ICON -->
     <ngx-input-icon
-        *ngIf="input.type === 'ICON'"
+        *ngIf="control && input.type === 'ICON'"
         [control]="control"
         [input]="input"
         [appearance]="appearance"
@@ -101,7 +101,7 @@
 
     <!-- LIST -->
     <ngx-input-list
-        *ngIf="input.type === 'LIST'"
+        *ngIf="control && input.type === 'LIST'"
         [control]="control"
         [input]="input"
         [appearance]="appearance"
@@ -109,7 +109,7 @@
 
     <!-- MASK -->
     <ngx-input-text
-        *ngIf="input.type === 'MASK'"
+        *ngIf="control && input.type === 'MASK'"
         [control]="control"
         [input]="input"
         [appearance]="appearance"
@@ -121,7 +121,7 @@
 
     <!-- MOBILE -->
     <ngx-input-text
-        *ngIf="input.type === 'MOBILE'"
+        *ngIf="control && input.type === 'MOBILE'"
         [control]="control"
         [input]="input"
         [appearance]="appearance"
@@ -134,7 +134,7 @@
 
     <!-- MULTI-FILE -->
     <ngx-input-multi-file
-        *ngIf="input.type === 'MULTI-FILE'"
+        *ngIf="control && input.type === 'MULTI-FILE'"
         [control]="control"
         [input]="input"
         [appearance]="appearance"
@@ -142,7 +142,7 @@
 
     <!-- MULTI-SELECT -->
     <ngx-input-multi-select
-        *ngIf="input.type === 'MULTI-SELECT'"
+        *ngIf="control && input.type === 'MULTI-SELECT'"
         [control]="control"
         [input]="input"
         [appearance]="appearance"
@@ -150,7 +150,7 @@
 
     <!-- NAME -->
     <ngx-input-name
-        *ngIf="input.type === 'NAME'"
+        *ngIf="control && input.type === 'NAME'"
         [control]="control"
         [input]="input"
         [appearance]="appearance"
@@ -158,7 +158,7 @@
 
     <!-- NATIONAL CODE -->
     <ngx-input-text
-        *ngIf="input.type === 'NATIONAL-CODE'"
+        *ngIf="control && input.type === 'NATIONAL-CODE'"
         [control]="control"
         [input]="input"
         [appearance]="appearance"
@@ -170,7 +170,7 @@
 
     <!-- NUMBER -->
     <ngx-input-number
-        *ngIf="input.type === 'NUMBER'"
+        *ngIf="control && input.type === 'NUMBER'"
         [control]="control"
         [input]="input"
         [appearance]="appearance"
@@ -183,7 +183,7 @@
 
     <!-- NUMERIC -->
     <ngx-input-text
-        *ngIf="input.type === 'NUMERIC'"
+        *ngIf="control && input.type === 'NUMERIC'"
         [control]="control"
         [input]="input"
         [appearance]="appearance"
@@ -195,7 +195,7 @@
 
     <!-- OPTION LIST -->
     <ngx-input-option-list
-        *ngIf="input.type === 'OPTION-LIST'"
+        *ngIf="control && input.type === 'OPTION-LIST'"
         [control]="control"
         [input]="input"
         [appearance]="appearance"
@@ -203,7 +203,7 @@
 
     <!-- PASSWORD -->
     <ngx-input-password
-        *ngIf="input.type === 'PASSWORD'"
+        *ngIf="control && input.type === 'PASSWORD'"
         [control]="control"
         [input]="input"
         [appearance]="appearance"
@@ -211,7 +211,7 @@
 
     <!-- PERIOD -->
     <ngx-input-period
-        *ngIf="input.type === 'PERIOD'"
+        *ngIf="control && input.type === 'PERIOD'"
         [control]="control"
         [input]="input"
         [appearance]="appearance"
@@ -219,7 +219,7 @@
 
     <!-- PLATE -->
     <ngx-input-plate
-        *ngIf="input.type === 'PLATE'"
+        *ngIf="control && input.type === 'PLATE'"
         [control]="control"
         [input]="input"
         [appearance]="appearance"
@@ -227,7 +227,7 @@
 
     <!-- PRICE -->
     <ngx-input-number
-        *ngIf="input.type === 'PRICE'"
+        *ngIf="control && input.type === 'PRICE'"
         [control]="control"
         [input]="input"
         [appearance]="appearance"
@@ -239,7 +239,7 @@
 
     <!-- RANGE -->
     <ngx-input-range
-        *ngIf="input.type === 'RANGE'"
+        *ngIf="control && input.type === 'RANGE'"
         [control]="control"
         [input]="input"
         [appearance]="appearance"
@@ -247,7 +247,7 @@
 
     <!-- SELECT -->
     <ngx-input-select
-        *ngIf="input.type === 'SELECT'"
+        *ngIf="control && input.type === 'SELECT'"
         [control]="control"
         [input]="input"
         [appearance]="appearance"
@@ -255,7 +255,7 @@
 
     <!-- TAG -->
     <ngx-input-tag
-        *ngIf="input.type === 'TAG'"
+        *ngIf="control && input.type === 'TAG'"
         [control]="control"
         [input]="input"
         [appearance]="appearance"
@@ -263,7 +263,7 @@
 
     <!-- TEXT -->
     <ngx-input-text
-        *ngIf="input.type === 'TEXT'"
+        *ngIf="control && input.type === 'TEXT'"
         [control]="control"
         [input]="input"
         [appearance]="appearance"
@@ -275,7 +275,7 @@
 
     <!-- TEXTAREA -->
     <ngx-input-textarea
-        *ngIf="input.type === 'TEXTAREA'"
+        *ngIf="control && input.type === 'TEXTAREA'"
         [control]="control"
         [input]="input"
         [appearance]="appearance"
@@ -283,7 +283,7 @@
 
     <!-- TIME -->
     <ngx-input-time
-        *ngIf="input.type === 'TIME'"
+        *ngIf="control && input.type === 'TIME'"
         [control]="control"
         [input]="input"
         [appearance]="appearance"
@@ -291,7 +291,7 @@
 
     <!-- URL -->
     <ngx-input-text
-        *ngIf="input.type === 'URL'"
+        *ngIf="control && input.type === 'URL'"
         [control]="control"
         [input]="input"
         [appearance]="appearance"
@@ -301,7 +301,7 @@
 
     <!-- USERNAME -->
     <ngx-input-text
-        *ngIf="input.type === 'USERNAME'"
+        *ngIf="control && input.type === 'USERNAME'"
         [control]="control"
         [input]="input"
         [appearance]="appearance"

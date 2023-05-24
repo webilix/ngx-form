@@ -10,19 +10,18 @@ import { INgxFormInputMultiFile } from '../../../inputs';
     styleUrls: ['./ngx-input-multi-file.component.scss'],
 })
 export class NgxInputMultiFileComponent implements OnInit {
-    @Input() control?: FormControl;
-    @Input() input?: INgxFormInputMultiFile;
-    @Input() appearance: MatFormFieldAppearance = 'fill';
+    @Input({ required: true }) control!: FormControl;
+    @Input({ required: true }) input!: INgxFormInputMultiFile;
+    @Input({ required: true }) appearance!: MatFormFieldAppearance;
 
     public files: File[] = [];
 
     ngOnInit(): void {
-        if (!this.control) return;
         this.files = Array.isArray(this.control.value) ? this.control.value : [];
     }
 
     setFile(event: Event): void {
-        if (!this.input || !this.control || this.control.disabled) return;
+        if (this.control.disabled) return;
 
         const files: FileList | null = event === null ? null : (event.target as HTMLInputElement).files;
         const file: File | null = files && files.length !== 0 ? files.item(0) : null;
@@ -34,7 +33,7 @@ export class NgxInputMultiFileComponent implements OnInit {
     }
 
     deleteFile(index: number): void {
-        if (!this.input || !this.control || this.control.disabled || !this.files[index]) return;
+        if (this.control.disabled || !this.files[index]) return;
 
         this.files.splice(index, 1);
         this.control.setValue([...this.files]);

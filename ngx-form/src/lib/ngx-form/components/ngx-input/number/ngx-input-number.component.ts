@@ -12,15 +12,15 @@ import { INgxFormInputNumber, INgxFormInputPrice } from '../../../inputs';
     styleUrls: ['./ngx-input-number.component.scss'],
 })
 export class NgxInputNumberComponent implements OnInit {
-    @Input() control?: FormControl;
-    @Input() input?: INgxFormInputNumber | INgxFormInputPrice;
-    @Input() appearance: MatFormFieldAppearance = 'fill';
+    @Input({ required: true }) control!: FormControl;
+    @Input({ required: true }) input!: INgxFormInputNumber | INgxFormInputPrice;
+    @Input({ required: true }) appearance!: MatFormFieldAppearance;
 
-    @Input() icon?: string;
-    @Input() suffix?: string;
-    @Input() negative?: boolean;
-    @Input() decimal?: boolean;
-    @Input() text?: 'LETTER' | 'HOUR' | 'MINUTE' | 'SECOND';
+    @Input({ required: false }) icon?: string;
+    @Input({ required: false }) suffix?: string;
+    @Input({ required: false }) negative?: boolean;
+    @Input({ required: false }) decimal?: boolean;
+    @Input({ required: false }) text?: 'LETTER' | 'HOUR' | 'MINUTE' | 'SECOND';
 
     public hint?: string = this.input?.hint;
     public hintLTR?: string;
@@ -31,8 +31,6 @@ export class NgxInputNumberComponent implements OnInit {
     }
 
     updateHint(): void {
-        if (!this.input) return;
-
         this.hintLTR = undefined;
         if (this.hintView === 'INPUT' || !this.text) this.hint = this.input.hint;
         else {

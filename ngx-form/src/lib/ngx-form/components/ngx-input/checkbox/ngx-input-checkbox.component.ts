@@ -10,7 +10,7 @@ import { INgxFormInputCheckbox } from '../../../inputs';
     styleUrls: ['./ngx-input-checkbox.component.scss'],
 })
 export class NgxInputCheckboxComponent {
-    @Input() control?: FormControl;
-    @Input() input?: INgxFormInputCheckbox;
-    @Input() appearance: MatFormFieldAppearance = 'fill';
+    @Input({ required: true }) control!: FormControl;
+    @Input({ required: true }) input!: INgxFormInputCheckbox;
+    @Input({ required: true }) appearance!: MatFormFieldAppearance;
 }

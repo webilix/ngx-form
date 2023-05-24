@@ -11,15 +11,13 @@ import { INgxFormInputAutoComplete } from '../../../inputs';
     styleUrls: ['./ngx-input-auto-complete.component.scss'],
 })
 export class NgxInputAutoCompleteComponent implements OnInit {
-    @Input() control?: FormControl;
-    @Input() input?: INgxFormInputAutoComplete;
-    @Input() appearance: MatFormFieldAppearance = 'fill';
+    @Input({ required: true }) control!: FormControl;
+    @Input({ required: true }) input!: INgxFormInputAutoComplete;
+    @Input({ required: true }) appearance!: MatFormFieldAppearance;
 
     public filtered: Observable<string[]> = new Observable<string[]>();
 
     ngOnInit(): void {
-        if (!this.control) return;
-
         this.filtered = this.control.valueChanges.pipe(
             startWith(''),
             map((value) => this.filter(value || '')),
@@ -27,8 +25,6 @@ export class NgxInputAutoCompleteComponent implements OnInit {
     }
 
     private filter(value: string): string[] {
-        if (!this.input) return [];
-
         value = value.toLowerCase();
         return this.input.options.filter((option) => option.toLowerCase().includes(value));
     }

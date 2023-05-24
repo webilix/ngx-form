@@ -9,9 +9,9 @@ import { NgxReportInputs, NgxReportOperators } from '../../../ngx-report.type';
     styleUrls: ['./ngx-value-text.component.scss'],
 })
 export class NgxValueTextComponent {
-    @Input() input?: NgxReportInputs;
-    @Input() operator: NgxReportOperators | null = null;
-    @Input() value: string | null = null;
+    @Input({ required: true }) input!: NgxReportInputs;
+    @Input({ required: true }) operator!: NgxReportOperators | null;
+    @Input({ required: true }) value!: string | null;
     @Output() changed: EventEmitter<string | null> = new EventEmitter<string | null>();
 
     get en(): boolean {

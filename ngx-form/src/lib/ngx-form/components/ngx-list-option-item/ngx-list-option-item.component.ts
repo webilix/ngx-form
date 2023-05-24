@@ -8,11 +8,19 @@ import { Helper } from '@webilix/helper-library';
     styleUrls: ['./ngx-list-option-item.component.scss'],
 })
 export class NgxListOptionItemComponent implements OnInit, OnChanges {
-    @Input() index?: number;
-    @Input() item?: string;
-    @Input() format?: 'BANK-CARD' | 'DOMAIN' | 'EMAIL' | 'IP' | 'MOBILE' | 'NATIONAL-CODE' | 'NUMERIC' | 'URL';
-    @Input() english?: boolean;
-    @Input() disabled?: boolean;
+    @Input({ required: true }) index!: number;
+    @Input({ required: true }) item!: string;
+    @Input({ required: true }) format?:
+        | 'BANK-CARD'
+        | 'DOMAIN'
+        | 'EMAIL'
+        | 'IP'
+        | 'MOBILE'
+        | 'NATIONAL-CODE'
+        | 'NUMERIC'
+        | 'URL';
+    @Input({ required: true }) english!: boolean;
+    @Input({ required: true }) disabled!: boolean;
 
     @Output() update: EventEmitter<string> = new EventEmitter<string>();
     @Output() delete: EventEmitter<void> = new EventEmitter<void>();

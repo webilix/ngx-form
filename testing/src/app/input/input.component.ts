@@ -8,7 +8,7 @@ import { INgxForm, NgxFormInputs } from '@ngx-form';
     styleUrls: ['./input.component.scss'],
 })
 export class InputComponent implements OnChanges {
-    @Input() inputs: (NgxFormInputs | NgxFormInputs[])[] = [];
+    @Input({ required: true }) inputs!: (NgxFormInputs | NgxFormInputs[])[];
 
     public showValues = console.log;
 

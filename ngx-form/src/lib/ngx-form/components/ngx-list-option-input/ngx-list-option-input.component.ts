@@ -8,9 +8,17 @@ import { Helper } from '@webilix/helper-library';
     styleUrls: ['./ngx-list-option-input.component.scss'],
 })
 export class NgxListOptionInputComponent implements OnInit {
-    @Input() format?: 'BANK-CARD' | 'DOMAIN' | 'EMAIL' | 'IP' | 'MOBILE' | 'NATIONAL-CODE' | 'NUMERIC' | 'URL';
-    @Input() english?: boolean;
-    @Input() disabled?: boolean;
+    @Input({ required: true }) format?:
+        | 'BANK-CARD'
+        | 'DOMAIN'
+        | 'EMAIL'
+        | 'IP'
+        | 'MOBILE'
+        | 'NATIONAL-CODE'
+        | 'NUMERIC'
+        | 'URL';
+    @Input({ required: true }) english!: boolean;
+    @Input({ required: true }) disabled!: boolean;
     @Output() add: EventEmitter<string> = new EventEmitter<string>();
 
     public isNumeric: boolean = false;

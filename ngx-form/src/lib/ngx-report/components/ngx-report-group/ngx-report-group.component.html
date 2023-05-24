@@ -1,4 +1,4 @@
-<content *ngIf="report && inputs.length !== 0" [ngStyle]="{ borderLeftWidth: level === 0 ? 1 : 0 }">
+<content *ngIf="inputs.length !== 0" [ngStyle]="{ borderLeftWidth: level === 0 ? 1 : 0 }">
     <header>
         <div class="join">
             <div [ngClass]="{ selected: report.join === 'AND' }" (click)="setJoin('AND')">و</div>

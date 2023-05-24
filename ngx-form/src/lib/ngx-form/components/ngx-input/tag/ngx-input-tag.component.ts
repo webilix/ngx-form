@@ -11,15 +11,13 @@ import { INgxFormInputTag } from '../../../inputs';
     styleUrls: ['./ngx-input-tag.component.scss'],
 })
 export class NgxInputTagComponent implements OnInit {
-    @Input() control?: FormControl;
-    @Input() input?: INgxFormInputTag;
-    @Input() appearance: MatFormFieldAppearance = 'fill';
+    @Input({ required: true }) control!: FormControl;
+    @Input({ required: true }) input!: INgxFormInputTag;
+    @Input({ required: true }) appearance!: MatFormFieldAppearance;
 
     public tags: string[] = [];
 
     ngOnInit(): void {
-        if (!this.input || !this.control) return;
-
         this.input.tags = this.input.tags.sort((t1: string, t2: string) => t1.localeCompare(t2));
         this.control.valueChanges.subscribe({
             next: () => this.setValues(),
@@ -28,12 +26,11 @@ export class NgxInputTagComponent implements OnInit {
     }
 
     setValues(): void {
-        if (!this.control) return;
         this.tags = Array.isArray(this.control.value) ? this.control.value : [];
     }
 
     filter(value: string): string[] {
-        if (!this.input || this.input.tags.length === 0) return [];
+        if (this.input.tags.length === 0) return [];
 
         value = value.toLowerCase();
         return this.input.tags
@@ -43,7 +40,7 @@ export class NgxInputTagComponent implements OnInit {
 
     addTag(event: any, input: HTMLInputElement): void {
         const tag: string = (event.value || '').trim();
-        if (!this.control || this.control.disabled || tag === '' || this.tags.includes(tag)) return;
+        if (this.control.disabled || tag === '' || this.tags.includes(tag)) return;
 
         this.tags.push(tag);
         this.control.setValue([...this.tags]);
@@ -54,7 +51,7 @@ export class NgxInputTagComponent implements OnInit {
 
     selectTag(event: any, input: HTMLInputElement): void {
         const tag: string = (event as MatAutocompleteSelectedEvent).option.viewValue.trim();
-        if (!this.control || this.control.disabled || tag === '' || this.tags.includes(tag)) return;
+        if (this.control.disabled || tag === '' || this.tags.includes(tag)) return;
 
         this.tags.push(tag);
         this.control.setValue([...this.tags]);
@@ -64,7 +61,7 @@ export class NgxInputTagComponent implements OnInit {
     }
 
     deleteTag(index: number): void {
-        if (!this.control || !this.tags[index]) return;
+        if (!this.tags[index]) return;
 
         this.tags.splice(index, 1);
         this.control.setValue([...this.tags]);

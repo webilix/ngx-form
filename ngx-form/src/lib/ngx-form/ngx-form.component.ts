@@ -16,7 +16,7 @@ import { NgxFormInputs } from './ngx-form.type';
 export class NgxFormComponent implements OnInit {
     @ViewChild('formObject') ngForm?: NgForm;
 
-    @Input() ngxForm?: INgxForm;
+    @Input({ required: true }) ngxForm!: INgxForm;
     @Output() protected ngxSubmit: EventEmitter<INgxFormValues> = new EventEmitter<INgxFormValues>();
     @Output() protected ngxChange: EventEmitter<INgxFormValues> = new EventEmitter<INgxFormValues>();
 
@@ -34,8 +34,6 @@ export class NgxFormComponent implements OnInit {
     ) {}
 
     ngOnInit(): void {
-        if (!this.ngxForm) return;
-
         this.appearance = this.ngxForm.appearance || this.ngxAppearance;
 
         this.formGroup = new FormGroup({});
@@ -85,8 +83,6 @@ export class NgxFormComponent implements OnInit {
     }
 
     private checkAvailability(values: INgxFormValues): void {
-        if (!this.ngxForm) return;
-
         this.ngxForm.inputs.forEach((row: NgxFormInputs | NgxFormInputs[]) => {
             const inputs: NgxFormInputs[] = Array.isArray(row) ? row : [row];
             inputs.forEach((input: NgxFormInputs) => {
@@ -100,8 +96,6 @@ export class NgxFormComponent implements OnInit {
 
     private checkVisibility(values: INgxFormValues): void {
         this.hiddenInputs = [];
-        if (!this.ngxForm) return;
-
         this.ngxForm.inputs.forEach((row: NgxFormInputs | NgxFormInputs[]) => {
             const inputs: NgxFormInputs[] = Array.isArray(row) ? row : [row];
             inputs.forEach((input: NgxFormInputs) => {
@@ -132,8 +126,6 @@ export class NgxFormComponent implements OnInit {
     }
 
     private getValues(): INgxFormValues {
-        if (!this.ngxForm) return {};
-
         const values: INgxFormValues = {};
         this.ngxForm.inputs.forEach((row: NgxFormInputs | NgxFormInputs[]) => {
             const inputs: NgxFormInputs[] = Array.isArray(row) ? row : [row];
@@ -147,7 +139,7 @@ export class NgxFormComponent implements OnInit {
 
     protected checkValues(): void {
         this.formGroup.markAllAsTouched();
-        if (!this.ngxForm || this.formGroup.invalid) return;
+        if (this.formGroup.invalid) return;
 
         const values: INgxFormValues = this.getValues();
         this.ngxSubmit.emit(values);

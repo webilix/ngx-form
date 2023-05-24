@@ -1,4 +1,4 @@
-<content *ngIf="condition && inputs.length !== 0">
+<content *ngIf="inputs.length !== 0">
     <div class="condition">
         <div class="data">
             <div
@@ -35,7 +35,7 @@
                 </mat-menu>
             </div>
         </div>
-        <div class="value" *ngIf="valueShow">
+        <div class="value" *ngIf="input && valueShow">
             <ng-container [ngSwitch]="valueType">
                 <ngx-value-data
                     *ngSwitchCase="'BANK-CARD'"

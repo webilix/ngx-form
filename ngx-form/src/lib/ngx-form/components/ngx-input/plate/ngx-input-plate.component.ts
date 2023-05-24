@@ -12,15 +12,13 @@ import { INgxFormInputPlate } from '../../../inputs';
     styleUrls: ['./ngx-input-plate.component.scss'],
 })
 export class NgxInputPlateComponent {
-    @Input() control?: FormControl;
-    @Input() input?: INgxFormInputPlate;
-    @Input() appearance: MatFormFieldAppearance = 'fill';
+    @Input({ required: true }) control!: FormControl;
+    @Input({ required: true }) input!: INgxFormInputPlate;
+    @Input({ required: true }) appearance!: MatFormFieldAppearance;
 
     public letters: string[] = Helper.PLATE.letters;
 
     setPlate(left: string, letter: string, right: string, iran: string): void {
-        if (!this.input || !this.control) return;
-
         this.control.setValue([left, letter, right, iran]);
         this.control.markAllAsTouched();
     }

@@ -14,9 +14,9 @@ import { INgxFormInputDate } from '../../../inputs';
     styleUrls: ['./ngx-input-date.component.scss'],
 })
 export class NgxInputDateComponent implements OnInit {
-    @Input() control?: FormControl;
-    @Input() input?: INgxFormInputDate;
-    @Input() appearance: MatFormFieldAppearance = 'fill';
+    @Input({ required: true }) control!: FormControl;
+    @Input({ required: true }) input!: INgxFormInputDate;
+    @Input({ required: true }) appearance!: MatFormFieldAppearance;
 
     public hours: string[] = [...Array(24).keys()].map((index: number) => index.toString().padStart(2, '0'));
     public hour: string = '';
@@ -29,8 +29,6 @@ export class NgxInputDateComponent implements OnInit {
     constructor(private readonly ngxDateService: NgxDateService) {}
 
     ngOnInit(): void {
-        if (!this.control) return;
-
         this.hour = this.jalali.toString(this.control.value || new Date(), { format: 'H' });
         this.minute = this.jalali.toString(this.control.value || new Date(), { format: 'I' });
         if (this.control.value) {
@@ -40,7 +38,7 @@ export class NgxInputDateComponent implements OnInit {
     }
 
     setDate(): void {
-        if (!this.input || !this.control || this.control.disabled) return;
+        if (this.control.disabled) return;
 
         const config: INgxDate = {
             title: this.input.title,
@@ -55,7 +53,7 @@ export class NgxInputDateComponent implements OnInit {
     }
 
     setValue(date: Date): void {
-        if (!this.input || !this.control || this.control.disabled) return;
+        if (this.control.disabled) return;
 
         const day: string = this.jalali.toString(date, { format: 'Y-M-D' });
         if (day === this.default.day) date = this.default.value;

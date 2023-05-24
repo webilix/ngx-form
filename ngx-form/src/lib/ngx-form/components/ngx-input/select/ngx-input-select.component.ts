@@ -10,9 +10,9 @@ import { INgxFormInputSelect } from '../../../inputs';
     styleUrls: ['./ngx-input-select.component.scss'],
 })
 export class NgxInputSelectComponent {
-    @Input() control?: FormControl;
-    @Input() input?: INgxFormInputSelect;
-    @Input() appearance: MatFormFieldAppearance = 'fill';
+    @Input({ required: true }) control!: FormControl;
+    @Input({ required: true }) input!: INgxFormInputSelect;
+    @Input({ required: true }) appearance!: MatFormFieldAppearance;
 
     public query: string = '';
 }

@@ -10,13 +10,13 @@ import { NgxReportInputs, NgxReportOperators } from '../../../ngx-report.type';
     styleUrls: ['./ngx-value-data.component.scss'],
 })
 export class NgxValueDataComponent implements OnInit {
-    @Input() input?: NgxReportInputs;
-    @Input() operator: NgxReportOperators | null = null;
-    @Input() value: string | null = null;
+    @Input({ required: true }) input!: NgxReportInputs;
+    @Input({ required: true }) operator!: NgxReportOperators | null;
+    @Input({ required: true }) value!: string | null;
     @Output() changed: EventEmitter<string | null> = new EventEmitter<string | null>();
 
-    @Input() icon: string = '';
-    @Input() mask?: string;
+    @Input({ required: false }) icon: string = '';
+    @Input({ required: false }) mask?: string;
 
     get error(): boolean {
         if (!this.input) return false;

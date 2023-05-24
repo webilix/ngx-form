@@ -10,8 +10,8 @@ import { NgxReportInputs } from './ngx-report.type';
     styleUrls: ['./ngx-report.component.scss'],
 })
 export class NgxReportComponent implements OnInit {
-    @Input() ngxInputs: NgxReportInputs[] = [];
-    @Input() ngxReport: INgxReport | null = null;
+    @Input({ required: true }) ngxInputs: NgxReportInputs[] = [];
+    @Input({ required: true }) ngxReport: INgxReport | null = null;
     @Output() ngxReportChange: EventEmitter<INgxReport | null> = new EventEmitter<INgxReport | null>();
     @Output() changed: EventEmitter<INgxReport> = new EventEmitter<INgxReport>();
 

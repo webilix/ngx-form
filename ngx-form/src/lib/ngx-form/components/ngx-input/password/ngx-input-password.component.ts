@@ -10,9 +10,9 @@ import { INgxFormInputPassword } from '../../../inputs';
     styleUrls: ['./ngx-input-password.component.scss'],
 })
 export class NgxInputPasswordComponent {
-    @Input() control?: FormControl;
-    @Input() input?: INgxFormInputPassword;
-    @Input() appearance: MatFormFieldAppearance = 'fill';
+    @Input({ required: true }) control!: FormControl;
+    @Input({ required: true }) input!: INgxFormInputPassword;
+    @Input({ required: true }) appearance!: MatFormFieldAppearance;
 
     public passwordShow: boolean = false;
 }

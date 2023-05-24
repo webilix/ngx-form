@@ -17,8 +17,8 @@ import { NgxReportInputs, NgxReportOperators } from '../../ngx-report.type';
     styleUrls: ['./ngx-report-condition.component.scss'],
 })
 export class NgxReportConditionComponent implements OnInit {
-    @Input() inputs: NgxReportInputs[] = [];
-    @Input() condition?: INgxReportCondition;
+    @Input({ required: true }) inputs!: NgxReportInputs[];
+    @Input({ required: true }) condition!: INgxReportCondition;
     @Output() changed: EventEmitter<void> = new EventEmitter<void>();
     @Output() deleted: EventEmitter<void> = new EventEmitter<void>();
 
@@ -27,12 +27,12 @@ export class NgxReportConditionComponent implements OnInit {
     public input?: NgxReportInputs;
 
     get valueShow(): boolean {
-        if (!this.condition || !this.condition.input || !this.condition.operator) return false;
+        if (!this.condition.input || !this.condition.operator) return false;
         return NgxReportOperatorsInfo[this.condition.operator].value;
     }
 
     get valueType(): NgxReportValueTypes | null {
-        if (!this.condition || !this.condition.operator || !this.input) return null;
+        if (!this.condition.operator || !this.input) return null;
 
         return (
             NgxReportValuesInfo[this.input.type].extra?.[this.condition.operator] ||
@@ -57,7 +57,6 @@ export class NgxReportConditionComponent implements OnInit {
     }
 
     setInput(name: string): void {
-        if (!this.condition) return;
         if (!this.inputs.find((i: NgxReportInputs) => i.name === name)) return;
 
         this.condition.input = name;
@@ -88,7 +87,7 @@ export class NgxReportConditionComponent implements OnInit {
     }
 
     setOperator(operator: NgxReportOperators): void {
-        if (!this.condition || !this.input || !this.operators.includes(operator)) return;
+        if (!this.operators.includes(operator)) return;
 
         this.condition.operator = operator;
         this.condition.value = null;
@@ -96,8 +95,6 @@ export class NgxReportConditionComponent implements OnInit {
     }
 
     setValue(value: any): void {
-        if (!this.condition) return;
-
         this.condition.value = value;
         this.changed.emit();
         this.changeDetectorRef.detectChanges();

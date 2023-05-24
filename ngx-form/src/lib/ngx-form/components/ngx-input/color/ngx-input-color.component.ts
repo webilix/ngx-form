@@ -10,7 +10,7 @@ import { INgxFormInputColor } from '../../../inputs';
     styleUrls: ['./ngx-input-color.component.scss'],
 })
 export class NgxInputColorComponent {
-    @Input() control?: FormControl;
-    @Input() input?: INgxFormInputColor;
-    @Input() appearance: MatFormFieldAppearance = 'fill';
+    @Input({ required: true }) control!: FormControl;
+    @Input({ required: true }) input!: INgxFormInputColor;
+    @Input({ required: true }) appearance!: MatFormFieldAppearance;
 }

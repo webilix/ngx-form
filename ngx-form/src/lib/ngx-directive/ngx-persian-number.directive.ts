@@ -4,13 +4,13 @@ import { NgControl } from '@angular/forms';
 
 @Directive({ selector: '[ngxPersianNumber]' })
 export class NgxPersianNumberDirective {
-    @Input() ngxPersianNumber: boolean = true;
+    @Input({ required: true }) ngxPersianNumber!: boolean;
+    @Input({ required: true }) mask!: string;
 
-    @Input() isNnumber: boolean = false;
-    @Input() isNegative: boolean = false;
-    @Input() isDecimal: boolean = false;
-    @Input() mask: string = '';
-    @Input() showMaskTyped: boolean = false;
+    @Input({ required: false }) isNnumber: boolean = false;
+    @Input({ required: false }) isNegative: boolean = false;
+    @Input({ required: false }) isDecimal: boolean = false;
+    @Input({ required: false }) showMaskTyped: boolean = false;
 
     private keyEn: string[] = ['0', '1', '2', '3', '4', '5', '6', '7', '8', '9'];
     private keyFa: string[] = ['۰', '۱', '۲', '۳', '۴', '۵', '۶', '۷', '۸', '۹'];

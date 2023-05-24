@@ -10,9 +10,9 @@ import { NgxReportInputs, NgxReportOperators } from '../../../ngx-report.type';
     styleUrls: ['./ngx-value-option.component.scss'],
 })
 export class NgxValueOptionComponent implements OnInit {
-    @Input() input?: NgxReportInputs;
-    @Input() operator: NgxReportOperators | null = null;
-    @Input() value: string[] | null = null;
+    @Input({ required: true }) input!: NgxReportInputs;
+    @Input({ required: true }) operator!: NgxReportOperators | null;
+    @Input({ required: true }) value!: string[] | null;
     @Output() changed: EventEmitter<string[] | null> = new EventEmitter<string[] | null>();
 
     public options: INgxReportOption[] = [];

@@ -12,14 +12,14 @@ import { INgxFormInputBankCard } from '../../../inputs';
     styleUrls: ['./ngx-input-bank-card.component.scss'],
 })
 export class NgxInputBankCardComponent implements OnInit {
-    @Input() control?: FormControl;
-    @Input() input?: INgxFormInputBankCard;
-    @Input() appearance: MatFormFieldAppearance = 'fill';
+    @Input({ required: true }) control!: FormControl;
+    @Input({ required: true }) input!: INgxFormInputBankCard;
+    @Input({ required: true }) appearance!: MatFormFieldAppearance;
 
     public bank: string = '';
 
     ngOnInit(): void {
-        this.setBank(this.input?.value || '');
+        this.setBank(this.input.value || '');
     }
 
     setBank(card: string): void {

@@ -10,12 +10,12 @@ import { INgxFormInputIcon } from '../../../inputs';
     styleUrls: ['./ngx-input-icon.component.scss'],
 })
 export class NgxInputIconComponent {
-    @Input() control?: FormControl;
-    @Input() input?: INgxFormInputIcon;
-    @Input() appearance: MatFormFieldAppearance = 'fill';
+    @Input({ required: true }) control!: FormControl;
+    @Input({ required: true }) input!: INgxFormInputIcon;
+    @Input({ required: true }) appearance!: MatFormFieldAppearance;
 
     setValue(icon: string): void {
-        if (!this.control || this.control.disabled) return;
+        if (this.control.disabled) return;
 
         this.control.setValue(this.control.value === icon ? null : icon);
         this.control.markAsTouched();

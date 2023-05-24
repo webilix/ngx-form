@@ -1,4 +1,4 @@
-<mat-form-field *ngIf="control && input" [appearance]="appearance">
+<mat-form-field [appearance]="appearance">
     <mat-label>{{ input.title }}</mat-label>
     <mat-error *ngIf="control.invalid">{{ control.errors | ngxError : input.type }}</mat-error>
     <mat-hint *ngIf="hint">{{ hint }}</mat-hint>

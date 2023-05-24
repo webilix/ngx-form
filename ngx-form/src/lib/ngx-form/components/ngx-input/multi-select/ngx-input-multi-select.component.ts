@@ -10,19 +10,19 @@ import { INgxFormInputMultiSelect } from '../../../inputs';
     styleUrls: ['./ngx-input-multi-select.component.scss'],
 })
 export class NgxInputMultiSelectComponent implements OnInit {
-    @Input() control?: FormControl;
-    @Input() input?: INgxFormInputMultiSelect;
-    @Input() appearance: MatFormFieldAppearance = 'fill';
+    @Input({ required: true }) control!: FormControl;
+    @Input({ required: true }) input!: INgxFormInputMultiSelect;
+    @Input({ required: true }) appearance!: MatFormFieldAppearance;
 
     public values: string[] = [];
 
     ngOnInit(): void {
-        if (!this.control || this.control.disabled || !this.input) return;
+        if (this.control.disabled) return;
         this.values = Array.isArray(this.control.value) ? this.control.value : [this.control.value];
     }
 
     setValue(value: string): void {
-        if (!this.control || this.control.disabled || !this.input) return;
+        if (this.control.disabled) return;
         this.control.markAllAsTouched();
 
         const checked: boolean = this.values.includes(value);
@@ -37,7 +37,7 @@ export class NgxInputMultiSelectComponent implements OnInit {
     }
 
     getValues(): string {
-        if (!this.control || this.control.disabled || !this.input) return '';
+        if (this.control.disabled) return '';
 
         this.values = Array.isArray(this.control.value) ? this.control.value : [this.control.value];
         const ids: string[] = this.input.options.map((o) => o.id);

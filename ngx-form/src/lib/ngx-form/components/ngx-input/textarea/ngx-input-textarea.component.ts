@@ -10,7 +10,7 @@ import { INgxFormInputTextarea } from '../../../inputs';
     styleUrls: ['./ngx-input-textarea.component.scss'],
 })
 export class NgxInputTextareaComponent {
-    @Input() control?: FormControl;
-    @Input() input?: INgxFormInputTextarea;
-    @Input() appearance: MatFormFieldAppearance = 'fill';
+    @Input({ required: true }) control!: FormControl;
+    @Input({ required: true }) input!: INgxFormInputTextarea;
+    @Input({ required: true }) appearance!: MatFormFieldAppearance;
 }

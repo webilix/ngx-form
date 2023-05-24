@@ -12,17 +12,15 @@ import { INgxFormInputPeriod } from '../../../inputs';
     styleUrls: ['./ngx-input-period.component.scss'],
 })
 export class NgxInputPeriodComponent implements OnInit {
-    @Input() control?: FormControl;
-    @Input() input?: INgxFormInputPeriod;
-    @Input() appearance: MatFormFieldAppearance = 'fill';
+    @Input({ required: true }) control!: FormControl;
+    @Input({ required: true }) input!: INgxFormInputPeriod;
+    @Input({ required: true }) appearance!: MatFormFieldAppearance;
 
     public dates: (Date | null)[] = [];
 
     constructor(private readonly ngxDateService: NgxDateService) {}
 
     ngOnInit(): void {
-        if (!this.control) return;
-
         this.control.valueChanges.subscribe({
             next: () => this.setValues(),
         });
@@ -30,12 +28,11 @@ export class NgxInputPeriodComponent implements OnInit {
     }
 
     setValues(): void {
-        if (!this.control) return;
         this.dates = Array.isArray(this.control.value) ? this.control.value : [null, null];
     }
 
     setDate(index: number): void {
-        if (!this.input || !this.control || (index !== 0 && index !== 1)) return;
+        if (index !== 0 && index !== 1) return;
 
         const config: INgxDate = {
             title: this.input.title,
@@ -54,7 +51,7 @@ export class NgxInputPeriodComponent implements OnInit {
     }
 
     resetDate(index: number): void {
-        if (!this.input || !this.control || (index !== 0 && index !== 1)) return;
+        if (index !== 0 && index !== 1) return;
 
         this.dates[index] = null;
         this.control.setValue([...this.dates]);

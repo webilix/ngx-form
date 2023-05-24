@@ -2,9 +2,10 @@ import { Directive, ElementRef, HostListener, Input, Renderer2 } from '@angular/
 
 @Directive({ selector: '[ngxAutoheight]' })
 export class NgxAutoheightDirective {
-    @Input() public ngxAutoheight: boolean = false;
-    @Input() public minHeight: number = 0;
-    @Input() public maxHeight: number = 0;
+    @Input({ required: true }) public ngxAutoheight!: boolean;
+    @Input({ required: true }) public minHeight!: number;
+
+    @Input({ required: false }) public maxHeight: number = 0;
 
     private _focused: boolean = false;
     @HostListener('focus')

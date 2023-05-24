@@ -10,14 +10,14 @@ import { NgxFormInputs } from '../../ngx-form.type';
     styleUrls: ['./ngx-input.component.scss'],
 })
 export class NgxInputComponent implements OnInit {
-    @Input() group?: FormGroup;
-    @Input() input?: NgxFormInputs;
-    @Input() appearance: MatFormFieldAppearance = 'fill';
+    @Input({ required: true }) group!: FormGroup;
+    @Input({ required: true }) input!: NgxFormInputs;
+    @Input({ required: true }) appearance!: MatFormFieldAppearance;
 
     public control?: FormControl;
 
     ngOnInit(): void {
-        if (!this.group || !this.input || this.input.type === 'COMMENT') return;
+        if (this.input.type === 'COMMENT') return;
         this.control = this.group.get(this.input.name) as FormControl;
     }
 }

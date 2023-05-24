@@ -10,16 +10,16 @@ import { INgxFormInputTime } from '../../../inputs';
     styleUrls: ['./ngx-input-time.component.scss'],
 })
 export class NgxInputTimeComponent implements OnInit {
-    @Input() control?: FormControl;
-    @Input() input?: INgxFormInputTime;
-    @Input() appearance: MatFormFieldAppearance = 'fill';
+    @Input({ required: true }) control!: FormControl;
+    @Input({ required: true }) input!: INgxFormInputTime;
+    @Input({ required: true }) appearance!: MatFormFieldAppearance;
 
     public hour: string | null = null;
     public minute: string = '00';
     public second: string = '00';
 
     ngOnInit(): void {
-        if (!this.control || !this.control.value) return;
+        if (!this.control.value) return;
 
         const [hour, minute, second] = this.control.value.split(':');
         this.hour = hour;
@@ -28,8 +28,6 @@ export class NgxInputTimeComponent implements OnInit {
     }
 
     setTime(hour: string | null, minute: string, second: string): void {
-        if (!this.control || !this.input) return;
-
         this.hour = hour;
         this.minute = minute;
         this.second = second;
