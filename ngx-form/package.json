@@ -1,6 +1,6 @@
 {
     "name": "@webilix/ngx-form",
-    "version": "3.0.1",
+    "version": "3.0.2",
     "description": "Persian form library for Angular",
     "repository": {
         "type": "git",
