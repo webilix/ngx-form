@@ -31,4 +31,16 @@ export const TextInputs: (NgxFormInputs | NgxFormInputs[])[] = [
         maxLength: 20,
     },
     { name: 'text-8', type: 'TEXT', title: 'دارای پسوند', optional: true, suffix: 'پسوند' },
+    {
+        name: 'text-9',
+        type: 'TEXT',
+        title: 'دارای کلید اضافه',
+        optional: true,
+        button: {
+            icon: 'add',
+            click: () => console.log('EXTRA BUTTON'),
+            disableOn: (values: INgxFormValues) => values['text-3'] === 'TEXT',
+        },
+        hint: 'در صورتی که مقدار انگلیسی TEXT باشد کلید اضافه این گزینه غیرفعال می‌شود.',
+    },
 ];

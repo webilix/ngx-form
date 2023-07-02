@@ -1,4 +1,37 @@
+import { ThemePalette } from '@angular/material/core';
+
 import { INgxFormValues } from '../ngx-form.interface';
+
+interface INgxFormInputButton {
+    /**
+     * Button icon
+     * @type { string }
+     */
+    icon: string;
+
+    /**
+     * Button click function
+     * @type { function(): void }
+     */
+    click: () => void;
+
+    /**
+     * Button color
+     * @type { string }
+     * @enum 'primary', 'accent', 'warn'
+     * @optional primary
+     */
+    color?: ThemePalette;
+
+    /**
+     * Button disable callback on form value changes
+     * @type { function(INgxFormValues): boolean }
+     * @param { INgxFormValues } values key => value object of form inputs
+     * @returns boolean
+     * @optional
+     */
+    disableOn?: (values: INgxFormValues) => boolean;
+}
 
 /**
  * Basic form input interface
@@ -45,6 +78,13 @@ export interface INgxFormInput {
      * @optional false
      */
     optional?: boolean;
+
+    /**
+     * Input extra button
+     * @type { INgxFormInputButton }
+     * @optional
+     */
+    button?: INgxFormInputButton;
 
     /**
      * Input disable callback on form value changes

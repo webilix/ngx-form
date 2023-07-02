@@ -61,4 +61,16 @@ export const MultiSelectInputs: (NgxFormInputs | NgxFormInputs[])[] = [
         view: 'SELECT',
         english: true,
     },
+    {
+        name: 'multi-select-10',
+        type: 'MULTI-SELECT',
+        title: 'دارای کلید اضافه',
+        options: options,
+        button: {
+            icon: 'add',
+            click: () => console.log('EXTRA BUTTON'),
+            disableOn: (values: INgxFormValues) => values['multi-select-3']?.includes('2ND'),
+        },
+        hint: 'در صورتی که گزینه نمایش لیست کشویی شامل گزینه دوم باشد کلید اضافه این گزینه غیرفعال می‌شود.',
+    },
 ];

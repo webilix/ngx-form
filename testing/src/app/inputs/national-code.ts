@@ -19,4 +19,16 @@ export const NationalCodeInputs: (NgxFormInputs | NgxFormInputs[])[] = [
         hideOn: (values: INgxFormValues) => values['national-code-2'] === '1234567891',
         hint: 'در صورتی که مقدار اختیاری 1234567891 باشد این گزینه نمایش داده نمی‌شود.',
     },
+    {
+        name: 'national-code-5',
+        type: 'NATIONAL-CODE',
+        title: 'دارای کلید اضافه',
+        optional: true,
+        button: {
+            icon: 'add',
+            click: () => console.log('EXTRA BUTTON'),
+            disableOn: (values: INgxFormValues) => values['national-code-2'] === '1234567891',
+        },
+        hint: 'در صورتی که مقدار اختیاری 1234567891 باشد کلید اضافه این گزینه غیرفعال می‌شود.',
+    },
 ];

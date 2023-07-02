@@ -22,4 +22,16 @@ export const TagInputs: (NgxFormInputs | NgxFormInputs[])[] = [
         hideOn: (values: INgxFormValues) => values['tag-3']?.length === 1,
         hint: 'در صورتی که یک گزینه اختیاری اضافه شده باشد این گزینه نمایش داده نمی‌شود.',
     },
+    {
+        name: 'tag-6',
+        type: 'TAG',
+        title: 'دارای کلید اضافه',
+        tags: tags,
+        button: {
+            icon: 'add',
+            click: () => console.log('EXTRA BUTTON'),
+            disableOn: (values: INgxFormValues) => values['tag-3']?.length === 1,
+        },
+        hint: 'در صورتی که یک گزینه اختیاری اضافه شده باشد کلید اضافه این گزینه غیرفعال می‌شود.',
+    },
 ];

@@ -19,4 +19,16 @@ export const EmailInputs: (NgxFormInputs | NgxFormInputs[])[] = [
         hideOn: (values: INgxFormValues) => values['email-2'] === 'email@domain.com',
         hint: 'در صورتی که مقدار اختیاری email@domain.com باشد این گزینه نمایش داده نمی‌شود.',
     },
+    {
+        name: 'email-5',
+        type: 'EMAIL',
+        title: 'دارای کلید اضافه',
+        optional: true,
+        button: {
+            icon: 'add',
+            click: () => console.log('EXTRA BUTTON'),
+            disableOn: (values: INgxFormValues) => values['email-2'] === 'email@domain.com',
+        },
+        hint: 'در صورتی که مقدار اختیاری email@domain.com باشد کلید اضافه این گزینه غیرفعال می‌شود.',
+    },
 ];

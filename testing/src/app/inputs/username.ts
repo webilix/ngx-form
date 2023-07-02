@@ -24,4 +24,16 @@ export const UsernameInputs: (NgxFormInputs | NgxFormInputs[])[] = [
         hideOn: (values: INgxFormValues) => values['username-7'] === 'username',
         hint: 'در صورتی که مقدار اختیاری username باشد این گزینه نمایش داده نمی‌شود.',
     },
+    {
+        name: 'username-10',
+        type: 'USERNAME',
+        title: 'دارای کلید اضافه',
+        optional: true,
+        button: {
+            icon: 'add',
+            click: () => console.log('EXTRA BUTTON'),
+            disableOn: (values: INgxFormValues) => values['username-7'] === 'username',
+        },
+        hint: 'در صورتی که مقدار اختیاری username باشد کلید اضافه این گزینه غیرفعال می‌شود.',
+    },
 ];

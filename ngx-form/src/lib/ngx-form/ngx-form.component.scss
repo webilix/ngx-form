@@ -12,9 +12,8 @@ form {
         align-items: flex-start;
         column-gap: 1rem;
 
-        ngx-input {
+        .ngx-form-field-input {
             flex: 1;
-            width: 0;
         }
     }
 
@@ -27,6 +26,37 @@ form {
 
         button[type='submit'] {
             flex: 1;
+        }
+    }
+
+    .ngx-form-field-input {
+        display: flex;
+        align-items: flex-start;
+        column-gap: 0.5rem;
+
+        ngx-input {
+            flex: 1;
+            width: 0;
+        }
+
+        button {
+            min-width: auto;
+            padding: 0;
+
+            mat-icon {
+                font-family: var(--ngxFormIconFont) !important;
+                font-size: var(--ngxFormIconSize) !important;
+                color: var(--ngxFormPrimaryColor) !important;
+                margin: 0 1rem !important;
+                height: auto !important;
+                width: auto !important;
+            }
+        }
+
+        button.disabled {
+            mat-icon {
+                color: var(--ngxFormBorderColor) !important;
+            }
         }
     }
 }

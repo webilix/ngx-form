@@ -22,4 +22,16 @@ export const PeriodInputs: (NgxFormInputs | NgxFormInputs[])[] = [
         hideOn: (values: INgxFormValues) => values['period-5']?.[0] !== null,
         hint: 'در صورتی که مقدار تاریخ شروع اختیاری مشخص شده باشد این گزینه نمایش داده نمی‌شود.',
     },
+    {
+        name: 'period-8',
+        type: 'PERIOD',
+        title: 'دارای کلید اضافه',
+        optional: true,
+        button: {
+            icon: 'add',
+            click: () => console.log('EXTRA BUTTON'),
+            disableOn: (values: INgxFormValues) => values['period-5']?.[0] !== null,
+        },
+        hint: 'در صورتی که مقدار تاریخ شروع اختیاری مشخص شده باشد کلید اضافه این گزینه غیرفعال می‌شود.',
+    },
 ];

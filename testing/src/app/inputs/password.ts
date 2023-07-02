@@ -44,4 +44,16 @@ export const PasswordInputs: (NgxFormInputs | NgxFormInputs[])[] = [
         hideOn: (values: INgxFormValues) => values['passowrd-6'] === 'password',
         hint: 'در صورتی که مقدار عدم بررسی password باشد این گزینه نمایش داده نمی‌شود.',
     },
+    {
+        name: 'passowrd-9',
+        type: 'PASSWORD',
+        title: 'دارای کلید اضافه',
+        optional: true,
+        button: {
+            icon: 'add',
+            click: () => console.log('EXTRA BUTTON'),
+            disableOn: (values: INgxFormValues) => values['passowrd-6'] === 'password',
+        },
+        hint: 'در صورتی که مقدار عدم بررسی password باشد کلید اضافه این گزینه غیرفعال می‌شود.',
+    },
 ];

@@ -58,4 +58,15 @@ export const OptionListInputs: (NgxFormInputs | NgxFormInputs[])[] = [
         hideOn: (values: INgxFormValues) => values['option-list-13']?.length === 2,
         hint: 'در صورتی که دو گزینه در محدودت تعداد مشخص شده باشد این گزینه نمایش داده نمی‌شود.',
     },
+    {
+        name: 'option-list-16',
+        type: 'OPTION-LIST',
+        title: 'دارای کلید اضافه',
+        button: {
+            icon: 'add',
+            click: () => console.log('EXTRA BUTTON'),
+            disableOn: (values: INgxFormValues) => values['option-list-13']?.length === 2,
+        },
+        hint: 'در صورتی که دو گزینه در محدودت تعداد مشخص شده باشد کلید اضافه این گزینه غیرفعال می‌شود.',
+    },
 ];

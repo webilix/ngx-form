@@ -24,4 +24,16 @@ export const TextareaInputs: (NgxFormInputs | NgxFormInputs[])[] = [
     { name: 'textarea-7', type: 'TEXTAREA', title: 'ارتفاع اتوماتیک', optional: true, autoHeight: true },
     { name: 'textarea-8', type: 'TEXTAREA', title: 'شمارنده تعداد کاراکتر', optional: true, counter: true },
     { name: 'textarea-9', type: 'TEXTAREA', title: 'حداکثر طول متن', optional: true, counter: true, maxLength: 50 },
+    {
+        name: 'textarea-10',
+        type: 'TEXTAREA',
+        title: 'دارای کلید اضافه',
+        optional: true,
+        button: {
+            icon: 'add',
+            click: () => console.log('EXTRA BUTTON'),
+            disableOn: (values: INgxFormValues) => values['textarea-2']?.includes('متن'),
+        },
+        hint: 'در صورتی که مقدار اختیاری شامل کلمه متن باشد کلید اضافه این گزینه غیرفعال می‌شود.',
+    },
 ];

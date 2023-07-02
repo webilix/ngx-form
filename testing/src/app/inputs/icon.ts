@@ -31,4 +31,17 @@ export const IconInputs: (NgxFormInputs | NgxFormInputs[])[] = [
         hideOn: (values: INgxFormValues) => values['icon-2'] !== null,
         hint: 'در صورتی که مقدار اختیاری مشخص شده باشد این گزینه نمایش داده نمی‌شود.',
     },
+    {
+        name: 'icon-5',
+        type: 'ICON',
+        title: 'دارای کلید اضافه',
+        icons,
+        optional: true,
+        button: {
+            icon: 'add',
+            click: () => console.log('EXTRA BUTTON'),
+            disableOn: (values: INgxFormValues) => values['icon-2'] !== null,
+        },
+        hint: 'در صورتی که مقدار اختیاری مشخص شده باشد کلید اضافه این گزینه غیرفعال می‌شود.',
+    },
 ];

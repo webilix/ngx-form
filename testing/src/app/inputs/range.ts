@@ -23,4 +23,16 @@ export const RangeInputs: (NgxFormInputs | NgxFormInputs[])[] = [
         hideOn: (values: INgxFormValues) => values['range-6']?.[0] !== null,
         hint: 'در صورتی که مقدار حداقل اختیاری مشخص شده باشد این گزینه نمایش داده نمی‌شود.',
     },
+    {
+        name: 'range-9',
+        type: 'RANGE',
+        title: 'دارای کلید اضافه',
+        optional: true,
+        button: {
+            icon: 'add',
+            click: () => console.log('EXTRA BUTTON'),
+            disableOn: (values: INgxFormValues) => values['range-6']?.[0] !== null,
+        },
+        hint: 'در صورتی که مقدار حداقل اختیاری مشخص شده باشد کلید اضافه این گزینه غیرفعال می‌شود.',
+    },
 ];

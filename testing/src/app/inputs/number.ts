@@ -43,4 +43,16 @@ export const NumberInputs: (NgxFormInputs | NgxFormInputs[])[] = [
         text: 'SECOND',
         hint: 'این گزینه دارای توضیحات است.',
     },
+    {
+        name: 'number-15',
+        type: 'NUMBER',
+        title: 'دارای کلید اضافه',
+        optional: true,
+        button: {
+            icon: 'add',
+            click: () => console.log('EXTRA BUTTON'),
+            disableOn: (values: INgxFormValues) => values['number-3'] === 0,
+        },
+        hint: 'در صورتی که مقدار اختیاری 0 باشد کلید اضافه این گزینه غیرفعال می‌شود.',
+    },
 ];

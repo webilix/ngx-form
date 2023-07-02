@@ -22,4 +22,15 @@ export const CheckboxInputs: (NgxFormInputs | NgxFormInputs[])[] = [
         hideOn: (values: INgxFormValues) => values['checkbox-3'] === true,
         hint: 'در صورتی که گزینه انگلیسی انتخاب شده باشد این گزینه نمایش داده نمی‌شود.',
     },
+    {
+        name: 'checkbox-6',
+        type: 'CHECKBOX',
+        message: 'دارای کلید اضافه',
+        button: {
+            icon: 'add',
+            click: () => console.log('EXTRA BUTTON'),
+            disableOn: (values: INgxFormValues) => values['checkbox-3'] === true,
+        },
+        hint: 'در صورتی که گزینه انگلیسی انتخاب شده باشد کلید اضافه این گزینه غیرفعال می‌شود.',
+    },
 ];

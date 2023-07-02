@@ -26,6 +26,7 @@ export class NgxFormComponent implements OnInit {
     protected appearance: MatFormFieldAppearance = 'fill';
     protected inputValues: INgxFormValues = {};
     protected hiddenInputs: string[] = [];
+    protected disabledButtons: string[] = [];
 
     constructor(
         @Inject('NGX_FORM_APPEARANCE') public readonly ngxAppearance: MatFormFieldAppearance,
@@ -56,6 +57,7 @@ export class NgxFormComponent implements OnInit {
                 const values: INgxFormValues = this.getValues();
                 this.checkAvailability(values);
                 this.checkVisibility(values);
+                this.checkButtons(values);
                 this.ngxChange.emit(values);
             },
         });
@@ -63,6 +65,7 @@ export class NgxFormComponent implements OnInit {
         const values: INgxFormValues = this.getValues();
         this.checkAvailability(values);
         this.checkVisibility(values);
+        this.checkButtons(values);
     }
 
     private setInput(input: NgxFormInputs): void {
@@ -104,6 +107,19 @@ export class NgxFormComponent implements OnInit {
                 const hidden: boolean = input.hideOn(values);
                 hidden ? this.formGroup.get(input.name)?.disable() : this.formGroup.get(input.name)?.enable();
                 if (hidden) this.hiddenInputs.push(input.name);
+            });
+        });
+    }
+
+    private checkButtons(values: INgxFormValues): void {
+        this.disabledButtons = [];
+        this.ngxForm.inputs.forEach((row: NgxFormInputs | NgxFormInputs[]) => {
+            const inputs: NgxFormInputs[] = Array.isArray(row) ? row : [row];
+            inputs.forEach((input: NgxFormInputs) => {
+                if (input.type === 'COMMENT' || !input.button || !input.button.disableOn) return;
+
+                const disabled: boolean = input.button.disableOn(values);
+                if (disabled) this.disabledButtons.push(input.name);
             });
         });
     }

@@ -17,4 +17,15 @@ export const MultiFileInputs: (NgxFormInputs | NgxFormInputs[])[] = [
         hideOn: (values: INgxFormValues) => values['multi-file-2']?.length === 2,
         hint: 'در صورتی که دو گزینه در محدودت تعداد مشخص شده باشد این گزینه نمایش داده نمی‌شود.',
     },
+    {
+        name: 'multi-file-5',
+        type: 'MULTI-FILE',
+        title: 'دارای کلید اضافه',
+        button: {
+            icon: 'add',
+            click: () => console.log('EXTRA BUTTON'),
+            disableOn: (values: INgxFormValues) => values['multi-file-2']?.length === 2,
+        },
+        hint: 'در صورتی که دو گزینه در محدودت تعداد مشخص شده باشد کلید اضافه این گزینه غیرفعال می‌شود.',
+    },
 ];

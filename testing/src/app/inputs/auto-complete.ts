@@ -31,4 +31,17 @@ export const AutoCompleteInputs: (NgxFormInputs | NgxFormInputs[])[] = [
         hideOn: (values: INgxFormValues) => values['auto-complete-2'] === 'سیمیلیس',
         hint: 'در صورتی که مقدار اختیاری سیمیلیس باشد این گزینه نمایش داده نمی‌شود.',
     },
+    {
+        name: 'auto-complete-6',
+        type: 'AUTO-COMPLETE',
+        title: 'دارای کلید اضافه',
+        options: options,
+        optional: true,
+        button: {
+            icon: 'add',
+            click: () => console.log('EXTRA BUTTON'),
+            disableOn: (values: INgxFormValues) => values['auto-complete-2'] === 'سیمیلیس',
+        },
+        hint: 'در صورتی که مقدار اختیاری سیمیلیس باشد کلید اضافه این گزینه غیرفعال می‌شود.',
+    },
 ];

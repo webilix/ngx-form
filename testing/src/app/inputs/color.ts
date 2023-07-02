@@ -26,4 +26,16 @@ export const ColorInputs: (NgxFormInputs | NgxFormInputs[])[] = [
         hideOn: (values: INgxFormValues) => values['color-3'] === '#ffffff',
         hint: 'در صورتی که مقدار اختیاری سفید باشد این گزینه نمایش داده نمی‌شود.',
     },
+    {
+        name: 'color-6',
+        type: 'COLOR',
+        title: 'دارای کلید اضافه',
+        optional: true,
+        button: {
+            icon: 'add',
+            click: () => console.log('EXTRA BUTTON'),
+            disableOn: (values: INgxFormValues) => values['color-3'] === '#ffffff',
+        },
+        hint: 'در صورتی که مقدار اختیاری سفید باشد کلید اضافه این گزینه غیرفعال می‌شود.',
+    },
 ];

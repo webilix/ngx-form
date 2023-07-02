@@ -22,4 +22,16 @@ export const PriceInputs: (NgxFormInputs | NgxFormInputs[])[] = [
     },
     { name: 'price-6', type: 'PRICE', title: 'محدودیت مقدار', optional: true, minimum: 10, maximum: 20 },
     { name: 'price-7', type: 'PRICE', title: 'نمایش حروف', optional: true, showText: true },
+    {
+        name: 'price-8',
+        type: 'PRICE',
+        title: 'دارای کلید اضافه',
+        optional: true,
+        button: {
+            icon: 'add',
+            click: () => console.log('EXTRA BUTTON'),
+            disableOn: (values: INgxFormValues) => values['price-2'] === 0,
+        },
+        hint: 'در صورتی که مقدار اختیاری 0 باشد کلید اضافه این گزینه غیرفعال می‌شود.',
+    },
 ];

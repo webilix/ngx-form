@@ -52,4 +52,17 @@ export const SelectInputs: (NgxFormInputs | NgxFormInputs[])[] = [
         title: 'یک گزینه',
         options: [{ id: '1ST', title: 'گزینه اول' }],
     },
+    {
+        name: 'select-8',
+        type: 'SELECT',
+        title: 'دارای کلید اضافه',
+        options: options,
+        optional: true,
+        button: {
+            icon: 'add',
+            click: () => console.log('EXTRA BUTTON'),
+            disableOn: (values: INgxFormValues) => values['select-3'] === '2ND',
+        },
+        hint: 'در صورتی که مقدار انگلیسی برابر گزینه دوم باشد کلید اضافه این گزینه غیرفعال می‌شود.',
+    },
 ];

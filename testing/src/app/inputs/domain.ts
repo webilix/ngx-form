@@ -19,4 +19,16 @@ export const DomainInputs: (NgxFormInputs | NgxFormInputs[])[] = [
         hideOn: (values: INgxFormValues) => values['domain-2'] === 'domain.com',
         hint: 'در صورتی که مقدار اختیاری domain.com باشد این گزینه نمایش داده نمی‌شود.',
     },
+    {
+        name: 'domain-5',
+        type: 'DOMAIN',
+        title: 'دارای کلید اضافه',
+        optional: true,
+        button: {
+            icon: 'add',
+            click: () => console.log('EXTRA BUTTON'),
+            disableOn: (values: INgxFormValues) => values['domain-2'] === 'domain.com',
+        },
+        hint: 'در صورتی که مقدار اختیاری domain.com باشد کلید اضافه این گزینه غیرفعال می‌شود.',
+    },
 ];

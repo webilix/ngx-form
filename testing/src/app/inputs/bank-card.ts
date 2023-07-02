@@ -27,4 +27,16 @@ export const BankCardInputs: (NgxFormInputs | NgxFormInputs[])[] = [
         showBank: true,
         value: '5022290000000000',
     },
+    {
+        name: 'bank-card-6',
+        type: 'BANK-CARD',
+        title: 'دارای کلید اضافه',
+        optional: true,
+        button: {
+            icon: 'add',
+            click: () => console.log('EXTRA BUTTON'),
+            disableOn: (values: INgxFormValues) => values['bank-card-2'] === '5022290000000000',
+        },
+        hint: 'در صورتی که مقدار اختیاری 5022290000000000 باشد کلید اضافه این گزینه غیرفعال می‌شود.',
+    },
 ];
