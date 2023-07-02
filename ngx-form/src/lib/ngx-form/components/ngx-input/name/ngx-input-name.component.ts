@@ -18,9 +18,6 @@ export class NgxInputNameComponent implements OnInit {
     public last: string = '';
 
     ngOnInit(): void {
-        this.control.valueChanges.subscribe({
-            next: () => this.setValues(),
-        });
         this.setValues();
     }
 
