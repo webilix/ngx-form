@@ -17,12 +17,14 @@
             [disabled]="control.disabled"
             (blur)="setPlate(plateLeft.value, plateLetter.value, plateRight.value, plateIran.value)"
             (keyup)="setPlate(plateLeft.value, plateLetter.value, plateRight.value, plateIran.value)"
-            (input)="(plateLeft.value || '').length === 2 ? plateLetter.focus() : null"
+            (input)="
+                (plateLeft.value || '').length === 2 ? (input.letter ? plateRight.focus() : plateLetter.focus()) : null
+            "
             #plateLeft
         />
         <mat-select
             panelClass="ngx-plate-panel"
-            [ngModel]="control.value?.[1] || null"
+            [ngModel]="control.value?.[1] || input.letter || null"
             [ngClass]="{ 'ngx-form-disabled': control.disabled }"
             [disabled]="control.disabled"
             (valueChange)="setPlate(plateLeft.value, plateLetter.value, plateRight.value, plateIran.value)"

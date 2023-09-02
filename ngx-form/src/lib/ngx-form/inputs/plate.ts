@@ -16,11 +16,19 @@ export interface INgxFormInputPlate extends Omit<INgxFormInput, 'english' | 'val
      * @optional
      */
     value?: [string, string, string, string];
+
+    /**
+     * Default plate letter
+     * @type { string }
+     * @optional
+     */
+    letter?: string;
 }
 
 export class NgxFormInputPlateMethods extends NgxFormMethods<INgxFormInputPlate, (string | null)[] | null> {
     control = (input: INgxFormInputPlate, validators: ValidatorFn[]): FormControl<(string | null)[] | null> => {
         input.title = input.title || 'شماره پلاک';
+        if (input.letter && !Helper.PLATE.letters.includes(input.letter)) input.letter = undefined;
         validators.push(NgxPlateValidator(!input.optional));
 
         const value: (string | null)[] = Helper.PLATE.getPlate(input.value || []);

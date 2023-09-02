@@ -19,8 +19,9 @@ export const PlateInputs: (NgxFormInputs | NgxFormInputs[])[] = [
         hideOn: (values: INgxFormValues) => values['plate-2'] !== null,
         hint: 'در صورتی که مقدار اختیاری مشخص شده باشد این گزینه نمایش داده نمی‌شود.',
     },
+    { name: 'plate-5', type: 'PLATE', title: 'حرف پیش‌فرض', optional: true, letter: 'ع' },
     {
-        name: 'plate-5',
+        name: 'plate-6',
         type: 'PLATE',
         title: 'دارای کلید اضافه',
         optional: true,
