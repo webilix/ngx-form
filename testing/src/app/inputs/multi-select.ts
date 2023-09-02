@@ -64,6 +64,13 @@ export const MultiSelectInputs: (NgxFormInputs | NgxFormInputs[])[] = [
     {
         name: 'multi-select-10',
         type: 'MULTI-SELECT',
+        title: 'دارای انتخاب‌های همه/هیچ',
+        options: options,
+        selectButtons: true,
+    },
+    {
+        name: 'multi-select-11',
+        type: 'MULTI-SELECT',
         title: 'دارای کلید اضافه',
         options: options,
         button: {

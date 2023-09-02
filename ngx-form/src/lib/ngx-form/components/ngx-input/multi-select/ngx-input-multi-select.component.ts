@@ -21,6 +21,22 @@ export class NgxInputMultiSelectComponent implements OnInit {
         this.values = Array.isArray(this.control.value) ? this.control.value : [this.control.value];
     }
 
+    selectAll(): void {
+        if (this.control.disabled) return;
+
+        this.values = this.input.options.map((option) => option.id);
+        this.control.setValue(this.values);
+        this.control.markAllAsTouched();
+    }
+
+    selectNone(): void {
+        if (this.control.disabled) return;
+
+        this.values = [];
+        this.control.setValue(this.values);
+        this.control.markAllAsTouched();
+    }
+
     setValue(value: string): void {
         if (this.control.disabled) return;
         this.control.markAllAsTouched();

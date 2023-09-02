@@ -51,6 +51,31 @@
         <!-- CHECKBOX VIEW -->
         <div class="options options-checkbox" *ngSwitchDefault>
             <div
+                [ngClass]="{ 'select-buttons': true, 'select-buttons-disabled': this.control.disabled }"
+                *ngIf="input.selectButtons"
+            >
+                <button
+                    mat-button
+                    type="button"
+                    color="primary"
+                    [disabled]="this.control.disabled"
+                    (click)="selectAll()"
+                >
+                    <mat-icon [fontIcon]="'check_box'" class="ngx-form-icon"></mat-icon>
+                    همه
+                </button>
+                <button
+                    mat-button
+                    type="button"
+                    color="primary"
+                    [disabled]="this.control.disabled"
+                    (click)="selectNone()"
+                >
+                    <mat-icon [fontIcon]="'check_box_outline_blank'" class="ngx-form-icon"></mat-icon>
+                    هیچ
+                </button>
+            </div>
+            <div
                 *ngFor="let option of input.options"
                 [ngClass]="{ option: true, 'option-en': !!input.english, 'ngx-form-disabled': control.disabled }"
                 (click)="setValue(option.id)"

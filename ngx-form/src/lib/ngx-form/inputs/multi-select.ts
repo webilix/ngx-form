@@ -49,10 +49,20 @@ export interface INgxFormInputMultiSelect extends Omit<INgxFormInput, 'value' | 
      * @optional CHECKBOX
      */
     view?: 'CHECKBOX' | 'SELECT' | 'TAG';
+
+    /**
+     * Show select all/none buttons
+     * @type { boolean }
+     * @optional
+     * @description This option works on CHECKBOX view only
+     */
+    selectButtons?: boolean;
 }
 
 export class NgxFormInputMultiSelectMethods extends NgxFormMethods<INgxFormInputMultiSelect, string[] | null> {
     control(input: INgxFormInputMultiSelect, validators: ValidatorFn[]): FormControl<string[] | null> {
+        if (input.selectButtons && input.view && input.view !== 'CHECKBOX') input.selectButtons = false;
+
         const options: string[] = input.options.map((option) => option.id);
         const value: string[] = (input.value || []).filter((value: string) => options.includes(value));
         if (input.minCount) validators.push(NgxMinCountValidator<string>(input.minCount));
