@@ -46,9 +46,12 @@ export class NgxFormInputDateMethods extends NgxFormMethods<INgxFormInputDate, D
         if (input.minDate) validators.push(NgxMinDateValidator(input.minDate, !!input.hour));
         if (input.maxDate) validators.push(NgxMaxDateValidator(input.maxDate, !!input.hour));
 
+        const minDate: number | null = input.minDate ? input.minDate.getTime() : null;
+        const maxDate: number | null = input.maxDate ? input.maxDate.getTime() : null;
         let value: Date | null = input.value === undefined ? null : Helper.IS.date(input.value) ? input.value : null;
-        if (value && input.minDate && value.getTime() < input.minDate.getTime()) value = input.minDate;
-        if (value && input.maxDate && value.getTime() > input.maxDate.getTime()) value = input.maxDate;
+        if (value && minDate && value.getTime() < minDate) value = new Date(minDate + 1000);
+        if (value && maxDate && value.getTime() > maxDate) value = new Date(maxDate - 1000);
+
         return new FormControl<Date | null>(value, validators);
     }
 
