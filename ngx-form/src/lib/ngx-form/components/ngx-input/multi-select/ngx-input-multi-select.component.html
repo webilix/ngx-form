@@ -1,5 +1,5 @@
 <mat-form-field [appearance]="appearance" [floatLabel]="input.view === 'SELECT' ? 'auto' : 'always'">
-    <mat-label>{{ input.title + (input.minCount ? ' *' : '') }}</mat-label>
+    <mat-label *ngIf="!input.selectButtons">{{ input.title + (input.minCount ? ' *' : '') }}</mat-label>
     <mat-error *ngIf="control.invalid">{{ control.errors | ngxError : input.type }}</mat-error>
     <mat-hint *ngIf="input.hint">{{ input.hint }}</mat-hint>
     <input
@@ -50,30 +50,30 @@
 
         <!-- CHECKBOX VIEW -->
         <div class="options options-checkbox" *ngSwitchDefault>
-            <div
-                [ngClass]="{ 'select-buttons': true, 'select-buttons-disabled': this.control.disabled }"
-                *ngIf="input.selectButtons"
-            >
-                <button
-                    mat-button
-                    type="button"
-                    color="primary"
-                    [disabled]="this.control.disabled"
-                    (click)="selectAll()"
-                >
-                    <mat-icon [fontIcon]="'check_box'" class="ngx-form-icon"></mat-icon>
-                    همه
-                </button>
-                <button
-                    mat-button
-                    type="button"
-                    color="primary"
-                    [disabled]="this.control.disabled"
-                    (click)="selectNone()"
-                >
-                    <mat-icon [fontIcon]="'check_box_outline_blank'" class="ngx-form-icon"></mat-icon>
-                    هیچ
-                </button>
+            <div class="buttons" *ngIf="input.selectButtons">
+                <div class="label">{{ input.title + (input.minCount ? ' *' : '') }}</div>
+                <div [ngClass]="{ 'select-buttons': true, 'select-buttons-disabled': this.control.disabled }">
+                    <button
+                        mat-button
+                        type="button"
+                        color="primary"
+                        [disabled]="this.control.disabled"
+                        (click)="selectAll()"
+                    >
+                        <mat-icon [fontIcon]="'check_box'" class="ngx-form-icon"></mat-icon>
+                        همه
+                    </button>
+                    <button
+                        mat-button
+                        type="button"
+                        color="primary"
+                        [disabled]="this.control.disabled"
+                        (click)="selectNone()"
+                    >
+                        <mat-icon [fontIcon]="'check_box_outline_blank'" class="ngx-form-icon"></mat-icon>
+                        هیچ
+                    </button>
+                </div>
             </div>
             <div
                 *ngFor="let option of input.options"
