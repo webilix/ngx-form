@@ -191,6 +191,7 @@ export interface INgxFormStyle {
 -   CHECKBOX
 -   COLOR
 -   COMMENT
+-   COORDINATES
 -   DATE
 -   DOMAIN
 -   EMAIL
