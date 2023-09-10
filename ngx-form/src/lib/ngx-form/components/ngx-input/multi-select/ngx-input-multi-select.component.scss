@@ -21,7 +21,7 @@
             overflow: hidden;
             text-overflow: ellipsis;
 
-            color: rgba(0, 0, 0, 0.6);
+            color: var(--ngxFormLabelColor);
         }
 
         .select-buttons {

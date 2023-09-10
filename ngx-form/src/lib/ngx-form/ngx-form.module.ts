@@ -124,6 +124,7 @@ export class NgxFormModule {
             `--ngxFormWarnColor:${style.warnColor || 'rgb(255, 49, 27)'};` +
             `--ngxFormBorderColor:${style.borderColor || 'rgb(187, 206, 213)'};` +
             `--ngxFormBackgroundColor:${style.backgroundColor || 'rgb(232, 239, 241)'};` +
+            `--ngxFormLabelColor:${style.labelColor || 'rgba(0, 0, 0, 0.6)'};` +
             '' +
             `--ngxDateIconFont:${style.iconFont || 'Material Icons Outlined'};` +
             `--ngxDateIconSize:${style.iconSize || '16px'};` +

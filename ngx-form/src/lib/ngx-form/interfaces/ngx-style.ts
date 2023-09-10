@@ -57,4 +57,11 @@ export interface INgxFormStyle {
      * @optional 'rgb(232, 239, 241)'
      */
     backgroundColor: string;
+
+    /**
+     * Form inputs label color
+     * @type { string }
+     * @optional 'rgba(0, 0, 0, 0.6)'
+     */
+    labelColor: string;
 }
