@@ -49,10 +49,10 @@
         </mat-select>
 
         <!-- CHECKBOX VIEW -->
-        <div class="options options-checkbox" *ngSwitchDefault>
-            <div class="buttons" *ngIf="input.selectButtons">
+        <ng-container *ngSwitchDefault>
+            <div class="select-buttons" *ngIf="input.selectButtons">
                 <div class="label">{{ input.title + (input.minCount ? ' *' : '') }}</div>
-                <div [ngClass]="{ 'select-buttons': true, 'select-buttons-disabled': this.control.disabled }">
+                <div [ngClass]="{ 'select-button': true, 'select-button-disabled': this.control.disabled }">
                     <button
                         mat-button
                         type="button"
@@ -75,18 +75,20 @@
                     </button>
                 </div>
             </div>
-            <div
-                *ngFor="let option of input.options"
-                [ngClass]="{ option: true, 'option-en': !!input.english, 'ngx-form-disabled': control.disabled }"
-                (click)="setValue(option.id)"
-            >
-                <mat-icon
-                    [fontIcon]="values.includes(option.id) ? 'check_box' : 'check_box_outline_blank'"
-                    class="ngx-form-icon"
-                ></mat-icon>
-                <div class="title">{{ option.title }}</div>
+            <div class="options options-checkbox">
+                <div
+                    *ngFor="let option of input.options"
+                    [ngClass]="{ option: true, 'option-en': !!input.english, 'ngx-form-disabled': control.disabled }"
+                    (click)="setValue(option.id)"
+                >
+                    <mat-icon
+                        [fontIcon]="values.includes(option.id) ? 'check_box' : 'check_box_outline_blank'"
+                        class="ngx-form-icon"
+                    ></mat-icon>
+                    <div class="title">{{ option.title }}</div>
+                </div>
             </div>
-        </div>
+        </ng-container>
 
         <ngx-description
             *ngIf="input.description"

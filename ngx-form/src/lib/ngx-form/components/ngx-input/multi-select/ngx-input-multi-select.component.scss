@@ -6,42 +6,42 @@
     overflow: auto;
 }
 
-.options-checkbox {
-    flex-direction: column;
+.select-buttons {
+    display: flex;
+    align-items: center;
+    column-gap: 0.5rem;
+    border-bottom: 1px solid var(--ngxFormBorderColor);
 
-    .buttons {
+    .label {
+        flex: 1;
+        white-space: nowrap;
+        overflow: hidden;
+        text-overflow: ellipsis;
+
+        color: var(--ngxFormLabelColor);
+    }
+
+    .select-button {
         display: flex;
-        align-items: center;
-        column-gap: 0.5rem;
-        border-bottom: 1px solid var(--ngxFormBorderColor);
+        justify-content: flex-end;
 
-        .label {
-            flex: 1;
-            white-space: nowrap;
-            overflow: hidden;
-            text-overflow: ellipsis;
-
-            color: var(--ngxFormLabelColor);
+        button {
+            font-size: 90%;
+            padding: 0 0.5rem !important;
         }
+    }
 
-        .select-buttons {
-            display: flex;
-            justify-content: flex-end;
-
-            button {
-                font-size: 90%;
-                padding: 0 0.5rem !important;
-            }
-        }
-
-        .select-buttons-disabled {
-            button {
-                mat-icon {
-                    opacity: 0.5;
-                }
+    .select-button-disabled {
+        button {
+            mat-icon {
+                opacity: 0.5;
             }
         }
     }
+}
+
+.options-checkbox {
+    flex-direction: column;
 
     .option {
         display: flex;
