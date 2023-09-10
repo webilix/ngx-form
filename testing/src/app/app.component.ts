@@ -45,68 +45,23 @@ import {
 export class AppComponent implements OnInit {
     @ViewChild('ngxFormComponent') ngxFormComponent?: NgxFormComponent;
 
-    public column: number = 1;
+    public button: boolean = false;
+    public column: number = 2;
     public ngxInputs: NgxFormInputs[] = [
-        {
-            type: 'COMMENT',
-            title: 'توضیحات',
-            value: 'متن توضیحات به این صورت نمایش داده می‌شود.',
-            description:
-                'بررسی شیوه نمایش توضیحات در گزینه‌های فرم' +
-                '\n' +
-                'امکان استفاده از دستورات HTML در توضیحات گزینه‌های فرم وجود ندارد اما توضیحات می‌تواند به صورت چند خطی مشخص شده باشد.',
-        },
-
         {
             name: 'auto-complete',
             type: 'AUTO-COMPLETE',
             title: 'لیست تکمیلی',
             options: ['سیمیلیس', 'مپانگا', 'کت اتو', 'پلکو'],
             optional: true,
-            button: { icon: 'add', click: () => console.log('AUTO-COMPLETE EXTRA BUTTON') },
         },
-        {
-            name: 'bank-card',
-            type: 'BANK-CARD',
-            optional: true,
-            button: { icon: 'add', click: () => console.log('BANK-CARD EXTRA BUTTON') },
-        },
-        {
-            name: 'checkbox',
-            type: 'CHECKBOX',
-            message: 'یک انتخابی',
-            button: { icon: 'add', click: () => console.log('CHECKBOX EXTRA BUTTON') },
-        },
-        {
-            name: 'color',
-            type: 'COLOR',
-            optional: true,
-            button: { icon: 'add', click: () => console.log('COLOR EXTRA BUTTON') },
-        },
-        {
-            name: 'date',
-            type: 'DATE',
-            optional: true,
-            button: { icon: 'add', click: () => console.log('DATE EXTRA BUTTON') },
-        },
-        {
-            name: 'domain',
-            type: 'DOMAIN',
-            optional: true,
-            button: { icon: 'add', click: () => console.log('DOMAIN EXTRA BUTTON') },
-        },
-        {
-            name: 'email',
-            type: 'EMAIL',
-            optional: true,
-            button: { icon: 'add', click: () => console.log('EMAIL EXTRA BUTTON') },
-        },
-        {
-            name: 'file',
-            type: 'FILE',
-            optional: true,
-            button: { icon: 'add', click: () => console.log('FILE EXTRA BUTTON') },
-        },
+        { name: 'bank-card', type: 'BANK-CARD', optional: true },
+        { name: 'checkbox', type: 'CHECKBOX', message: 'یک انتخابی' },
+        { name: 'color', type: 'COLOR', optional: true },
+        { name: 'date', type: 'DATE', optional: true },
+        { name: 'domain', type: 'DOMAIN', optional: true },
+        { name: 'email', type: 'EMAIL', optional: true },
+        { name: 'file', type: 'FILE', optional: true },
         {
             name: 'icon',
             type: 'ICON',
@@ -120,39 +75,12 @@ export class AppComponent implements OnInit {
                 'sports_rugby',
                 'sports_golf',
             ],
-            button: { icon: 'add', click: () => console.log('ICON EXTRA BUTTON') },
         },
-        {
-            name: 'ip',
-            type: 'IP',
-            optional: true,
-            button: { icon: 'add', click: () => console.log('IP EXTRA BUTTON') },
-        },
-        {
-            name: 'list',
-            type: 'LIST',
-            title: 'لیست',
-            button: { icon: 'add', click: () => console.log('LIST EXTRA BUTTON') },
-        },
-        {
-            name: 'mask',
-            type: 'MASK',
-            title: 'فرمت عددی',
-            mask: '00-000-0000',
-            optional: true,
-            button: { icon: 'add', click: () => console.log('MASK EXTRA BUTTON') },
-        },
-        {
-            name: 'mobile',
-            type: 'MOBILE',
-            optional: true,
-            button: { icon: 'add', click: () => console.log('MOBILE EXTRA BUTTON') },
-        },
-        {
-            name: 'multi-file',
-            type: 'MULTI-FILE',
-            button: { icon: 'add', click: () => console.log('MULTI-FILE EXTRA BUTTON') },
-        },
+        { name: 'ip', type: 'IP', optional: true },
+        { name: 'list', type: 'LIST', title: 'لیست' },
+        { name: 'mask', type: 'MASK', title: 'فرمت عددی', mask: '00-000-0000', optional: true },
+        { name: 'mobile', type: 'MOBILE', optional: true },
+        { name: 'multi-file', type: 'MULTI-FILE' },
         {
             name: 'multi-select',
             type: 'MULTI-SELECT',
@@ -164,72 +92,17 @@ export class AppComponent implements OnInit {
                 { id: '4TH', title: 'گزینه چهارم' },
             ],
             view: 'SELECT',
-            button: { icon: 'add', click: () => console.log('MULTI-SELECT EXTRA BUTTON') },
         },
-        {
-            name: 'name',
-            type: 'NAME',
-            optional: true,
-            button: { icon: 'add', click: () => console.log('NAME EXTRA BUTTON') },
-        },
-        {
-            name: 'national-code',
-            type: 'NATIONAL-CODE',
-            optional: true,
-            button: { icon: 'add', click: () => console.log('NATIONAL-CODE EXTRA BUTTON') },
-        },
-        {
-            name: 'number',
-            type: 'NUMBER',
-            title: 'مقدار عددی',
-            optional: true,
-            button: { icon: 'add', click: () => console.log('NUMBER EXTRA BUTTON') },
-        },
-        {
-            name: 'numeric',
-            type: 'NUMERIC',
-            title: 'عبارت عددی',
-            optional: true,
-            button: { icon: 'add', click: () => console.log('NUMERIC EXTRA BUTTON') },
-        },
-        {
-            name: 'option-list',
-            type: 'OPTION-LIST',
-            title: 'لیست گزینه‌ها',
-            button: { icon: 'add', click: () => console.log('OPTION-LIST EXTRA BUTTON') },
-        },
-        {
-            name: 'password',
-            type: 'PASSWORD',
-            optional: true,
-            button: { icon: 'add', click: () => console.log('PASSWORD EXTRA BUTTON') },
-        },
-        {
-            name: 'period',
-            type: 'PERIOD',
-            optional: true,
-            button: { icon: 'add', click: () => console.log('PERIOD EXTRA BUTTON') },
-        },
-        {
-            name: 'plate',
-            type: 'PLATE',
-            optional: true,
-            button: { icon: 'add', click: () => console.log('PLATE EXTRA BUTTON') },
-        },
-        {
-            name: 'price',
-            type: 'PRICE',
-            title: 'قیمت',
-            optional: true,
-            button: { icon: 'add', click: () => console.log('PRICE EXTRA BUTTON') },
-        },
-        {
-            name: 'range',
-            type: 'RANGE',
-            title: 'محدوده عددی',
-            optional: true,
-            button: { icon: 'add', click: () => console.log('RANGE EXTRA BUTTON') },
-        },
+        { name: 'name', type: 'NAME', optional: true },
+        { name: 'national-code', type: 'NATIONAL-CODE', optional: true },
+        { name: 'number', type: 'NUMBER', title: 'مقدار عددی', optional: true },
+        { name: 'numeric', type: 'NUMERIC', title: 'عبارت عددی', optional: true },
+        { name: 'option-list', type: 'OPTION-LIST', title: 'لیست گزینه‌ها' },
+        { name: 'password', type: 'PASSWORD', optional: true },
+        { name: 'period', type: 'PERIOD', optional: true },
+        { name: 'plate', type: 'PLATE', optional: true },
+        { name: 'price', type: 'PRICE', title: 'قیمت', optional: true },
+        { name: 'range', type: 'RANGE', title: 'محدوده عددی', optional: true },
         {
             name: 'select',
             type: 'SELECT',
@@ -241,46 +114,13 @@ export class AppComponent implements OnInit {
                 { id: '4TH', title: 'گزینه چهارم' },
             ],
             optional: true,
-            button: { icon: 'add', click: () => console.log('SELECT EXTRA BUTTON') },
         },
-        {
-            name: 'tag',
-            type: 'TAG',
-            tags: ['اول', 'دوم', 'سوم', 'چهارم', 'پنجم'],
-            button: { icon: 'add', click: () => console.log('TAG EXTRA BUTTON') },
-        },
-        {
-            name: 'text',
-            type: 'TEXT',
-            title: 'متن یک خطی',
-            optional: true,
-            button: { icon: 'add', click: () => console.log('TEXT EXTRA BUTTON') },
-        },
-        {
-            name: 'textarea',
-            type: 'TEXTAREA',
-            title: 'متن چند خطی',
-            optional: true,
-            button: { icon: 'add', click: () => console.log('TEXTAREA EXTRA BUTTON') },
-        },
-        {
-            name: 'time',
-            type: 'TIME',
-            optional: true,
-            button: { icon: 'add', click: () => console.log('TIME EXTRA BUTTON') },
-        },
-        {
-            name: 'url',
-            type: 'URL',
-            optional: true,
-            button: { icon: 'add', click: () => console.log('URL EXTRA BUTTON') },
-        },
-        {
-            name: 'username',
-            type: 'USERNAME',
-            optional: true,
-            button: { icon: 'add', click: () => console.log('USERNAME EXTRA BUTTON') },
-        },
+        { name: 'tag', type: 'TAG', tags: ['اول', 'دوم', 'سوم', 'چهارم', 'پنجم'] },
+        { name: 'text', type: 'TEXT', title: 'متن یک خطی', optional: true },
+        { name: 'textarea', type: 'TEXTAREA', title: 'متن چند خطی', optional: true },
+        { name: 'time', type: 'TIME', optional: true },
+        { name: 'url', type: 'URL', optional: true },
+        { name: 'username', type: 'USERNAME', optional: true },
     ];
 
     public ngxForm: INgxForm = {
@@ -334,7 +174,7 @@ export class AppComponent implements OnInit {
         const type: string | null = localStorage.getItem(this.localStorage);
         this.setType(type === 'REPORT' ? 'REPORT' : this.types.find((t) => t.type === type)?.type || '');
 
-        this.setColumn(1);
+        this.setColumn(this.column);
     }
 
     public showValues = console.log;
@@ -344,17 +184,38 @@ export class AppComponent implements OnInit {
     }
 
     setColumn(column: number): void {
+        const comment: NgxFormInputs = {
+            type: 'COMMENT',
+            title: 'توضیحات',
+            value: 'متن توضیحات به این صورت نمایش داده می‌شود.',
+            description:
+                'بررسی شیوه نمایش توضیحات در گزینه‌های فرم' +
+                '\n' +
+                'امکان استفاده از دستورات HTML در توضیحات گزینه‌های فرم وجود ندارد اما توضیحات می‌تواند به صورت چند خطی مشخص شده باشد.',
+        };
+
+        const inputs: NgxFormInputs[] = [...this.ngxInputs].map((input: NgxFormInputs) => ({
+            ...input,
+            button: this.button
+                ? {
+                      icon: 'dashboard',
+                      click: () => console.log(`${input.type} BUTTON`),
+                  }
+                : undefined,
+        }));
+
         if (column === 1) {
-            this.ngxForm.inputs = [...this.ngxInputs];
+            this.ngxForm.inputs = [comment, ...inputs];
             return;
         }
 
-        this.ngxForm.inputs = [];
+        this.ngxForm.inputs = [comment];
+        while (inputs.length !== 0) this.ngxForm.inputs.push(inputs.splice(0, column));
+    }
 
-        const inputs: NgxFormInputs[] = [...this.ngxInputs];
-        while (inputs.length !== 0) {
-            this.ngxForm.inputs.push(inputs.splice(0, column));
-        }
+    setButton(): void {
+        this.button = !this.button;
+        this.setColumn(this.column);
     }
 
     public setType(type: string): void {

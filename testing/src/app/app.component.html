@@ -15,7 +15,7 @@
                 *ngIf="!type"
                 class="column"
                 [dir]="'rtl'"
-                [ngModel]="column"
+                [(ngModel)]="column"
                 (change)="setColumn(+columnSelect.value)"
                 #columnSelect
             >
@@ -28,6 +28,16 @@
                     {{ index + 1 | number }}: {{ t.title }}
                 </option>
             </select>
+
+            <button
+                mat-button
+                type="button"
+                color="primary"
+                style="color: #fff; font-weight: 600"
+                (click)="setButton()"
+            >
+                BUTTON
+            </button>
         </ng-container>
     </section>
 
