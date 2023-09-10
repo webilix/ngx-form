@@ -13,6 +13,7 @@ import { MatSelectModule } from '@angular/material/select';
 import { MatCheckboxModule } from '@angular/material/checkbox';
 import { MatChipsModule } from '@angular/material/chips';
 
+import { NgxCoordinatesModule } from '../ngx-coordinates';
 import { NgxDateModule } from '../ngx-date';
 import { NgxDirectiveModule } from '../ngx-directive';
 import { NgxPipeModule } from '../ngx-pipe';
@@ -24,6 +25,7 @@ import {
     NgxInputCheckboxComponent,
     NgxInputColorComponent,
     NgxInputComponent,
+    NgxInputCoordinatesComponent,
     NgxInputDateComponent,
     NgxInputFileComponent,
     NgxInputIconComponent,
@@ -62,6 +64,7 @@ import { NgxFormComponent } from './ngx-form.component';
         NgxInputBankCardComponent,
         NgxInputCheckboxComponent,
         NgxInputColorComponent,
+        NgxInputCoordinatesComponent,
         NgxInputDateComponent,
         NgxInputFileComponent,
         NgxInputIconComponent,
@@ -97,8 +100,9 @@ import { NgxFormComponent } from './ngx-form.component';
         MatCheckboxModule,
         MatChipsModule,
 
-        NgxDirectiveModule,
+        NgxCoordinatesModule,
         NgxDateModule,
+        NgxDirectiveModule,
         NgxPipeModule,
     ],
     providers: [DecimalPipe, provideEnvironmentNgxMask()],
@@ -141,7 +145,10 @@ export class NgxFormModule {
         const appearance: MatFormFieldAppearance = arg1 === 'fill' || arg1 === 'outline' ? arg1 : 'fill';
         return {
             ngModule: NgxFormModule,
-            providers: [{ provide: 'NGX_FORM_APPEARANCE', useValue: appearance }],
+            providers: [
+                { provide: 'NGX_FORM_APPEARANCE', useValue: appearance },
+                { provide: 'NGX_FORM_PRIMARY_COLOR', useValue: style.primaryColor || 'rgb(29, 91, 116)' },
+            ],
         };
     }
 }

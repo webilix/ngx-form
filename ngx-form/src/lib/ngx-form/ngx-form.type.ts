@@ -4,6 +4,7 @@ import {
     INgxFormInputCheckbox,
     INgxFormInputColor,
     INgxFormInputComment,
+    INgxFormInputCoordinates,
     INgxFormInputDate,
     INgxFormInputDomain,
     INgxFormInputEmail,
@@ -42,6 +43,7 @@ export type NgxFormInputs =
     | INgxFormInputBankCard
     | INgxFormInputCheckbox
     | INgxFormInputColor
+    | INgxFormInputCoordinates
     | INgxFormInputDate
     | INgxFormInputDomain
     | INgxFormInputEmail

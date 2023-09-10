@@ -1,0 +1,89 @@
+:host {
+    display: grid;
+    grid-template-rows: 4rem 1fr 4rem;
+
+    width: 100vw;
+    height: 100vh;
+
+    .ngx-helper-map {
+        width: 100%;
+        height: 100%;
+        background-color: #fff;
+    }
+
+    header {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+
+        width: 100%;
+        height: 100%;
+        font-size: 110%;
+        font-weight: 500;
+        color: var(--ngxFormPrimaryColor);
+        background-color: var(--ngxFormBackgroundColor);
+    }
+
+    footer {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+
+        width: 100%;
+        height: 100%;
+        background-color: var(--ngxFormBackgroundColor);
+
+        content {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+
+            width: calc(100% - 2rem);
+            max-width: 400px;
+
+            .buttons {
+                flex: 1;
+                display: flex;
+                justify-content: flex-start;
+
+                button {
+                    min-width: auto;
+                    padding: 0 1rem;
+
+                    .ngx-form-icon {
+                        display: flex;
+                        align-items: center;
+
+                        font-family: var(--ngxFormIconFont) !important;
+                        font-size: calc(var(--ngxFormIconSize) + 3px) !important;
+                        color: var(--ngxFormPrimaryColor) !important;
+                        margin: 0 !important;
+                        height: auto !important;
+                        width: auto !important;
+                    }
+                }
+            }
+
+            .coordinates {
+                flex: 1;
+                direction: ltr;
+
+                .coordinate {
+                    display: flex;
+                    column-gap: 1rem;
+
+                    .title {
+                        width: 75px;
+                        font-family: var(--ngxFormEnFont);
+                        font-size: calc(var(--ngxReportFontSize) - 1px);
+                    }
+
+                    .value {
+                        font-family: var(--ngxFormEnFont);
+                        font-size: calc(var(--ngxReportFontSize) - 1px);
+                    }
+                }
+            }
+        }
+    }
+}

@@ -8,6 +8,7 @@ export * from './ngx-input/auto-complete/ngx-input-auto-complete.component';
 export * from './ngx-input/bank-card/ngx-input-bank-card.component';
 export * from './ngx-input/checkbox/ngx-input-checkbox.component';
 export * from './ngx-input/color/ngx-input-color.component';
+export * from './ngx-input/coordinates/ngx-input-coordinates.component';
 export * from './ngx-input/date/ngx-input-date.component';
 export * from './ngx-input/file/ngx-input-file.component';
 export * from './ngx-input/icon/ngx-input-icon.component';

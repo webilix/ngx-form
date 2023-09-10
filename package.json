@@ -24,6 +24,7 @@
         "@webilix/helper-library": "^4.5.2",
         "@webilix/jalali-date-time": "^1.2.5",
         "ngx-mask": "^16.2.9",
+        "ol": "^8.1.0",
         "rxjs": "~7.8.1",
         "tslib": "^2.6.2",
         "zone.js": "~0.13.1"

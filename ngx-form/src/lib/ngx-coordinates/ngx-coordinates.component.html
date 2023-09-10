@@ -1,0 +1,31 @@
+<header>{{ title || 'موقعیت جغرافیایی' }}</header>
+
+<div
+    id="ngx-form-map"
+    class="ngx-form-map"
+    (dblclick)="setCoordinates($event)"
+    (contextmenu)="setCoordinates($event)"
+></div>
+
+<footer>
+    <content>
+        <div class="buttons">
+            <button mat-button type="button" mat-dialog-close>
+                <mat-icon class="ngx-form-icon" [fontIcon]="'cancel'"></mat-icon>
+            </button>
+            <button mat-button type="button" (click)="selectCoordinates()" *ngIf="coordinates">
+                <mat-icon class="ngx-form-icon" [fontIcon]="'task_alt'"></mat-icon>
+            </button>
+        </div>
+        <div class="coordinates" *ngIf="coordinates">
+            <div class="coordinate">
+                <div class="title">LATITUDE:</div>
+                <div class="value">{{ coordinates.latitude }}</div>
+            </div>
+            <div class="coordinate">
+                <div class="title">LONGITUDE:</div>
+                <div class="value">{{ coordinates.longitude }}</div>
+            </div>
+        </div>
+    </content>
+</footer>

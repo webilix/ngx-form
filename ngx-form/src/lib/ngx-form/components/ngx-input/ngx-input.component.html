@@ -11,7 +11,11 @@
             [readonly]="true"
         />
 
-        <ngx-description *ngIf="input.description" [description]="input.description" [disabled]="false"></ngx-description>
+        <ngx-description
+            *ngIf="input.description"
+            [description]="input.description"
+            [disabled]="false"
+        ></ngx-description>
     </mat-form-field>
     <!-- COMMENT -->
 
@@ -46,6 +50,14 @@
         [input]="input"
         [appearance]="appearance"
     ></ngx-input-color>
+
+    <!-- COORDINATES -->
+    <ngx-input-coordinates
+        *ngIf="control && input.type === 'COORDINATES'"
+        [control]="control"
+        [input]="input"
+        [appearance]="appearance"
+    ></ngx-input-coordinates>
 
     <!-- DATE -->
     <ngx-input-date
