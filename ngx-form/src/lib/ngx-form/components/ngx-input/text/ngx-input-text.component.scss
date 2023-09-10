@@ -1,0 +1,12 @@
+.content {
+    display: flex;
+    align-items: center;
+
+    input {
+        flex: 1;
+    }
+
+    mat-icon {
+        margin-right: 1rem !important;
+    }
+}

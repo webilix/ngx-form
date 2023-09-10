@@ -1,32 +1,41 @@
 <mat-form-field [appearance]="appearance">
     <mat-label>{{ input.title }}</mat-label>
     <mat-error *ngIf="control.invalid">{{ control.errors | ngxError : input.type }}</mat-error>
-
     <mat-hint *ngIf="input.hint">{{ input.hint }}</mat-hint>
     <mat-hint *ngIf="counter" [align]="'end'">
         {{ control.value?.length || 0 | number }}{{ maxLength ? ' از ' + (maxLength | number) : '' }}
     </mat-hint>
 
-    <span matTextSuffix *ngIf="suffixText">
-        <span
+    <div class="content">
+        <input
+            matInput
+            type="text"
+            [name]="input.name"
+            [formControl]="control"
+            [ngxPersianNumber]="numeric || false"
+            [inputMode]="numeric ? 'numeric' : 'text'"
+            [maxLength]="maxLength || 524288"
+            [ngClass]="{ 'input-en': en }"
+            [mask]="mask || ''"
+        />
+
+        <div
+            *ngIf="suffixText"
             [ngClass]="{ 'suffix-text': true, 'suffix-en': suffixLang === 'EN', 'suffix-disabled': control.disabled }"
         >
             {{ suffixText }}
-        </span>
-    </span>
-    <span matIconSuffix *ngIf="icon" [ngClass]="{ 'suffix-disabled': control.disabled }">
-        <mat-icon [fontIcon]="icon"></mat-icon>
-    </span>
+        </div>
 
-    <input
-        matInput
-        type="text"
-        [name]="input.name"
-        [formControl]="control"
-        [ngxPersianNumber]="numeric || false"
-        [inputMode]="numeric ? 'numeric' : 'text'"
-        [maxLength]="maxLength || 524288"
-        [ngClass]="{ 'input-en': en }"
-        [mask]="mask || ''"
-    />
+        <mat-icon
+            *ngIf="icon"
+            [ngClass]="{ 'ngx-form-icon': true, 'ngx-form-disabled': control.disabled }"
+            [fontIcon]="icon"
+        ></mat-icon>
+    </div>
+
+    <ngx-description
+        *ngIf="input.description"
+        [description]="input.description"
+        [disabled]="control.disabled"
+    ></ngx-description>
 </mat-form-field>

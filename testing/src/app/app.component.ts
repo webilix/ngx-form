@@ -47,7 +47,15 @@ export class AppComponent implements OnInit {
 
     public column: number = 1;
     public ngxInputs: NgxFormInputs[] = [
-        { type: 'COMMENT', title: 'توضیحات', value: 'متن توضیحات به این صورت نمایش داده می‌شود.' },
+        {
+            type: 'COMMENT',
+            title: 'توضیحات',
+            value: 'متن توضیحات به این صورت نمایش داده می‌شود.',
+            description:
+                'بررسی شیوه نمایش توضیحات در گزینه‌های فرم' +
+                '\n' +
+                'امکان استفاده از دستورات HTML در توضیحات گزینه‌های فرم وجود ندارد اما توضیحات می‌تواند به صورت چند خطی مشخص شده باشد.',
+        },
 
         {
             name: 'auto-complete',

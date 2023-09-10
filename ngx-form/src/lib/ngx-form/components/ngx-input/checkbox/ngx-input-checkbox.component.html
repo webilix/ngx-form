@@ -11,4 +11,10 @@
     >
         {{ input.message }}
     </mat-checkbox>
+
+    <ngx-description
+        *ngIf="input.description"
+        [description]="input.description"
+        [disabled]="control.disabled"
+    ></ngx-description>
 </mat-form-field>

@@ -16,4 +16,10 @@
         [ngClass]="{ 'input-en': !!input.english }"
         [ngStyle]="{ height: (input.height ? input.height.toString() : '75') + 'px', resize: 'none' }"
     ></textarea>
+
+    <ngx-description
+        *ngIf="input.description"
+        [description]="input.description"
+        [disabled]="control.disabled"
+    ></ngx-description>
 </mat-form-field>

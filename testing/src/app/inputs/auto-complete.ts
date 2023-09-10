@@ -44,4 +44,15 @@ export const AutoCompleteInputs: (NgxFormInputs | NgxFormInputs[])[] = [
         },
         hint: 'در صورتی که مقدار اختیاری سیمیلیس باشد کلید اضافه این گزینه غیرفعال می‌شود.',
     },
+    {
+        name: 'auto-complete-7',
+        type: 'AUTO-COMPLETE',
+        title: 'دارای توضیحات',
+        options: options,
+        optional: true,
+        description:
+            'بررسی شیوه نمایش توضیحات در گزینه‌های فرم' +
+            '\n' +
+            'امکان استفاده از دستورات HTML در توضیحات گزینه‌های فرم وجود ندارد اما توضیحات می‌تواند به صورت چند خطی مشخص شده باشد.',
+    },
 ];

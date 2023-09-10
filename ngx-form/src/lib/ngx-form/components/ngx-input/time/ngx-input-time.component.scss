@@ -4,10 +4,13 @@
     align-items: center;
     column-gap: 0.5rem;
     position: relative;
-    margin-left: 2rem;
+
+    .seperator {
+        flex: 1;
+    }
 
     mat-select {
-        flex: 1;
+        max-width: 70px;
         text-align: center;
         padding: 0.25rem !important;
         background-color: var(--ngxFormBackgroundColor);

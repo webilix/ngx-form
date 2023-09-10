@@ -4,40 +4,50 @@
     <mat-hint *ngIf="input.hint">{{ input.hint }}</mat-hint>
     <input matInput type="text" [name]="input.name" [formControl]="control" class="input-hidden" />
 
-    <div class="ngx-form-date">
-        <div [ngClass]="{ 'ngx-form-overflow': true, 'ngx-form-disabled': control.disabled }" (click)="setDate()">
-            {{ control.value ? (control.value | ngxDate) : '&nbsp;' }}
+    <div class="content">
+        <div class="ngx-form-date">
+            <div [ngClass]="{ 'ngx-form-overflow': true, 'ngx-form-disabled': control.disabled }" (click)="setDate()">
+                {{ control.value ? (control.value | ngxDate) : '&nbsp;' }}
+            </div>
+            <div class="ngx-form-date-time" *ngIf="input.hour && control.value">
+                <mat-select
+                    [(ngModel)]="hour"
+                    panelClass="ngx-date-time-panel"
+                    class="select-en"
+                    [disabled]="control.disabled"
+                    (selectionChange)="setValue(control.value)"
+                >
+                    <mat-option *ngFor="let h of hours" class="ngx-form-en" [value]="h">{{ h }}</mat-option>
+                </mat-select>
+                <div [ngClass]="{ colon: true, 'ngx-form-disabled': control.disabled }">:</div>
+                <mat-select
+                    [(ngModel)]="minute"
+                    panelClass="ngx-date-time-panel"
+                    class="select-en"
+                    [disabled]="control.disabled"
+                    (selectionChange)="setValue(control.value)"
+                >
+                    <mat-option *ngFor="let m of minutes" class="ngx-form-en" [value]="m">{{ m }}</mat-option>
+                </mat-select>
+            </div>
         </div>
-        <div class="ngx-form-date-time" *ngIf="input.hour && control.value">
-            <mat-select
-                [(ngModel)]="hour"
-                panelClass="ngx-date-time-panel"
-                class="select-en"
-                [disabled]="control.disabled"
-                (selectionChange)="setValue(control.value)"
-            >
-                <mat-option *ngFor="let h of hours" class="ngx-form-en" [value]="h">{{ h }}</mat-option>
-            </mat-select>
-            <div [ngClass]="{ colon: true, 'ngx-form-disabled': control.disabled }">:</div>
-            <mat-select
-                [(ngModel)]="minute"
-                panelClass="ngx-date-time-panel"
-                class="select-en"
-                [disabled]="control.disabled"
-                (selectionChange)="setValue(control.value)"
-            >
-                <mat-option *ngFor="let m of minutes" class="ngx-form-en" [value]="m">{{ m }}</mat-option>
-            </mat-select>
-        </div>
+        <button
+            mat-button
+            (click)="control.markAsTouched(); control.value === null ? setDate() : control.setValue(null)"
+            type="button"
+            [disabled]="control.disabled"
+            [ngClass]="{ 'ngx-form-disabled': control.disabled }"
+        >
+            <mat-icon
+                [ngClass]="{ 'ngx-form-icon': true, 'ngx-form-disabled': control.disabled }"
+                [fontIcon]="control.value === null ? 'today' : 'cancel'"
+            ></mat-icon>
+        </button>
     </div>
-    <button
-        mat-button
-        matSuffix
-        (click)="control.markAsTouched(); control.value === null ? setDate() : control.setValue(null)"
-        type="button"
+
+    <ngx-description
+        *ngIf="input.description"
+        [description]="input.description"
         [disabled]="control.disabled"
-        [ngClass]="{ 'ngx-form-disabled': control.disabled }"
-    >
-        <mat-icon [fontIcon]="control.value === null ? 'today' : 'cancel'"></mat-icon>
-    </button>
+    ></ngx-description>
 </mat-form-field>

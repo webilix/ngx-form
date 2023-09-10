@@ -7,6 +7,11 @@
     row-gap: 0.25rem;
 }
 
+ngx-list-option-input {
+    display: block;
+    margin-top: 1rem;
+}
+
 .values.cdk-drop-list-dragging .value:not(.cdk-drag-placeholder) {
     transition: transform 250ms cubic-bezier(0, 0, 0.2, 1);
 }

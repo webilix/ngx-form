@@ -87,5 +87,11 @@
                 <div class="title">{{ option.title }}</div>
             </div>
         </div>
+
+        <ngx-description
+            *ngIf="input.description"
+            [description]="input.description"
+            [disabled]="control.disabled"
+        ></ngx-description>
     </ng-container>
 </mat-form-field>

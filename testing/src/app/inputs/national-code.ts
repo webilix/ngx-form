@@ -31,4 +31,14 @@ export const NationalCodeInputs: (NgxFormInputs | NgxFormInputs[])[] = [
         },
         hint: 'در صورتی که مقدار اختیاری 1234567891 باشد کلید اضافه این گزینه غیرفعال می‌شود.',
     },
+    {
+        name: 'national-code-6',
+        type: 'NATIONAL-CODE',
+        title: 'دارای توضیحات',
+        optional: true,
+        description:
+            'بررسی شیوه نمایش توضیحات در گزینه‌های فرم' +
+            '\n' +
+            'امکان استفاده از دستورات HTML در توضیحات گزینه‌های فرم وجود ندارد اما توضیحات می‌تواند به صورت چند خطی مشخص شده باشد.',
+    },
 ];

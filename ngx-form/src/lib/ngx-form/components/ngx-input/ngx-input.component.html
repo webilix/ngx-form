@@ -10,6 +10,8 @@
             [ngClass]="{ 'input-en': input.english }"
             [readonly]="true"
         />
+
+        <ngx-description *ngIf="input.description" [description]="input.description" [disabled]="false"></ngx-description>
     </mat-form-field>
     <!-- COMMENT -->
 

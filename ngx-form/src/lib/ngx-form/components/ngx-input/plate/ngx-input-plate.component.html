@@ -66,4 +66,10 @@
         />
         <div [ngClass]="{ iran: true, 'ngx-form-disabled': control.disabled }">ایران</div>
     </div>
+
+    <ngx-description
+        *ngIf="input.description"
+        [description]="input.description"
+        [disabled]="control.disabled"
+    ></ngx-description>
 </mat-form-field>

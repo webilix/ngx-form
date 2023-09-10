@@ -1,12 +1,20 @@
-:host .file {
+.content {
     display: flex;
-    flex-direction: row-reverse;
-    column-gap: 0.5rem;
+    align-items: center;
+    column-gap: 1rem;
 
-    .name {
+    .file {
         flex: 1;
-        white-space: nowrap;
-        overflow: hidden;
-        text-overflow: ellipsis;
+        display: flex;
+        flex-direction: row-reverse;
+        column-gap: 0.5rem;
+
+        .name {
+            flex: 1;
+            width: 0;
+            white-space: nowrap;
+            overflow: hidden;
+            text-overflow: ellipsis;
+        }
     }
 }

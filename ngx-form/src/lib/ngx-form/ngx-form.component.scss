@@ -99,49 +99,27 @@ form {
             text-align: justify;
             width: 100%;
         }
+
+        div.suffix-text {
+            display: inline-block;
+            white-space: nowrap;
+            margin: 0 1rem 0 0 !important;
+        }
+
+        div.suffix-en {
+            font-family: var(--ngxFormEnFont);
+            margin: 0 !important;
+        }
+
+        div.suffix-disabled {
+            opacity: 0.5;
+        }
     }
 
     mat-form-field.mat-form-field-appearance-outline {
         input.mat-mdc-form-field-input-control,
         textarea.mat-mdc-form-field-input-control {
             padding: 0.5rem 0.5rem 0.5rem 0;
-        }
-    }
-
-    .mat-mdc-form-field-text-suffix {
-        span.suffix-text {
-            display: inline-block;
-            white-space: nowrap;
-            margin: 0 1rem 0 0 !important;
-        }
-
-        span.suffix-en {
-            font-family: var(--ngxFormEnFont);
-            margin: 0 !important;
-        }
-
-        span.suffix-disabled {
-            opacity: 0.5;
-        }
-    }
-
-    .mat-mdc-form-field-icon-suffix {
-        padding: 0 !important;
-
-        mat-icon {
-            display: flex;
-            align-items: center;
-
-            font-family: var(--ngxFormIconFont) !important;
-            font-size: var(--ngxFormIconSize) !important;
-            color: var(--ngxFormPrimaryColor) !important;
-            margin: 0 1rem !important;
-            height: auto !important;
-            width: auto !important;
-        }
-
-        span.suffix-disabled {
-            opacity: 0.5;
         }
     }
 

@@ -18,6 +18,7 @@ import { NgxDirectiveModule } from '../ngx-directive';
 import { NgxPipeModule } from '../ngx-pipe';
 
 import {
+    NgxDescriptionComponent,
     NgxInputAutoCompleteComponent,
     NgxInputBankCardComponent,
     NgxInputCheckboxComponent,
@@ -52,6 +53,7 @@ import { NgxFormComponent } from './ngx-form.component';
     declarations: [
         NgxFormComponent,
 
+        NgxDescriptionComponent,
         NgxListOptionInputComponent,
         NgxListOptionItemComponent,
 
@@ -132,7 +134,6 @@ export class NgxFormModule {
             `--ngxDateBorderColor:${style.borderColor || 'rgb(187, 206, 213)'};` +
             `--ngxDateBackgroundColor:${style.backgroundColor || 'rgb(232, 239, 241)'};` +
             '}';
-
         const html: HTMLStyleElement = document.createElement('style');
         html.innerHTML = root;
         document.getElementsByTagName('head')[0].appendChild(html);

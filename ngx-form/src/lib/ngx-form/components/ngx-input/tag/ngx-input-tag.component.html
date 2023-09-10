@@ -32,4 +32,10 @@
             <mat-option [value]="tag">{{ tag }}</mat-option>
         </ng-container>
     </mat-autocomplete>
+
+    <ngx-description
+        *ngIf="input.description"
+        [description]="input.description"
+        [disabled]="control.disabled"
+    ></ngx-description>
 </mat-form-field>

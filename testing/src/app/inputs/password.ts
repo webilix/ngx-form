@@ -56,4 +56,14 @@ export const PasswordInputs: (NgxFormInputs | NgxFormInputs[])[] = [
         },
         hint: 'در صورتی که مقدار عدم بررسی password باشد کلید اضافه این گزینه غیرفعال می‌شود.',
     },
+    {
+        name: 'passowrd-10',
+        type: 'PASSWORD',
+        title: 'دارای توضیحات',
+        optional: true,
+        description:
+            'بررسی شیوه نمایش توضیحات در گزینه‌های فرم' +
+            '\n' +
+            'امکان استفاده از دستورات HTML در توضیحات گزینه‌های فرم وجود ندارد اما توضیحات می‌تواند به صورت چند خطی مشخص شده باشد.',
+    },
 ];

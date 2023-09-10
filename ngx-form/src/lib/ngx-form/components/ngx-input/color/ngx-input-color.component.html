@@ -3,52 +3,62 @@
     <mat-error *ngIf="control.invalid">{{ control.errors | ngxError : input.type }}</mat-error>
     <mat-hint *ngIf="input.hint">{{ input.hint }}</mat-hint>
 
-    <!-- INPUT VIEW -->
-    <div class="input" *ngIf="!input.colors || input.colors.length === 0">
-        <div [ngClass]="{ value: true, 'ngx-form-en': true, 'ngx-form-disabled': control.disabled }">
-            {{ (control.value | uppercase) || '&nbsp;' }}
-        </div>
-        <div
-            [ngStyle]="{
-                'background-color': control.value || 'transparent',
-                'border-color': control.value || 'var(--ngxFormBorderColor)'
-            }"
-            [ngClass]="{ select: true, 'ngx-form-disabled': control.disabled }"
-            (click)="colorInput.click()"
-        >
-            &nbsp;
-        </div>
-        <input matInput type="color" [name]="input.name" [formControl]="control" #colorInput />
-    </div>
-
-    <!--  LIST VIEW -->
-    <ng-container *ngIf="input.colors && input.colors.length !== 0">
-        <input matInput type="text" [name]="input.name" [formControl]="control" class="input-hidden" />
-        <div class="colors">
+    <div class="content">
+        <!-- INPUT VIEW -->
+        <div class="input" *ngIf="!input.colors || input.colors.length === 0">
+            <div [ngClass]="{ value: true, 'ngx-form-en': true, 'ngx-form-disabled': control.disabled }">
+                {{ (control.value | uppercase) || '&nbsp;' }}
+            </div>
             <div
-                *ngFor="let color of input.colors"
-                [ngClass]="{ color: true, current: color === control.value, 'ngx-form-disabled': control.disabled }"
-                [ngStyle]="{ 'background-color': color }"
-                (click)="control.setValue(color)"
+                [ngStyle]="{
+                    'background-color': control.value || 'transparent',
+                    'border-color': control.value || 'var(--ngxFormBorderColor)'
+                }"
+                [ngClass]="{ select: true, 'ngx-form-disabled': control.disabled }"
+                (click)="colorInput.click()"
+            >
+                &nbsp;
+            </div>
+            <input matInput type="color" [name]="input.name" [formControl]="control" #colorInput />
+
+            <button
+                mat-button
+                (click)="control.markAsTouched(); control.value ? control.setValue(null) : colorInput.click()"
+                type="button"
+                [disabled]="control.disabled"
+                [ngClass]="{ 'ngx-form-disabled': control.disabled }"
             >
                 <mat-icon
-                    [fontIcon]="'check'"
-                    class="ngx-form-icon"
-                    color="primary"
-                    *ngIf="color === control.value"
+                    [ngClass]="{ 'ngx-form-icon': true, 'ngx-form-disabled': control.disabled }"
+                    [fontIcon]="control.value === null ? 'palette' : 'cancel'"
                 ></mat-icon>
-            </div>
+            </button>
         </div>
-    </ng-container>
 
-    <button
-        mat-button
-        matSuffix
-        (click)="control.markAsTouched(); control.setValue(null)"
-        type="button"
+        <!--  LIST VIEW -->
+        <ng-container *ngIf="input.colors && input.colors.length !== 0">
+            <input matInput type="text" [name]="input.name" [formControl]="control" class="input-hidden" />
+            <div class="colors">
+                <div
+                    *ngFor="let color of input.colors"
+                    [ngClass]="{ color: true, current: color === control.value, 'ngx-form-disabled': control.disabled }"
+                    [ngStyle]="{ 'background-color': color }"
+                    (click)="control.setValue(control.value === color ? null : color)"
+                >
+                    <mat-icon
+                        [fontIcon]="'check'"
+                        class="ngx-form-icon"
+                        color="primary"
+                        *ngIf="color === control.value"
+                    ></mat-icon>
+                </div>
+            </div>
+        </ng-container>
+    </div>
+
+    <ngx-description
+        *ngIf="input.description"
+        [description]="input.description"
         [disabled]="control.disabled"
-        [ngClass]="{ 'ngx-form-disabled': control.disabled }"
-    >
-        <mat-icon [fontIcon]="control.value === null ? 'palette' : 'cancel'"></mat-icon>
-    </button>
+    ></ngx-description>
 </mat-form-field>

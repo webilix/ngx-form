@@ -3,7 +3,6 @@ import { FormControl } from '@angular/forms';
 import { MatFormFieldAppearance } from '@angular/material/form-field';
 
 import {
-    INgxFormInputBankCard,
     INgxFormInputDomain,
     INgxFormInputEmail,
     INgxFormInputIp,
@@ -24,7 +23,6 @@ import {
 export class NgxInputTextComponent implements OnInit {
     @Input({ required: true }) control!: FormControl;
     @Input({ required: true }) input!:
-        | INgxFormInputBankCard
         | INgxFormInputDomain
         | INgxFormInputEmail
         | INgxFormInputIp

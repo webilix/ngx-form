@@ -87,6 +87,14 @@ export interface INgxFormInput {
     button?: INgxFormInputButton;
 
     /**
+     * Input description copyright text
+     * @description this text will be shown at the bottom of input form-field
+     * @type { string }
+     * @optional
+     */
+    description?: string;
+
+    /**
      * Input disable callback on form value changes
      * @type { function(INgxFormValues): boolean }
      * @param { INgxFormValues } values key => value object of form inputs
