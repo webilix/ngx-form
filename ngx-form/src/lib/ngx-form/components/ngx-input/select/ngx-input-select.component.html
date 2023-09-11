@@ -1,25 +1,52 @@
 <mat-form-field [appearance]="appearance">
-    <mat-label>{{ input.title }}</mat-label>
+    <mat-label *ngIf="groups.length === 0">{{ input.title }}</mat-label>
     <mat-error *ngIf="control.invalid">{{ control.errors | ngxError : input.type }}</mat-error>
     <mat-hint *ngIf="input.hint">{{ input.hint }}</mat-hint>
 
+    <div class="header" *ngIf="groups.length !== 0">
+        <div class="label">{{ input.title + (!input.optional ? ' *' : '') }}</div>
+        <div
+            *ngIf="groups.length !== 0"
+            [ngClass]="{ group: true, 'ngx-form-disabled': control.disabled }"
+            [matMenuTriggerFor]="control.disabled ? null : groupMenu"
+            (click)="checkPanel()"
+        >
+            <div class="group-title">گروه</div>
+            <button mat-button type="button" color="primary" [disabled]="control.disabled">
+                <mat-icon [fontIcon]="'arrow_drop_down'" class="ngx-form-icon"></mat-icon>
+            </button>
+            <mat-menu #groupMenu="matMenu" class="ngx-form-option-menu-panel">
+                <button mat-menu-item (click)="selectGroup()">
+                    <div class="label">همه گروه‌ها</div>
+                    <mat-icon [fontIcon]="'check'" [ngClass]="{ hidden: groupIndex !== null }"></mat-icon>
+                </button>
+                <div class="ngx-form-option-menu-seperator"></div>
+                <button mat-menu-item *ngFor="let group of groups; let index = index" (click)="selectGroup(index)">
+                    <div class="label">{{ group.title }}</div>
+                    <mat-icon [fontIcon]="'check'" [ngClass]="{ hidden: groupIndex !== index }"></mat-icon>
+                </button>
+            </mat-menu>
+        </div>
+    </div>
+
     <mat-select
         [formControl]="control"
-        panelClass="ngx-select-panel"
         [ngClass]="{ 'select-en': !!input.english }"
+        [panelClass]="multiSelectInputClose ? 'ngx-select-panel-hidden' : 'ngx-select-panel'"
         (openedChange)="query = ''; searchInput.value = ''; searchInput.focus()"
+        #multiSelectInput
     >
         <input
             type="text"
             [ngClass]="{ 'ngx-select-search': true, 'ngx-form-en': !!input.english }"
-            [ngStyle]="{ display: input.options.length > 10 ? 'block' : 'none' }"
+            [ngStyle]="{ display: options.length > 10 ? 'block' : 'none' }"
             (input)="query = searchInput.value || ''"
             placeholder="جستجو"
             #searchInput
         />
 
         <mat-option *ngIf="!!input.optional" [value]="null"></mat-option>
-        <ng-container *ngFor="let option of input.options">
+        <ng-container *ngFor="let option of options">
             <mat-option
                 [value]="option.id"
                 [ngClass]="{ 'ngx-form-en': !!input.english }"

@@ -7,17 +7,21 @@ const options = [
     { id: '4TH', title: 'گزینه چهارم' },
     { id: '5TH', title: 'گزینه پنجم' },
 ];
+const groups = [
+    { title: 'فرد', ids: ['1ST', '3RD', '5TH'] },
+    { title: 'زوج', ids: ['2ND', '4TH'] },
+];
 const optionsEN = ['1ST', '2ND', '3RD', '4TH', '5TH'].map((en) => ({ id: en, title: en }));
 
 export const SelectInputs: (NgxFormInputs | NgxFormInputs[])[] = [
-    { name: 'select-1', type: 'SELECT', title: 'لیست کشویی', value: '1ST', options: options },
-    { name: 'select-2', type: 'SELECT', title: 'اختیاری', options: options, optional: true },
+    { name: 'select-1', type: 'SELECT', title: 'لیست کشویی', value: '1ST', options },
+    { name: 'select-2', type: 'SELECT', title: 'اختیاری', options, optional: true },
     { name: 'select-3', type: 'SELECT', title: 'انگلیسی', options: optionsEN, optional: true, english: true },
     {
         name: 'select-4',
         type: 'SELECT',
         title: 'غیرفعال شدن',
-        options: options,
+        options,
         optional: true,
         disableOn: (values: INgxFormValues) => values['select-3'] === '2ND',
         hint: 'در صورتی که مقدار انگلیسی برابر گزینه دوم باشد این گزینه غیرفعال می‌شود.',
@@ -26,7 +30,7 @@ export const SelectInputs: (NgxFormInputs | NgxFormInputs[])[] = [
         name: 'select-5',
         type: 'SELECT',
         title: 'عدم نمایش',
-        options: options,
+        options,
         optional: true,
         hideOn: (values: INgxFormValues) => values['select-3'] === '2ND',
         hint: 'در صورتی که مقدار انگلیسی برابر گزینه دوم باشد این گزینه نمایش داده نمی‌شود.',
@@ -46,17 +50,13 @@ export const SelectInputs: (NgxFormInputs | NgxFormInputs[])[] = [
         ],
         optional: true,
     },
+    { name: 'select-7', type: 'SELECT', title: 'یک گزینه', options: [{ id: '1ST', title: 'گزینه اول' }] },
+    { name: 'select-8', type: 'SELECT', title: 'دارای گروه', options, groups, optional: true },
     {
-        name: 'select-7',
-        type: 'SELECT',
-        title: 'یک گزینه',
-        options: [{ id: '1ST', title: 'گزینه اول' }],
-    },
-    {
-        name: 'select-8',
+        name: 'select-9',
         type: 'SELECT',
         title: 'دارای کلید اضافه',
-        options: options,
+        options,
         optional: true,
         button: {
             icon: 'add',
@@ -66,10 +66,10 @@ export const SelectInputs: (NgxFormInputs | NgxFormInputs[])[] = [
         hint: 'در صورتی که مقدار انگلیسی برابر گزینه دوم باشد کلید اضافه این گزینه غیرفعال می‌شود.',
     },
     {
-        name: 'select-9',
+        name: 'select-10',
         type: 'SELECT',
         title: 'دارای توضیحات',
-        options: options,
+        options,
         optional: true,
         description:
             'بررسی شیوه نمایش توضیحات در گزینه‌های فرم' +
