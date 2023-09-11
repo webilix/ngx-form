@@ -8,8 +8,8 @@ const options = [
     { id: '5TH', title: 'گزینه پنجم' },
 ];
 const groups = [
-    { title: 'فرد', ids: ['1ST', '3RD', '5TH'] },
-    { title: 'زوج', ids: ['2ND', '4TH'] },
+    { title: 'فرد', ids: ['1ST', '3RD', '5TH', '7TH', '9TH', 'BTH'] },
+    { title: 'زوج', ids: ['2ND', '4TH', '6TH', '8TH', 'ATH'] },
 ];
 const optionsEN = ['1ST', '2ND', '3RD', '4TH', '5TH'].map((en) => ({ id: en, title: en }));
 
@@ -55,6 +55,23 @@ export const SelectInputs: (NgxFormInputs | NgxFormInputs[])[] = [
     {
         name: 'select-9',
         type: 'SELECT',
+        title: 'دارای گروه',
+        options: [
+            ...options,
+            { id: '6TH', title: 'گزینه ششم' },
+            { id: '7TH', title: 'گزینه هفتم' },
+            { id: '8TH', title: 'گزینه هشتم' },
+            { id: '9TH', title: 'گزینه نهم' },
+            { id: 'ATH', title: 'گزینه ده‌ام' },
+            { id: 'BTH', title: 'گزینه یازده‌ام' },
+        ],
+        groups,
+        groupTitle: 'انتخاب گروه',
+        optional: true,
+    },
+    {
+        name: 'select-10',
+        type: 'SELECT',
         title: 'دارای کلید اضافه',
         options,
         optional: true,
@@ -66,7 +83,7 @@ export const SelectInputs: (NgxFormInputs | NgxFormInputs[])[] = [
         hint: 'در صورتی که مقدار انگلیسی برابر گزینه دوم باشد کلید اضافه این گزینه غیرفعال می‌شود.',
     },
     {
-        name: 'select-10',
+        name: 'select-11',
         type: 'SELECT',
         title: 'دارای توضیحات',
         options,

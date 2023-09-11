@@ -38,6 +38,13 @@ export interface INgxFormInputMultiSelect extends Omit<INgxFormInput, 'value' | 
     groups?: INgxFormOptionGroup[];
 
     /**
+     * Titla of groups menu
+     * @type { string }
+     * @optional
+     */
+    groupTitle?: string;
+
+    /**
      * Minimum number of required selected options
      * @type { number }
      * @optional

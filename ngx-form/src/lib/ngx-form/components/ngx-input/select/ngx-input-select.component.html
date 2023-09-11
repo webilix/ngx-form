@@ -11,13 +11,13 @@
             [matMenuTriggerFor]="control.disabled ? null : groupMenu"
             (click)="checkPanel()"
         >
-            <div class="group-title">گروه</div>
+            <div class="group-title">{{ input.groupTitle || 'گروه' }}</div>
             <button mat-button type="button" color="primary" [disabled]="control.disabled">
                 <mat-icon [fontIcon]="'arrow_drop_down'" class="ngx-form-icon"></mat-icon>
             </button>
             <mat-menu #groupMenu="matMenu" class="ngx-form-option-menu-panel">
                 <button mat-menu-item (click)="selectGroup()">
-                    <div class="label">همه گروه‌ها</div>
+                    <div class="label">همه موارد</div>
                     <mat-icon [fontIcon]="'check'" [ngClass]="{ hidden: groupIndex !== null }"></mat-icon>
                 </button>
                 <div class="ngx-form-option-menu-seperator"></div>

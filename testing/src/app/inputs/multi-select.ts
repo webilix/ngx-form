@@ -102,6 +102,7 @@ export const MultiSelectInputs: (NgxFormInputs | NgxFormInputs[])[] = [
         title: 'دارای گروه',
         options,
         groups,
+        groupTitle: 'انتخاب گروه',
         minCount: 1,
         selectButtons: true,
     },

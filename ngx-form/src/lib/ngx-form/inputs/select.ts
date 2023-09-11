@@ -26,6 +26,13 @@ export interface INgxFormInputSelect extends INgxFormInput {
      * @optional
      */
     groups?: INgxFormOptionGroup[];
+
+    /**
+     * Titla of groups menu
+     * @type { string }
+     * @optional
+     */
+    groupTitle?: string;
 }
 
 export class NgxFormInputSelectMethods extends NgxFormMethods<INgxFormInputSelect, string | null> {
