@@ -1,16 +1,9 @@
-.options {
-    display: flex;
-    row-gap: 0.5rem;
-    width: 100%;
-    max-height: 230px;
-    overflow: auto;
-}
-
-.select-buttons {
+.header {
     display: flex;
     align-items: center;
     column-gap: 0.5rem;
     border-bottom: 1px solid var(--ngxFormBorderColor);
+    margin-bottom: 0.5rem;
 
     .label {
         flex: 1;
@@ -19,6 +12,14 @@
         text-overflow: ellipsis;
 
         color: var(--ngxFormLabelColor);
+    }
+
+    .group {
+        display: flex;
+        align-items: center;
+        column-gap: 0.5rem;
+        color: var(--ngxFormPrimaryColor);
+        font-size: 90%;
     }
 
     .select-button {
@@ -38,6 +39,14 @@
             }
         }
     }
+}
+
+.options {
+    display: flex;
+    row-gap: 0.5rem;
+    width: 100%;
+    max-height: 230px;
+    overflow: auto;
 }
 
 .options-checkbox {
@@ -84,7 +93,7 @@
     }
 
     .option-selected {
-        border-color: var(--ngxFormPrimaryColor);
+        color: var(--ngxFormPrimaryColor);
         background-color: var(--ngxFormBackgroundColor);
     }
 }

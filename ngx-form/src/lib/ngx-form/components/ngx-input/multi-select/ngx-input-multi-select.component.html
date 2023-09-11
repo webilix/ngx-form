@@ -1,5 +1,7 @@
 <mat-form-field [appearance]="appearance" [floatLabel]="input.view === 'SELECT' ? 'auto' : 'always'">
-    <mat-label *ngIf="!input.selectButtons">{{ input.title + (input.minCount ? ' *' : '') }}</mat-label>
+    <mat-label *ngIf="groups.length === 0 && !input.selectButtons">
+        {{ input.title + (input.minCount ? ' *' : '') }}
+    </mat-label>
     <mat-error *ngIf="control.invalid">{{ control.errors | ngxError : input.type }}</mat-error>
     <mat-hint *ngIf="input.hint">{{ input.hint }}</mat-hint>
     <input
@@ -11,6 +13,57 @@
         class="input-hidden"
     />
 
+    <div class="header" *ngIf="groups.length !== 0 || input.selectButtons">
+        <div class="label">{{ input.title + (input.minCount ? ' *' : '') }}</div>
+        <div
+            *ngIf="groups.length !== 0"
+            [ngClass]="{ group: true, 'ngx-form-disabled': control.disabled }"
+            [matMenuTriggerFor]="control.disabled ? null : groupMenu"
+            (click)="checkPanel()"
+        >
+            <div class="group-title">گروه</div>
+            <button mat-button type="button" color="primary" [disabled]="control.disabled">
+                <mat-icon [fontIcon]="'arrow_drop_down'" class="ngx-form-icon"></mat-icon>
+            </button>
+            <mat-menu #groupMenu="matMenu" class="ngx-form-option-menu-panel">
+                <button mat-menu-item (click)="selectGroup()">
+                    <div class="label">همه گروه‌ها</div>
+                    <mat-icon [fontIcon]="'check'" [ngClass]="{ hidden: groupIndex !== null }"></mat-icon>
+                </button>
+                <div class="ngx-form-option-menu-seperator"></div>
+                <button mat-menu-item *ngFor="let group of groups; let index = index" (click)="selectGroup(index)">
+                    <div class="label">{{ group.title }}</div>
+                    <mat-icon [fontIcon]="'check'" [ngClass]="{ hidden: groupIndex !== index }"></mat-icon>
+                </button>
+            </mat-menu>
+        </div>
+        <div
+            *ngIf="input.selectButtons"
+            [ngClass]="{ 'select-button': true, 'select-button-disabled': control.disabled }"
+        >
+            <button
+                mat-button
+                type="button"
+                color="primary"
+                [disabled]="control.disabled"
+                (click)="selectAll(); checkPanel()"
+            >
+                <mat-icon [fontIcon]="'check_box'" class="ngx-form-icon"></mat-icon>
+                همه
+            </button>
+            <button
+                mat-button
+                type="button"
+                color="primary"
+                [disabled]="control.disabled"
+                (click)="selectNone(); checkPanel()"
+            >
+                <mat-icon [fontIcon]="'check_box_outline_blank'" class="ngx-form-icon"></mat-icon>
+                هیچ
+            </button>
+        </div>
+    </div>
+
     <ng-container [ngSwitch]="input.view">
         <!-- TAG VIEW -->
         <div
@@ -18,7 +71,7 @@
             *ngSwitchCase="'TAG'"
         >
             <div
-                *ngFor="let option of input.options"
+                *ngFor="let option of options"
                 [ngClass]="{
                     option: true,
                     'option-selected': values.includes(option.id),
@@ -35,12 +88,13 @@
             [formControl]="control"
             [multiple]="true"
             [ngClass]="{ 'select-en': !!input.english }"
-            panelClass="ngx-select-panel"
+            [panelClass]="multiSelectInputClose ? 'ngx-select-panel-hidden' : 'ngx-select-panel'"
             *ngSwitchCase="'SELECT'"
+            #multiSelectInput
         >
             <mat-select-trigger>{{ getValues() }}</mat-select-trigger>
             <mat-option
-                *ngFor="let option of input.options"
+                *ngFor="let option of options"
                 [value]="option.id"
                 [ngClass]="{ 'ngx-form-en': !!input.english }"
             >
@@ -50,34 +104,9 @@
 
         <!-- CHECKBOX VIEW -->
         <ng-container *ngSwitchDefault>
-            <div class="select-buttons" *ngIf="input.selectButtons">
-                <div class="label">{{ input.title + (input.minCount ? ' *' : '') }}</div>
-                <div [ngClass]="{ 'select-button': true, 'select-button-disabled': this.control.disabled }">
-                    <button
-                        mat-button
-                        type="button"
-                        color="primary"
-                        [disabled]="this.control.disabled"
-                        (click)="selectAll()"
-                    >
-                        <mat-icon [fontIcon]="'check_box'" class="ngx-form-icon"></mat-icon>
-                        همه
-                    </button>
-                    <button
-                        mat-button
-                        type="button"
-                        color="primary"
-                        [disabled]="this.control.disabled"
-                        (click)="selectNone()"
-                    >
-                        <mat-icon [fontIcon]="'check_box_outline_blank'" class="ngx-form-icon"></mat-icon>
-                        هیچ
-                    </button>
-                </div>
-            </div>
             <div class="options options-checkbox">
                 <div
-                    *ngFor="let option of input.options"
+                    *ngFor="let option of options"
                     [ngClass]="{ option: true, 'option-en': !!input.english, 'ngx-form-disabled': control.disabled }"
                     (click)="setValue(option.id)"
                 >

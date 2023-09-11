@@ -12,6 +12,7 @@ import { MatAutocompleteModule } from '@angular/material/autocomplete';
 import { MatSelectModule } from '@angular/material/select';
 import { MatCheckboxModule } from '@angular/material/checkbox';
 import { MatChipsModule } from '@angular/material/chips';
+import { MatMenuModule } from '@angular/material/menu';
 
 import { NgxCoordinatesModule } from '../ngx-coordinates';
 import { NgxDateModule } from '../ngx-date';
@@ -99,6 +100,7 @@ import { NgxFormComponent } from './ngx-form.component';
         MatSelectModule,
         MatCheckboxModule,
         MatChipsModule,
+        MatMenuModule,
 
         NgxCoordinatesModule,
         NgxDateModule,

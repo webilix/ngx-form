@@ -7,17 +7,21 @@ const options = [
     { id: '4TH', title: 'گزینه چهارم' },
     { id: '5TH', title: 'گزینه پنجم' },
 ];
+const groups = [
+    { title: 'فرد', ids: ['1ST', '3RD', '5TH'] },
+    { title: 'زوج', ids: ['2ND', '4TH'] },
+];
 const optionsEN = ['1ST', '2ND', '3RD', '4TH', '5TH'].map((en) => ({ id: en, title: en }));
 
 export const MultiSelectInputs: (NgxFormInputs | NgxFormInputs[])[] = [
-    { name: 'multi-select-1', type: 'MULTI-SELECT', title: 'چند انتخابی', value: ['1ST'], options: options },
-    { name: 'multi-select-2', type: 'MULTI-SELECT', title: 'نمایش تگ', options: options, view: 'TAG' },
-    { name: 'multi-select-3', type: 'MULTI-SELECT', title: 'نمایش لیست کشویی', options: options, view: 'SELECT' },
+    { name: 'multi-select-1', type: 'MULTI-SELECT', title: 'چند انتخابی', value: ['1ST'], options },
+    { name: 'multi-select-2', type: 'MULTI-SELECT', title: 'نمایش تگ', options, view: 'TAG' },
+    { name: 'multi-select-3', type: 'MULTI-SELECT', title: 'نمایش لیست کشویی', options, view: 'SELECT' },
     {
         name: 'multi-select-4',
         type: 'MULTI-SELECT',
         title: 'غیرفعال شدن',
-        options: options,
+        options,
         disableOn: (values: INgxFormValues) => values['multi-select-3']?.includes('2ND'),
         hint: 'در صورتی که گزینه نمایش لیست کشویی شامل گزینه دوم باشد این گزینه غیرفعال می‌شود.',
     },
@@ -25,7 +29,7 @@ export const MultiSelectInputs: (NgxFormInputs | NgxFormInputs[])[] = [
         name: 'multi-select-5',
         type: 'MULTI-SELECT',
         title: 'عدم نمایش',
-        options: options,
+        options,
         hideOn: (values: INgxFormValues) => values['multi-select-3']?.includes('2ND'),
         hint: 'در صورتی که گزینه نمایش لیست کشویی شامل گزینه دوم باشد این گزینه نمایش داده نمی‌شود.',
     },
@@ -33,7 +37,7 @@ export const MultiSelectInputs: (NgxFormInputs | NgxFormInputs[])[] = [
         name: 'multi-select-6',
         type: 'MULTI-SELECT',
         title: 'محدودیت تعداد انتخاب',
-        options: options,
+        options,
         minCount: 2,
         maxCount: 4,
     },
@@ -61,6 +65,7 @@ export const MultiSelectInputs: (NgxFormInputs | NgxFormInputs[])[] = [
         view: 'SELECT',
         english: true,
     },
+    // SELECT BUTTONS
     {
         name: 'multi-select-10',
         type: 'MULTI-SELECT',
@@ -77,8 +82,55 @@ export const MultiSelectInputs: (NgxFormInputs | NgxFormInputs[])[] = [
     {
         name: 'multi-select-11',
         type: 'MULTI-SELECT',
+        title: 'دارای انتخاب‌های همه/هیچ',
+        options,
+        selectButtons: true,
+        view: 'SELECT',
+    },
+    {
+        name: 'multi-select-12',
+        type: 'MULTI-SELECT',
+        title: 'دارای انتخاب‌های همه/هیچ',
+        options,
+        selectButtons: true,
+        view: 'TAG',
+    },
+    // GROUPS
+    {
+        name: 'multi-select-13',
+        type: 'MULTI-SELECT',
+        title: 'دارای گروه',
+        options,
+        groups,
+        minCount: 1,
+        selectButtons: true,
+    },
+    {
+        name: 'multi-select-14',
+        type: 'MULTI-SELECT',
+        title: 'دارای گروه',
+        options,
+        groups,
+        minCount: 1,
+        selectButtons: true,
+        view: 'SELECT',
+    },
+    {
+        name: 'multi-select-15',
+        type: 'MULTI-SELECT',
+        title: 'دارای گروه',
+        options,
+        groups,
+        minCount: 1,
+        selectButtons: true,
+        view: 'TAG',
+    },
+
+    {
+        name: 'multi-select-16',
+        type: 'MULTI-SELECT',
         title: 'دارای کلید اضافه',
-        options: options,
+        options,
         button: {
             icon: 'add',
             click: () => console.log('EXTRA BUTTON'),
@@ -87,10 +139,10 @@ export const MultiSelectInputs: (NgxFormInputs | NgxFormInputs[])[] = [
         hint: 'در صورتی که گزینه نمایش لیست کشویی شامل گزینه دوم باشد کلید اضافه این گزینه غیرفعال می‌شود.',
     },
     {
-        name: 'multi-select-12',
+        name: 'multi-select-17',
         type: 'MULTI-SELECT',
         title: 'دارای توضیحات',
-        options: options,
+        options,
         description:
             'بررسی شیوه نمایش توضیحات در گزینه‌های فرم' +
             '\n' +

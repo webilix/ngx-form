@@ -172,6 +172,10 @@ form {
     }
 }
 
+::ng-deep .ngx-select-panel-hidden {
+    display: none;
+}
+
 ::ng-deep .ngx-select-search {
     width: 100%;
     border-width: 0;
@@ -189,4 +193,45 @@ form {
 ::ng-deep .ngx-select-search::placeholder {
     font-size: 90%;
     text-align: right;
+}
+
+::ng-deep .ngx-form-option-menu-panel .mat-mdc-menu-content {
+    padding: 0 !important;
+
+    .ngx-form-option-menu-seperator {
+        height: 1px;
+        background-color: var(--ngxFormBorderColor);
+    }
+
+    button {
+        display: flex;
+        flex-direction: row-reverse;
+        align-items: center;
+        column-gap: 1rem;
+
+        .mat-mdc-menu-item-text {
+            flex: 1;
+
+            .label {
+                text-align: right;
+                color: var(--ngxFormPrimaryColor) !important;
+            }
+        }
+
+        mat-icon {
+            display: flex;
+            align-items: center;
+
+            font-family: var(--ngxFormIconFont) !important;
+            font-size: var(--ngxFormIconSize) !important;
+            color: var(--ngxFormPrimaryColor) !important;
+            margin: 0 !important;
+            height: auto !important;
+            width: auto !important;
+        }
+
+        mat-icon.hidden {
+            visibility: hidden;
+        }
+    }
 }

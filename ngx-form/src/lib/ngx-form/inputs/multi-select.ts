@@ -1,7 +1,9 @@
 import { FormControl, ValidatorFn } from '@angular/forms';
 
+import { Helper } from '@webilix/helper-library';
+
 import { NgxFormMethods } from '../classes';
-import { INgxFormInput, INgxFormOption } from '../interfaces';
+import { INgxFormInput, INgxFormOption, INgxFormOptionGroup } from '../interfaces';
 import { NgxMaxCountValidator, NgxMinCountValidator } from '../validators';
 
 export interface INgxFormInputMultiSelect extends Omit<INgxFormInput, 'value' | 'optional'> {
@@ -27,6 +29,13 @@ export interface INgxFormInputMultiSelect extends Omit<INgxFormInput, 'value' | 
      * @type { Array<INgxFormOption> }
      */
     options: INgxFormOption[];
+
+    /**
+     * Input option groups list
+     * @type { Array<INgxFormOptionGroup> }
+     * @optional
+     */
+    groups?: INgxFormOptionGroup[];
 
     /**
      * Minimum number of required selected options
@@ -61,12 +70,15 @@ export interface INgxFormInputMultiSelect extends Omit<INgxFormInput, 'value' | 
 
 export class NgxFormInputMultiSelectMethods extends NgxFormMethods<INgxFormInputMultiSelect, string[] | null> {
     control(input: INgxFormInputMultiSelect, validators: ValidatorFn[]): FormControl<string[] | null> {
-        if (input.selectButtons && input.view && input.view !== 'CHECKBOX') input.selectButtons = false;
-
         const options: string[] = input.options.map((option) => option.id);
         const value: string[] = (input.value || []).filter((value: string) => options.includes(value));
         if (input.minCount) validators.push(NgxMinCountValidator<string>(input.minCount));
         if (input.maxCount) validators.push(NgxMaxCountValidator<string>(input.maxCount));
+
+        const groups = input.groups && Helper.IS.array(input.groups) ? input.groups : [];
+        input.groups = groups
+            .map((group) => ({ ...group, ids: group.ids.filter((id: string) => options.includes(id)) }))
+            .filter((group) => group.ids.length !== 0);
 
         return new FormControl<string[] | null>(value, validators);
     }
