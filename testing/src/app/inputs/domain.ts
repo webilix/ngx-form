@@ -1,6 +1,6 @@
-import { INgxFormValues, NgxFormInputs } from '@ngx-form';
+import { INgxFormValues, NgxFormRow } from '@ngx-form';
 
-export const DomainInputs: (NgxFormInputs | NgxFormInputs[])[] = [
+export const DomainInputs: NgxFormRow[] = [
     { name: 'domain-1', type: 'DOMAIN', value: 'domain.com' },
     { name: 'domain-2', type: 'DOMAIN', title: 'اختیاری', optional: true },
     {

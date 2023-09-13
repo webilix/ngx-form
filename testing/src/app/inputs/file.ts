@@ -1,6 +1,6 @@
-import { INgxFormValues, NgxFormInputs } from '@ngx-form';
+import { INgxFormValues, NgxFormRow } from '@ngx-form';
 
-export const FileInputs: (NgxFormInputs | NgxFormInputs[])[] = [
+export const FileInputs: NgxFormRow[] = [
     { name: 'file-1', type: 'FILE' },
     { name: 'file-2', type: 'FILE', title: 'تصاویر', optional: true, mimes: ['image/jpeg', 'image/png'] },
     { name: 'file-3', type: 'FILE', title: 'اختیاری', optional: true },

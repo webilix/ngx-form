@@ -1,6 +1,6 @@
-import { INgxFormValues, NgxFormInputs } from '@ngx-form';
+import { INgxFormValues, NgxFormRow } from '@ngx-form';
 
-export const CoordinatesInputs: (NgxFormInputs | NgxFormInputs[])[] = [
+export const CoordinatesInputs: NgxFormRow[] = [
     { name: 'coordinates-1', type: 'COORDINATES', value: { latitude: 35.6997382, longitude: 51.3380603 } },
     { name: 'coordinates-2', type: 'COORDINATES', title: 'اختیاری', optional: true },
     {

@@ -1,6 +1,6 @@
-import { INgxFormValues, NgxFormInputs } from '@ngx-form';
+import { INgxFormValues, NgxFormRow } from '@ngx-form';
 
-export const TimeInputs: (NgxFormInputs | NgxFormInputs[])[] = [
+export const TimeInputs: NgxFormRow[] = [
     { name: 'time-1', type: 'TIME', value: '12:00:00' },
     { name: 'time-2', type: 'TIME', title: 'ثانیه', optional: true, second: true },
     { name: 'time-3', type: 'TIME', title: 'اختیاری', optional: true },

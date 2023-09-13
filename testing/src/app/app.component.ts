@@ -1,6 +1,6 @@
 import { Component, OnInit, ViewChild } from '@angular/core';
 
-import { INgxForm, NgxFormComponent, NgxFormInputs } from '@ngx-form';
+import { INgxForm, NgxFormComponent, NgxFormInputs, NgxFormRow } from '@ngx-form';
 
 import {
     AutoCompleteInputs,
@@ -132,44 +132,44 @@ export class AppComponent implements OnInit {
         appearance: 'fill',
     };
 
-    public types: { type: string; title: string; inputs: (NgxFormInputs | NgxFormInputs[])[] }[] = [
-        { type: 'AUTO-COMPLETE', title: 'لیست تکمیلی', inputs: AutoCompleteInputs },
-        { type: 'BANK-CARD', title: 'شماره کارت بانکی', inputs: BankCardInputs },
-        { type: 'CHECKBOX', title: 'یک انتخابی', inputs: CheckboxInputs },
-        { type: 'COLOR', title: 'رنگ', inputs: ColorInputs },
-        { type: 'COORDINATES', title: 'موقعیت جغرافیایی', inputs: CoordinatesInputs },
-        { type: 'DATE', title: 'تاریخ', inputs: DateInputs },
-        { type: 'DOMAIN', title: 'نام دامنه', inputs: DomainInputs },
-        { type: 'EMAIL', title: 'ایمیل', inputs: EmailInputs },
-        { type: 'FILE', title: 'فایل', inputs: FileInputs },
-        { type: 'ICON', title: 'آیکون', inputs: IconInputs },
-        { type: 'IP', title: 'آدرس آی‌پی', inputs: IpInputs },
-        { type: 'LIST', title: 'لیست', inputs: ListInputs },
-        { type: 'MASK', title: 'فرمت عددی', inputs: MaskInputs },
-        { type: 'MOBILE', title: 'موبایل', inputs: MobileInputs },
-        { type: 'MULTI-FILE', title: 'فایل‌ها', inputs: MultiFileInputs },
-        { type: 'MULTI-SELECT', title: 'چند انتخابی', inputs: MultiSelectInputs },
-        { type: 'NAME', title: 'نام و نام خانوادگی', inputs: NameInputs },
-        { type: 'NATIONAL-CODE', title: 'کد ملی', inputs: NationalCodeInputs },
-        { type: 'NUMBER', title: 'مقدار عددی', inputs: NumberInputs },
-        { type: 'NUMERIC', title: 'عبارت عددی', inputs: NumericInputs },
-        { type: 'OPTION-LIST', title: 'لیست گزینه‌ها', inputs: OptionListInputs },
-        { type: 'PASSWORD', title: 'کلمه عبور', inputs: PasswordInputs },
-        { type: 'PERIOD', title: 'محدوده زمانی', inputs: PeriodInputs },
-        { type: 'PLATE', title: 'شماره پلاک', inputs: PlateInputs },
-        { type: 'PRICE', title: 'قیمت', inputs: PriceInputs },
-        { type: 'RANGE', title: 'محدوده عددی', inputs: RangeInputs },
-        { type: 'SELECT', title: 'لیست کشویی', inputs: SelectInputs },
-        { type: 'TAG', title: 'تگ', inputs: TagInputs },
-        { type: 'TEXT', title: 'متن یک خطی', inputs: TextInputs },
-        { type: 'TEXTAREA', title: 'متن چند خطی', inputs: TextareaInputs },
-        { type: 'TIME', title: 'ساعت', inputs: TimeInputs },
-        { type: 'URL', title: 'آدرس سایت', inputs: UrlInputs },
-        { type: 'USERNAME', title: 'نام کاربری', inputs: UsernameInputs },
+    public types: { type: string; title: string; rows: NgxFormRow[] }[] = [
+        { type: 'AUTO-COMPLETE', title: 'لیست تکمیلی', rows: AutoCompleteInputs },
+        { type: 'BANK-CARD', title: 'شماره کارت بانکی', rows: BankCardInputs },
+        { type: 'CHECKBOX', title: 'یک انتخابی', rows: CheckboxInputs },
+        { type: 'COLOR', title: 'رنگ', rows: ColorInputs },
+        { type: 'COORDINATES', title: 'موقعیت جغرافیایی', rows: CoordinatesInputs },
+        { type: 'DATE', title: 'تاریخ', rows: DateInputs },
+        { type: 'DOMAIN', title: 'نام دامنه', rows: DomainInputs },
+        { type: 'EMAIL', title: 'ایمیل', rows: EmailInputs },
+        { type: 'FILE', title: 'فایل', rows: FileInputs },
+        { type: 'ICON', title: 'آیکون', rows: IconInputs },
+        { type: 'IP', title: 'آدرس آی‌پی', rows: IpInputs },
+        { type: 'LIST', title: 'لیست', rows: ListInputs },
+        { type: 'MASK', title: 'فرمت عددی', rows: MaskInputs },
+        { type: 'MOBILE', title: 'موبایل', rows: MobileInputs },
+        { type: 'MULTI-FILE', title: 'فایل‌ها', rows: MultiFileInputs },
+        { type: 'MULTI-SELECT', title: 'چند انتخابی', rows: MultiSelectInputs },
+        { type: 'NAME', title: 'نام و نام خانوادگی', rows: NameInputs },
+        { type: 'NATIONAL-CODE', title: 'کد ملی', rows: NationalCodeInputs },
+        { type: 'NUMBER', title: 'مقدار عددی', rows: NumberInputs },
+        { type: 'NUMERIC', title: 'عبارت عددی', rows: NumericInputs },
+        { type: 'OPTION-LIST', title: 'لیست گزینه‌ها', rows: OptionListInputs },
+        { type: 'PASSWORD', title: 'کلمه عبور', rows: PasswordInputs },
+        { type: 'PERIOD', title: 'محدوده زمانی', rows: PeriodInputs },
+        { type: 'PLATE', title: 'شماره پلاک', rows: PlateInputs },
+        { type: 'PRICE', title: 'قیمت', rows: PriceInputs },
+        { type: 'RANGE', title: 'محدوده عددی', rows: RangeInputs },
+        { type: 'SELECT', title: 'لیست کشویی', rows: SelectInputs },
+        { type: 'TAG', title: 'تگ', rows: TagInputs },
+        { type: 'TEXT', title: 'متن یک خطی', rows: TextInputs },
+        { type: 'TEXTAREA', title: 'متن چند خطی', rows: TextareaInputs },
+        { type: 'TIME', title: 'ساعت', rows: TimeInputs },
+        { type: 'URL', title: 'آدرس سایت', rows: UrlInputs },
+        { type: 'USERNAME', title: 'نام کاربری', rows: UsernameInputs },
     ];
 
     public type: string | null = null;
-    public inputs: (NgxFormInputs | NgxFormInputs[])[] = [];
+    public rows: NgxFormRow[] = [];
 
     public localStorage: string = 'NGX-FORM-INPUT-TYPE';
 
@@ -214,7 +214,7 @@ export class AppComponent implements OnInit {
                 const row = inputs.splice(0, this.column === 'FLEX' ? 2 : +this.column);
                 if (this.column !== 'FLEX') this.ngxForm.inputs.push(row);
                 else {
-                    const flexRow: [NgxFormInputs, number][] = row.map((input, index: number) => [input, index + 1]);
+                    const flexRow = row.map((input, index: number) => ({ input, flex: index + 1 }));
                     this.ngxForm.inputs.push(flexRow);
                 }
             }
@@ -232,12 +232,12 @@ export class AppComponent implements OnInit {
         if (type === '') {
             localStorage.removeItem(this.localStorage);
             this.type = null;
-            this.inputs = [];
+            this.rows = [];
         } else {
             if (type !== 'REPORT') {
                 const data = this.types.find((t) => t.type === type);
                 if (!data) return;
-                this.inputs = data.inputs;
+                this.rows = data.rows;
             }
 
             localStorage.setItem(this.localStorage, type);

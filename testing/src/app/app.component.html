@@ -43,7 +43,7 @@
     </section>
 
     <section class="form" *ngIf="type">
-        <app-input *ngIf="type !== 'REPORT'" [inputs]="inputs"></app-input>
+        <app-input *ngIf="type !== 'REPORT'" [rows]="rows"></app-input>
         <app-report *ngIf="type === 'REPORT'"></app-report>
     </section>
 

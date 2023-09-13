@@ -1,6 +1,6 @@
-import { INgxFormValues, NgxFormInputs } from '@ngx-form';
+import { INgxFormValues, NgxFormRow } from '@ngx-form';
 
-export const NationalCodeInputs: (NgxFormInputs | NgxFormInputs[])[] = [
+export const NationalCodeInputs: NgxFormRow[] = [
     { name: 'national-code-1', type: 'NATIONAL-CODE', value: '1234567891' },
     { name: 'national-code-2', type: 'NATIONAL-CODE', title: 'اختیاری', optional: true },
     {

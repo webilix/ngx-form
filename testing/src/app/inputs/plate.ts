@@ -1,6 +1,6 @@
-import { INgxFormValues, NgxFormInputs } from '@ngx-form';
+import { INgxFormValues, NgxFormRow } from '@ngx-form';
 
-export const PlateInputs: (NgxFormInputs | NgxFormInputs[])[] = [
+export const PlateInputs: NgxFormRow[] = [
     { name: 'plate-1', type: 'PLATE', value: ['12', 'ع', '345', '67'] },
     { name: 'plate-2', type: 'PLATE', title: 'اختیاری', optional: true },
     {

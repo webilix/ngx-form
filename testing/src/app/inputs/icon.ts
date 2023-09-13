@@ -1,4 +1,4 @@
-import { INgxFormValues, NgxFormInputs } from '@ngx-form';
+import { INgxFormValues, NgxFormRow } from '@ngx-form';
 
 const icons: string[] = [
     'sports_soccer',
@@ -10,7 +10,7 @@ const icons: string[] = [
     'sports_golf',
 ];
 
-export const IconInputs: (NgxFormInputs | NgxFormInputs[])[] = [
+export const IconInputs: NgxFormRow[] = [
     { name: 'icon-1', type: 'ICON', value: 'sports_soccer', icons },
     { name: 'icon-2', type: 'ICON', title: 'اختیاری', icons, optional: true },
     {

@@ -13,9 +13,11 @@ import { FormGroup, NgForm, ValidatorFn, Validators } from '@angular/forms';
 import { MatFormFieldAppearance } from '@angular/material/form-field';
 import { NgxMaskService } from 'ngx-mask';
 
+import { Helper } from '@webilix/helper-library';
+
 import { NgxFieldInputInfo } from './interfaces';
 
-import { INgxForm, INgxFormValues, NgxFormInputRow } from './ngx-form.interface';
+import { INgxForm, INgxFormValues, NgxFormRow } from './ngx-form.interface';
 import { NgxFormInputs } from './ngx-form.type';
 
 @Component({
@@ -73,13 +75,21 @@ export class NgxFormComponent implements OnInit, OnChanges {
 
     ngOnChanges(changes: SimpleChanges): void {
         this.rows = [];
-        this.ngxForm.inputs.forEach((row: NgxFormInputRow) => {
+        this.ngxForm.inputs.forEach((row: NgxFormRow) => {
             this.rows.push(
                 Array.isArray(row)
-                    ? row.map((r) => (Array.isArray(r) ? { input: r[0], flex: r[1] } : { input: r, flex: 1 }))
+                    ? row.map((r) => ('input' in r && 'flex' in r ? r : { input: r, flex: 1 }))
+                    : 'inputs' in row && 'flex' in row
+                    ? row.inputs.map((input, index: number) => ({
+                          input,
+                          flex: Helper.IS.number(row.flex[index]) && row.flex[index] > 0 ? row.flex[index] : 1,
+                      }))
                     : [{ input: row, flex: 1 }],
             );
         });
+
+        console.log(this.ngxForm.inputs[1]);
+        this.rows[1].forEach((r) => console.log(r));
     }
 
     private setInput(input: NgxFormInputs): void {
@@ -101,8 +111,14 @@ export class NgxFormComponent implements OnInit, OnChanges {
 
     private getInputs(): NgxFormInputs[] {
         const inputs: NgxFormInputs[] = [];
-        this.ngxForm.inputs.forEach((row: NgxFormInputRow) =>
-            inputs.push(...(Array.isArray(row) ? row.map((r) => (Array.isArray(r) ? r[0] : r)) : [row])),
+        this.ngxForm.inputs.forEach((row: NgxFormRow) =>
+            inputs.push(
+                ...(Array.isArray(row)
+                    ? row.map((r) => ('input' in r && 'flex' in r ? r.input : r))
+                    : 'inputs' in row && 'flex' in row
+                    ? row.inputs
+                    : [row]),
+            ),
         );
 
         return inputs;

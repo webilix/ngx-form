@@ -1,6 +1,6 @@
-import { INgxFormValues, NgxFormInputs } from '@ngx-form';
+import { INgxFormValues, NgxFormRow } from '@ngx-form';
 
-export const EmailInputs: (NgxFormInputs | NgxFormInputs[])[] = [
+export const EmailInputs: NgxFormRow[] = [
     { name: 'email-1', type: 'EMAIL', value: 'email@domain.com' },
     { name: 'email-2', type: 'EMAIL', title: 'اختیاری', optional: true },
     {

@@ -1,6 +1,6 @@
-import { INgxFormValues, NgxFormInputs } from '@ngx-form';
+import { INgxFormValues, NgxFormRow } from '@ngx-form';
 
-export const NumberInputs: (NgxFormInputs | NgxFormInputs[])[] = [
+export const NumberInputs: NgxFormRow[] = [
     { name: 'number-1', type: 'NUMBER', title: 'مقدار عددی', value: 0 },
     { name: 'number-2', type: 'NUMBER', title: 'دارای پسوند', optional: true, suffix: 'پسوند' },
     { name: 'number-3', type: 'NUMBER', title: 'اختیاری', optional: true },

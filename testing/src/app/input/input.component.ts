@@ -1,6 +1,6 @@
 import { Component, Input, OnChanges, SimpleChanges } from '@angular/core';
 
-import { INgxForm, NgxFormInputs } from '@ngx-form';
+import { INgxForm, NgxFormRow } from '@ngx-form';
 
 @Component({
     selector: 'app-input',
@@ -8,7 +8,7 @@ import { INgxForm, NgxFormInputs } from '@ngx-form';
     styleUrls: ['./input.component.scss'],
 })
 export class InputComponent implements OnChanges {
-    @Input({ required: true }) inputs!: (NgxFormInputs | NgxFormInputs[])[];
+    @Input({ required: true }) rows!: NgxFormRow[];
 
     public showValues = console.log;
 
@@ -20,7 +20,7 @@ export class InputComponent implements OnChanges {
 
     ngOnChanges(changes: SimpleChanges): void {
         this.loading = true;
-        this.ngxForm.inputs = this.inputs;
+        this.ngxForm.inputs = this.rows;
         setTimeout(() => (this.loading = false), 0);
     }
 }

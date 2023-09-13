@@ -1,6 +1,6 @@
-import { INgxFormValues, NgxFormInputs } from '@ngx-form';
+import { INgxFormValues, NgxFormRow } from '@ngx-form';
 
-export const UsernameInputs: (NgxFormInputs | NgxFormInputs[])[] = [
+export const UsernameInputs: NgxFormRow[] = [
     { name: 'username-1', type: 'USERNAME', value: 'username' },
     { name: 'username-2', type: 'USERNAME', title: 'حداقل طول', optional: true, minLength: 5 },
     { name: 'username-3', type: 'USERNAME', title: 'عدم بررسی کارکتر شروع', optional: true, startWithChar: false },

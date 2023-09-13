@@ -1,6 +1,6 @@
-import { INgxFormValues, NgxFormInputs } from '@ngx-form';
+import { INgxFormValues, NgxFormRow } from '@ngx-form';
 
-export const ColorInputs: (NgxFormInputs | NgxFormInputs[])[] = [
+export const ColorInputs: NgxFormRow[] = [
     { name: 'color-1', type: 'COLOR', value: '#0000FF' },
     {
         name: 'color-2',

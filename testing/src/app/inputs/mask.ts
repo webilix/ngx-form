@@ -1,6 +1,6 @@
-import { INgxFormValues, NgxFormInputs } from '@ngx-form';
+import { INgxFormValues, NgxFormRow } from '@ngx-form';
 
-export const MaskInputs: (NgxFormInputs | NgxFormInputs[])[] = [
+export const MaskInputs: NgxFormRow[] = [
     { name: 'mask-1', type: 'MASK', title: 'فرمت عددی', mask: '000000-000', value: '123456-789' },
     { name: 'mask-2', type: 'MASK', title: 'آیکون', mask: '000000-000', icon: 'input', optional: true },
     { name: 'mask-3', type: 'MASK', title: 'اختیاری', mask: '000000-000', optional: true },

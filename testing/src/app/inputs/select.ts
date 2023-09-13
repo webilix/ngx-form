@@ -1,4 +1,4 @@
-import { INgxFormValues, NgxFormInputs } from '@ngx-form';
+import { INgxFormValues, NgxFormRow } from '@ngx-form';
 
 const options = [
     { id: '1ST', title: 'گزینه اول' },
@@ -13,7 +13,7 @@ const groups = [
 ];
 const optionsEN = ['1ST', '2ND', '3RD', '4TH', '5TH'].map((en) => ({ id: en, title: en }));
 
-export const SelectInputs: (NgxFormInputs | NgxFormInputs[])[] = [
+export const SelectInputs: NgxFormRow[] = [
     { name: 'select-1', type: 'SELECT', title: 'لیست کشویی', value: '1ST', options },
     { name: 'select-2', type: 'SELECT', title: 'اختیاری', options, optional: true },
     { name: 'select-3', type: 'SELECT', title: 'انگلیسی', options: optionsEN, optional: true, english: true },

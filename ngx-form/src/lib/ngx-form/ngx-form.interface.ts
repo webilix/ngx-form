@@ -6,7 +6,11 @@ import { NgxFormInputs } from './ngx-form.type';
 /**
  * Form row type
  */
-export type NgxFormInputRow = NgxFormInputs | NgxFormInputs[] | [NgxFormInputs, number][];
+export type NgxFormRow =
+    | NgxFormInputs
+    | NgxFormInputs[]
+    | { input: NgxFormInputs; flex: number }[]
+    | { inputs: NgxFormInputs[]; flex: number[] };
 
 /**
  * Form data interface
@@ -22,7 +26,7 @@ export interface INgxForm {
      * Form input rows
      * @type { Array<NgxFormInputRow> }
      */
-    inputs: NgxFormInputRow[];
+    inputs: NgxFormRow[];
 
     /**
      * Form extra buttons

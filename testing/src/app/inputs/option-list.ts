@@ -1,6 +1,6 @@
-import { INgxFormValues, NgxFormInputs } from '@ngx-form';
+import { INgxFormValues, NgxFormRow } from '@ngx-form';
 
-export const OptionListInputs: (NgxFormInputs | NgxFormInputs[])[] = [
+export const OptionListInputs: NgxFormRow[] = [
     {
         name: 'option-list-1',
         type: 'OPTION-LIST',
