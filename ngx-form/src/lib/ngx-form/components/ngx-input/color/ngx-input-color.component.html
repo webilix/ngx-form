@@ -26,7 +26,7 @@
                 (click)="control.markAsTouched(); control.value ? control.setValue(null) : colorInput.click()"
                 type="button"
                 [disabled]="control.disabled"
-                [ngClass]="{ 'ngx-form-disabled': control.disabled }"
+                [ngClass]="{ 'ngx-form-button': true, 'ngx-form-disabled': control.disabled }"
             >
                 <mat-icon
                     [ngClass]="{ 'ngx-form-icon': true, 'ngx-form-disabled': control.disabled }"

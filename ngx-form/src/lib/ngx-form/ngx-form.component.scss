@@ -130,6 +130,11 @@ form {
         text-overflow: ellipsis;
     }
 
+    .ngx-form-button {
+        padding: 0 !important;
+        height: auto !important;
+    }
+
     .ngx-form-icon {
         display: flex;
         align-items: center;
@@ -138,6 +143,7 @@ form {
         font-size: var(--ngxFormIconSize) !important;
         color: var(--ngxFormPrimaryColor) !important;
         margin: 0 !important;
+        padding: 0 !important;
         height: auto !important;
         width: auto !important;
     }

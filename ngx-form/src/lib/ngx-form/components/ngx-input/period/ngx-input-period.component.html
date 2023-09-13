@@ -18,7 +18,7 @@
                     (click)="control.markAsTouched(); dates[index] === null ? setDate(index) : resetDate(index)"
                     type="button"
                     [disabled]="control.disabled"
-                    [ngClass]="{ 'ngx-form-disabled': control.disabled }"
+                    [ngClass]="{ 'ngx-form-button': true, 'ngx-form-disabled': control.disabled }"
                 >
                     <mat-icon class="ngx-form-icon" [fontIcon]="dates[index] === null ? 'today' : 'cancel'"></mat-icon>
                 </button>

@@ -21,7 +21,7 @@
             (click)="control.value === null ? fileUpload.click() : setFile(null)"
             type="button"
             [disabled]="control.disabled"
-            [ngClass]="{ 'ngx-form-disabled': control.disabled }"
+            [ngClass]="{ 'ngx-form-button': true, 'ngx-form-disabled': control.disabled }"
         >
             <mat-icon
                 [ngClass]="{ 'ngx-form-icon': true, 'ngx-form-disabled': control.disabled }"
