@@ -47,7 +47,7 @@ export class AppComponent implements OnInit {
     @ViewChild('ngxFormComponent') ngxFormComponent?: NgxFormComponent;
 
     public button: boolean = false;
-    public column: number = 2;
+    public column: '1' | '2' | '3' | 'FLEX' = '2';
     public ngxInputs: NgxFormInputs[] = [
         {
             name: 'auto-complete',
@@ -186,7 +186,9 @@ export class AppComponent implements OnInit {
         this.ngxFormComponent?.ngForm?.resetForm();
     }
 
-    setColumn(column: number): void {
+    setColumn(column: string): void {
+        if (column === '1' || column === '2' || column === '3' || column === 'FLEX') this.column = column;
+
         const comment: NgxFormInputs = {
             type: 'COMMENT',
             title: 'توضیحات',
@@ -197,23 +199,28 @@ export class AppComponent implements OnInit {
                 'امکان استفاده از دستورات HTML در توضیحات گزینه‌های فرم وجود ندارد اما توضیحات می‌تواند به صورت چند خطی مشخص شده باشد.',
         };
 
-        const inputs: NgxFormInputs[] = [...this.ngxInputs].map((input: NgxFormInputs) => ({
-            ...input,
-            button: this.button
-                ? {
-                      icon: 'dashboard',
-                      click: () => console.log(`${input.type} BUTTON`),
-                  }
-                : undefined,
-        }));
+        const inputs: NgxFormInputs[] = [...this.ngxInputs];
+        inputs.forEach((input: NgxFormInputs) => {
+            if (input.type === 'COMMENT') return;
+            input.button = this.button
+                ? { icon: 'dashboard', click: () => console.log(`${input.type} BUTTON`) }
+                : undefined;
+        });
 
-        if (column === 1) {
-            this.ngxForm.inputs = [comment, ...inputs];
-            return;
+        if (this.column === '1') this.ngxForm.inputs = [comment, ...inputs];
+        else {
+            this.ngxForm.inputs = [comment];
+            while (inputs.length !== 0) {
+                const row = inputs.splice(0, this.column === 'FLEX' ? 2 : +this.column);
+                if (this.column !== 'FLEX') this.ngxForm.inputs.push(row);
+                else {
+                    const flexRow: [NgxFormInputs, number][] = row.map((input, index: number) => [input, index + 1]);
+                    this.ngxForm.inputs.push(flexRow);
+                }
+            }
         }
 
-        this.ngxForm.inputs = [comment];
-        while (inputs.length !== 0) this.ngxForm.inputs.push(inputs.splice(0, column));
+        this.ngxForm = { ...this.ngxForm };
     }
 
     setButton(): void {

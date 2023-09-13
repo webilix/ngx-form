@@ -4,6 +4,11 @@ import { INgxFormButton } from './interfaces';
 import { NgxFormInputs } from './ngx-form.type';
 
 /**
+ * Form row type
+ */
+export type NgxFormInputRow = NgxFormInputs | NgxFormInputs[] | [NgxFormInputs, number][];
+
+/**
  * Form data interface
  */
 export interface INgxForm {
@@ -14,13 +19,13 @@ export interface INgxForm {
     submit: string;
 
     /**
-     * List of form inputs
-     * @type { NgxFormInputs | Array<NgxFormInputs> }
+     * Form input rows
+     * @type { Array<NgxFormInputRow> }
      */
-    inputs: (NgxFormInputs | NgxFormInputs[])[];
+    inputs: NgxFormInputRow[];
 
     /**
-     * List of form extra buttons
+     * Form extra buttons
      * @type { Array<INgxFormButton> }
      * @optional
      */

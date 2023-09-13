@@ -1,11 +1,21 @@
-import { Component, EventEmitter, Inject, Input, OnInit, Output, ViewChild } from '@angular/core';
+import {
+    Component,
+    EventEmitter,
+    Inject,
+    Input,
+    OnChanges,
+    OnInit,
+    Output,
+    SimpleChanges,
+    ViewChild,
+} from '@angular/core';
 import { FormGroup, NgForm, ValidatorFn, Validators } from '@angular/forms';
 import { MatFormFieldAppearance } from '@angular/material/form-field';
 import { NgxMaskService } from 'ngx-mask';
 
 import { NgxFieldInputInfo } from './interfaces';
 
-import { INgxForm, INgxFormValues } from './ngx-form.interface';
+import { INgxForm, INgxFormValues, NgxFormInputRow } from './ngx-form.interface';
 import { NgxFormInputs } from './ngx-form.type';
 
 @Component({
@@ -13,35 +23,28 @@ import { NgxFormInputs } from './ngx-form.type';
     templateUrl: './ngx-form.component.html',
     styleUrls: ['./ngx-form.component.scss'],
 })
-export class NgxFormComponent implements OnInit {
+export class NgxFormComponent implements OnInit, OnChanges {
     @ViewChild('formObject') ngForm?: NgForm;
 
     @Input({ required: true }) ngxForm!: INgxForm;
     @Output() protected ngxSubmit: EventEmitter<INgxFormValues> = new EventEmitter<INgxFormValues>();
     @Output() protected ngxChange: EventEmitter<INgxFormValues> = new EventEmitter<INgxFormValues>();
 
-    protected isArray = Array.isArray;
-
     public formGroup: FormGroup = new FormGroup({});
-    protected appearance: MatFormFieldAppearance = 'fill';
+    protected appearance: MatFormFieldAppearance = this.ngxAppearance;
+    protected rows: { input: NgxFormInputs; flex: number }[][] = [];
     protected inputValues: INgxFormValues = {};
     protected hiddenInputs: string[] = [];
     protected disabledButtons: string[] = [];
 
     constructor(
         @Inject('NGX_FORM_APPEARANCE') public readonly ngxAppearance: MatFormFieldAppearance,
-        // private readonly ngxMaskPipe: NgxMaskPipe,
         private readonly ngxMaskService: NgxMaskService,
     ) {}
 
     ngOnInit(): void {
-        this.appearance = this.ngxForm.appearance || this.ngxAppearance;
-
         this.formGroup = new FormGroup({});
-        this.ngxForm.inputs.forEach((row: NgxFormInputs | NgxFormInputs[]) => {
-            const inputs: NgxFormInputs[] = Array.isArray(row) ? row : [row];
-            inputs.forEach((input: NgxFormInputs) => this.setInput(input));
-        });
+        this.getInputs().forEach((input: NgxFormInputs) => this.setInput(input));
 
         this.formGroup.valueChanges.subscribe({
             next: () => {
@@ -68,6 +71,17 @@ export class NgxFormComponent implements OnInit {
         this.checkButtons(values);
     }
 
+    ngOnChanges(changes: SimpleChanges): void {
+        this.rows = [];
+        this.ngxForm.inputs.forEach((row: NgxFormInputRow) => {
+            this.rows.push(
+                Array.isArray(row)
+                    ? row.map((r) => (Array.isArray(r) ? { input: r[0], flex: r[1] } : { input: r, flex: 1 }))
+                    : [{ input: row, flex: 1 }],
+            );
+        });
+    }
+
     private setInput(input: NgxFormInputs): void {
         const validators: ValidatorFn[] =
             input.type === 'COMMENT' ||
@@ -85,42 +99,42 @@ export class NgxFormComponent implements OnInit {
         this.formGroup.setControl(name, NgxFieldInputInfo[input.type].methods.control(input, validators));
     }
 
-    private checkAvailability(values: INgxFormValues): void {
-        this.ngxForm.inputs.forEach((row: NgxFormInputs | NgxFormInputs[]) => {
-            const inputs: NgxFormInputs[] = Array.isArray(row) ? row : [row];
-            inputs.forEach((input: NgxFormInputs) => {
-                if (input.type === 'COMMENT' || !input.disableOn) return;
+    private getInputs(): NgxFormInputs[] {
+        const inputs: NgxFormInputs[] = [];
+        this.ngxForm.inputs.forEach((row: NgxFormInputRow) =>
+            inputs.push(...(Array.isArray(row) ? row.map((r) => (Array.isArray(r) ? r[0] : r)) : [row])),
+        );
 
-                const disabled: boolean = input.disableOn(values);
-                disabled ? this.formGroup.get(input.name)?.disable() : this.formGroup.get(input.name)?.enable();
-            });
+        return inputs;
+    }
+
+    private checkAvailability(values: INgxFormValues): void {
+        this.getInputs().forEach((input: NgxFormInputs) => {
+            if (input.type === 'COMMENT' || !input.disableOn) return;
+
+            const disabled: boolean = input.disableOn(values);
+            disabled ? this.formGroup.get(input.name)?.disable() : this.formGroup.get(input.name)?.enable();
         });
     }
 
     private checkVisibility(values: INgxFormValues): void {
         this.hiddenInputs = [];
-        this.ngxForm.inputs.forEach((row: NgxFormInputs | NgxFormInputs[]) => {
-            const inputs: NgxFormInputs[] = Array.isArray(row) ? row : [row];
-            inputs.forEach((input: NgxFormInputs) => {
-                if (input.type === 'COMMENT' || !input.hideOn) return;
+        this.getInputs().forEach((input: NgxFormInputs) => {
+            if (input.type === 'COMMENT' || !input.hideOn) return;
 
-                const hidden: boolean = input.hideOn(values);
-                hidden ? this.formGroup.get(input.name)?.disable() : this.formGroup.get(input.name)?.enable();
-                if (hidden) this.hiddenInputs.push(input.name);
-            });
+            const hidden: boolean = input.hideOn(values);
+            hidden ? this.formGroup.get(input.name)?.disable() : this.formGroup.get(input.name)?.enable();
+            if (hidden) this.hiddenInputs.push(input.name);
         });
     }
 
     private checkButtons(values: INgxFormValues): void {
         this.disabledButtons = [];
-        this.ngxForm.inputs.forEach((row: NgxFormInputs | NgxFormInputs[]) => {
-            const inputs: NgxFormInputs[] = Array.isArray(row) ? row : [row];
-            inputs.forEach((input: NgxFormInputs) => {
-                if (input.type === 'COMMENT' || !input.button || !input.button.disableOn) return;
+        this.getInputs().forEach((input: NgxFormInputs) => {
+            if (input.type === 'COMMENT' || !input.button || !input.button.disableOn) return;
 
-                const disabled: boolean = input.button.disableOn(values);
-                if (disabled) this.disabledButtons.push(input.name);
-            });
+            const disabled: boolean = input.button.disableOn(values);
+            if (disabled) this.disabledButtons.push(input.name);
         });
     }
 
@@ -143,12 +157,9 @@ export class NgxFormComponent implements OnInit {
 
     private getValues(): INgxFormValues {
         const values: INgxFormValues = {};
-        this.ngxForm.inputs.forEach((row: NgxFormInputs | NgxFormInputs[]) => {
-            const inputs: NgxFormInputs[] = Array.isArray(row) ? row : [row];
-            inputs.forEach((input: NgxFormInputs) => {
-                if (input.type === 'COMMENT') return;
-                values[input.name] = this.formGroup.get(input.name)?.errors === null ? this.getValue(input) : null;
-            });
+        this.getInputs().forEach((input: NgxFormInputs) => {
+            if (input.type === 'COMMENT') return;
+            values[input.name] = this.formGroup.get(input.name)?.errors === null ? this.getValue(input) : null;
         });
         return values;
     }
