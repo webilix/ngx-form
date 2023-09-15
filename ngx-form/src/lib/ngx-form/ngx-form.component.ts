@@ -87,9 +87,6 @@ export class NgxFormComponent implements OnInit, OnChanges {
                     : [{ input: row, flex: 1 }],
             );
         });
-
-        console.log(this.ngxForm.inputs[1]);
-        this.rows[1].forEach((r) => console.log(r));
     }
 
     private setInput(input: NgxFormInputs): void {

@@ -214,7 +214,7 @@ export class AppComponent implements OnInit {
                 const row = inputs.splice(0, this.column === 'FLEX' ? 2 : +this.column);
                 if (this.column !== 'FLEX') this.ngxForm.inputs.push(row);
                 else {
-                    const flexRow = row.map((input, index: number) => ({ input, flex: index + 1 }));
+                    const flexRow = row.map((input) => ({ input, flex: Math.ceil(Math.random() * 2) }));
                     this.ngxForm.inputs.push(flexRow);
                 }
             }
