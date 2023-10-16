@@ -28,6 +28,7 @@
             [readonly]="control.disabled"
             (blur)="setRange(rangeMinimum.value, rangeMaximum.value)"
             (keyup)="setRange(rangeMinimum.value, rangeMaximum.value)"
+            [ngxAutoFocus]="!!input.autofocus"
             #rangeMinimum
         />
         <input

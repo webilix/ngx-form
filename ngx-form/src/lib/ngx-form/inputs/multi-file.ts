@@ -4,7 +4,7 @@ import { NgxFormMethods } from '../classes';
 import { INgxFormInput } from '../interfaces';
 import { NgxDuplicateValidator, NgxMaxCountValidator, NgxMinCountValidator } from '../validators';
 
-export interface INgxFormInputMultiFile extends Omit<INgxFormInput, 'english' | 'value' | 'optional'> {
+export interface INgxFormInputMultiFile extends Omit<INgxFormInput, 'english' | 'value' | 'optional' | 'autofocus'> {
     type: 'MULTI-FILE';
 
     /**

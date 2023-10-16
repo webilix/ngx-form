@@ -17,6 +17,7 @@
             [maxLength]="maxLength || 524288"
             [ngClass]="{ 'input-en': en }"
             [mask]="mask || ''"
+            [ngxAutoFocus]="!!input.autofocus"
         />
 
         <div

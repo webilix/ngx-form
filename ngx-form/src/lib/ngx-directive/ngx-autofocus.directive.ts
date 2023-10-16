@@ -7,12 +7,12 @@ export class NgxAutoFocusDirective implements OnInit {
     constructor(private elementRef: ElementRef) {}
 
     ngOnInit(): void {
-        if (!!this.ngxAutoFocus || !this.elementRef) return;
+        if (!this.ngxAutoFocus || !this.elementRef) return;
 
         const input: HTMLInputElement = this.elementRef.nativeElement as HTMLInputElement;
         if (!input) return;
 
-        if (this.elementRef.nativeElement['focus']) input.focus();
-        if (this.elementRef.nativeElement['select']) input.select();
+        if (input.focus) input.focus();
+        if (input.select) input.select();
     }
 }

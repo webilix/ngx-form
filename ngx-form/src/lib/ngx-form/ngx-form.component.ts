@@ -48,6 +48,15 @@ export class NgxFormComponent implements OnInit, OnChanges {
         this.formGroup = new FormGroup({});
         this.getInputs().forEach((input: NgxFormInputs) => this.setInput(input));
 
+        // Check autofocus
+        let autofocus: boolean = false;
+        this.getInputs().forEach((input: NgxFormInputs) => {
+            if (!('autofocus' in input) || !input.autofocus) return;
+
+            if (autofocus) input.autofocus = false;
+            else autofocus = true;
+        });
+
         this.formGroup.valueChanges.subscribe({
             next: () => {
                 let check: boolean = false;

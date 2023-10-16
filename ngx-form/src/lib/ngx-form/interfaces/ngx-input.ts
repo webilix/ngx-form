@@ -95,6 +95,13 @@ export interface INgxFormInput {
     description?: string;
 
     /**
+     * Set input auto-focus (works only on first input that has this as true)
+     * @type { boolean }
+     * @optional
+     */
+    autofocus?: boolean;
+
+    /**
      * Input disable callback on form value changes
      * @type { function(INgxFormValues): boolean }
      * @param { INgxFormValues } values key => value object of form inputs

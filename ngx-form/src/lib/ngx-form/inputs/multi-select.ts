@@ -6,7 +6,7 @@ import { NgxFormMethods } from '../classes';
 import { INgxFormInput, INgxFormOption, INgxFormOptionGroup } from '../interfaces';
 import { NgxMaxCountValidator, NgxMinCountValidator } from '../validators';
 
-export interface INgxFormInputMultiSelect extends Omit<INgxFormInput, 'value' | 'optional'> {
+export interface INgxFormInputMultiSelect extends Omit<INgxFormInput, 'value' | 'optional' | 'autofocus'> {
     type: 'MULTI-SELECT';
 
     /**

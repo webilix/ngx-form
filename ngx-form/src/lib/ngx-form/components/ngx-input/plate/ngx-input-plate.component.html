@@ -20,6 +20,7 @@
             (input)="
                 (plateLeft.value || '').length === 2 ? (input.letter ? plateRight.focus() : plateLetter.focus()) : null
             "
+            [ngxAutoFocus]="!!input.autofocus"
             #plateLeft
         />
         <mat-select

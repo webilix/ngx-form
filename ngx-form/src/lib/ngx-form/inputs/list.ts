@@ -6,7 +6,7 @@ import { NgxFormMethods } from '../classes';
 import { INgxFormInput } from '../interfaces';
 import { NgxDuplicateValidator, NgxMaxCountValidator, NgxMinCountValidator } from '../validators';
 
-export interface INgxFormInputList extends Omit<INgxFormInput, 'optional' | 'value'> {
+export interface INgxFormInputList extends Omit<INgxFormInput, 'optional' | 'value' | 'autofocus'> {
     type: 'LIST';
 
     /**

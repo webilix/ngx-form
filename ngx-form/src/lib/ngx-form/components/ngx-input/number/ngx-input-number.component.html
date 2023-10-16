@@ -25,6 +25,7 @@
             (focus)="hintView = 'TEXT'; updateHint()"
             (blur)="hintView = 'INPUT'; updateHint()"
             (input)="updateHint()"
+            [ngxAutoFocus]="!!input.autofocus"
         />
 
         <div *ngIf="suffix" [ngClass]="{ 'suffix-text': true, 'suffix-disabled': control.disabled }">

@@ -15,6 +15,7 @@
         [minHeight]="input.height || 75"
         [ngClass]="{ 'input-en': !!input.english }"
         [ngStyle]="{ height: (input.height ? input.height.toString() : '75') + 'px', resize: 'none' }"
+        [ngxAutoFocus]="!!input.autofocus"
     ></textarea>
 
     <ngx-description

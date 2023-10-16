@@ -85,11 +85,11 @@
 
         <!-- SELECT VIEW -->
         <mat-select
+            *ngSwitchCase="'SELECT'"
             [formControl]="control"
             [multiple]="true"
             [ngClass]="{ 'select-en': !!input.english }"
             [panelClass]="multiSelectInputClose ? 'ngx-select-panel-hidden' : 'ngx-select-panel'"
-            *ngSwitchCase="'SELECT'"
             #multiSelectInput
         >
             <mat-select-trigger>{{ getValues() }}</mat-select-trigger>
