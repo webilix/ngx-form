@@ -11,7 +11,7 @@
         matInput
         [name]="input.name"
         [formControl]="control"
-        [ngxAutoheight]="!!input.autoHeight"
+        [ngxAutoHeight]="!!input.autoHeight"
         [minHeight]="input.height || 75"
         [ngClass]="{ 'input-en': !!input.english }"
         [ngStyle]="{ height: (input.height ? input.height.toString() : '75') + 'px', resize: 'none' }"

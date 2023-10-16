@@ -1,8 +1,8 @@
 import { Directive, ElementRef, HostListener, Input, Renderer2 } from '@angular/core';
 
-@Directive({ selector: '[ngxAutoheight]' })
+@Directive({ selector: '[ngxAutoHeight]' })
 export class NgxAutoheightDirective {
-    @Input({ required: true }) public ngxAutoheight!: boolean;
+    @Input({ required: true }) public ngxAutoHeight!: boolean;
     @Input({ required: true }) public minHeight!: number;
 
     @Input({ required: false }) public maxHeight: number = 0;
@@ -25,7 +25,7 @@ export class NgxAutoheightDirective {
 
     @HostListener('input')
     private resize(forced?: boolean): void {
-        if (this.ngxAutoheight !== true || (!forced && !this._focused)) return;
+        if (this.ngxAutoHeight !== true || (!forced && !this._focused)) return;
 
         const textarea = this.elementRef.nativeElement as HTMLTextAreaElement;
         const borderHeight = textarea.offsetHeight - textarea.clientHeight;
