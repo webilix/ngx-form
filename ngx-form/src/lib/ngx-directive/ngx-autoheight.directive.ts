@@ -1,7 +1,7 @@
 import { Directive, ElementRef, HostListener, Input, Renderer2 } from '@angular/core';
 
 @Directive({ selector: '[ngxAutoHeight]' })
-export class NgxAutoheightDirective {
+export class NgxAutoHeightDirective {
     @Input({ required: true }) public ngxAutoHeight!: boolean;
     @Input({ required: true }) public minHeight!: number;
 
