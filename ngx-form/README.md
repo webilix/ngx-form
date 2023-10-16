@@ -51,7 +51,7 @@ npm install --save @webilix/ngx-form
 | <=3.0.1  | 16.0.2  |
 | <=3.2.0  | 16.0.4  |
 | <=3.4.9  | 16.1.6  |
-| Current  | 16.2.7  |
+| Current  | 16.2.9  |
 
 ---
 
