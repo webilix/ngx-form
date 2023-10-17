@@ -53,7 +53,7 @@ export class NgxFormComponent implements OnInit, OnChanges {
         this.getInputs().forEach((input: NgxFormInputs) => {
             if (!('autoFocus' in input) || !input.autoFocus) return;
 
-            if (autoFocus) input.autoFocus = false;
+            if (autoFocus || input.disableOn || input.hideOn) input.autoFocus = false;
             else autoFocus = true;
         });
 
