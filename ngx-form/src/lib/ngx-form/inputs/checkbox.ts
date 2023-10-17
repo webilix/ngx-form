@@ -3,7 +3,7 @@ import { FormControl, ValidatorFn } from '@angular/forms';
 import { NgxFormMethods } from '../classes';
 import { INgxFormInput } from '../interfaces';
 
-export interface INgxFormInputCheckbox extends Omit<INgxFormInput, 'title' | 'value' | 'optional' | 'autofocus'> {
+export interface INgxFormInputCheckbox extends Omit<INgxFormInput, 'title' | 'value' | 'optional' | 'autoFocus'> {
     type: 'CHECKBOX';
 
     /**

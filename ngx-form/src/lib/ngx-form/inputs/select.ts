@@ -4,7 +4,7 @@ import { NgxFormMethods } from '../classes';
 import { INgxFormInput, INgxFormOption, INgxFormOptionGroup } from '../interfaces';
 import { Helper } from '@webilix/helper-library';
 
-export interface INgxFormInputSelect extends Omit<INgxFormInput, 'autofocus'> {
+export interface INgxFormInputSelect extends Omit<INgxFormInput, 'autoFocus'> {
     type: 'SELECT';
 
     /**

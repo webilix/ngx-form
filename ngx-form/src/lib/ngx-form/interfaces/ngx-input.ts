@@ -99,7 +99,7 @@ export interface INgxFormInput {
      * @type { boolean }
      * @optional
      */
-    autofocus?: boolean;
+    autoFocus?: boolean;
 
     /**
      * Input disable callback on form value changes

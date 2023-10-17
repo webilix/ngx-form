@@ -16,7 +16,7 @@
             [ngClass]="{ empty: first === '' && !control.disabled, 'ngx-form-disabled': control.disabled }"
             [readonly]="control.disabled"
             (input)="setName(firstName.value, lastName.value)"
-            [ngxAutoFocus]="!!input.autofocus"
+            [ngxAutoFocus]="!!input.autoFocus"
             #firstName
         />
         <input
