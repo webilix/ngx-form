@@ -23,6 +23,8 @@ export class NgxCoordinatesComponent implements OnInit {
     public title?: string = this.data.config.title;
     public coordinates?: INgxCoordinates = this.data.config.value;
 
+    public error?: 'LATITUDE' | 'LONGITUDE';
+
     constructor(
         @Inject('NGX_FORM_PRIMARY_COLOR') private readonly primaryColor: string,
         @Inject(MAT_DIALOG_DATA)
@@ -53,8 +55,6 @@ export class NgxCoordinatesComponent implements OnInit {
     }
 
     addCoordinateLayer(): void {
-        if (!this.coordinates) return;
-
         // Reset map
         this.map
             .getLayers()
@@ -63,6 +63,7 @@ export class NgxCoordinatesComponent implements OnInit {
                 if (layer instanceof VectorLayer) this.map.removeLayer(layer);
             });
 
+        if (!this.coordinates) return;
         const coordinate: Coordinate = [this.coordinates.longitude, this.coordinates.latitude];
         const layer = new VectorLayer({
             source: new VectorSource({ features: [new Feature(new Point(coordinate))] }),
@@ -76,16 +77,42 @@ export class NgxCoordinatesComponent implements OnInit {
         this.map.addLayer(layer);
     }
 
+    checkInputs(latitude: string, longitude: string): void {
+        this.error = undefined;
+
+        latitude = latitude.toString().trim();
+        if (latitude === '' || isNaN(+latitude) || +latitude < -180 || +latitude > 180) {
+            this.error = 'LATITUDE';
+            return;
+        }
+
+        longitude = longitude.toString().trim();
+        if (longitude === '' || isNaN(+longitude) || +longitude < -180 || +longitude > 180) {
+            this.error = 'LONGITUDE';
+            return;
+        }
+
+        if (this.coordinates && this.coordinates.latitude === +latitude && this.coordinates.longitude === +longitude)
+            return;
+
+        const center: Coordinate = [+longitude, +latitude];
+        this.map.getView().animate({ center, duration: 1000 });
+
+        this.coordinates = { latitude: +latitude, longitude: +longitude };
+        this.addCoordinateLayer();
+    }
+
     setCoordinates(event: MouseEvent): void {
         event.preventDefault();
 
+        this.error = undefined;
         const coordinate: Coordinate = this.map.getEventCoordinate(event).map((c: number) => +c.toFixed(7));
         this.coordinates = { latitude: coordinate[1], longitude: coordinate[0] };
         this.addCoordinateLayer();
     }
 
     selectCoordinates(): void {
-        if (!this.coordinates) return;
+        if (!this.coordinates || this.error) return;
         this.matDialogRef.close(this.coordinates);
     }
 }

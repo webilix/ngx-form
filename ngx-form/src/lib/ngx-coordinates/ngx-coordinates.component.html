@@ -13,18 +13,48 @@
             <button mat-button type="button" mat-dialog-close>
                 <mat-icon class="ngx-form-icon" [fontIcon]="'cancel'"></mat-icon>
             </button>
-            <button mat-button type="button" (click)="selectCoordinates()" *ngIf="coordinates">
+            <button mat-button type="button" (click)="selectCoordinates()" *ngIf="coordinates && !error">
                 <mat-icon class="ngx-form-icon" [fontIcon]="'task_alt'"></mat-icon>
             </button>
         </div>
-        <div class="coordinates" *ngIf="coordinates">
+        <div class="coordinates">
             <div class="coordinate">
                 <div class="title">LATITUDE:</div>
-                <div class="value">{{ coordinates.latitude }}</div>
+                <input
+                    type="text"
+                    [ngModel]="coordinates?.latitude?.toString() || ''"
+                    maxlength="15"
+                    inputmode="numeric"
+                    class="input-en"
+                    [class.error]="error === 'LATITUDE'"
+                    mask="separator.12"
+                    thousandSeparator=""
+                    [specialCharacters]="['.', '-']"
+                    [allowNegativeNumbers]="true"
+                    [dropSpecialCharacters]="false"
+                    (keyup.enter)="checkInputs(latitudeInput.value, longitudeInput.value)"
+                    (blur)="checkInputs(latitudeInput.value, longitudeInput.value)"
+                    #latitudeInput
+                />
             </div>
             <div class="coordinate">
                 <div class="title">LONGITUDE:</div>
-                <div class="value">{{ coordinates.longitude }}</div>
+                <input
+                    type="text"
+                    [ngModel]="coordinates?.longitude?.toString() || ''"
+                    maxlength="15"
+                    inputmode="numeric"
+                    class="input-en"
+                    [class.error]="error === 'LONGITUDE'"
+                    mask="separator.12"
+                    thousandSeparator=""
+                    [specialCharacters]="['.', '-']"
+                    [allowNegativeNumbers]="true"
+                    [dropSpecialCharacters]="false"
+                    (keyup.enter)="checkInputs(latitudeInput.value, longitudeInput.value)"
+                    (blur)="checkInputs(latitudeInput.value, longitudeInput.value)"
+                    #longitudeInput
+                />
             </div>
         </div>
     </content>

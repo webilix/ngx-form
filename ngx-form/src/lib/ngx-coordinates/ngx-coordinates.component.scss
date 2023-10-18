@@ -1,6 +1,6 @@
 :host {
     display: grid;
-    grid-template-rows: 4rem 1fr 4rem;
+    grid-template-rows: 4rem 1fr 5rem;
 
     width: 100vw;
     height: 100vh;
@@ -66,10 +66,14 @@
 
             .coordinates {
                 flex: 1;
+                display: flex;
+                flex-direction: column;
+                row-gap: 0.25rem;
                 direction: ltr;
 
                 .coordinate {
                     display: flex;
+                    align-items: center;
                     column-gap: 1rem;
 
                     .title {
@@ -78,9 +82,18 @@
                         font-size: calc(var(--ngxReportFontSize) - 1px);
                     }
 
-                    .value {
+                    input {
+                        outline: none;
+                        width: 100px;
+                        padding: 0.25rem;
+                        border: 1px solid var(--ngxFormBorderColor);
                         font-family: var(--ngxFormEnFont);
                         font-size: calc(var(--ngxReportFontSize) - 1px);
+                        line-height: calc(var(--ngxReportFontSize) - 1px);
+                    }
+
+                    input.error {
+                        color: var(--ngxFormWarnColor);
                     }
                 }
             }
