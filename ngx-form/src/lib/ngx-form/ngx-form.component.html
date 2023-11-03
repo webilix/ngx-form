@@ -17,7 +17,7 @@
                         mat-stroked-button
                         type="button"
                         [color]="input.input.button.color || 'primary'"
-                        (click)="input.input.button.click()"
+                        (click)="input.input.button.click(getValues())"
                         [ngClass]="{ disabled: disabledButtons.includes(input.input.name) }"
                         [disabled]="disabledButtons.includes(input.input.name)"
                     >
@@ -37,7 +37,7 @@
             type="button"
             color="primary"
             *ngFor="let button of ngxForm.buttons"
-            (click)="button.action()"
+            (click)="button.action(getValues())"
         >
             {{ button.title }}
         </button>

@@ -34,7 +34,7 @@ export const DateInputs: NgxFormRow[] = [
         optional: true,
         button: {
             icon: 'add',
-            click: () => console.log('EXTRA BUTTON'),
+            click: (values: INgxFormValues) => console.log('EXTRA BUTTON', values),
             disableOn: (values: INgxFormValues) => values['date-5'] !== null,
         },
         hint: 'در صورتی که مقدار اختیاری مشخص شده باشد کلید اضافه این گزینه غیرفعال می‌شود.',

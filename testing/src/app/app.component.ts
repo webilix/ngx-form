@@ -1,6 +1,6 @@
 import { Component, OnInit, ViewChild } from '@angular/core';
 
-import { INgxForm, NgxFormComponent, NgxFormInputs, NgxFormRow } from '@ngx-form';
+import { INgxForm, INgxFormValues, NgxFormComponent, NgxFormInputs, NgxFormRow } from '@ngx-form';
 
 import {
     AutoCompleteInputs,
@@ -182,7 +182,8 @@ export class AppComponent implements OnInit {
 
     public showValues = console.log;
 
-    private resetValues(): void {
+    private resetValues(values: INgxFormValues): void {
+        this.showValues('REST VALUES', values);
         this.ngxFormComponent?.ngForm?.resetForm();
     }
 

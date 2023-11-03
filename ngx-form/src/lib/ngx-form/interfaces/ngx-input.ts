@@ -11,9 +11,10 @@ interface INgxFormInputButton {
 
     /**
      * Button click function
-     * @type { function(): void }
+     * @type { function(INgxFormValues): void }
+     * @param { INgxFormValues } values key => value object of form inputs
      */
-    click: () => void;
+    click: (values: INgxFormValues) => void;
 
     /**
      * Button color

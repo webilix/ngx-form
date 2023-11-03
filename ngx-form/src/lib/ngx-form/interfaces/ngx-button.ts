@@ -1,3 +1,5 @@
+import { INgxFormValues } from '../ngx-form.interface';
+
 /**
  * Form extra button
  */
@@ -10,7 +12,8 @@ export interface INgxFormButton {
 
     /**
      * Click callback method
-     * @type { function(): void }
+     * @type { function(INgxFormValues): void }
+     * @param { INgxFormValues } values key => value object of form inputs
      */
-    action: () => void;
+    action: (values: INgxFormValues) => void;
 }
