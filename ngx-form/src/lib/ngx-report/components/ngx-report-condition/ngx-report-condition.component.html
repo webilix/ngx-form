@@ -52,85 +52,114 @@
         <!-- VALUE -->
         @if (input && valueShow) {
         <div class="value">
-            <ng-container [ngSwitch]="valueType">
-                <ngx-value-data
-                    *ngSwitchCase="'BANK-CARD'"
-                    [input]="input"
-                    [operator]="condition.operator"
-                    [value]="condition.value"
-                    (changed)="setValue($event)"
-                    [icon]="'payment'"
-                    [mask]="'0000-0000-0000-0000'"
-                ></ngx-value-data>
-                <ngx-value-date
-                    *ngSwitchCase="'DATE'"
-                    [input]="input"
-                    [operator]="condition.operator"
-                    [value]="condition.value"
-                    (changed)="setValue($event)"
-                ></ngx-value-date>
-                <ngx-value-data
-                    *ngSwitchCase="'DOMAIN'"
-                    [input]="input"
-                    [operator]="condition.operator"
-                    [value]="condition.value"
-                    (changed)="setValue($event)"
-                    [icon]="'language'"
-                ></ngx-value-data>
-                <ngx-value-data
-                    *ngSwitchCase="'EMAIL'"
-                    [input]="input"
-                    [operator]="condition.operator"
-                    [value]="condition.value"
-                    (changed)="setValue($event)"
-                    [icon]="'alternate_email'"
-                ></ngx-value-data>
-                <ngx-value-data
-                    *ngSwitchCase="'IP'"
-                    [input]="input"
-                    [operator]="condition.operator"
-                    [value]="condition.value"
-                    (changed)="setValue($event)"
-                    [icon]="'location_on'"
-                ></ngx-value-data>
-                <ngx-value-mobile
-                    *ngSwitchCase="'MOBILE'"
-                    [input]="input"
-                    [operator]="condition.operator"
-                    [value]="condition.value"
-                    (changed)="setValue($event)"
-                ></ngx-value-mobile>
-                <ngx-value-data
-                    *ngSwitchCase="'NATIONAL-CODE'"
-                    [input]="input"
-                    [operator]="condition.operator"
-                    [value]="condition.value"
-                    (changed)="setValue($event)"
-                    [icon]="'badge'"
-                    [mask]="'0000000000'"
-                ></ngx-value-data>
-                <ngx-value-number
-                    *ngSwitchCase="'NUMBER'"
-                    [input]="input"
-                    [operator]="condition.operator"
-                    [value]="condition.value"
-                    (changed)="setValue($event)"
-                ></ngx-value-number>
-                <ngx-value-option
-                    *ngSwitchCase="'OPTION'"
-                    [input]="input"
-                    [operator]="condition.operator"
-                    [value]="condition.value"
-                    (changed)="setValue($event)"
-                ></ngx-value-option>
-                <ngx-value-text
-                    *ngSwitchCase="'TEXT'"
-                    [input]="input"
-                    [operator]="condition.operator"
-                    [value]="condition.value"
-                    (changed)="setValue($event)"
-                ></ngx-value-text>
-            </ng-container>
+            <!-- TYPES -->
+            @switch (valueType) {
+            <!-- BANK-CARD -->
+            @case ('BANK-CARD') {
+            <ngx-value-data
+                [input]="input"
+                [operator]="condition.operator"
+                [value]="condition.value"
+                (changed)="setValue($event)"
+                [icon]="'payment'"
+                [mask]="'0000-0000-0000-0000'"
+            ></ngx-value-data>
+            }
+
+            <!-- DATE -->
+            @case ('DATE') {
+            <ngx-value-date
+                [input]="input"
+                [operator]="condition.operator"
+                [value]="condition.value"
+                (changed)="setValue($event)"
+            ></ngx-value-date>
+            }
+
+            <!-- DOMAIN -->
+            @case ('DOMAIN') {
+            <ngx-value-data
+                [input]="input"
+                [operator]="condition.operator"
+                [value]="condition.value"
+                (changed)="setValue($event)"
+                [icon]="'language'"
+            ></ngx-value-data>
+            }
+
+            <!-- EMAIL -->
+            @case ('EMAIL') {
+            <ngx-value-data
+                [input]="input"
+                [operator]="condition.operator"
+                [value]="condition.value"
+                (changed)="setValue($event)"
+                [icon]="'alternate_email'"
+            ></ngx-value-data>
+            }
+
+            <!-- IP -->
+            @case ('IP') {
+            <ngx-value-data
+                [input]="input"
+                [operator]="condition.operator"
+                [value]="condition.value"
+                (changed)="setValue($event)"
+                [icon]="'location_on'"
+            ></ngx-value-data>
+            }
+
+            <!-- MOBILE -->
+            @case ('MOBILE') {
+            <ngx-value-mobile
+                [input]="input"
+                [operator]="condition.operator"
+                [value]="condition.value"
+                (changed)="setValue($event)"
+            ></ngx-value-mobile>
+            }
+
+            <!-- NATIONAL-CODE -->
+            @case ('NATIONAL-CODE') {
+            <ngx-value-data
+                [input]="input"
+                [operator]="condition.operator"
+                [value]="condition.value"
+                (changed)="setValue($event)"
+                [icon]="'badge'"
+                [mask]="'0000000000'"
+            ></ngx-value-data>
+            }
+
+            <!-- NUMBER -->
+            @case ('NUMBER') {
+            <ngx-value-number
+                [input]="input"
+                [operator]="condition.operator"
+                [value]="condition.value"
+                (changed)="setValue($event)"
+            ></ngx-value-number>
+            }
+
+            <!-- OPTION -->
+            @case ('OPTION') {
+            <ngx-value-option
+                [input]="input"
+                [operator]="condition.operator"
+                [value]="condition.value"
+                (changed)="setValue($event)"
+            ></ngx-value-option>
+            }
+
+            <!-- TEXT -->
+            @case ('TEXT') {
+            <ngx-value-text
+                [input]="input"
+                [operator]="condition.operator"
+                [value]="condition.value"
+                (changed)="setValue($event)"
+            ></ngx-value-text>
+            } }
         </div>
         }
     </div>

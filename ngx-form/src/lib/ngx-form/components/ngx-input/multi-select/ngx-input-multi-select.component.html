@@ -73,67 +73,67 @@
     </div>
     }
 
-    <ng-container [ngSwitch]="input.view">
-        <!-- TAG VIEW -->
+    <!-- VIEWS -->
+    @switch (input.view) {
+    <!-- TAG VIEW -->
+    @case ('TAG') {
+    <div [ngClass]="{ options: true, 'options-tag': true, 'options-tag-en': !!input.english }">
+        <!-- OPTIONS -->
+        @for (option of options; track $index) {
         <div
-            [ngClass]="{ options: true, 'options-tag': true, 'options-tag-en': !!input.english }"
-            *ngSwitchCase="'TAG'"
+            [ngClass]="{
+                option: true,
+                'option-selected': values.includes(option.id),
+                'ngx-form-disabled': control.disabled
+            }"
+            (click)="setValue(option.id)"
         >
-            <!-- OPTIONS -->
-            @for (option of options; track $index) {
-            <div
-                [ngClass]="{
-                    option: true,
-                    'option-selected': values.includes(option.id),
-                    'ngx-form-disabled': control.disabled
-                }"
-                (click)="setValue(option.id)"
-            >
-                {{ option.title }}
-            </div>
-            }
+            {{ option.title }}
         </div>
-
-        <!-- SELECT VIEW -->
-        <mat-select
-            *ngSwitchCase="'SELECT'"
-            [formControl]="control"
-            [multiple]="true"
-            [ngClass]="{ 'select-en': !!input.english }"
-            [panelClass]="multiSelectInputClose ? 'ngx-select-panel-hidden' : 'ngx-select-panel'"
-            #multiSelectInput
-        >
-            <mat-select-trigger>{{ getValues() }}</mat-select-trigger>
-            <!-- OPTIONS -->
-            @for (option of options; track $index) {
-            <mat-option [value]="option.id" [ngClass]="{ 'ngx-form-en': !!input.english }">
-                {{ option.title }}
-            </mat-option>
-            }
-        </mat-select>
-
-        <!-- CHECKBOX VIEW -->
-        <ng-container *ngSwitchDefault>
-            <div class="options options-checkbox">
-                <!-- OPTIONS -->
-                @for (option of options; track $index) {
-                <div
-                    [ngClass]="{ option: true, 'option-en': !!input.english, 'ngx-form-disabled': control.disabled }"
-                    (click)="setValue(option.id)"
-                >
-                    <mat-icon
-                        [fontIcon]="values.includes(option.id) ? 'check_box' : 'check_box_outline_blank'"
-                        class="ngx-form-icon"
-                    ></mat-icon>
-                    <div class="title">{{ option.title }}</div>
-                </div>
-                }
-            </div>
-        </ng-container>
-
-        <!-- DESCRIPTION -->
-        @if (input.description) {
-        <ngx-description [description]="input.description" [disabled]="control.disabled"></ngx-description>
         }
-    </ng-container>
+    </div>
+    }
+
+    <!-- SELECT VIEW -->
+    @case ('SELECT') {
+    <mat-select
+        [formControl]="control"
+        [multiple]="true"
+        [ngClass]="{ 'select-en': !!input.english }"
+        [panelClass]="multiSelectInputClose ? 'ngx-select-panel-hidden' : 'ngx-select-panel'"
+        #multiSelectInput
+    >
+        <mat-select-trigger>{{ getValues() }}</mat-select-trigger>
+        <!-- OPTIONS -->
+        @for (option of options; track $index) {
+        <mat-option [value]="option.id" [ngClass]="{ 'ngx-form-en': !!input.english }">
+            {{ option.title }}
+        </mat-option>
+        }
+    </mat-select>
+    }
+
+    <!-- CHECKBOX VIEW -->
+    @default {
+    <div class="options options-checkbox">
+        <!-- OPTIONS -->
+        @for (option of options; track $index) {
+        <div
+            [ngClass]="{ option: true, 'option-en': !!input.english, 'ngx-form-disabled': control.disabled }"
+            (click)="setValue(option.id)"
+        >
+            <mat-icon
+                [fontIcon]="values.includes(option.id) ? 'check_box' : 'check_box_outline_blank'"
+                class="ngx-form-icon"
+            ></mat-icon>
+            <div class="title">{{ option.title }}</div>
+        </div>
+        }
+    </div>
+    } }
+
+    <!-- DESCRIPTION -->
+    @if (input.description) {
+    <ngx-description [description]="input.description" [disabled]="control.disabled"></ngx-description>
+    }
 </mat-form-field>
