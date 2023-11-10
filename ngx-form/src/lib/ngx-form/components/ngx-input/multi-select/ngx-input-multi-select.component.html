@@ -1,22 +1,25 @@
 <mat-form-field [appearance]="appearance" [floatLabel]="input.view === 'SELECT' ? 'auto' : 'always'">
-    <mat-label *ngIf="groups.length === 0 && !input.selectButtons">
-        {{ input.title + (input.minCount ? ' *' : '') }}
-    </mat-label>
-    <mat-error *ngIf="control.invalid">{{ control.errors | ngxError : input.type }}</mat-error>
-    <mat-hint *ngIf="input.hint">{{ input.hint }}</mat-hint>
-    <input
-        *ngIf="input.view !== 'SELECT'"
-        matInput
-        type="text"
-        [name]="input.name"
-        [formControl]="control"
-        class="input-hidden"
-    />
+    <!-- LABEL  -->
+    @if (groups.length === 0 && !input.selectButtons) {
+    <mat-label>{{ input.title + (input.minCount ? ' *' : '') }}</mat-label>
+    }
+    <!-- ERROR  -->
+    @if (control.invalid) { <mat-error>{{ control.errors | ngxError : input.type }}</mat-error> }
+    <!-- HINT -->
+    @if (input.hint) { <mat-hint>{{ input.hint }}</mat-hint> }
+    <!-- INPUT -->
+    @if (input.view !== 'SELECT') {
+    <input matInput type="text" [name]="input.name" [formControl]="control" class="input-hidden" />
+    }
 
-    <div class="header" *ngIf="groups.length !== 0 || input.selectButtons">
+    <!-- HEADER -->
+    @if (groups.length !== 0 || input.selectButtons) {
+    <div class="header">
         <div class="label">{{ input.title + (input.minCount ? ' *' : '') }}</div>
+
+        <!-- GROUPS MENU -->
+        @if (groups.length !== 0) {
         <div
-            *ngIf="groups.length !== 0"
             [ngClass]="{ group: true, 'ngx-form-disabled': control.disabled }"
             [matMenuTriggerFor]="control.disabled ? null : groupMenu"
             (click)="checkPanel()"
@@ -37,10 +40,11 @@
                 </button>
             </mat-menu>
         </div>
-        <div
-            *ngIf="input.selectButtons"
-            [ngClass]="{ 'select-button': true, 'select-button-disabled': control.disabled }"
-        >
+        }
+
+        <!-- SELECT BUTTONS -->
+        @if (input.selectButtons) {
+        <div [ngClass]="{ 'select-button': true, 'select-button-disabled': control.disabled }">
             <button
                 mat-button
                 type="button"
@@ -62,7 +66,9 @@
                 هیچ
             </button>
         </div>
+        }
     </div>
+    }
 
     <ng-container [ngSwitch]="input.view">
         <!-- TAG VIEW -->
@@ -119,10 +125,9 @@
             </div>
         </ng-container>
 
-        <ngx-description
-            *ngIf="input.description"
-            [description]="input.description"
-            [disabled]="control.disabled"
-        ></ngx-description>
+        <!-- DESCRIPTION -->
+        @if (input.description) {
+        <ngx-description [description]="input.description" [disabled]="control.disabled"></ngx-description>
+        }
     </ng-container>
 </mat-form-field>

@@ -1,10 +1,16 @@
 <mat-form-field [appearance]="appearance">
+    <!-- LABEL -->
     <mat-label>{{ input.title }}</mat-label>
-    <mat-error *ngIf="control.invalid">{{ control.errors | ngxError : input.type }}</mat-error>
-    <mat-hint *ngIf="input.hint">{{ input.hint }}</mat-hint>
-    <mat-hint *ngIf="counter" [align]="'end'">
+    <!-- ERROR  -->
+    @if (control.invalid) { <mat-error>{{ control.errors | ngxError : input.type }}</mat-error> }
+    <!-- HINT -->
+    @if (input.hint) { <mat-hint>{{ input.hint }}</mat-hint> }
+    <!-- COUNTER -->
+    @if (counter) {
+    <mat-hint [align]="'end'">
         {{ control.value?.length || 0 | number }}{{ maxLength ? ' از ' + (maxLength | number) : '' }}
     </mat-hint>
+    }
 
     <div class="content">
         <input
@@ -20,23 +26,24 @@
             [ngxAutoFocus]="!!input.autoFocus"
         />
 
-        <div
-            *ngIf="suffixText"
-            [ngClass]="{ 'suffix-text': true, 'suffix-en': suffixLang === 'EN', 'suffix-disabled': control.disabled }"
-        >
+        <!-- SUFFIX -->
+        @if (suffixText) {
+        <div [ngClass]="{ 'suffix-text': true, 'suffix-en': suffixLang === 'EN', 'suffix-disabled': control.disabled }">
             {{ suffixText }}
         </div>
+        }
 
+        <!-- ICON -->
+        @if (icon) {
         <mat-icon
-            *ngIf="icon"
-            [ngClass]="{ 'ngx-form-icon': true, 'ngx-form-disabled': control.disabled }"
             [fontIcon]="icon"
+            [ngClass]="{ 'ngx-form-icon': true, 'ngx-form-disabled': control.disabled }"
         ></mat-icon>
+        }
     </div>
 
-    <ngx-description
-        *ngIf="input.description"
-        [description]="input.description"
-        [disabled]="control.disabled"
-    ></ngx-description>
+    <!-- DESCRIPTION -->
+    @if (input.description) {
+    <ngx-description [description]="input.description" [disabled]="control.disabled"></ngx-description>
+    }
 </mat-form-field>

@@ -1,6 +1,9 @@
 <mat-form-field [appearance]="appearance">
-    <mat-error *ngIf="control.invalid">{{ control.errors | ngxError : input.type }}</mat-error>
-    <mat-hint *ngIf="input.hint">{{ input.hint }}</mat-hint>
+    <!-- ERROR  -->
+    @if (control.invalid) { <mat-error>{{ control.errors | ngxError : input.type }}</mat-error> }
+    <!-- HINT -->
+    @if (input.hint) { <mat-hint>{{ input.hint }}</mat-hint> }
+    <!-- INPUT -->
     <input matInput type="text" [name]="input.name" [formControl]="control" class="input-hidden" />
 
     <div class="title columns">
@@ -31,9 +34,8 @@
         />
     </div>
 
-    <ngx-description
-        *ngIf="input.description"
-        [description]="input.description"
-        [disabled]="control.disabled"
-    ></ngx-description>
+    <!-- DESCRIPTION -->
+    @if (input.description) {
+    <ngx-description [description]="input.description" [disabled]="control.disabled"></ngx-description>
+    }
 </mat-form-field>

@@ -2,18 +2,18 @@
     <ng-container *ngFor="let row of rows">
         <div class="columns">
             <ng-container *ngFor="let input of row">
-                <div
-                    *ngIf="input.input.type === 'COMMENT' || !hiddenInputs.includes(input.input.name)"
-                    class="ngx-form-field-input"
-                    [ngStyle]="{ flex: input.flex }"
-                >
+                <!-- INPUT -->
+                @if (input.input.type === 'COMMENT' || !hiddenInputs.includes(input.input.name)) {
+                <div class="ngx-form-field-input" [ngStyle]="{ flex: input.flex }">
                     <ngx-input
                         [group]="formGroup"
                         [input]="input.input"
                         [appearance]="ngxForm.appearance || appearance"
                     ></ngx-input>
+
+                    <!-- BUTTON -->
+                    @if (input.input.type !== 'COMMENT' && input.input.button) {
                     <button
-                        *ngIf="input.input.type !== 'COMMENT' && input.input.button"
                         mat-stroked-button
                         type="button"
                         [color]="input.input.button.color || 'primary'"
@@ -23,7 +23,9 @@
                     >
                         <mat-icon [fontIcon]="input.input.button.icon"></mat-icon>
                     </button>
+                    }
                 </div>
+                }
             </ng-container>
         </div>
     </ng-container>

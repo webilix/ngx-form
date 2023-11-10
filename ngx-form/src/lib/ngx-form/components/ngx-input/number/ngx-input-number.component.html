@@ -1,8 +1,12 @@
 <mat-form-field [appearance]="appearance">
+    <!-- LABEL -->
     <mat-label>{{ input.title }}</mat-label>
-    <mat-error *ngIf="control.invalid">{{ control.errors | ngxError : input.type }}</mat-error>
-    <mat-hint *ngIf="hint">{{ hint }}</mat-hint>
-    <mat-hint *ngIf="hintLTR" class="ngx-form-hint-ltr" [align]="'end'" [dir]="'ltr'">{{ hintLTR }}</mat-hint>
+    <!-- ERROR  -->
+    @if (control.invalid) { <mat-error>{{ control.errors | ngxError : input.type }}</mat-error> }
+    <!-- HINT -->
+    @if (hint) { <mat-hint>{{ hint }}</mat-hint> }
+    <!-- LTR HINT -->
+    @if (hintLTR) { <mat-hint class="ngx-form-hint-ltr" [align]="'end'" [dir]="'ltr'">{{ hintLTR }}</mat-hint> }
 
     <div class="content">
         <input
@@ -28,20 +32,22 @@
             [ngxAutoFocus]="!!input.autoFocus"
         />
 
-        <div *ngIf="suffix" [ngClass]="{ 'suffix-text': true, 'suffix-disabled': control.disabled }">
-            {{ suffix }}
-        </div>
+        <!-- SUFFIX -->
+        @if (suffix) {
+        <div [ngClass]="{ 'suffix-text': true, 'suffix-disabled': control.disabled }">{{ suffix }}</div>
+        }
 
+        <!-- ICON -->
+        @if (icon) {
         <mat-icon
-            *ngIf="icon"
             [ngClass]="{ 'ngx-form-icon': true, 'ngx-form-disabled': control.disabled }"
             [fontIcon]="icon"
         ></mat-icon>
+        }
     </div>
 
-    <ngx-description
-        *ngIf="input.description"
-        [description]="input.description"
-        [disabled]="control.disabled"
-    ></ngx-description>
+    <!-- DESCRIPTION -->
+    @if (input.description) {
+    <ngx-description [description]="input.description" [disabled]="control.disabled"></ngx-description>
+    }
 </mat-form-field>

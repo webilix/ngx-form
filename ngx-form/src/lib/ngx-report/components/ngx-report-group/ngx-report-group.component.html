@@ -1,4 +1,5 @@
-<content *ngIf="inputs.length !== 0" [ngStyle]="{ borderLeftWidth: level === 0 ? 1 : 0 }">
+@if (inputs.length !== 0) {
+<content [ngStyle]="{ borderLeftWidth: level === 0 ? 1 : 0 }">
     <header>
         <div class="join">
             <div [ngClass]="{ selected: report.join === 'AND' }" (click)="setJoin('AND')">و</div>
@@ -12,34 +13,46 @@
             <button mat-button type="button" (click)="addGroup()">
                 <mat-icon [fontIcon]="'account_tree'"></mat-icon>
             </button>
-            <button mat-button type="button" (click)="deleted.emit()" *ngIf="level !== 0">
+
+            <!-- DELETE -->
+            @if (level !== 0) {
+            <button mat-button type="button" (click)="deleted.emit()">
                 <mat-icon [fontIcon]="'delete'" class="warn"></mat-icon>
             </button>
+            }
         </div>
     </header>
 
-    <div class="empty ngx-form-invalid" *ngIf="report.conditions.length === 0">شرایطی ثبت نشده است.</div>
-    <div class="conditions" *ngIf="report.conditions.length !== 0">
+    @if (report.conditions.length === 0) {
+    <!-- EMPTY CONDITIONS -->
+    <div class="empty ngx-form-invalid">شرایطی ثبت نشده است.</div>
+    } @else {
+    <!-- CONDITIONS -->
+    <div class="conditions">
         <div
             *ngFor="let condition of report.conditions; let index = index"
             [ngClass]="{ condition: true, after: index < report.conditions.length - 1 }"
         >
+            @if (isGroup(condition)) {
+            <!-- GROUP -->
             <ngx-report-group
-                *ngIf="isGroup(condition)"
                 [inputs]="inputs"
                 [report]="getReport(condition)"
                 [level]="level + 1"
                 (changed)="changed.emit()"
                 (deleted)="deleteCondition(index)"
             ></ngx-report-group>
-
+            } @else {
+            <!-- CONDITION -->
             <ngx-report-condition
-                *ngIf="!isGroup(condition)"
                 [inputs]="inputs"
                 [condition]="getCondition(condition)"
                 (changed)="changed.emit()"
                 (deleted)="deleteCondition(index)"
             ></ngx-report-condition>
+            }
         </div>
     </div>
+    }
 </content>
+}

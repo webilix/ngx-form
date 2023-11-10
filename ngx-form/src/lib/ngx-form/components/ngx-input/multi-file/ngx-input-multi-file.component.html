@@ -1,7 +1,11 @@
 <mat-form-field [appearance]="appearance">
-    <mat-error *ngIf="control.invalid">{{ control.errors | ngxError : input.type }}</mat-error>
-    <mat-hint *ngIf="input.hint">{{ input.hint }}</mat-hint>
+    <!-- ERROR  -->
+    @if (control.invalid) { <mat-error>{{ control.errors | ngxError : input.type }}</mat-error> }
+    <!-- HINT -->
+    @if (input.hint) { <mat-hint>{{ input.hint }}</mat-hint> }
+    <!-- INPUT -->
     <input matInput type="text" [name]="input.name" [formControl]="control" class="input-hidden" />
+    <!-- FILE INPUT -->
     <input
         type="file"
         class="input-hidden"
@@ -15,17 +19,18 @@
         <mat-icon [fontIcon]="'note_add'" (click)="fileUpload.click()"></mat-icon>
     </div>
 
-    <div [ngClass]="{ files: true, 'ngx-form-disabled': control.disabled }" *ngIf="files.length !== 0">
+    @if (files.length !== 0) {
+    <div [ngClass]="{ files: true, 'ngx-form-disabled': control.disabled }">
         <div class="file" *ngFor="let file of files; let index = index">
             <mat-icon [fontIcon]="'close'" class="delete" (click)="deleteFile(index)"></mat-icon>
             <div class="name ngx-form-en">{{ file.name }}</div>
             <div class="size">{{ file.size | ngxFileSize }}</div>
         </div>
     </div>
+    }
 
-    <ngx-description
-        *ngIf="input.description"
-        [description]="input.description"
-        [disabled]="control.disabled"
-    ></ngx-description>
+    <!-- DESCRIPTION -->
+    @if (input.description) {
+    <ngx-description [description]="input.description" [disabled]="control.disabled"></ngx-description>
+    }
 </mat-form-field>

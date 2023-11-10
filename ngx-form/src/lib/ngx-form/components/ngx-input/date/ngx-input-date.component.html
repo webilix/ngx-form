@@ -1,7 +1,11 @@
 <mat-form-field [appearance]="appearance">
+    <!-- LABEL -->
     <mat-label>{{ input.title }}</mat-label>
-    <mat-error *ngIf="control.invalid">{{ control.errors | ngxError : input.type }}</mat-error>
-    <mat-hint *ngIf="input.hint">{{ input.hint }}</mat-hint>
+    <!-- ERROR  -->
+    @if (control.invalid) { <mat-error>{{ control.errors | ngxError : input.type }}</mat-error> }
+    <!-- HINT -->
+    @if (input.hint) { <mat-hint>{{ input.hint }}</mat-hint> }
+    <!-- INPUT -->
     <input matInput type="text" [name]="input.name" [formControl]="control" class="input-hidden" />
 
     <div class="content">
@@ -9,7 +13,8 @@
             <div [ngClass]="{ 'ngx-form-overflow': true, 'ngx-form-disabled': control.disabled }" (click)="setDate()">
                 {{ control.value ? (control.value | ngxDate) : '&nbsp;' }}
             </div>
-            <div class="ngx-form-date-time" *ngIf="input.hour && control.value">
+            @if (input.hour && control.value) {
+            <div class="ngx-form-date-time">
                 <mat-select
                     [(ngModel)]="hour"
                     panelClass="ngx-date-time-panel"
@@ -30,6 +35,7 @@
                     <mat-option *ngFor="let m of minutes" class="ngx-form-en" [value]="m">{{ m }}</mat-option>
                 </mat-select>
             </div>
+            }
         </div>
         <button
             mat-button
@@ -45,9 +51,8 @@
         </button>
     </div>
 
-    <ngx-description
-        *ngIf="input.description"
-        [description]="input.description"
-        [disabled]="control.disabled"
-    ></ngx-description>
+    <!-- DESCRIPTION -->
+    @if (input.description) {
+    <ngx-description [description]="input.description" [disabled]="control.disabled"></ngx-description>
+    }
 </mat-form-field>

@@ -1,4 +1,5 @@
-<content *ngIf="inputs.length !== 0">
+@if (inputs.length !== 0) {
+<content>
     <div class="condition">
         <div class="data">
             <div
@@ -14,9 +15,14 @@
                 </mat-menu>
             </div>
 
-            <div *ngIf="!input" class="operator"></div>
+            <!-- EMPTY OPERATOR -->
+            @if (!input) {
+            <div class="operator"></div>
+            }
+
+            <!-- OPERATOR -->
+            @if (input) {
             <div
-                *ngIf="input"
                 [ngClass]="{
                     operator: true,
                     error: input && !condition.operator,
@@ -34,8 +40,12 @@
                     </button>
                 </mat-menu>
             </div>
+            }
         </div>
-        <div class="value" *ngIf="input && valueShow">
+
+        <!-- VALUE -->
+        @if (input && valueShow) {
+        <div class="value">
             <ng-container [ngSwitch]="valueType">
                 <ngx-value-data
                     *ngSwitchCase="'BANK-CARD'"
@@ -116,9 +126,11 @@
                 ></ngx-value-text>
             </ng-container>
         </div>
+        }
     </div>
 
     <button mat-button type="button" (click)="deleted.emit()">
         <mat-icon [fontIcon]="'delete'" class="warn"></mat-icon>
     </button>
 </content>
+}

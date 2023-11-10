@@ -1,48 +1,58 @@
-<content [ngClass]="{ warn: !isValid }" *ngIf="index !== undefined && item !== undefined">
-    <ng-container *ngIf="status === 'VIEW'">
-        <div [ngClass]="{ item: true, 'ngx-form-en': !!english || !!format, 'ngx-form-disabled': !!disabled }">
-            {{ format === 'BANK-CARD' ? (item | ngxBankCard) : format === 'MOBILE' ? (item | ngxMobile) : item }}
-        </div>
-        <mat-icon
-            [fontIcon]="'edit'"
-            [ngClass]="{ 'ngx-form-disabled': !!disabled }"
-            (click)="status = 'UPDATE'"
-        ></mat-icon>
-        <mat-icon
-            [fontIcon]="'delete'"
-            [ngClass]="{ warn: true, 'ngx-form-disabled': !!disabled }"
-            (click)="status = 'DELETE'"
-        ></mat-icon>
-    </ng-container>
+@if (index !== undefined && item !== undefined) {
+<content [ngClass]="{ warn: !isValid }">
+    <!-- VIEW -->
+    @if (status === 'VIEW') {
+    <div [ngClass]="{ item: true, 'ngx-form-en': !!english || !!format, 'ngx-form-disabled': !!disabled }">
+        {{ format === 'BANK-CARD' ? (item | ngxBankCard) : format === 'MOBILE' ? (item | ngxMobile) : item }}
+    </div>
+    <mat-icon
+        [fontIcon]="'edit'"
+        [ngClass]="{ 'ngx-form-disabled': !!disabled }"
+        (click)="status = 'UPDATE'"
+    ></mat-icon>
+    <mat-icon
+        [fontIcon]="'delete'"
+        [ngClass]="{ warn: true, 'ngx-form-disabled': !!disabled }"
+        (click)="status = 'DELETE'"
+    ></mat-icon>
+    }
 
-    <ng-container *ngIf="status === 'UPDATE'">
-        <input
-            matInput
-            type="text"
-            [ngModel]="format === 'MOBILE' ? item.substring(2) : item"
-            [ngClass]="{ en: !!english || !!format, 'ngx-form-disabled': !!disabled }"
-            [ngStyle]="{ 'padding-left': suffix ? '0px' : '0.5rem' }"
-            [readonly]="!!disabled"
-            (input)="checkValid(input.value)"
-            (keydown.enter)="$event.preventDefault(); checkValue(input)"
-            [ngxPersianNumber]="isNumeric"
-            [mask]="mask"
-            #input
-        />
-        <div *ngIf="suffix" class="suffix ngx-form-en">{{ suffix }}</div>
-        <mat-icon
-            [fontIcon]="'check'"
-            [ngClass]="{ warn: true, 'ngx-form-icon': true, 'ngx-form-disabled': !!disabled }"
-            (click)="checkValue(input)"
-        ></mat-icon>
-        <mat-icon
-            [fontIcon]="'close'"
-            [ngClass]="{ 'ngx-form-icon': true, 'ngx-form-disabled': !!disabled }"
-            (click)="status = 'VIEW'"
-        ></mat-icon>
-    </ng-container>
+    <!-- UPDATE -->
+    @if (status === 'UPDATE') {
+    <input
+        matInput
+        type="text"
+        [ngModel]="format === 'MOBILE' ? item.substring(2) : item"
+        [ngClass]="{ en: !!english || !!format, 'ngx-form-disabled': !!disabled }"
+        [ngStyle]="{ 'padding-left': suffix ? '0px' : '0.5rem' }"
+        [readonly]="!!disabled"
+        (input)="checkValid(input.value)"
+        (keydown.enter)="$event.preventDefault(); checkValue(input)"
+        [ngxPersianNumber]="isNumeric"
+        [mask]="mask"
+        #input
+    />
 
-    <ng-container *ngIf="status === 'DELETE'">
+    <!-- SUFFIX -->
+    @if (suffix) {
+    <div class="suffix ngx-form-en">{{ suffix }}</div>
+    }
+
+    <mat-icon
+        [fontIcon]="'check'"
+        [ngClass]="{ warn: true, 'ngx-form-icon': true, 'ngx-form-disabled': !!disabled }"
+        (click)="checkValue(input)"
+    ></mat-icon>
+    <mat-icon
+        [fontIcon]="'close'"
+        [ngClass]="{ 'ngx-form-icon': true, 'ngx-form-disabled': !!disabled }"
+        (click)="status = 'VIEW'"
+    ></mat-icon>
+    }
+
+    <!-- DELETE -->
+    @if (status === 'DELETE') {
+    <ng-container>
         <div [ngClass]="{ item: true, 'ngx-form-disabled': !!disabled }">
             <div class="delete">می‌خواهید این گزینه را حذف کنید؟</div>
         </div>
@@ -57,4 +67,6 @@
             (click)="status = 'VIEW'"
         ></mat-icon>
     </ng-container>
+    }
 </content>
+}

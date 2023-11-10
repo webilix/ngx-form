@@ -1,12 +1,18 @@
 <mat-form-field [appearance]="appearance" [floatLabel]="'always'">
+    <!-- LABEL -->
     <mat-label>{{ input.title }}</mat-label>
-    <mat-error *ngIf="control.invalid">{{ control.errors | ngxError : input.type }}</mat-error>
-    <mat-hint *ngIf="input.hint">{{ input.hint }}</mat-hint>
+    <!-- ERROR  -->
+    @if (control.invalid) { <mat-error>{{ control.errors | ngxError : input.type }}</mat-error> }
+    <!-- HINT -->
+    @if (input.hint) { <mat-hint>{{ input.hint }}</mat-hint> }
+    <!-- INPUT -->
     <input matInput type="text" [name]="input.name" [formControl]="control" class="input-hidden" />
 
     <div class="dates">
         <ng-container *ngFor="let title of ['از', 'تا']; let index = index">
-            <div class="seperator" *ngIf="index === 1"></div>
+            @if (index === 1) {
+            <div class="seperator"></div>
+            }
             <div class="item">
                 <div [ngClass]="{ title: true, 'ngx-form-disabled': control.disabled }">{{ title }}:</div>
                 <div [ngClass]="{ date: true, 'ngx-form-disabled': control.disabled }" (click)="setDate(index)">
@@ -26,9 +32,8 @@
         </ng-container>
     </div>
 
-    <ngx-description
-        *ngIf="input.description"
-        [description]="input.description"
-        [disabled]="control.disabled"
-    ></ngx-description>
+    <!-- DESCRIPTION -->
+    @if (input.description) {
+    <ngx-description [description]="input.description" [disabled]="control.disabled"></ngx-description>
+    }
 </mat-form-field>

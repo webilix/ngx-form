@@ -1,325 +1,275 @@
-<ng-container *ngIf="input && (input.type === 'COMMENT' || control)">
-    <!-- COMMENT -->
-    <mat-form-field *ngIf="input.type === 'COMMENT'" [appearance]="appearance">
-        <mat-label>{{ input.title }}</mat-label>
-        <mat-hint *ngIf="input.hint">{{ input.hint }}</mat-hint>
-        <input
-            matInput
-            type="text"
-            [ngModel]="input.value"
-            [ngClass]="{ 'input-en': input.english }"
-            [readonly]="true"
-        />
+@if (input && (input.type === 'COMMENT' || control)) {
 
-        <ngx-description
-            *ngIf="input.description"
-            [description]="input.description"
-            [disabled]="false"
-        ></ngx-description>
-    </mat-form-field>
-    <!-- COMMENT -->
+<!-- COMMENT -->
+@if (input.type === 'COMMENT') {
+<mat-form-field [appearance]="appearance">
+    <!-- LABEL -->
+    <mat-label>{{ input.title }}</mat-label>
+    <!-- HINT -->
+    @if (input.hint) { <mat-hint>{{ input.hint }}</mat-hint> }
 
-    <!-- AUTO COMPLETE -->
-    <ngx-input-auto-complete
-        *ngIf="control && input.type === 'AUTO-COMPLETE'"
-        [control]="control"
-        [input]="input"
-        [appearance]="appearance"
-    ></ngx-input-auto-complete>
+    <input matInput type="text" [ngModel]="input.value" [ngClass]="{ 'input-en': input.english }" [readonly]="true" />
 
-    <!-- BANK CARD -->
-    <ngx-input-bank-card
-        *ngIf="control && input.type === 'BANK-CARD'"
-        [control]="control"
-        [input]="input"
-        [appearance]="appearance"
-    ></ngx-input-bank-card>
+    <!-- DESCRIPTION -->
+    @if (input.description) { <ngx-description [description]="input.description" [disabled]="false"></ngx-description> }
+</mat-form-field>
+}
 
-    <!-- CHECKBOX -->
-    <ngx-input-checkbox
-        *ngIf="control && input.type === 'CHECKBOX'"
-        [control]="control"
-        [input]="input"
-        [appearance]="appearance"
-    ></ngx-input-checkbox>
+<!-- CONTROLS -->
+@if (control) {
 
-    <!-- COLOR -->
-    <ngx-input-color
-        *ngIf="control && input.type === 'COLOR'"
-        [control]="control"
-        [input]="input"
-        [appearance]="appearance"
-    ></ngx-input-color>
+<!-- CONTROL -->
+@switch (input.type) {
 
-    <!-- COORDINATES -->
-    <ngx-input-coordinates
-        *ngIf="control && input.type === 'COORDINATES'"
-        [control]="control"
-        [input]="input"
-        [appearance]="appearance"
-    ></ngx-input-coordinates>
+<!-- AUTO COMPLETE -->
+@case ('AUTO-COMPLETE') {
+<ngx-input-auto-complete [control]="control" [input]="input" [appearance]="appearance"></ngx-input-auto-complete>
+}
 
-    <!-- DATE -->
-    <ngx-input-date
-        *ngIf="control && input.type === 'DATE'"
-        [control]="control"
-        [input]="input"
-        [appearance]="appearance"
-    ></ngx-input-date>
+<!-- BANK CARD -->
+@case ('BANK-CARD') {
+<ngx-input-bank-card [control]="control" [input]="input" [appearance]="appearance"></ngx-input-bank-card>
+}
 
-    <!-- DOMAIN -->
-    <ngx-input-text
-        *ngIf="control && input.type === 'DOMAIN'"
-        [control]="control"
-        [input]="input"
-        [appearance]="appearance"
-        [icon]="'http'"
-        [en]="true"
-    ></ngx-input-text>
+<!-- CHECKBOX -->
+@case ('CHECKBOX') {
+<ngx-input-checkbox [control]="control" [input]="input" [appearance]="appearance"></ngx-input-checkbox>
+}
 
-    <!-- EMAIL -->
-    <ngx-input-text
-        *ngIf="control && input.type === 'EMAIL'"
-        [control]="control"
-        [input]="input"
-        [appearance]="appearance"
-        [icon]="'alternate_email'"
-        [en]="true"
-    ></ngx-input-text>
+<!-- COLOR -->
+@case ('COLOR') {
+<ngx-input-color [control]="control" [input]="input" [appearance]="appearance"></ngx-input-color>
+}
 
-    <!-- FILE -->
-    <ngx-input-file
-        *ngIf="control && input.type === 'FILE'"
-        [control]="control"
-        [input]="input"
-        [appearance]="appearance"
-    ></ngx-input-file>
+<!-- COORDINATES -->
+@case ('COORDINATES') {
+<ngx-input-coordinates [control]="control" [input]="input" [appearance]="appearance"></ngx-input-coordinates>
+}
 
-    <!-- IP -->
-    <ngx-input-text
-        *ngIf="control && input.type === 'IP'"
-        [control]="control"
-        [input]="input"
-        [appearance]="appearance"
-        [icon]="'language'"
-        [en]="true"
-    ></ngx-input-text>
+<!-- DATE -->
+@case ('DATE') {
+<ngx-input-date [control]="control" [input]="input" [appearance]="appearance"></ngx-input-date>
+}
 
-    <!-- ICON -->
-    <ngx-input-icon
-        *ngIf="control && input.type === 'ICON'"
-        [control]="control"
-        [input]="input"
-        [appearance]="appearance"
-    ></ngx-input-icon>
+<!-- DOMAIN -->
+@case ('DOMAIN') {
+<ngx-input-text
+    [control]="control"
+    [input]="input"
+    [appearance]="appearance"
+    [icon]="'http'"
+    [en]="true"
+></ngx-input-text>
+}
 
-    <!-- LIST -->
-    <ngx-input-list
-        *ngIf="control && input.type === 'LIST'"
-        [control]="control"
-        [input]="input"
-        [appearance]="appearance"
-    ></ngx-input-list>
+<!-- EMAIL -->
+@case ('EMAIL') {
+<ngx-input-text
+    [control]="control"
+    [input]="input"
+    [appearance]="appearance"
+    [icon]="'alternate_email'"
+    [en]="true"
+></ngx-input-text>
+}
 
-    <!-- MASK -->
-    <ngx-input-text
-        *ngIf="control && input.type === 'MASK'"
-        [control]="control"
-        [input]="input"
-        [appearance]="appearance"
-        [icon]="input.icon || 'password'"
-        [en]="true"
-        [numeric]="true"
-        [mask]="input.mask"
-    ></ngx-input-text>
+<!-- FILE -->
+@case ('FILE') {
+<ngx-input-file [control]="control" [input]="input" [appearance]="appearance"></ngx-input-file>
+}
 
-    <!-- MOBILE -->
-    <ngx-input-text
-        *ngIf="control && input.type === 'MOBILE'"
-        [control]="control"
-        [input]="input"
-        [appearance]="appearance"
-        [icon]="'smartphone'"
-        [en]="true"
-        [numeric]="true"
-        [mask]="'00-000-0000'"
-        [suffix]="{ en: '09' }"
-    ></ngx-input-text>
+<!-- IP -->
+@case ('IP') {
+<ngx-input-text
+    [control]="control"
+    [input]="input"
+    [appearance]="appearance"
+    [icon]="'language'"
+    [en]="true"
+></ngx-input-text>
+}
 
-    <!-- MULTI-FILE -->
-    <ngx-input-multi-file
-        *ngIf="control && input.type === 'MULTI-FILE'"
-        [control]="control"
-        [input]="input"
-        [appearance]="appearance"
-    ></ngx-input-multi-file>
+<!-- ICON -->
+@case ('ICON') {
+<ngx-input-icon [control]="control" [input]="input" [appearance]="appearance"></ngx-input-icon>
+}
 
-    <!-- MULTI-SELECT -->
-    <ngx-input-multi-select
-        *ngIf="control && input.type === 'MULTI-SELECT'"
-        [control]="control"
-        [input]="input"
-        [appearance]="appearance"
-    ></ngx-input-multi-select>
+<!-- LIST -->
+@case ('LIST') {
+<ngx-input-list [control]="control" [input]="input" [appearance]="appearance"></ngx-input-list>
+}
 
-    <!-- NAME -->
-    <ngx-input-name
-        *ngIf="control && input.type === 'NAME'"
-        [control]="control"
-        [input]="input"
-        [appearance]="appearance"
-    ></ngx-input-name>
+<!-- MASK -->
+@case ('MASK') {
+<ngx-input-text
+    [control]="control"
+    [input]="input"
+    [appearance]="appearance"
+    [icon]="input.icon || 'password'"
+    [en]="true"
+    [numeric]="true"
+    [mask]="input.mask"
+></ngx-input-text>
+}
 
-    <!-- NATIONAL CODE -->
-    <ngx-input-text
-        *ngIf="control && input.type === 'NATIONAL-CODE'"
-        [control]="control"
-        [input]="input"
-        [appearance]="appearance"
-        [icon]="'badge'"
-        [en]="true"
-        [numeric]="true"
-        [mask]="'0000000000'"
-    ></ngx-input-text>
+<!-- MOBILE -->
+@case ('MOBILE') {
+<ngx-input-text
+    [control]="control"
+    [input]="input"
+    [appearance]="appearance"
+    [icon]="'smartphone'"
+    [en]="true"
+    [numeric]="true"
+    [mask]="'00-000-0000'"
+    [suffix]="{ en: '09' }"
+></ngx-input-text>
+}
 
-    <!-- NUMBER -->
-    <ngx-input-number
-        *ngIf="control && input.type === 'NUMBER'"
-        [control]="control"
-        [input]="input"
-        [appearance]="appearance"
-        [suffix]="input.suffix"
-        [icon]="'numbers'"
-        [negative]="input.negative"
-        [decimal]="input.decimal"
-        [text]="input.text"
-    ></ngx-input-number>
+<!-- MULTI-FILE -->
+@case ('MULTI-FILE') {
+<ngx-input-multi-file [control]="control" [input]="input" [appearance]="appearance"></ngx-input-multi-file>
+}
 
-    <!-- NUMERIC -->
-    <ngx-input-text
-        *ngIf="control && input.type === 'NUMERIC'"
-        [control]="control"
-        [input]="input"
-        [appearance]="appearance"
-        [icon]="'tag'"
-        [en]="true"
-        [numeric]="true"
-        [maxLength]="input.maxLength"
-    ></ngx-input-text>
+<!-- MULTI-SELECT -->
+@case ('MULTI-SELECT') {
+<ngx-input-multi-select [control]="control" [input]="input" [appearance]="appearance"></ngx-input-multi-select>
+}
 
-    <!-- OPTION LIST -->
-    <ngx-input-option-list
-        *ngIf="control && input.type === 'OPTION-LIST'"
-        [control]="control"
-        [input]="input"
-        [appearance]="appearance"
-    ></ngx-input-option-list>
+<!-- NAME -->
+@case ('NAME') {
+<ngx-input-name [control]="control" [input]="input" [appearance]="appearance"></ngx-input-name>
+}
 
-    <!-- PASSWORD -->
-    <ngx-input-password
-        *ngIf="control && input.type === 'PASSWORD'"
-        [control]="control"
-        [input]="input"
-        [appearance]="appearance"
-    ></ngx-input-password>
+<!-- NATIONAL CODE -->
+@case ('NATIONAL-CODE') {
+<ngx-input-text
+    [control]="control"
+    [input]="input"
+    [appearance]="appearance"
+    [icon]="'badge'"
+    [en]="true"
+    [numeric]="true"
+    [mask]="'0000000000'"
+></ngx-input-text>
+}
 
-    <!-- PERIOD -->
-    <ngx-input-period
-        *ngIf="control && input.type === 'PERIOD'"
-        [control]="control"
-        [input]="input"
-        [appearance]="appearance"
-    ></ngx-input-period>
+<!-- NUMBER -->
+@case ('NUMBER') {
+<ngx-input-number
+    [control]="control"
+    [input]="input"
+    [appearance]="appearance"
+    [suffix]="input.suffix"
+    [icon]="'numbers'"
+    [negative]="input.negative"
+    [decimal]="input.decimal"
+    [text]="input.text"
+></ngx-input-number>
+}
 
-    <!-- PLATE -->
-    <ngx-input-plate
-        *ngIf="control && input.type === 'PLATE'"
-        [control]="control"
-        [input]="input"
-        [appearance]="appearance"
-    ></ngx-input-plate>
+<!-- NUMERIC -->
+@case ('NUMERIC') {
+<ngx-input-text
+    [control]="control"
+    [input]="input"
+    [appearance]="appearance"
+    [icon]="'tag'"
+    [en]="true"
+    [numeric]="true"
+    [maxLength]="input.maxLength"
+></ngx-input-text>
+}
 
-    <!-- PRICE -->
-    <ngx-input-number
-        *ngIf="control && input.type === 'PRICE'"
-        [control]="control"
-        [input]="input"
-        [appearance]="appearance"
-        [suffix]="input.currency"
-        [negative]="false"
-        [decimal]="false"
-        [text]="input.showText ? 'LETTER' : undefined"
-    ></ngx-input-number>
+<!-- OPTION LIST -->
+@case ( 'OPTION-LIST') {
+<ngx-input-option-list [control]="control" [input]="input" [appearance]="appearance"></ngx-input-option-list>
+}
 
-    <!-- RANGE -->
-    <ngx-input-range
-        *ngIf="control && input.type === 'RANGE'"
-        [control]="control"
-        [input]="input"
-        [appearance]="appearance"
-    ></ngx-input-range>
+<!-- PASSWORD -->
+@case ('PASSWORD') {
+<ngx-input-password [control]="control" [input]="input" [appearance]="appearance"></ngx-input-password>
+}
 
-    <!-- SELECT -->
-    <ngx-input-select
-        *ngIf="control && input.type === 'SELECT'"
-        [control]="control"
-        [input]="input"
-        [appearance]="appearance"
-    ></ngx-input-select>
+<!-- PERIOD -->
+@case ('PERIOD') {
+<ngx-input-period [control]="control" [input]="input" [appearance]="appearance"></ngx-input-period>
+}
 
-    <!-- TAG -->
-    <ngx-input-tag
-        *ngIf="control && input.type === 'TAG'"
-        [control]="control"
-        [input]="input"
-        [appearance]="appearance"
-    ></ngx-input-tag>
+<!-- PLATE -->
+@case ('PLATE') {
+<ngx-input-plate [control]="control" [input]="input" [appearance]="appearance"></ngx-input-plate>
+}
 
-    <!-- TEXT -->
-    <ngx-input-text
-        *ngIf="control && input.type === 'TEXT'"
-        [control]="control"
-        [input]="input"
-        [appearance]="appearance"
-        [en]="!!input.english"
-        [suffix]="input.suffix"
-        [maxLength]="input.maxLength"
-        [counter]="input.counter"
-    ></ngx-input-text>
+<!-- PRICE -->
+@case ('PRICE') {
+<ngx-input-number
+    [control]="control"
+    [input]="input"
+    [appearance]="appearance"
+    [suffix]="input.currency"
+    [negative]="false"
+    [decimal]="false"
+    [text]="input.showText ? 'LETTER' : undefined"
+></ngx-input-number>
+}
 
-    <!-- TEXTAREA -->
-    <ngx-input-textarea
-        *ngIf="control && input.type === 'TEXTAREA'"
-        [control]="control"
-        [input]="input"
-        [appearance]="appearance"
-    ></ngx-input-textarea>
+<!-- RANGE -->
+@case ('RANGE') {
+<ngx-input-range [control]="control" [input]="input" [appearance]="appearance"></ngx-input-range>
+}
 
-    <!-- TIME -->
-    <ngx-input-time
-        *ngIf="control && input.type === 'TIME'"
-        [control]="control"
-        [input]="input"
-        [appearance]="appearance"
-    ></ngx-input-time>
+<!-- SELECT -->
+@case ('SELECT') {
+<ngx-input-select [control]="control" [input]="input" [appearance]="appearance"></ngx-input-select>
+}
 
-    <!-- URL -->
-    <ngx-input-text
-        *ngIf="control && input.type === 'URL'"
-        [control]="control"
-        [input]="input"
-        [appearance]="appearance"
-        [icon]="'link'"
-        [en]="true"
-    ></ngx-input-text>
+<!-- TAG -->
+@case ('TAG') {
+<ngx-input-tag [control]="control" [input]="input" [appearance]="appearance"></ngx-input-tag>
+}
 
-    <!-- USERNAME -->
-    <ngx-input-text
-        *ngIf="control && input.type === 'USERNAME'"
-        [control]="control"
-        [input]="input"
-        [appearance]="appearance"
-        [icon]="'person'"
-        [en]="true"
-    ></ngx-input-text>
-</ng-container>
+<!-- TEXT -->
+@case ('TEXT') {
+<ngx-input-text
+    [control]="control"
+    [input]="input"
+    [appearance]="appearance"
+    [en]="!!input.english"
+    [suffix]="input.suffix"
+    [maxLength]="input.maxLength"
+    [counter]="input.counter"
+></ngx-input-text>
+}
+
+<!-- TEXTAREA -->
+@case ('TEXTAREA') {
+<ngx-input-textarea [control]="control" [input]="input" [appearance]="appearance"></ngx-input-textarea>
+}
+
+<!-- TIME -->
+@case ('TIME') {
+<ngx-input-time [control]="control" [input]="input" [appearance]="appearance"></ngx-input-time>
+}
+
+<!-- URL -->
+@case ('URL') {
+<ngx-input-text
+    [control]="control"
+    [input]="input"
+    [appearance]="appearance"
+    [icon]="'link'"
+    [en]="true"
+></ngx-input-text>
+}
+
+<!-- USERNAME -->
+@case ('USERNAME') {
+<ngx-input-text
+    [control]="control"
+    [input]="input"
+    [appearance]="appearance"
+    [icon]="'person'"
+    [en]="true"
+></ngx-input-text>
+} } } }

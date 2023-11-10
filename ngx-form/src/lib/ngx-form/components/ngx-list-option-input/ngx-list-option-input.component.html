@@ -10,7 +10,12 @@
         [mask]="mask"
         #input
     />
-    <div *ngIf="suffix" class="suffix ngx-form-en">{{ suffix }}</div>
+
+    <!-- SUFFIX -->
+    @if (suffix) {
+    <div class="suffix ngx-form-en">{{ suffix }}</div>
+    }
+
     <mat-icon
         [ngClass]="{ 'ngx-form-icon': true, 'ngx-form-disabled': !!disabled }"
         (click)="checkValue(input)"

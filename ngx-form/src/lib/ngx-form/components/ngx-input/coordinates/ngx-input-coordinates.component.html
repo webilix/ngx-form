@@ -1,15 +1,19 @@
 <mat-form-field [appearance]="appearance">
+    <!-- LABEL -->
     <mat-label>{{ input.title }}</mat-label>
-    <mat-error *ngIf="control.invalid">{{ control.errors | ngxError : input.type }}</mat-error>
-    <mat-hint *ngIf="input.hint">{{ input.hint }}</mat-hint>
+    <!-- ERROR  -->
+    @if (control.invalid) { <mat-error>{{ control.errors | ngxError : input.type }}</mat-error> }
+    <!-- HINT -->
+    @if (input.hint) { <mat-hint>{{ input.hint }}</mat-hint> }
+    <!-- INPUT -->
     <input matInput type="text" [name]="input.name" [formControl]="control" class="input-hidden" />
 
     <div class="content">
         <div [ngClass]="{ coordinates: true, 'ngx-form-disabled': control.disabled }" (click)="setCoordinates()">
-            <ng-container *ngIf="control.value">
-                <div class="ngx-form-en">LONG: {{ control.value.longitude }}</div>
-                <div class="ngx-form-en">LAT: {{ control.value.latitude }}</div>
-            </ng-container>
+            @if (control.value) {
+            <div class="ngx-form-en">LONG: {{ control.value.longitude }}</div>
+            <div class="ngx-form-en">LAT: {{ control.value.latitude }}</div>
+            }
         </div>
         <button
             mat-button
@@ -25,9 +29,8 @@
         </button>
     </div>
 
-    <ngx-description
-        *ngIf="input.description"
-        [description]="input.description"
-        [disabled]="control.disabled"
-    ></ngx-description>
+    <!-- DESCRIPTION -->
+    @if (input.description) {
+    <ngx-description [description]="input.description" [disabled]="control.disabled"></ngx-description>
+    }
 </mat-form-field>
