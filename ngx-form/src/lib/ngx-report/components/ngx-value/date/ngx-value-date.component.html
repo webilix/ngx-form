@@ -1,4 +1,5 @@
-<div class="date" *ngFor="let index of operator === 'BETWEEN' ? [0, 1] : [0]">
+@for (index of operator === 'BETWEEN' ? [0, 1] : [0]; track $index) {
+<div class="date">
     <div
         [ngClass]="{ error: dates[index] === null, 'ngx-form-invalid': dates[index] === null }"
         (click)="setDate(index)"
@@ -7,3 +8,4 @@
     </div>
     <mat-icon [fontIcon]="'calendar_month'" (click)="setDate(index)"></mat-icon>
 </div>
+}

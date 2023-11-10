@@ -9,9 +9,12 @@
                 <div class="title">{{ input?.title || '&nbsp;' }}</div>
                 <mat-icon [fontIcon]="'keyboard_double_arrow_down'"></mat-icon>
                 <mat-menu #inputsMenu="matMenu" class="ngx-report-menu">
-                    <button mat-menu-item type="button" *ngFor="let i of inputs" (click)="setInput(i.name)">
+                    <!-- INPUTS -->
+                    @for (i of inputs; track $index) {
+                    <button mat-menu-item type="button" (click)="setInput(i.name)">
                         <div class="title">{{ i.title }}</div>
                     </button>
+                    }
                 </mat-menu>
             </div>
 
@@ -35,9 +38,12 @@
                 </div>
                 <mat-icon [fontIcon]="'keyboard_double_arrow_down'"></mat-icon>
                 <mat-menu #operatorsMenu="matMenu" class="ngx-report-menu">
-                    <button mat-menu-item type="button" *ngFor="let o of operators" (click)="setOperator(o)">
+                    <!-- OPERATORS -->
+                    @for (o of operators; track $index) {
+                    <button mat-menu-item type="button" (click)="setOperator(o)">
                         <div class="title">{{ operatorsInfo[o].title }}</div>
                     </button>
+                    }
                 </mat-menu>
             </div>
             }

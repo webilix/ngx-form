@@ -9,12 +9,14 @@
     <input matInput type="text" [name]="input.name" [formControl]="control" class="input-hidden" />
 
     <div [ngClass]="{ icons: true, 'ngx-form-disabled': control.disabled }">
+        <!-- ICONS -->
+        @for (icon of input.icons; track $index) {
         <mat-icon
-            *ngFor="let icon of input.icons"
             [fontIcon]="icon"
             [ngClass]="{ 'ngx-form-icon': true, selected: control.value === icon }"
             (click)="setValue(icon)"
         ></mat-icon>
+        }
         <div class="space"></div>
     </div>
 

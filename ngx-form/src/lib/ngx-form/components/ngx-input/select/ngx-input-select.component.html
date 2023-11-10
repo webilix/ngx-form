@@ -25,10 +25,13 @@
                     <mat-icon [fontIcon]="'check'" [ngClass]="{ hidden: groupIndex !== null }"></mat-icon>
                 </button>
                 <div class="ngx-form-option-menu-seperator"></div>
-                <button mat-menu-item *ngFor="let group of groups; let index = index" (click)="selectGroup(index)">
+                <!-- GROUPS -->
+                @for (group of groups; track $index) {
+                <button mat-menu-item (click)="selectGroup($index)">
                     <div class="label">{{ group.title }}</div>
-                    <mat-icon [fontIcon]="'check'" [ngClass]="{ hidden: groupIndex !== index }"></mat-icon>
+                    <mat-icon [fontIcon]="'check'" [ngClass]="{ hidden: groupIndex !== $index }"></mat-icon>
                 </button>
+                }
             </mat-menu>
         </div>
     </div>
@@ -53,14 +56,14 @@
         <!-- OPTIONAL -->
         @if (!!input.optional) { <mat-option [value]="null"></mat-option> }
 
-        <ng-container *ngFor="let option of options">
-            <!-- OPTION -->
-            @if (option.title.toLowerCase().indexOf(query.toLowerCase()) !== -1) {
-            <mat-option [value]="option.id" [ngClass]="{ 'ngx-form-en': !!input.english }">
-                {{ option.title }}
-            </mat-option>
-            }
-        </ng-container>
+        <!-- OPTIONS -->
+        @for (option of options; track $index) {
+        <!-- OPTION -->
+        @if (option.title.toLowerCase().indexOf(query.toLowerCase()) !== -1) {
+        <mat-option [value]="option.id" [ngClass]="{ 'ngx-form-en': !!input.english }">
+            {{ option.title }}
+        </mat-option>
+        } }
     </mat-select>
 
     <!-- DESCRIPTION -->

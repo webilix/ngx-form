@@ -27,12 +27,10 @@
     <!-- EMPTY CONDITIONS -->
     <div class="empty ngx-form-invalid">شرایطی ثبت نشده است.</div>
     } @else {
-    <!-- CONDITIONS -->
     <div class="conditions">
-        <div
-            *ngFor="let condition of report.conditions; let index = index"
-            [ngClass]="{ condition: true, after: index < report.conditions.length - 1 }"
-        >
+        <!-- CONDITIONS -->
+        @for (condition of report.conditions; track $index) {
+        <div [ngClass]="{ condition: true, after: $index < report.conditions.length - 1 }">
             @if (isGroup(condition)) {
             <!-- GROUP -->
             <ngx-report-group
@@ -40,7 +38,7 @@
                 [report]="getReport(condition)"
                 [level]="level + 1"
                 (changed)="changed.emit()"
-                (deleted)="deleteCondition(index)"
+                (deleted)="deleteCondition($index)"
             ></ngx-report-group>
             } @else {
             <!-- CONDITION -->
@@ -48,10 +46,11 @@
                 [inputs]="inputs"
                 [condition]="getCondition(condition)"
                 (changed)="changed.emit()"
-                (deleted)="deleteCondition(index)"
+                (deleted)="deleteCondition($index)"
             ></ngx-report-condition>
             }
         </div>
+        }
     </div>
     }
 </content>

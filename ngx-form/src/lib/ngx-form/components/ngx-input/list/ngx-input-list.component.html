@@ -9,21 +9,23 @@
     <input matInput type="text" [name]="input.name" [formControl]="control" class="input-hidden" />
 
     <div class="values" cdkDropList (cdkDropListDropped)="drop($event)">
+        <!-- VALUES -->
+        @for (value of values; track $index) {
         <ngx-list-option-item
-            *ngFor="let value of values; let index = index"
             class="value"
-            [index]="index"
+            [index]="$index"
             [item]="value"
             [format]="input.format"
             [english]="!!input.english"
             [disabled]="!!control.disabled"
-            (update)="updateItem(index, $event)"
-            (delete)="deleteItem(index)"
+            (update)="updateItem($index, $event)"
+            (delete)="deleteItem($index)"
             cdkDrag
             cdkDragLockAxis="y"
             cdkDragBoundary=".values"
             [cdkDragDisabled]="!input.sort"
         ></ngx-list-option-item>
+        }
     </div>
     <ngx-list-option-input
         [format]="input.format"

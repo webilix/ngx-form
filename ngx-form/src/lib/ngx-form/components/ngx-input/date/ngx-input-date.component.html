@@ -22,7 +22,8 @@
                     [disabled]="control.disabled"
                     (selectionChange)="setValue(control.value)"
                 >
-                    <mat-option *ngFor="let h of hours" class="ngx-form-en" [value]="h">{{ h }}</mat-option>
+                    <!-- HOURS -->
+                    @for (h of hours; track $index) { <mat-option class="ngx-form-en" [value]="h">{{ h }}</mat-option> }
                 </mat-select>
                 <div [ngClass]="{ colon: true, 'ngx-form-disabled': control.disabled }">:</div>
                 <mat-select
@@ -32,7 +33,10 @@
                     [disabled]="control.disabled"
                     (selectionChange)="setValue(control.value)"
                 >
-                    <mat-option *ngFor="let m of minutes" class="ngx-form-en" [value]="m">{{ m }}</mat-option>
+                    <!-- MINUTES -->
+                    @for (m of minutes; track $index) {
+                    <mat-option class="ngx-form-en" [value]="m">{{ m }}</mat-option>
+                    }
                 </mat-select>
             </div>
             }

@@ -15,9 +15,10 @@
         [matAutocomplete]="ngxAutoComplete"
     />
     <mat-autocomplete #ngxAutoComplete="matAutocomplete" class="ngx-select-panel">
-        <ng-container *ngFor="let option of filtered | async">
-            <mat-option [value]="option" [ngClass]="{ 'ngx-form-en': !!input.english }">{{ option }}</mat-option>
-        </ng-container>
+        <!-- OPTIONS -->
+        @for (option of filtered | async; track $index) {
+        <mat-option [value]="option" [ngClass]="{ 'ngx-form-en': !!input.english }">{{ option }}</mat-option>
+        }
     </mat-autocomplete>
 
     <!-- DESCRIPTION -->

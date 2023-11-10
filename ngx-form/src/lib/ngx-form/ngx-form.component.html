@@ -1,47 +1,45 @@
 <form class="ngxForm" [formGroup]="formGroup" (ngSubmit)="checkValues()" dir="rtl" #formObject="ngForm">
-    <ng-container *ngFor="let row of rows">
-        <div class="columns">
-            <ng-container *ngFor="let input of row">
-                <!-- INPUT -->
-                @if (input.input.type === 'COMMENT' || !hiddenInputs.includes(input.input.name)) {
-                <div class="ngx-form-field-input" [ngStyle]="{ flex: input.flex }">
-                    <ngx-input
-                        [group]="formGroup"
-                        [input]="input.input"
-                        [appearance]="ngxForm.appearance || appearance"
-                    ></ngx-input>
+    <!-- ROWS -->
+    @for (row of rows; track $index) {
+    <div class="columns">
+        <!-- INPUTS -->
+        @for (input of row; track $index) {
+        <!-- INPUT -->
+        @if (input.input.type === 'COMMENT' || !hiddenInputs.includes(input.input.name)) {
+        <div class="ngx-form-field-input" [ngStyle]="{ flex: input.flex }">
+            <ngx-input
+                [group]="formGroup"
+                [input]="input.input"
+                [appearance]="ngxForm.appearance || appearance"
+            ></ngx-input>
 
-                    <!-- BUTTON -->
-                    @if (input.input.type !== 'COMMENT' && input.input.button) {
-                    <button
-                        mat-stroked-button
-                        type="button"
-                        [color]="input.input.button.color || 'primary'"
-                        (click)="input.input.button.click(getValues())"
-                        [ngClass]="{ disabled: disabledButtons.includes(input.input.name) }"
-                        [disabled]="disabledButtons.includes(input.input.name)"
-                    >
-                        <mat-icon [fontIcon]="input.input.button.icon"></mat-icon>
-                    </button>
-                    }
-                </div>
-                }
-            </ng-container>
+            <!-- BUTTON -->
+            @if (input.input.type !== 'COMMENT' && input.input.button) {
+            <button
+                mat-stroked-button
+                type="button"
+                [color]="input.input.button.color || 'primary'"
+                (click)="input.input.button.click(getValues())"
+                [ngClass]="{ disabled: disabledButtons.includes(input.input.name) }"
+                [disabled]="disabledButtons.includes(input.input.name)"
+            >
+                <mat-icon [fontIcon]="input.input.button.icon"></mat-icon>
+            </button>
+            }
         </div>
-    </ng-container>
+        } }
+    </div>
+    }
 
     <ng-content></ng-content>
 
     <div class="buttons">
         <button mat-flat-button type="submit" color="primary">{{ ngxForm.submit }}</button>
-        <button
-            mat-stroked-button
-            type="button"
-            color="primary"
-            *ngFor="let button of ngxForm.buttons"
-            (click)="button.action(getValues())"
-        >
+        <!-- EXTRA BUTTONS -->
+        @for (button of ngxForm.buttons; track $index) {
+        <button mat-stroked-button type="button" color="primary" (click)="button.action(getValues())">
             {{ button.title }}
         </button>
+        }
     </div>
 </form>

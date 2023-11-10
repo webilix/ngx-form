@@ -1,5 +1,5 @@
+@for (index of operator === 'BETWEEN' ? [0, 1] : [0]; track $index) {
 <input
-    *ngFor="let index of operator === 'BETWEEN' ? [0, 1] : [0]"
     type="text"
     [ngxPersianNumber]="true"
     [isNnumber]="true"
@@ -16,3 +16,4 @@
     maxlength="15"
     (change)="setNumber(index, $event)"
 />
+}

@@ -10,14 +10,13 @@
 
     <mat-chip-grid #tagChipList>
         <div class="tags">
-            <div
-                [ngClass]="{ tag: true, 'ngx-form-disabled': control.disabled }"
-                *ngFor="let tag of tags; let index = index"
-                (click)="deleteTag(index)"
-            >
+            <!-- VALUES -->
+            @for (tag of tags; track $index) {
+            <div [ngClass]="{ tag: true, 'ngx-form-disabled': control.disabled }" (click)="deleteTag($index)">
                 <div class="value">{{ tag }}</div>
                 <mat-icon class="ngx-form-icon" [fontIcon]="'close'"></mat-icon>
             </div>
+            }
 
             <input
                 placeholder="تگ ..."
@@ -32,9 +31,8 @@
         </div>
     </mat-chip-grid>
     <mat-autocomplete #ngxAutoComplete="matAutocomplete" (optionSelected)="selectTag($event, tagInput)">
-        <ng-container *ngFor="let tag of filter(tagInput.value)">
-            <mat-option [value]="tag">{{ tag }}</mat-option>
-        </ng-container>
+        <!-- TAGS -->
+        @for (tag of filter(tagInput.value); track $index) { <mat-option [value]="tag">{{ tag }}</mat-option> }
     </mat-autocomplete>
 
     <!-- DESCRIPTION -->

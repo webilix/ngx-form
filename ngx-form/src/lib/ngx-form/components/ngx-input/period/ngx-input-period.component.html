@@ -9,27 +9,29 @@
     <input matInput type="text" [name]="input.name" [formControl]="control" class="input-hidden" />
 
     <div class="dates">
-        <ng-container *ngFor="let title of ['از', 'تا']; let index = index">
-            @if (index === 1) {
-            <div class="seperator"></div>
-            }
-            <div class="item">
-                <div [ngClass]="{ title: true, 'ngx-form-disabled': control.disabled }">{{ title }}:</div>
-                <div [ngClass]="{ date: true, 'ngx-form-disabled': control.disabled }" (click)="setDate(index)">
-                    {{ dates[index] ? (dates[index] || '' | ngxDate : 'd N Y') : '&nbsp;' }}
-                </div>
-                <button
-                    mat-button
-                    matSuffix
-                    (click)="control.markAsTouched(); dates[index] === null ? setDate(index) : resetDate(index)"
-                    type="button"
-                    [disabled]="control.disabled"
-                    [ngClass]="{ 'ngx-form-button': true, 'ngx-form-disabled': control.disabled }"
-                >
-                    <mat-icon class="ngx-form-icon" [fontIcon]="dates[index] === null ? 'today' : 'cancel'"></mat-icon>
-                </button>
+        <!-- ITEMS -->
+        @for (title of ['از', 'تا']; track $index) {
+        <!-- SEPERATOR -->
+        @if ($index === 1) {
+        <div class="seperator"></div>
+        }
+        <div class="item">
+            <div [ngClass]="{ title: true, 'ngx-form-disabled': control.disabled }">{{ title }}:</div>
+            <div [ngClass]="{ date: true, 'ngx-form-disabled': control.disabled }" (click)="setDate($index)">
+                {{ dates[$index] ? (dates[$index] || '' | ngxDate : 'd N Y') : '&nbsp;' }}
             </div>
-        </ng-container>
+            <button
+                mat-button
+                matSuffix
+                (click)="control.markAsTouched(); dates[$index] === null ? setDate($index) : resetDate($index)"
+                type="button"
+                [disabled]="control.disabled"
+                [ngClass]="{ 'ngx-form-button': true, 'ngx-form-disabled': control.disabled }"
+            >
+                <mat-icon class="ngx-form-icon" [fontIcon]="dates[$index] === null ? 'today' : 'cancel'"></mat-icon>
+            </button>
+        </div>
+        }
     </div>
 
     <!-- DESCRIPTION -->

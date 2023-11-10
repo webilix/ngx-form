@@ -21,11 +21,14 @@
 
     @if (files.length !== 0) {
     <div [ngClass]="{ files: true, 'ngx-form-disabled': control.disabled }">
-        <div class="file" *ngFor="let file of files; let index = index">
-            <mat-icon [fontIcon]="'close'" class="delete" (click)="deleteFile(index)"></mat-icon>
+        <!-- FILES -->
+        @for (file of files; track $index) {
+        <div class="file">
+            <mat-icon [fontIcon]="'close'" class="delete" (click)="deleteFile($index)"></mat-icon>
             <div class="name ngx-form-en">{{ file.name }}</div>
             <div class="size">{{ file.size | ngxFileSize }}</div>
         </div>
+        }
     </div>
     }
 

@@ -34,10 +34,13 @@
                     <mat-icon [fontIcon]="'check'" [ngClass]="{ hidden: groupIndex !== null }"></mat-icon>
                 </button>
                 <div class="ngx-form-option-menu-seperator"></div>
-                <button mat-menu-item *ngFor="let group of groups; let index = index" (click)="selectGroup(index)">
+                <!-- GROUPS -->
+                @for (group of groups; track $index) {
+                <button mat-menu-item (click)="selectGroup($index)">
                     <div class="label">{{ group.title }}</div>
-                    <mat-icon [fontIcon]="'check'" [ngClass]="{ hidden: groupIndex !== index }"></mat-icon>
+                    <mat-icon [fontIcon]="'check'" [ngClass]="{ hidden: groupIndex !== $index }"></mat-icon>
                 </button>
+                }
             </mat-menu>
         </div>
         }
@@ -76,8 +79,9 @@
             [ngClass]="{ options: true, 'options-tag': true, 'options-tag-en': !!input.english }"
             *ngSwitchCase="'TAG'"
         >
+            <!-- OPTIONS -->
+            @for (option of options; track $index) {
             <div
-                *ngFor="let option of options"
                 [ngClass]="{
                     option: true,
                     'option-selected': values.includes(option.id),
@@ -87,6 +91,7 @@
             >
                 {{ option.title }}
             </div>
+            }
         </div>
 
         <!-- SELECT VIEW -->
@@ -99,20 +104,20 @@
             #multiSelectInput
         >
             <mat-select-trigger>{{ getValues() }}</mat-select-trigger>
-            <mat-option
-                *ngFor="let option of options"
-                [value]="option.id"
-                [ngClass]="{ 'ngx-form-en': !!input.english }"
-            >
+            <!-- OPTIONS -->
+            @for (option of options; track $index) {
+            <mat-option [value]="option.id" [ngClass]="{ 'ngx-form-en': !!input.english }">
                 {{ option.title }}
             </mat-option>
+            }
         </mat-select>
 
         <!-- CHECKBOX VIEW -->
         <ng-container *ngSwitchDefault>
             <div class="options options-checkbox">
+                <!-- OPTIONS -->
+                @for (option of options; track $index) {
                 <div
-                    *ngFor="let option of options"
                     [ngClass]="{ option: true, 'option-en': !!input.english, 'ngx-form-disabled': control.disabled }"
                     (click)="setValue(option.id)"
                 >
@@ -122,6 +127,7 @@
                     ></mat-icon>
                     <div class="title">{{ option.title }}</div>
                 </div>
+                }
             </div>
         </ng-container>
 

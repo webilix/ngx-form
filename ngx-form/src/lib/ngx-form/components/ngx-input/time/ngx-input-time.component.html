@@ -24,13 +24,12 @@
             #timeHour
         >
             <mat-option [value]="null"></mat-option>
-            <mat-option
-                *ngFor="let item of [].constructor(24); let index = index"
-                [value]="index.toString().padStart(2, '0')"
-                class="ngx-form-en"
-            >
-                {{ index.toString().padStart(2, '0') }}
+            <!-- HOURS -->
+            @for (item of [].constructor(24); track $index) {
+            <mat-option [value]="$index.toString().padStart(2, '0')" class="ngx-form-en">
+                {{ $index.toString().padStart(2, '0') }}
             </mat-option>
+            }
         </mat-select>
         <div class="colon">:</div>
         <mat-select
@@ -41,13 +40,12 @@
             (valueChange)="setTime(timeHour.value, timeMinute.value, timeSecond.value)"
             #timeMinute
         >
-            <mat-option
-                *ngFor="let item of [].constructor(60); let index = index"
-                [value]="index.toString().padStart(2, '0')"
-                class="ngx-form-en"
-            >
-                {{ index.toString().padStart(2, '0') }}
+            <!-- MINUTES -->
+            @for (item of [].constructor(60); track $index) {
+            <mat-option [value]="$index.toString().padStart(2, '0')" class="ngx-form-en">
+                {{ $index.toString().padStart(2, '0') }}
             </mat-option>
+            }
         </mat-select>
         <div class="colon">:</div>
         <mat-select
@@ -58,13 +56,12 @@
             (valueChange)="setTime(timeHour.value, timeMinute.value, timeSecond.value)"
             #timeSecond
         >
-            <mat-option
-                *ngFor="let item of [].constructor(60); let index = index"
-                [value]="index.toString().padStart(2, '0')"
-                class="ngx-form-en"
-            >
-                {{ index.toString().padStart(2, '0') }}
+            <!-- SECONDS -->
+            @for (item of [].constructor(60); track $index) {
+            <mat-option [value]="$index.toString().padStart(2, '0')" class="ngx-form-en">
+                {{ $index.toString().padStart(2, '0') }}
             </mat-option>
+            }
         </mat-select>
     </div>
 

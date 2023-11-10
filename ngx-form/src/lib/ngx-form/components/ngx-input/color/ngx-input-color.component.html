@@ -41,9 +41,11 @@
         } @else {
         <!--  LIST VIEW -->
         <input matInput type="text" [name]="input.name" [formControl]="control" class="input-hidden" />
+
         <div class="colors">
+            <!-- COLOR -->
+            @for (color of input.colors; track $index) {
             <div
-                *ngFor="let color of input.colors"
                 [ngClass]="{ color: true, current: color === control.value, 'ngx-form-disabled': control.disabled }"
                 [ngStyle]="{ 'background-color': color }"
                 (click)="control.setValue(control.value === color ? null : color)"
@@ -52,6 +54,7 @@
                 <mat-icon [fontIcon]="'check'" class="ngx-form-icon" color="primary"></mat-icon>
                 }
             </div>
+            }
         </div>
         }
     </div>
