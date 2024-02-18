@@ -48,9 +48,10 @@ export class NgxDateComponent implements OnInit {
 
         const value: Date | null =
             this.config.value === undefined ? null : Helper.IS.date(this.config.value) ? this.config.value : null;
-
         this.current = value ? this.jalali.toString(value, { format: 'Y-M-D' }) : '';
-        this.month = this.jalali.toString(value || new Date(), { format: 'Y-M' });
+
+        const date: Date = value || this.config.minDate || this.config.maxDate || new Date();
+        this.month = this.jalali.toString(date, { format: 'Y-M' });
         this.calendar = this.jalali.calendar(this.month);
     }
 

@@ -3,8 +3,20 @@ import { INgxFormValues, NgxFormRow } from '@ngx-form';
 export const DateInputs: NgxFormRow[] = [
     { name: 'date-1', type: 'DATE', value: new Date('Jun 03 1979 12:34:56') },
     { name: 'date-2', type: 'DATE', title: 'انتخاب ساعت', optional: true, hour: true },
-    { name: 'date-3', type: 'DATE', title: 'حداقل تاریخ', optional: true, minDate: new Date() },
-    { name: 'date-4', type: 'DATE', title: 'حداکثر تاریخ', optional: true, maxDate: new Date() },
+    {
+        name: 'date-3',
+        type: 'DATE',
+        title: 'حداقل تاریخ',
+        optional: true,
+        minDate: new Date(new Date().getTime() + 60 * 24 * 3600 * 1000),
+    },
+    {
+        name: 'date-4',
+        type: 'DATE',
+        title: 'حداکثر تاریخ',
+        optional: true,
+        maxDate: new Date(new Date().getTime() - 60 * 24 * 3600 * 1000),
+    },
     { name: 'date-5', type: 'DATE', title: 'اختیاری', optional: true },
     {
         inputs: [
