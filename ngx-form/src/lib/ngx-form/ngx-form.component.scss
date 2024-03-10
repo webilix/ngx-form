@@ -7,6 +7,17 @@ form {
         display: block;
     }
 
+    .ngx-form-section {
+        border-radius: 4px;
+        font-size: 1.05em;
+        font-weight: 500;
+        padding: 0.75rem 1rem;
+        margin-bottom: 0.5rem;
+        color: var(--ngxFormPrimaryColor);
+        border: 1px solid var(--ngxFormBorderColor);
+        background-color: var(--ngxFormBackgroundColor);
+    }
+
     .columns {
         display: flex;
         align-items: flex-start;

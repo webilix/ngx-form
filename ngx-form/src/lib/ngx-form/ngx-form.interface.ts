@@ -26,7 +26,7 @@ export interface INgxForm {
      * Form input rows
      * @type { Array<NgxFormInputRow> }
      */
-    inputs: NgxFormRow[];
+    inputs: (string | NgxFormRow)[];
 
     /**
      * Form extra buttons

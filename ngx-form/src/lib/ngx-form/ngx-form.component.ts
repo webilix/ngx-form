@@ -34,10 +34,12 @@ export class NgxFormComponent implements OnInit, OnChanges {
 
     public formGroup: FormGroup = new FormGroup({});
     protected appearance: MatFormFieldAppearance = this.ngxAppearance;
-    protected rows: { input: NgxFormInputs; flex: number }[][] = [];
+    protected rows: (string | { input: NgxFormInputs; flex: number }[])[] = [];
     protected inputValues: INgxFormValues = {};
     protected hiddenInputs: string[] = [];
     protected disabledButtons: string[] = [];
+
+    protected isString = (value: any): boolean => typeof value === 'string';
 
     constructor(
         @Inject('NGX_FORM_APPEARANCE') public readonly ngxAppearance: MatFormFieldAppearance,
@@ -84,9 +86,11 @@ export class NgxFormComponent implements OnInit, OnChanges {
 
     ngOnChanges(changes: SimpleChanges): void {
         this.rows = [];
-        this.ngxForm.inputs.forEach((row: NgxFormRow) => {
+        this.ngxForm.inputs.forEach((row: string | NgxFormRow) =>
             this.rows.push(
-                Array.isArray(row)
+                typeof row === 'string'
+                    ? row
+                    : Array.isArray(row)
                     ? row.map((r) => ('input' in r && 'flex' in r ? r : { input: r, flex: 1 }))
                     : 'inputs' in row && 'flex' in row
                     ? row.inputs.map((input, index: number) => ({
@@ -94,8 +98,8 @@ export class NgxFormComponent implements OnInit, OnChanges {
                           flex: Helper.IS.number(row.flex[index]) && row.flex[index] > 0 ? row.flex[index] : 1,
                       }))
                     : [{ input: row, flex: 1 }],
-            );
-        });
+            ),
+        );
     }
 
     private setInput(input: NgxFormInputs): void {
@@ -117,15 +121,16 @@ export class NgxFormComponent implements OnInit, OnChanges {
 
     private getInputs(): NgxFormInputs[] {
         const inputs: NgxFormInputs[] = [];
-        this.ngxForm.inputs.forEach((row: NgxFormRow) =>
+        this.ngxForm.inputs.forEach((row: string | NgxFormRow) => {
+            if (typeof row === 'string') return;
             inputs.push(
                 ...(Array.isArray(row)
                     ? row.map((r) => ('input' in r && 'flex' in r ? r.input : r))
                     : 'inputs' in row && 'flex' in row
                     ? row.inputs
                     : [row]),
-            ),
-        );
+            );
+        });
 
         return inputs;
     }

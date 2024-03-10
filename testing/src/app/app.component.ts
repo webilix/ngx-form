@@ -200,6 +200,8 @@ export class AppComponent implements OnInit {
                 'امکان استفاده از دستورات HTML در توضیحات گزینه‌های فرم وجود ندارد اما توضیحات می‌تواند به صورت چند خطی مشخص شده باشد.',
         };
 
+        const section: string = 'هدر بخش‌های فرم';
+
         const inputs: NgxFormInputs[] = [...this.ngxInputs];
         inputs.forEach((input: NgxFormInputs) => {
             if (input.type === 'COMMENT') return;
@@ -208,9 +210,9 @@ export class AppComponent implements OnInit {
                 : undefined;
         });
 
-        if (this.column === '1') this.ngxForm.inputs = [comment, ...inputs];
+        if (this.column === '1') this.ngxForm.inputs = [comment, section, ...inputs];
         else {
-            this.ngxForm.inputs = [comment];
+            this.ngxForm.inputs = [comment, section];
             while (inputs.length !== 0) {
                 const row = inputs.splice(0, this.column === 'FLEX' ? 2 : +this.column);
                 if (this.column !== 'FLEX') this.ngxForm.inputs.push(row);

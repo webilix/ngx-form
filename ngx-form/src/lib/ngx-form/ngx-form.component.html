@@ -1,35 +1,40 @@
 <form class="ngxForm" [formGroup]="formGroup" (ngSubmit)="checkValues()" dir="rtl" #formObject="ngForm">
-    <!-- ROWS -->
     @for (row of rows; track $index) {
+    <!-- ROWS -->
+    @if (isString(row)) {
+    <!-- STRING (SECTION) -->
+    <div class="ngx-form-section">{{ row }}</div>
+    } @else {
+    <!-- INPUTS -->
     <div class="columns">
         <!-- INPUTS -->
         @for (input of row; track $index) {
         <!-- INPUT -->
-        @if (input.input.type === 'COMMENT' || !hiddenInputs.includes(input.input.name)) {
-        <div class="ngx-form-field-input" [ngStyle]="{ flex: input.flex }">
+        @if ($any(input).input.type === 'COMMENT' || !hiddenInputs.includes($any(input).input.name)) {
+        <div class="ngx-form-field-input" [ngStyle]="{ flex: $any(input).flex }">
             <ngx-input
                 [group]="formGroup"
-                [input]="input.input"
+                [input]="$any(input).input"
                 [appearance]="ngxForm.appearance || appearance"
             ></ngx-input>
 
             <!-- BUTTON -->
-            @if (input.input.type !== 'COMMENT' && input.input.button) {
+            @if ($any(input).input.type !== 'COMMENT' && $any(input).input.button) {
             <button
                 mat-stroked-button
                 type="button"
-                [color]="input.input.button.color || 'primary'"
-                (click)="input.input.button.click(getValues())"
-                [ngClass]="{ disabled: disabledButtons.includes(input.input.name) }"
-                [disabled]="disabledButtons.includes(input.input.name)"
+                [color]="$any(input).input.button.color || 'primary'"
+                (click)="$any(input).input.button.click(getValues())"
+                [ngClass]="{ disabled: disabledButtons.includes($any(input).input.name) }"
+                [disabled]="disabledButtons.includes($any(input).input.name)"
             >
-                <mat-icon [fontIcon]="input.input.button.icon"></mat-icon>
+                <mat-icon [fontIcon]="$any(input).input.button.icon"></mat-icon>
             </button>
             }
         </div>
         } }
     </div>
-    }
+    } }
 
     <ng-content></ng-content>
 
