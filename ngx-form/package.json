@@ -23,10 +23,10 @@
         "@angular/core": ">=17.2.4",
         "@angular/forms": ">=17.2.4",
         "@angular/material": ">=17.2.2",
-        "@webilix/helper-library": ">=4.15.4",
+        "@webilix/helper-library": ">=4.16.1",
         "@webilix/jalali-date-time": ">=2.0.2",
         "ngx-mask": ">=17.0.4",
-        "ol": ">=8.2.0"
+        "ol": ">=9.0.0"
     },
     "dependencies": {}
 }

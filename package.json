@@ -21,10 +21,10 @@
         "@angular/platform-browser": "^17.2.4",
         "@angular/platform-browser-dynamic": "^17.2.4",
         "@angular/router": "^17.2.4",
-        "@webilix/helper-library": "^4.15.4",
+        "@webilix/helper-library": "^4.16.1",
         "@webilix/jalali-date-time": "^2.0.2",
         "ngx-mask": "^17.0.4",
-        "ol": "^8.2.0",
+        "ol": "^9.0.0",
         "rxjs": "~7.8.1",
         "tslib": "^2.6.2",
         "zone.js": "~0.14.4"
@@ -35,12 +35,12 @@
         "@angular/compiler-cli": "^17.2.4",
         "@types/jasmine": "~5.1.4",
         "jasmine-core": "~5.1.2",
-        "karma": "~6.4.2",
+        "karma": "~6.4.3",
         "karma-chrome-launcher": "~3.2.0",
         "karma-coverage": "~2.2.1",
         "karma-jasmine": "~5.1.0",
         "karma-jasmine-html-reporter": "~2.1.0",
-        "ng-packagr": "^17.2.0",
+        "ng-packagr": "^17.2.1",
         "typescript": "~5.3.3"
     }
 }
