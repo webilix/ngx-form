@@ -7,8 +7,8 @@
     <input matInput type="text" [name]="input.name" [formControl]="control" class="input-hidden" />
 
     <div class="title columns">
-        <div>نام{{ !input.optional ? '*' : '' }}</div>
-        <div>نام خانوادگی{{ !input.optional ? '*' : '' }}</div>
+        <div>نام@if (input.title) { {{ ' ' + input.title }} }{{ !input.optional ? '*' : '' }}</div>
+        <div>نام خانوادگی@if (input.title) { {{ ' ' + input.title }} }{{ !input.optional ? '*' : '' }}</div>
     </div>
     <div class="input columns">
         <input
