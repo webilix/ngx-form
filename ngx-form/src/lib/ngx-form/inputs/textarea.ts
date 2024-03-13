@@ -30,6 +30,13 @@ export interface INgxFormInputTextarea extends INgxFormInput {
     autoHeight?: boolean;
 
     /**
+     * Maximum height if auto-height is actived
+     * @type { number }
+     * @optional
+     */
+    maxHeight?: number;
+
+    /**
      * Textarea input maximum hight
      * @type { number }
      */

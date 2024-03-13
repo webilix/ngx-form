@@ -39,6 +39,6 @@ export class NgxAutoHeightDirective {
 
     private setHeight(value: string): void {
         this.renderer2.setStyle(this.elementRef.nativeElement, 'height', value);
-        this.renderer2.setStyle(this.elementRef.nativeElement, 'overflow', 'hidden');
+        this.renderer2.setStyle(this.elementRef.nativeElement, 'overflow', 'auto');
     }
 }

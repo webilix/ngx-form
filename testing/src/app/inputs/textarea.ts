@@ -21,7 +21,14 @@ export const TextareaInputs: NgxFormRow[] = [
     },
     { name: 'textarea-5', type: 'TEXTAREA', title: 'انگلیسی', english: true },
     { name: 'textarea-6', type: 'TEXTAREA', title: 'تغییر ارتفاع', optional: true, height: 35 },
-    { name: 'textarea-7', type: 'TEXTAREA', title: 'ارتفاع اتوماتیک', optional: true, autoHeight: true },
+    {
+        name: 'textarea-7',
+        type: 'TEXTAREA',
+        title: 'ارتفاع اتوماتیک',
+        optional: true,
+        autoHeight: true,
+        maxHeight: 300,
+    },
     { name: 'textarea-8', type: 'TEXTAREA', title: 'شمارنده تعداد کاراکتر', optional: true, counter: true },
     { name: 'textarea-9', type: 'TEXTAREA', title: 'حداکثر طول متن', optional: true, counter: true, maxLength: 50 },
     {
