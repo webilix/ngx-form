@@ -4,7 +4,7 @@ import { Helper } from '@webilix/helper-library';
 
 import { NgxFormMethods } from '../classes';
 import { INgxFormInput } from '../interfaces';
-import { NgxLengthValidator } from '../validators';
+import { NgxLengthValidator, NgxPatternValidator } from '../validators';
 
 export interface INgxFormInputText extends INgxFormInput {
     type: 'TEXT';
@@ -42,6 +42,19 @@ export interface INgxFormInputText extends INgxFormInput {
     maxLength?: number;
 
     /**
+     * Input value pattern check
+     * @type { Object }
+     * @optional
+     *
+     * @property regex { RegExp } regular expression pattern
+     * @property error { String } custom error message
+     */
+    pattern?: {
+        regex: RegExp;
+        error?: string;
+    };
+
+    /**
      * Show value length counter
      * @type { boolean }
      * @optional false
@@ -58,6 +71,7 @@ export class NgxFormInputTextMethods extends NgxFormMethods<INgxFormInputText, s
             if (minLength && minLength > 0) validators.push(Validators.minLength(minLength));
             if (maxLength && maxLength > 0) validators.push(Validators.maxLength(maxLength));
         }
+        if (input.pattern) validators.push(NgxPatternValidator(input.pattern.regex, input.pattern.error || null));
 
         return new FormControl<string | null>(input.value || null, validators);
     }

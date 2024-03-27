@@ -24,15 +24,30 @@ export const TextInputs: NgxFormRow[] = [
     {
         name: 'text-7',
         type: 'TEXT',
+        title: 'پترن',
+        optional: true,
+        minLength: 3,
+        maxLength: 3,
+        english: true,
+        pattern: {
+            regex: /^[A-Z][A-Z0-9]{2}$/,
+            error: 'فرمت مقدار وارد شده صحبح نیست.',
+        },
+        description:
+            'مقدار باید شامل حروف انگلیسی بزرگ و اعداد انگلیسی باشد.\nمقدار باید با یک حرف انگلیسی بزرگ شروع شده باشد.',
+    },
+    {
+        name: 'text-8',
+        type: 'TEXT',
         title: 'محدودیت تعداد کاراکتر',
         optional: true,
         counter: true,
         minLength: 5,
         maxLength: 20,
     },
-    { name: 'text-8', type: 'TEXT', title: 'دارای پسوند', optional: true, suffix: 'پسوند' },
+    { name: 'text-9', type: 'TEXT', title: 'دارای پسوند', optional: true, suffix: 'پسوند' },
     {
-        name: 'text-9',
+        name: 'text-10',
         type: 'TEXT',
         title: 'دارای کلید اضافه',
         optional: true,
@@ -44,7 +59,7 @@ export const TextInputs: NgxFormRow[] = [
         hint: 'در صورتی که مقدار انگلیسی TEXT باشد کلید اضافه این گزینه غیرفعال می‌شود.',
     },
     {
-        name: 'text-10',
+        name: 'text-11',
         type: 'TEXT',
         title: 'دارای توضیحات',
         optional: true,

@@ -81,6 +81,8 @@ export class NgxErrorPipe implements PipeTransform {
                                 return 'مقدار باید شامل حروف انگلیسی بزرگ باشد.';
                         }
                         return 'کاراکترهای الزامی در کلمه عبور استفاده نشده‌اند.';
+                    case 'TEXT':
+                        return value.error || 'مقدار وارد شده صحیح نیست.';
                     case 'URL':
                         return 'فرمت استاندارد آدرس سایت رعایت نشده است.';
                     case 'USERNAME':
