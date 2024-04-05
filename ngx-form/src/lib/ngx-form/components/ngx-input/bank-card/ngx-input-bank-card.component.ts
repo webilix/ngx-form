@@ -18,6 +18,8 @@ export class NgxInputBankCardComponent implements OnInit {
 
     public bank: string = '';
 
+    public inputTransformFn = (value: any): string => Helper.STRING.changeNumbers(value.toString(), 'EN');
+
     ngOnInit(): void {
         this.setBank(this.input.value || '');
     }

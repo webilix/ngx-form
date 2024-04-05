@@ -1,10 +1,10 @@
 <input
     type="text"
-    [ngxPersianNumber]="true"
     inputmode="numeric"
     [(ngModel)]="mobile"
     [ngClass]="{ en: true, error: error, 'ngx-form-invalid': error }"
     mask="00-000-0000"
+    [inputTransformFn]="inputTransformFn"
     (change)="changed.emit(error ? null : '09' + mobile)"
 />
 <div class="prefix">09</div>

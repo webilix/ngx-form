@@ -1,5 +1,7 @@
 import { Component, EventEmitter, Input, OnChanges, Output, SimpleChange, SimpleChanges } from '@angular/core';
 
+import { Helper } from '@webilix/helper-library';
+
 import { INgxReportInputNumber } from '../../../inputs';
 import { NgxReportInputs, NgxReportOperators } from '../../../ngx-report.type';
 
@@ -19,6 +21,8 @@ export class NgxValueNumberComponent implements OnChanges {
     public numbers: [number | null, number | null] = [null, null];
     public decimal?: boolean;
     public negative?: boolean;
+
+    public inputTransformFn = (value: any): string => Helper.STRING.changeNumbers(value.toString(), 'EN');
 
     ngOnChanges(changes: SimpleChanges): void {
         const change: SimpleChange = changes['operator'];

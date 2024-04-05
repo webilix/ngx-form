@@ -15,10 +15,10 @@
             type="text"
             [name]="input.name"
             [formControl]="control"
-            [ngxPersianNumber]="true"
             [inputMode]="'numeric'"
             class="input-en"
             mask="0000-0000-0000-0000"
+            [inputTransformFn]="inputTransformFn"
             (input)="setBank(bankCardInput.value)"
             [ngxAutoFocus]="!!input.autoFocus"
             #bankCardInput

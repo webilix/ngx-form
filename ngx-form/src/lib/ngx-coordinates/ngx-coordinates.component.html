@@ -31,9 +31,9 @@
                     [class.error]="error === 'LATITUDE'"
                     mask="separator.12"
                     thousandSeparator=""
-                    [specialCharacters]="['.', '-']"
+                    decimalMarker="."
                     [allowNegativeNumbers]="true"
-                    [dropSpecialCharacters]="false"
+                    [inputTransformFn]="inputTransformFn"
                     (keyup.enter)="checkInputs(latitudeInput.value, longitudeInput.value)"
                     (blur)="checkInputs(latitudeInput.value, longitudeInput.value)"
                     #latitudeInput
@@ -50,9 +50,9 @@
                     [class.error]="error === 'LONGITUDE'"
                     mask="separator.12"
                     thousandSeparator=""
-                    [specialCharacters]="['.', '-']"
+                    decimalMarker="."
                     [allowNegativeNumbers]="true"
-                    [dropSpecialCharacters]="false"
+                    [inputTransformFn]="inputTransformFn"
                     (keyup.enter)="checkInputs(latitudeInput.value, longitudeInput.value)"
                     (blur)="checkInputs(latitudeInput.value, longitudeInput.value)"
                     #longitudeInput

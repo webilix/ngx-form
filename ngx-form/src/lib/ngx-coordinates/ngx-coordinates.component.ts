@@ -11,6 +11,8 @@ import OSM from 'ol/source/OSM';
 import VectorSource from 'ol/source/Vector';
 import interactionDoubleClickZoom from 'ol/interaction/DoubleClickZoom';
 
+import { Helper } from '@webilix/helper-library';
+
 import { INgxCoordinates, INgxCoordinatesConfig } from './ngx-coordinates.interface';
 
 @Component({
@@ -24,6 +26,8 @@ export class NgxCoordinatesComponent implements OnInit {
     public coordinates?: INgxCoordinates = this.data.config.value;
 
     public error?: 'LATITUDE' | 'LONGITUDE';
+
+    public inputTransformFn = (value: any): string => Helper.STRING.changeNumbers(value.toString(), 'EN');
 
     constructor(
         @Inject('NGX_FORM_PRIMARY_COLOR') private readonly primaryColor: string,

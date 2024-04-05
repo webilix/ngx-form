@@ -2,6 +2,8 @@ import { Component, Input, OnInit } from '@angular/core';
 import { FormControl } from '@angular/forms';
 import { MatFormFieldAppearance } from '@angular/material/form-field';
 
+import { Helper } from '@webilix/helper-library';
+
 import {
     INgxFormInputDomain,
     INgxFormInputEmail,
@@ -45,6 +47,14 @@ export class NgxInputTextComponent implements OnInit {
 
     public suffixText?: string;
     public suffixLang?: 'EN' | 'FA';
+
+    public inputTransformFn = (value: any): string =>
+        this.input.type === 'IP' ||
+        this.input.type === 'MOBILE' ||
+        this.input.type === 'NATIONAL-CODE' ||
+        this.input.type === 'NUMERIC'
+            ? Helper.STRING.changeNumbers(value.toString(), 'EN')
+            : value.toString();
 
     ngOnInit(): void {
         if (!this.suffix) return;

@@ -5,6 +5,8 @@
     @if (control.invalid) { <mat-error>{{ control.errors | ngxError : input.type }}</mat-error> }
     <!-- HINT -->
     @if (hint) { <mat-hint>{{ hint }}</mat-hint> }
+    <!-- INPUT -->
+    <input matInput type="text" [name]="input.name" [formControl]="control" class="input-hidden" />
     <!-- LTR HINT -->
     @if (hintLTR) { <mat-hint class="ngx-form-hint-ltr" [align]="'end'" [dir]="'ltr'">{{ hintLTR }}</mat-hint> }
 
@@ -12,24 +14,20 @@
         <input
             matInput
             type="text"
-            [name]="input.name"
-            [formControl]="control"
-            [ngxPersianNumber]="true"
-            [isNnumber]="true"
-            [isNegative]="!!negative"
-            [isDecimal]="!!decimal"
+            [ngModel]="control.value?.toString() || ''"
             inputmode="numeric"
             class="input-en"
             [mask]="decimal ? 'separator.3' : 'separator.0'"
             thousandSeparator=","
-            [specialCharacters]="[',', '.', '-']"
+            decimalMarker="."
             [allowNegativeNumbers]="!!negative"
-            [dropSpecialCharacters]="false"
+            [inputTransformFn]="inputTransformFn"
             maxlength="15"
-            (focus)="hintView = 'TEXT'; updateHint()"
-            (blur)="hintView = 'INPUT'; updateHint()"
-            (input)="updateHint()"
+            (focus)="hintView = 'TEXT'; setValue(numberInput.value); updateHint()"
+            (blur)="hintView = 'INPUT'; setValue(numberInput.value); updateHint()"
+            (input)="setValue(numberInput.value); updateHint()"
             [ngxAutoFocus]="!!input.autoFocus"
+            #numberInput
         />
 
         <!-- SUFFIX -->

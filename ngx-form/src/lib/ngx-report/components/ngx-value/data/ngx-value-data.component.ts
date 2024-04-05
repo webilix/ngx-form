@@ -18,6 +18,11 @@ export class NgxValueDataComponent implements OnInit {
     @Input({ required: false }) icon: string = '';
     @Input({ required: false }) mask?: string;
 
+    public inputTransformFn = (value: any): string =>
+        this.input.type === 'BANK-CARD' || this.input.type === 'IP' || this.input.type === 'NATIONAL-CODE'
+            ? Helper.STRING.changeNumbers(value.toString(), 'EN')
+            : value.toString();
+
     get error(): boolean {
         if (!this.input) return false;
 

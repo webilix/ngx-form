@@ -6,8 +6,8 @@
         [readonly]="!!disabled"
         (input)="checkValid(input.value)"
         (keydown.enter)="$event.preventDefault(); checkValue(input)"
-        [ngxPersianNumber]="isNumeric"
         [mask]="mask"
+        [inputTransformFn]="inputTransformFn"
         #input
     />
 

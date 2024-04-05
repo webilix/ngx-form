@@ -16,6 +16,8 @@ export class NgxInputRangeComponent {
     @Input({ required: true }) input!: INgxFormInputRange;
     @Input({ required: true }) appearance!: MatFormFieldAppearance;
 
+    public inputTransformFn = (value: any): string => Helper.STRING.changeNumbers(value.toString(), 'EN');
+
     setRange(min: string, max: string): void {
         const minimum: number | null = min.length === 0 ? null : +min.replace(/,/gi, '');
         const maximum: number | null = max.length === 0 ? null : +max.replace(/,/gi, '');

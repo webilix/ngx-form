@@ -26,8 +26,16 @@ export class NgxInputNumberComponent implements OnInit {
     public hintLTR?: string;
     public hintView: 'INPUT' | 'TEXT' = 'INPUT';
 
+    public inputTransformFn = (value: any): string => Helper.STRING.changeNumbers(value.toString(), 'EN');
+
     ngOnInit(): void {
         this.updateHint();
+    }
+
+    setValue(input: string): void {
+        const value: number | null = input.length === 0 ? null : +input.replace(/,/gi, '');
+        this.control.setValue(Helper.IS.number(value) ? value : null);
+        this.control.markAllAsTouched();
     }
 
     updateHint(): void {

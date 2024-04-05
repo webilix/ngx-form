@@ -2,7 +2,7 @@ import { CommonModule, DecimalPipe } from '@angular/common';
 import { ModuleWithProviders, NgModule } from '@angular/core';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { DragDropModule } from '@angular/cdk/drag-drop';
-import { NgxMaskDirective, provideEnvironmentNgxMask } from 'ngx-mask';
+import { NgxMaskDirective, provideNgxMask } from 'ngx-mask';
 
 import { MatFormFieldAppearance, MatFormFieldModule } from '@angular/material/form-field';
 import { MatInputModule } from '@angular/material/input';
@@ -107,7 +107,7 @@ import { NgxFormComponent } from './ngx-form.component';
         NgxDirectiveModule,
         NgxPipeModule,
     ],
-    providers: [DecimalPipe, provideEnvironmentNgxMask()],
+    providers: [DecimalPipe, provideNgxMask({})],
     exports: [NgxFormComponent],
 })
 export class NgxFormModule {

@@ -18,6 +18,8 @@ export class NgxInputPlateComponent {
 
     public letters: string[] = Helper.PLATE.letters;
 
+    public inputTransformFn = (value: any): string => Helper.STRING.changeNumbers(value.toString(), 'EN');
+
     setPlate(left: string, letter: string, right: string, iran: string): void {
         this.control.setValue([left, letter, right, iran]);
         this.control.markAllAsTouched();

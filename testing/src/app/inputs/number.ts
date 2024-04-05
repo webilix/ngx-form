@@ -22,7 +22,7 @@ export const NumberInputs: NgxFormRow[] = [
         hideOn: (values: INgxFormValues) => values['number-3'] === 0,
         hint: 'در صورتی که مقدار اختیاری 0 باشد این گزینه نمایش داده نمی‌شود.',
     },
-    { name: 'number-8', type: 'NUMBER', title: 'محدودیت مقدار', optional: true, minimum: 10, maximum: 20 },
+    { name: 'number-8', type: 'NUMBER', title: 'محدودیت مقدار', optional: true, minimum: 10, maximum: 2000 },
     { name: 'number-9', type: 'NUMBER', title: 'نمایش حروف', optional: true, text: 'LETTER' },
     {
         name: 'number-10',

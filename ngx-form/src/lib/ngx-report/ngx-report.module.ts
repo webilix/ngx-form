@@ -1,7 +1,7 @@
 import { ModuleWithProviders, NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';
-import { NgxMaskDirective, provideEnvironmentNgxMask } from 'ngx-mask';
+import { NgxMaskDirective, provideNgxMask } from 'ngx-mask';
 
 import { MatButtonModule } from '@angular/material/button';
 import { MatIconModule } from '@angular/material/icon';
@@ -52,7 +52,7 @@ import { NgxReportService } from './ngx-report.service';
         NgxDateModule,
         NgxPipeModule,
     ],
-    providers: [provideEnvironmentNgxMask(), NgxReportService],
+    providers: [NgxReportService, provideNgxMask()],
     exports: [NgxReportComponent],
 })
 export class NgxReportModule {

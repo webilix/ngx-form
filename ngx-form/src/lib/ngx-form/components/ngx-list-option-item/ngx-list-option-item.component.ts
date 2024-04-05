@@ -27,18 +27,20 @@ export class NgxListOptionItemComponent implements OnInit, OnChanges {
 
     public status: 'VIEW' | 'UPDATE' | 'DELETE' = 'VIEW';
 
-    public isNumeric: boolean = false;
     public mask: string = '';
     public suffix: string = '';
     public isValid: boolean = true;
 
-    ngOnInit(): void {
-        this.isNumeric =
-            this.format === 'BANK-CARD' ||
-            this.format === 'MOBILE' ||
-            this.format === 'NATIONAL-CODE' ||
-            this.format === 'NUMERIC';
+    public inputTransformFn = (value: any): string =>
+        this.format === 'BANK-CARD' ||
+        this.format === 'IP' ||
+        this.format === 'MOBILE' ||
+        this.format === 'NATIONAL-CODE' ||
+        this.format === 'NUMERIC'
+            ? Helper.STRING.changeNumbers(value.toString(), 'EN')
+            : value.toString();
 
+    ngOnInit(): void {
         switch (this.format) {
             case 'BANK-CARD':
                 this.mask = '0000-0000-0000-0000';
@@ -50,8 +52,8 @@ export class NgxListOptionItemComponent implements OnInit, OnChanges {
             case 'NATIONAL-CODE':
                 this.mask = '0000000000';
                 break;
-            case 'NATIONAL-CODE':
-                this.mask = '9';
+            case 'NUMERIC':
+                this.mask = '9{100}';
                 break;
         }
     }

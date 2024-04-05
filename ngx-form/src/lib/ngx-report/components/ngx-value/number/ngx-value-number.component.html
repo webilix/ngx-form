@@ -1,18 +1,14 @@
 @for (index of operator === 'BETWEEN' ? [0, 1] : [0]; track $index) {
 <input
     type="text"
-    [ngxPersianNumber]="true"
-    [isNnumber]="true"
-    [isNegative]="!!negative"
-    [isDecimal]="!!decimal"
     inputmode="numeric"
     [(ngModel)]="numbers[index]"
     [ngClass]="{ en: true, error: numbers[index] === null, 'ngx-form-invalid': numbers[index] === null }"
     [mask]="decimal ? 'separator.3' : 'separator.0'"
     thousandSeparator=","
-    [specialCharacters]="[',', '.', '-']"
+    decimalMarker="."
     [allowNegativeNumbers]="!!negative"
-    [dropSpecialCharacters]="false"
+    [inputTransformFn]="inputTransformFn"
     maxlength="15"
     (change)="setNumber(index, $event)"
 />

@@ -18,11 +18,11 @@
             type="text"
             [name]="input.name"
             [formControl]="control"
-            [ngxPersianNumber]="numeric || false"
             [inputMode]="numeric ? 'numeric' : 'text'"
             [maxLength]="maxLength || 524288"
             [ngClass]="{ 'input-en': en }"
             [mask]="mask || ''"
+            [inputTransformFn]="inputTransformFn"
             [ngxAutoFocus]="!!input.autoFocus"
         />
 

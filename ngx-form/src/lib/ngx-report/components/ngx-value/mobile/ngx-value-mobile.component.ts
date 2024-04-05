@@ -21,6 +21,8 @@ export class NgxValueMobileComponent implements OnInit {
         return !Helper.RE.MOBILE.verify('09' + (this.mobile || ''));
     }
 
+    public inputTransformFn = (value: any): string => Helper.STRING.changeNumbers(value.toString(), 'EN');
+
     ngOnInit(): void {
         this.mobile = this.value?.substring(2) || null;
     }
