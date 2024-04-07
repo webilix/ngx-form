@@ -9,6 +9,8 @@ export interface INgxReportOperator {
 export const NgxReportOperatorsInfo: { [key in NgxReportOperators]: INgxReportOperator } = {
     EMPTY: { title: 'بدون مقدار', types: 'ALL', value: false },
     VALUE: { title: 'داری مقدار', types: 'ALL', value: false },
+    TRUE: { title: 'انتخاب شده', types: ['CHECKBOX'], value: false },
+    FALSE: { title: 'انتخاب نشده', types: ['CHECKBOX'], value: false },
     EQ: {
         title: 'برابر با',
         types: ['BANK-CARD', 'DATE', 'DOMAIN', 'EMAIL', 'IP', 'MOBILE', 'NATIONAL-CODE', 'NUMBER', 'TEXT'],

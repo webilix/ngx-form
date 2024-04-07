@@ -34,6 +34,8 @@ export type NgxReportInputs =
 export type NgxReportOperators =
     | 'EMPTY'
     | 'VALUE'
+    | 'TRUE'
+    | 'FALSE'
     | 'EQ'
     | 'NE'
     | 'GT'
