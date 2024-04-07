@@ -23,8 +23,8 @@
             [allowNegativeNumbers]="!!negative"
             [inputTransformFn]="inputTransformFn"
             maxlength="15"
-            (focus)="hintView = 'TEXT'; setValue(numberInput.value); updateHint()"
-            (blur)="hintView = 'INPUT'; setValue(numberInput.value); updateHint()"
+            (focus)="hintView = 'TEXT'; updateHint()"
+            (blur)="hintView = 'INPUT'; updateHint()"
             (input)="setValue(numberInput.value); updateHint()"
             [ngxAutoFocus]="!!input.autoFocus"
             #numberInput
