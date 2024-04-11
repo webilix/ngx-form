@@ -23,12 +23,22 @@
 
 <!-- AUTO COMPLETE -->
 @case ('AUTO-COMPLETE') {
-<ngx-input-auto-complete [control]="control" [input]="input" [appearance]="appearance"></ngx-input-auto-complete>
+<ngx-input-auto-complete
+    [control]="control"
+    [input]="input"
+    [appearance]="appearance"
+    [floatLabel]="floatLabel"
+></ngx-input-auto-complete>
 }
 
 <!-- BANK CARD -->
 @case ('BANK-CARD') {
-<ngx-input-bank-card [control]="control" [input]="input" [appearance]="appearance"></ngx-input-bank-card>
+<ngx-input-bank-card
+    [control]="control"
+    [input]="input"
+    [appearance]="appearance"
+    [floatLabel]="floatLabel"
+></ngx-input-bank-card>
 }
 
 <!-- CHECKBOX -->
@@ -43,12 +53,22 @@
 
 <!-- COORDINATES -->
 @case ('COORDINATES') {
-<ngx-input-coordinates [control]="control" [input]="input" [appearance]="appearance"></ngx-input-coordinates>
+<ngx-input-coordinates
+    [control]="control"
+    [input]="input"
+    [appearance]="appearance"
+    [floatLabel]="floatLabel"
+></ngx-input-coordinates>
 }
 
 <!-- DATE -->
 @case ('DATE') {
-<ngx-input-date [control]="control" [input]="input" [appearance]="appearance"></ngx-input-date>
+<ngx-input-date
+    [control]="control"
+    [input]="input"
+    [appearance]="appearance"
+    [floatLabel]="floatLabel"
+></ngx-input-date>
 }
 
 <!-- DOMAIN -->
@@ -57,6 +77,7 @@
     [control]="control"
     [input]="input"
     [appearance]="appearance"
+    [floatLabel]="floatLabel"
     [icon]="'http'"
     [en]="true"
 ></ngx-input-text>
@@ -68,6 +89,7 @@
     [control]="control"
     [input]="input"
     [appearance]="appearance"
+    [floatLabel]="floatLabel"
     [icon]="'alternate_email'"
     [en]="true"
 ></ngx-input-text>
@@ -75,7 +97,12 @@
 
 <!-- FILE -->
 @case ('FILE') {
-<ngx-input-file [control]="control" [input]="input" [appearance]="appearance"></ngx-input-file>
+<ngx-input-file
+    [control]="control"
+    [input]="input"
+    [appearance]="appearance"
+    [floatLabel]="floatLabel"
+></ngx-input-file>
 }
 
 <!-- IP -->
@@ -84,6 +111,7 @@
     [control]="control"
     [input]="input"
     [appearance]="appearance"
+    [floatLabel]="floatLabel"
     [icon]="'language'"
     [en]="true"
 ></ngx-input-text>
@@ -96,7 +124,12 @@
 
 <!-- LIST -->
 @case ('LIST') {
-<ngx-input-list [control]="control" [input]="input" [appearance]="appearance"></ngx-input-list>
+<ngx-input-list
+    [control]="control"
+    [input]="input"
+    [appearance]="appearance"
+    [floatLabel]="floatLabel"
+></ngx-input-list>
 }
 
 <!-- MASK -->
@@ -105,6 +138,7 @@
     [control]="control"
     [input]="input"
     [appearance]="appearance"
+    [floatLabel]="floatLabel"
     [icon]="input.icon || 'password'"
     [en]="true"
     [numeric]="true"
@@ -118,6 +152,7 @@
     [control]="control"
     [input]="input"
     [appearance]="appearance"
+    [floatLabel]="floatLabel"
     [icon]="'smartphone'"
     [en]="true"
     [numeric]="true"
@@ -133,7 +168,12 @@
 
 <!-- MULTI-SELECT -->
 @case ('MULTI-SELECT') {
-<ngx-input-multi-select [control]="control" [input]="input" [appearance]="appearance"></ngx-input-multi-select>
+<ngx-input-multi-select
+    [control]="control"
+    [input]="input"
+    [appearance]="appearance"
+    [floatLabel]="floatLabel"
+></ngx-input-multi-select>
 }
 
 <!-- NAME -->
@@ -147,6 +187,7 @@
     [control]="control"
     [input]="input"
     [appearance]="appearance"
+    [floatLabel]="floatLabel"
     [icon]="'badge'"
     [en]="true"
     [numeric]="true"
@@ -160,6 +201,7 @@
     [control]="control"
     [input]="input"
     [appearance]="appearance"
+    [floatLabel]="floatLabel"
     [suffix]="input.suffix"
     [icon]="'numbers'"
     [negative]="input.negative"
@@ -174,6 +216,7 @@
     [control]="control"
     [input]="input"
     [appearance]="appearance"
+    [floatLabel]="floatLabel"
     [icon]="'tag'"
     [en]="true"
     [numeric]="true"
@@ -184,12 +227,22 @@
 
 <!-- OPTION LIST -->
 @case ( 'OPTION-LIST') {
-<ngx-input-option-list [control]="control" [input]="input" [appearance]="appearance"></ngx-input-option-list>
+<ngx-input-option-list
+    [control]="control"
+    [input]="input"
+    [appearance]="appearance"
+    [floatLabel]="floatLabel"
+></ngx-input-option-list>
 }
 
 <!-- PASSWORD -->
 @case ('PASSWORD') {
-<ngx-input-password [control]="control" [input]="input" [appearance]="appearance"></ngx-input-password>
+<ngx-input-password
+    [control]="control"
+    [input]="input"
+    [appearance]="appearance"
+    [floatLabel]="floatLabel"
+></ngx-input-password>
 }
 
 <!-- PERIOD -->
@@ -208,6 +261,7 @@
     [control]="control"
     [input]="input"
     [appearance]="appearance"
+    [floatLabel]="floatLabel"
     [suffix]="input.currency"
     [negative]="false"
     [decimal]="false"
@@ -222,12 +276,17 @@
 
 <!-- SELECT -->
 @case ('SELECT') {
-<ngx-input-select [control]="control" [input]="input" [appearance]="appearance"></ngx-input-select>
+<ngx-input-select
+    [control]="control"
+    [input]="input"
+    [appearance]="appearance"
+    [floatLabel]="floatLabel"
+></ngx-input-select>
 }
 
 <!-- TAG -->
 @case ('TAG') {
-<ngx-input-tag [control]="control" [input]="input" [appearance]="appearance"></ngx-input-tag>
+<ngx-input-tag [control]="control" [input]="input" [appearance]="appearance" [floatLabel]="floatLabel"></ngx-input-tag>
 }
 
 <!-- TEXT -->
@@ -236,6 +295,7 @@
     [control]="control"
     [input]="input"
     [appearance]="appearance"
+    [floatLabel]="floatLabel"
     [en]="!!input.english"
     [suffix]="input.suffix"
     [maxLength]="input.maxLength"
@@ -245,7 +305,12 @@
 
 <!-- TEXTAREA -->
 @case ('TEXTAREA') {
-<ngx-input-textarea [control]="control" [input]="input" [appearance]="appearance"></ngx-input-textarea>
+<ngx-input-textarea
+    [control]="control"
+    [input]="input"
+    [appearance]="appearance"
+    [floatLabel]="floatLabel"
+></ngx-input-textarea>
 }
 
 <!-- TIME -->
@@ -259,6 +324,7 @@
     [control]="control"
     [input]="input"
     [appearance]="appearance"
+    [floatLabel]="floatLabel"
     [icon]="'link'"
     [en]="true"
 ></ngx-input-text>
@@ -270,6 +336,7 @@
     [control]="control"
     [input]="input"
     [appearance]="appearance"
+    [floatLabel]="floatLabel"
     [icon]="'person'"
     [en]="true"
 ></ngx-input-text>

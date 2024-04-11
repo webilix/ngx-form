@@ -1,6 +1,7 @@
 import { ThemePalette } from '@angular/material/core';
 
 import { INgxFormValues } from '../ngx-form.interface';
+import { FloatLabelType } from '@angular/material/form-field';
 
 interface INgxFormInputButton {
     /**
@@ -101,6 +102,14 @@ export interface INgxFormInput {
      * @optional
      */
     autoFocus?: boolean;
+
+    /**
+     * Input label floating style
+     * @type { FloatLabelType }
+     * @enum  'always', 'auto'
+     * @optional 'auto'
+     */
+    floatLabel?: FloatLabelType;
 
     /**
      * Input disable callback on form value changes

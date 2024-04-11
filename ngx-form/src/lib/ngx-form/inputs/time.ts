@@ -5,7 +5,7 @@ import { Helper } from '@webilix/helper-library';
 import { NgxFormMethods } from '../classes';
 import { INgxFormInput } from '../interfaces';
 
-export interface INgxFormInputTime extends Omit<INgxFormInput, 'english' | 'autoFocus'> {
+export interface INgxFormInputTime extends Omit<INgxFormInput, 'english' | 'autoFocus' | 'floatLabel'> {
     type: 'TIME';
 
     /**

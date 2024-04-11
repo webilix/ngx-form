@@ -6,7 +6,7 @@ import { NgxFormMethods } from '../classes';
 import { INgxFormInput } from '../interfaces';
 import { NgxPlateValidator } from '../validators';
 
-export interface INgxFormInputPlate extends Omit<INgxFormInput, 'english' | 'value'> {
+export interface INgxFormInputPlate extends Omit<INgxFormInput, 'english' | 'value' | 'floatLabel'> {
     type: 'PLATE';
 
     /**

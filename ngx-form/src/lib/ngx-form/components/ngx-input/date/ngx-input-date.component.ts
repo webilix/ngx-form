@@ -1,6 +1,6 @@
 import { Component, Input, OnInit } from '@angular/core';
 import { FormControl } from '@angular/forms';
-import { MatFormFieldAppearance } from '@angular/material/form-field';
+import { FloatLabelType, MatFormFieldAppearance } from '@angular/material/form-field';
 
 import { JalaliDateTime } from '@webilix/jalali-date-time';
 
@@ -17,6 +17,7 @@ export class NgxInputDateComponent implements OnInit {
     @Input({ required: true }) control!: FormControl;
     @Input({ required: true }) input!: INgxFormInputDate;
     @Input({ required: true }) appearance!: MatFormFieldAppearance;
+    @Input({ required: true }) floatLabel!: FloatLabelType;
 
     public hours: string[] = [...Array(24).keys()].map((index: number) => index.toString().padStart(2, '0'));
     public hour: string = '';

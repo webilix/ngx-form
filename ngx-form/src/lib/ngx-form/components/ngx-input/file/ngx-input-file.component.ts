@@ -1,6 +1,6 @@
 import { Component, Input } from '@angular/core';
 import { FormControl } from '@angular/forms';
-import { MatFormFieldAppearance } from '@angular/material/form-field';
+import { FloatLabelType, MatFormFieldAppearance } from '@angular/material/form-field';
 
 import { INgxFormInputFile } from '../../../inputs';
 
@@ -13,6 +13,7 @@ export class NgxInputFileComponent {
     @Input({ required: true }) control!: FormControl;
     @Input({ required: true }) input!: INgxFormInputFile;
     @Input({ required: true }) appearance!: MatFormFieldAppearance;
+    @Input({ required: true }) floatLabel!: FloatLabelType;
 
     public file: File | null = null;
 

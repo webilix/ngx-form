@@ -10,7 +10,7 @@ import {
     ViewChild,
 } from '@angular/core';
 import { FormGroup, NgForm, ValidatorFn, Validators } from '@angular/forms';
-import { MatFormFieldAppearance } from '@angular/material/form-field';
+import { FloatLabelType, MatFormFieldAppearance } from '@angular/material/form-field';
 import { NgxMaskService } from 'ngx-mask';
 
 import { Helper } from '@webilix/helper-library';
@@ -34,6 +34,7 @@ export class NgxFormComponent implements OnInit, OnChanges {
 
     public formGroup: FormGroup = new FormGroup({});
     protected appearance: MatFormFieldAppearance = this.ngxAppearance;
+    protected floatLabel: FloatLabelType = 'auto';
     protected rows: (string | { input: NgxFormInputs; flex: number }[])[] = [];
     protected inputValues: INgxFormValues = {};
     protected hiddenInputs: string[] = [];
@@ -58,6 +59,9 @@ export class NgxFormComponent implements OnInit, OnChanges {
             if (autoFocus || input.disableOn || input.hideOn) input.autoFocus = false;
             else autoFocus = true;
         });
+
+        // Default floatLabel
+        this.floatLabel = this.ngxForm.floatLabel || 'auto';
 
         this.formGroup.valueChanges.subscribe({
             next: () => {

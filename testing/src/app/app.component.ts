@@ -130,6 +130,7 @@ export class AppComponent implements OnInit {
         inputs: [],
         buttons: [{ title: 'ریست کردن فرم', action: this.resetValues.bind(this) }],
         appearance: 'fill',
+        floatLabel: 'always',
     };
 
     public types: { type: string; title: string; rows: NgxFormRow[] }[] = [

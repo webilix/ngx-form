@@ -1,7 +1,7 @@
 import { CdkDragDrop, moveItemInArray } from '@angular/cdk/drag-drop';
 import { Component, Input, OnInit } from '@angular/core';
 import { FormControl } from '@angular/forms';
-import { MatFormFieldAppearance } from '@angular/material/form-field';
+import { FloatLabelType, MatFormFieldAppearance } from '@angular/material/form-field';
 
 import { INgxFormInputList } from '../../../inputs';
 
@@ -14,6 +14,7 @@ export class NgxInputListComponent implements OnInit {
     @Input({ required: true }) control!: FormControl;
     @Input({ required: true }) input!: INgxFormInputList;
     @Input({ required: true }) appearance!: MatFormFieldAppearance;
+    @Input({ required: true }) floatLabel!: FloatLabelType;
 
     public values: string[] = [];
 

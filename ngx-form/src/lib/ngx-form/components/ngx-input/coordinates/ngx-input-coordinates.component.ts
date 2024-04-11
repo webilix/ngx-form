@@ -1,6 +1,6 @@
 import { Component, Input } from '@angular/core';
 import { FormControl } from '@angular/forms';
-import { MatFormFieldAppearance } from '@angular/material/form-field';
+import { FloatLabelType, MatFormFieldAppearance } from '@angular/material/form-field';
 
 import { INgxCoordinates, INgxCoordinatesConfig, NgxCoordinatesService } from '../../../../ngx-coordinates';
 
@@ -15,6 +15,7 @@ export class NgxInputCoordinatesComponent {
     @Input({ required: true }) control!: FormControl;
     @Input({ required: true }) input!: INgxFormInputCoordinates;
     @Input({ required: true }) appearance!: MatFormFieldAppearance;
+    @Input({ required: true }) floatLabel!: FloatLabelType;
 
     constructor(private readonly ngxCoordinatesService: NgxCoordinatesService) {}
 

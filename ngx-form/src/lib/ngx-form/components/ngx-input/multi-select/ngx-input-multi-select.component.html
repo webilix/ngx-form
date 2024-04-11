@@ -1,4 +1,7 @@
-<mat-form-field [appearance]="appearance" [floatLabel]="input.view === 'SELECT' ? 'auto' : 'always'">
+<mat-form-field
+    [appearance]="appearance"
+    [floatLabel]="input.view === 'SELECT' ? input.floatLabel || floatLabel : 'always'"
+>
     <!-- LABEL  -->
     @if (groups.length === 0 && !input.selectButtons) {
     <mat-label>{{ input.title + (input.minCount ? ' *' : '') }}</mat-label>

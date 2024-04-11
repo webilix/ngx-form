@@ -6,7 +6,7 @@ import { NgxFormMethods } from '../classes';
 import { INgxFormInput } from '../interfaces';
 import { NgxMaxDateValidator, NgxMinDateValidator, NgxPeriodValidator } from '../validators';
 
-export interface INgxFormInputPeriod extends Omit<INgxFormInput, 'english' | 'value' | 'autoFocus'> {
+export interface INgxFormInputPeriod extends Omit<INgxFormInput, 'english' | 'value' | 'autoFocus' | 'floatLabel'> {
     type: 'PERIOD';
 
     /**

@@ -1,4 +1,4 @@
-import { MatFormFieldAppearance } from '@angular/material/form-field';
+import { FloatLabelType, MatFormFieldAppearance } from '@angular/material/form-field';
 
 import { INgxFormButton } from './interfaces';
 import { NgxFormInputs } from './ngx-form.type';
@@ -42,6 +42,14 @@ export interface INgxForm {
      * @optional 'fill'
      */
     appearance?: MatFormFieldAppearance;
+
+    /**
+     * Input label floating style
+     * @type { FloatLabelType }
+     * @enum  'always', 'auto'
+     * @optional 'auto'
+     */
+    floatLabel?: FloatLabelType;
 }
 
 /**

@@ -1,6 +1,6 @@
 import { Component, Input, OnInit } from '@angular/core';
 import { FormControl, FormGroup } from '@angular/forms';
-import { MatFormFieldAppearance } from '@angular/material/form-field';
+import { FloatLabelType, MatFormFieldAppearance } from '@angular/material/form-field';
 
 import { NgxFormInputs } from '../../ngx-form.type';
 
@@ -13,6 +13,7 @@ export class NgxInputComponent implements OnInit {
     @Input({ required: true }) group!: FormGroup;
     @Input({ required: true }) input!: NgxFormInputs;
     @Input({ required: true }) appearance!: MatFormFieldAppearance;
+    @Input({ required: true }) floatLabel!: FloatLabelType;
 
     public control?: FormControl;
 

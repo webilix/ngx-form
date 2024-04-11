@@ -1,6 +1,6 @@
 import { AfterViewInit, Component, Input, OnInit, ViewChild } from '@angular/core';
 import { FormControl } from '@angular/forms';
-import { MatFormFieldAppearance } from '@angular/material/form-field';
+import { FloatLabelType, MatFormFieldAppearance } from '@angular/material/form-field';
 
 import { INgxFormInputSelect } from '../../../inputs';
 import { INgxFormOption, INgxFormOptionGroup } from '../../../interfaces';
@@ -15,6 +15,7 @@ export class NgxInputSelectComponent implements OnInit, AfterViewInit {
     @Input({ required: true }) control!: FormControl;
     @Input({ required: true }) input!: INgxFormInputSelect;
     @Input({ required: true }) appearance!: MatFormFieldAppearance;
+    @Input({ required: true }) floatLabel!: FloatLabelType;
 
     @ViewChild('multiSelectInput') multiSelectInput?: MatSelect;
 

@@ -1,4 +1,4 @@
-<mat-form-field [appearance]="appearance">
+<mat-form-field [appearance]="appearance" [floatLabel]="input.floatLabel || floatLabel">
     <!-- LABEL -->
     <mat-label>{{ input.title + (input.minCount ? ' *' : '') }}</mat-label>
     <!-- ERROR  -->

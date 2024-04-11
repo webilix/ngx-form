@@ -1,6 +1,6 @@
 import { Component, Input, OnInit } from '@angular/core';
 import { FormControl } from '@angular/forms';
-import { MatFormFieldAppearance } from '@angular/material/form-field';
+import { FloatLabelType, MatFormFieldAppearance } from '@angular/material/form-field';
 import { map, Observable, startWith } from 'rxjs';
 
 import { INgxFormInputAutoComplete } from '../../../inputs';
@@ -14,6 +14,7 @@ export class NgxInputAutoCompleteComponent implements OnInit {
     @Input({ required: true }) control!: FormControl;
     @Input({ required: true }) input!: INgxFormInputAutoComplete;
     @Input({ required: true }) appearance!: MatFormFieldAppearance;
+    @Input({ required: true }) floatLabel!: FloatLabelType;
 
     public filtered: Observable<string[]> = new Observable<string[]>();
 

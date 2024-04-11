@@ -1,6 +1,6 @@
 import { Component, Input, OnInit } from '@angular/core';
 import { FormControl } from '@angular/forms';
-import { MatFormFieldAppearance } from '@angular/material/form-field';
+import { FloatLabelType, MatFormFieldAppearance } from '@angular/material/form-field';
 
 import { Helper } from '@webilix/helper-library';
 
@@ -15,6 +15,7 @@ export class NgxInputNumberComponent implements OnInit {
     @Input({ required: true }) control!: FormControl;
     @Input({ required: true }) input!: INgxFormInputNumber | INgxFormInputPrice;
     @Input({ required: true }) appearance!: MatFormFieldAppearance;
+    @Input({ required: true }) floatLabel!: FloatLabelType;
 
     @Input({ required: false }) icon?: string;
     @Input({ required: false }) suffix?: string;
