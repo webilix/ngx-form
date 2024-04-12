@@ -26,6 +26,7 @@ export class NgxInputNumberComponent implements OnInit {
     public hint?: string = this.input?.hint;
     public hintLTR?: string;
     public hintView: 'INPUT' | 'TEXT' = 'INPUT';
+    public isFocused: boolean = false;
 
     public inputTransformFn = (value: any): string => Helper.STRING.changeNumbers(value.toString(), 'EN');
 

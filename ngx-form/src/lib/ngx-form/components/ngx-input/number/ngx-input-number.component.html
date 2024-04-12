@@ -1,4 +1,4 @@
-<mat-form-field [appearance]="appearance" [floatLabel]="input.floatLabel || floatLabel">
+<mat-form-field [appearance]="appearance" [floatLabel]="isFocused ? 'always' : input.floatLabel || floatLabel">
     <!-- LABEL -->
     <mat-label>{{ input.title }}</mat-label>
     <!-- ERROR  -->
@@ -23,8 +23,8 @@
             [allowNegativeNumbers]="!!negative"
             [inputTransformFn]="inputTransformFn"
             maxlength="15"
-            (focus)="hintView = 'TEXT'; updateHint()"
-            (blur)="hintView = 'INPUT'; updateHint()"
+            (focus)="hintView = 'TEXT'; isFocused = true; updateHint()"
+            (blur)="hintView = 'INPUT'; isFocused = false; updateHint()"
             (input)="setValue(numberInput.value); updateHint()"
             [ngxAutoFocus]="!!input.autoFocus"
             #numberInput
