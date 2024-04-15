@@ -54,10 +54,10 @@ export interface INgxFormInputNumber extends Omit<INgxFormInput, 'english' | 'va
 
     /**
      * Accept decimal values
-     * @type { boolean }
+     * @type { boolean | number }
      * @optional false
      */
-    decimal?: boolean;
+    decimal?: boolean | number;
 
     /**
      * Hint text (shown on focus)

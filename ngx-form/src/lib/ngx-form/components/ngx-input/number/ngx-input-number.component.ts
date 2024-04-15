@@ -20,7 +20,7 @@ export class NgxInputNumberComponent implements OnInit {
     @Input({ required: false }) icon?: string;
     @Input({ required: false }) suffix?: string;
     @Input({ required: false }) negative?: boolean;
-    @Input({ required: false }) decimal?: boolean;
+    @Input({ required: false }) decimal?: boolean | number;
     @Input({ required: false }) text?: 'LETTER' | 'HOUR' | 'MINUTE' | 'SECOND';
 
     public hint?: string = this.input?.hint;

@@ -17,7 +17,13 @@
             [ngModel]="control.value?.toString() || ''"
             inputmode="numeric"
             class="input-en"
-            [mask]="decimal ? 'separator.3' : 'separator.0'"
+            [mask]="
+                decimal === true
+                    ? 'separator.3'
+                    : !!decimal && decimal > 0
+                    ? 'separator.' + decimal.toString()
+                    : 'separator.0'
+            "
             thousandSeparator=","
             decimalMarker="."
             [allowNegativeNumbers]="!!negative"
