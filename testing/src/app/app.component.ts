@@ -199,6 +199,7 @@ export class AppComponent implements OnInit {
                 'بررسی شیوه نمایش توضیحات در گزینه‌های فرم' +
                 '\n' +
                 'امکان استفاده از دستورات HTML در توضیحات گزینه‌های فرم وجود ندارد اما توضیحات می‌تواند به صورت چند خطی مشخص شده باشد.',
+            button: { icon: 'add', click: () => console.log('EXTRA BUTTON') },
         };
 
         const section: string = 'هدر بخش‌های فرم';
