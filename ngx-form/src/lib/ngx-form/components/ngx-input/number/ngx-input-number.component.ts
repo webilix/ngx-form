@@ -27,10 +27,13 @@ export class NgxInputNumberComponent implements OnInit {
     public hintLTR?: string;
     public hintView: 'INPUT' | 'TEXT' = 'INPUT';
     public isFocused: boolean = false;
+    public maxLength: number = 15;
 
     public inputTransformFn = (value: any): string => Helper.STRING.changeNumbers(value.toString(), 'EN');
 
     ngOnInit(): void {
+        if (this.input.maximum) this.maxLength = Helper.NUMBER.format(this.input.maximum, 'EN').length;
+
         this.updateHint();
     }
 

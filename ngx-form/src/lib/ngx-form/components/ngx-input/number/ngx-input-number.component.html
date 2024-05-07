@@ -28,7 +28,7 @@
             decimalMarker="."
             [allowNegativeNumbers]="!!negative"
             [inputTransformFn]="inputTransformFn"
-            maxlength="15"
+            [maxlength]="maxLength"
             (focus)="hintView = 'TEXT'; isFocused = true; updateHint()"
             (blur)="hintView = 'INPUT'; isFocused = false; updateHint()"
             (input)="setValue(numberInput.value); updateHint()"
