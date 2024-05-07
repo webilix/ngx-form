@@ -2,6 +2,7 @@ import { FormControl, ValidatorFn } from '@angular/forms';
 
 import { NgxFormMethods } from '../classes';
 import { INgxFormInput } from '../interfaces';
+import { INgxFormValues } from '../ngx-form.interface';
 
 export interface INgxFormInputComment
     extends Omit<INgxFormInput, 'name' | 'optional' | 'autoFocus' | 'disableOn' | 'hideOn'> {
@@ -22,6 +23,15 @@ export interface INgxFormInputComment
      * **NOTE:** Comment values will be omitted in form input values
      */
     value: string;
+
+    /**
+     * Input value update callback on form value changes
+     * @type { function(INgxFormValues): string | null }
+     * @param { INgxFormValues } values key => value object of form inputs
+     * @returns string | null
+     * @optional
+     */
+    onChange?: (values: INgxFormValues) => string | null;
 }
 
 export class NgxFormInputCommentMethods extends NgxFormMethods<INgxFormInputComment, string | null> {

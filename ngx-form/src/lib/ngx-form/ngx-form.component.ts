@@ -188,10 +188,18 @@ export class NgxFormComponent implements OnInit, OnChanges {
 
     protected getValues(): INgxFormValues {
         const values: INgxFormValues = {};
-        this.getInputs().forEach((input: NgxFormInputs) => {
+        const inputs: NgxFormInputs[] = this.getInputs();
+
+        inputs.forEach((input: NgxFormInputs) => {
             if (input.type === 'COMMENT') return;
             values[input.name] = this.formGroup.get(input.name)?.errors === null ? this.getValue(input) : null;
         });
+
+        // COMMENT input onChange
+        inputs.forEach((input: NgxFormInputs) => {
+            if (input.type === 'COMMENT' && input.onChange) input.value = input.onChange(values) || '';
+        });
+
         return values;
     }
 
