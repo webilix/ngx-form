@@ -32,7 +32,8 @@ export class NgxInputNumberComponent implements OnInit {
     public inputTransformFn = (value: any): string => Helper.STRING.changeNumbers(value.toString(), 'EN');
 
     ngOnInit(): void {
-        if (this.input.maximum) this.maxLength = Helper.NUMBER.format(this.input.maximum, 'EN').length;
+        if (!this.decimal && !this.negative && this.input.maximum)
+            this.maxLength = Helper.NUMBER.format(this.input.maximum, 'EN').length;
 
         this.updateHint();
     }
