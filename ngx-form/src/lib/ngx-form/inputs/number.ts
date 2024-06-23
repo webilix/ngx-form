@@ -65,6 +65,13 @@ export interface INgxFormInputNumber extends Omit<INgxFormInput, 'english' | 'va
      * @optional
      */
     text?: 'LETTER' | 'HOUR' | 'MINUTE' | 'SECOND';
+
+    /**
+     * Hide default icon
+     * @type { boolean }
+     * @optional false
+     */
+    hideIcon?: boolean;
 }
 
 export class NgxFormInputNumberMethods extends NgxFormMethods<INgxFormInputNumber, number | null> {
