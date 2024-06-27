@@ -7,6 +7,15 @@
     left: 1rem;
 }
 
+:host ::ng-deep .mat-mdc-slide-toggle {
+    width: 100%;
+    padding: 1rem 0.75rem !important;
+}
+
+:host ::ng-deep mat-slide-toggle label.mdc-label {
+    padding: 0 0.5rem !important;
+}
+
 .ngx-form-en {
     ::ng-deep .mdc-form-field {
         position: relative;

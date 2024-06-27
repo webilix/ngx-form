@@ -42,4 +42,5 @@ export const CheckboxInputs: NgxFormRow[] = [
             '\n' +
             'امکان استفاده از دستورات HTML در توضیحات گزینه‌های فرم وجود ندارد اما توضیحات می‌تواند به صورت چند خطی مشخص شده باشد.',
     },
+    { name: 'checkbox-8', type: 'CHECKBOX', message: 'نمایش اسلایدر', view: 'SLIDER' },
 ];

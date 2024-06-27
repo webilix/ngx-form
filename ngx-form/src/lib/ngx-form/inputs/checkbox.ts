@@ -19,6 +19,14 @@ export interface INgxFormInputCheckbox
      * @optional
      */
     value?: boolean;
+
+    /**
+     * Input view method
+     * @type { string }
+     * @enum 'CHECKBOX', 'SLIDER'
+     * @optional CHECKBOX
+     */
+    view?: 'CHECKBOX' | 'SLIDER';
 }
 
 export class NgxFormInputCheckboxMethods extends NgxFormMethods<INgxFormInputCheckbox, boolean | null> {

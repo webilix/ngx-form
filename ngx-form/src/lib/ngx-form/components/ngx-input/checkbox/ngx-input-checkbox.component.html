@@ -6,6 +6,18 @@
     <!-- INPUT -->
     <input matInput type="text" [name]="input.name" [formControl]="control" class="input-hidden" />
 
+    @if (input.view === 'SLIDER') {
+
+    <mat-slide-toggle
+        color="primary"
+        [ngClass]="{ 'ngx-form-en': !!input.english, 'ngx-form-disabled': !!control.disabled }"
+        [checked]="!!control.value"
+        (change)="control.setValue($event.checked)"
+        [disabled]="control.disabled"
+    >
+        {{ input.message }}
+    </mat-slide-toggle>
+    } @else {
     <mat-checkbox
         color="primary"
         [ngClass]="{ 'ngx-form-en': !!input.english, 'ngx-form-disabled': !!control.disabled }"
@@ -14,6 +26,7 @@
     >
         {{ input.message }}
     </mat-checkbox>
+    }
 
     <!-- DESCRIPTION -->
     @if (input.description) {
