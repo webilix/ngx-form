@@ -5,7 +5,8 @@ import { Helper } from '@webilix/helper-library';
 import { NgxFormMethods } from '../classes';
 import { INgxFormCoordinates, INgxFormInput } from '../interfaces';
 
-export interface INgxFormInputCoordinates extends Omit<INgxFormInput, 'english' | 'value' | 'autoFocus'> {
+export interface INgxFormInputCoordinates
+    extends Omit<INgxFormInput, 'id' | 'english' | 'value' | 'autoFocus' | 'keyboard'> {
     type: 'COORDINATES';
 
     /**

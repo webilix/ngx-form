@@ -5,7 +5,8 @@ import { Helper } from '@webilix/helper-library';
 import { NgxFormMethods } from '../classes';
 import { INgxFormInput } from '../interfaces';
 
-export interface INgxFormInputIcon extends Omit<INgxFormInput, 'english' | 'autoFocus' | 'floatLabel'> {
+export interface INgxFormInputIcon
+    extends Omit<INgxFormInput, 'id' | 'english' | 'autoFocus' | 'floatLabel' | 'keyboard'> {
     type: 'ICON';
 
     /**

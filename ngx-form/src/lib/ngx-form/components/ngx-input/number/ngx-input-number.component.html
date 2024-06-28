@@ -14,6 +14,8 @@
         <input
             matInput
             type="text"
+            [name]="input.name"
+            [id]="input.id || ''"
             [ngModel]="control.value?.toString() || ''"
             inputmode="numeric"
             class="input-en"
@@ -34,6 +36,9 @@
             (input)="setValue(numberInput.value); updateHint()"
             [ngxAutoFocus]="!!input.autoFocus"
             #numberInput
+            (keypress)="input.keyboard && input.keyboard.press !== undefined ? input.keyboard.press($event) : null"
+            (keydown)="input.keyboard && input.keyboard.down !== undefined ? input.keyboard.down($event) : null"
+            (keyup)="input.keyboard && input.keyboard.up !== undefined ? input.keyboard.up($event) : null"
         />
 
         <!-- SUFFIX -->

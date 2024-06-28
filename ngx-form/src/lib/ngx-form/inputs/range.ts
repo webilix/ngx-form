@@ -6,7 +6,8 @@ import { NgxFormMethods } from '../classes';
 import { INgxFormInput } from '../interfaces';
 import { NgxRangeValidator } from '../validators';
 
-export interface INgxFormInputRange extends Omit<INgxFormInput, 'english' | 'value' | 'floatLabel'> {
+export interface INgxFormInputRange
+    extends Omit<INgxFormInput, 'id' | 'english' | 'value' | 'floatLabel' | 'keyboard'> {
     type: 'RANGE';
 
     /**

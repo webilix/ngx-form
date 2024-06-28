@@ -6,7 +6,8 @@ import { NgxFormMethods } from '../classes';
 import { INgxFormInput } from '../interfaces';
 import { NgxMaxCountValidator, NgxMinCountValidator } from '../validators';
 
-export interface INgxFormInputTag extends Omit<INgxFormInput, 'english' | 'value' | 'optional' | 'autoFocus'> {
+export interface INgxFormInputTag
+    extends Omit<INgxFormInput, 'id' | 'english' | 'value' | 'optional' | 'autoFocus' | 'keyboard'> {
     type: 'TAG';
 
     /**

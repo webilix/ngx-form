@@ -4,7 +4,7 @@ import { NgxFormMethods } from '../classes';
 import { INgxFormInput } from '../interfaces';
 
 export interface INgxFormInputCheckbox
-    extends Omit<INgxFormInput, 'title' | 'value' | 'optional' | 'autoFocus' | 'floatLabel'> {
+    extends Omit<INgxFormInput, 'id' | 'title' | 'value' | 'optional' | 'autoFocus' | 'floatLabel' | 'keyboard'> {
     type: 'CHECKBOX';
 
     /**

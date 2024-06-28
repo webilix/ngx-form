@@ -5,7 +5,7 @@ import { Helper } from '@webilix/helper-library';
 import { NgxFormMethods } from '../classes';
 import { INgxFormInput, INgxFormName } from '../interfaces';
 
-export interface INgxFormInputName extends Omit<INgxFormInput, 'value' | 'english' | 'floatLabel'> {
+export interface INgxFormInputName extends Omit<INgxFormInput, 'id' | 'value' | 'english' | 'floatLabel' | 'keyboard'> {
     type: 'NAME';
 
     /**

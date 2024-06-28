@@ -5,7 +5,7 @@ import { INgxFormInput } from '../interfaces';
 import { INgxFormValues } from '../ngx-form.interface';
 
 export interface INgxFormInputComment
-    extends Omit<INgxFormInput, 'name' | 'optional' | 'autoFocus' | 'disableOn' | 'hideOn'> {
+    extends Omit<INgxFormInput, 'name' | 'id' | 'optional' | 'autoFocus' | 'keyboard' | 'disableOn' | 'hideOn'> {
     type: 'COMMENT';
 
     /**

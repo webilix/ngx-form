@@ -17,6 +17,7 @@
             matInput
             type="text"
             [name]="input.name"
+            [id]="input.id || ''"
             [formControl]="control"
             [inputMode]="numeric ? 'numeric' : 'text'"
             [maxLength]="maxLength || 524288"
@@ -24,6 +25,9 @@
             [mask]="mask || ''"
             [inputTransformFn]="inputTransformFn"
             [ngxAutoFocus]="!!input.autoFocus"
+            (keypress)="input.keyboard && input.keyboard.press !== undefined ? input.keyboard.press($event) : null"
+            (keydown)="input.keyboard && input.keyboard.down !== undefined ? input.keyboard.down($event) : null"
+            (keyup)="input.keyboard && input.keyboard.up !== undefined ? input.keyboard.up($event) : null"
         />
 
         <!-- SUFFIX -->

@@ -47,6 +47,13 @@ export interface INgxFormInput {
     name: string;
 
     /**
+     * Input id
+     * @type { string }
+     * @optional
+     */
+    id?: string;
+
+    /**
      * Input caption copyright text
      * @type { string }
      * @optional
@@ -110,6 +117,17 @@ export interface INgxFormInput {
      * @optional 'auto'
      */
     floatLabel?: FloatLabelType;
+
+    /**
+     * Keyboard event options (Press / Up / DOwn)
+     * @type { Object }
+     * @optional
+     */
+    keyboard?: {
+        down?: (event: KeyboardEvent) => void;
+        press?: (event: KeyboardEvent) => void;
+        up?: (event: KeyboardEvent) => void;
+    };
 
     /**
      * Input disable callback on form value changes

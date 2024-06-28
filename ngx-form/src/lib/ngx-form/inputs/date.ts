@@ -6,7 +6,7 @@ import { NgxFormMethods } from '../classes';
 import { INgxFormInput } from '../interfaces';
 import { NgxMaxDateValidator, NgxMinDateValidator } from '../validators';
 
-export interface INgxFormInputDate extends Omit<INgxFormInput, 'english' | 'value' | 'autoFocus'> {
+export interface INgxFormInputDate extends Omit<INgxFormInput, 'id' | 'english' | 'value' | 'autoFocus' | 'keyboard'> {
     type: 'DATE';
 
     /**

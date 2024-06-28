@@ -3,7 +3,7 @@ import { FormControl, ValidatorFn } from '@angular/forms';
 import { NgxFormMethods } from '../classes';
 import { INgxFormInput } from '../interfaces';
 
-export interface INgxFormInputFile extends Omit<INgxFormInput, 'english' | 'value' | 'autoFocus'> {
+export interface INgxFormInputFile extends Omit<INgxFormInput, 'id' | 'english' | 'value' | 'autoFocus' | 'keyboard'> {
     type: 'FILE';
 
     /**

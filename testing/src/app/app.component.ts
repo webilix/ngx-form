@@ -56,13 +56,45 @@ export class AppComponent implements OnInit {
             options: ['سیمیلیس', 'مپانگا', 'کت اتو', 'پلکو'],
             optional: true,
         },
-        { name: 'bank-card', type: 'BANK-CARD', optional: true },
+        {
+            name: 'bank-card',
+            type: 'BANK-CARD',
+            optional: true,
+            id: 'ID-bank-card',
+            keyboard: {
+                up: (event: KeyboardEvent) => {
+                    if (event.shiftKey && event.key === 'ArrowRight') document.getElementById('ID-domain')?.focus();
+                },
+            },
+        },
         { name: 'checkbox', type: 'CHECKBOX', message: 'یک انتخابی' },
         { name: 'color', type: 'COLOR', optional: true },
         { name: 'coordinates', type: 'COORDINATES', optional: true },
         { name: 'date', type: 'DATE', optional: true },
-        { name: 'domain', type: 'DOMAIN', optional: true },
-        { name: 'email', type: 'EMAIL', optional: true },
+        {
+            name: 'domain',
+            type: 'DOMAIN',
+            optional: true,
+            id: 'ID-domain',
+            keyboard: {
+                up: (event: KeyboardEvent) => {
+                    if (event.shiftKey && event.key === 'ArrowLeft') document.getElementById('ID-bank-card')?.focus();
+                    if (event.shiftKey && event.key === 'ArrowRight') document.getElementById('ID-email')?.focus();
+                },
+            },
+        },
+        {
+            name: 'email',
+            type: 'EMAIL',
+            optional: true,
+            id: 'ID-email',
+            keyboard: {
+                up: (event: KeyboardEvent) => {
+                    if (event.shiftKey && event.key === 'ArrowLeft') document.getElementById('ID-domain')?.focus();
+                    if (event.shiftKey && event.key === 'ArrowRight') document.getElementById('ID-ip')?.focus();
+                },
+            },
+        },
         { name: 'file', type: 'FILE', optional: true },
         {
             name: 'icon',
@@ -78,10 +110,46 @@ export class AppComponent implements OnInit {
                 'sports_golf',
             ],
         },
-        { name: 'ip', type: 'IP', optional: true },
+        {
+            name: 'ip',
+            type: 'IP',
+            optional: true,
+            id: 'ID-ip',
+            keyboard: {
+                up: (event: KeyboardEvent) => {
+                    if (event.shiftKey && event.key === 'ArrowLeft') document.getElementById('ID-email')?.focus();
+                    if (event.shiftKey && event.key === 'ArrowRight') document.getElementById('ID-mask')?.focus();
+                },
+            },
+        },
         { name: 'list', type: 'LIST', title: 'لیست' },
-        { name: 'mask', type: 'MASK', title: 'فرمت عددی', mask: '00-000-0000', optional: true },
-        { name: 'mobile', type: 'MOBILE', optional: true },
+        {
+            name: 'mask',
+            type: 'MASK',
+            title: 'فرمت عددی',
+            mask: '00-000-0000',
+            optional: true,
+            id: 'ID-mask',
+            keyboard: {
+                up: (event: KeyboardEvent) => {
+                    if (event.shiftKey && event.key === 'ArrowLeft') document.getElementById('ID-ip')?.focus();
+                    if (event.shiftKey && event.key === 'ArrowRight') document.getElementById('ID-mobile')?.focus();
+                },
+            },
+        },
+        {
+            name: 'mobile',
+            type: 'MOBILE',
+            optional: true,
+            id: 'ID-mobile',
+            keyboard: {
+                up: (event: KeyboardEvent) => {
+                    if (event.shiftKey && event.key === 'ArrowLeft') document.getElementById('ID-mask')?.focus();
+                    if (event.shiftKey && event.key === 'ArrowRight')
+                        document.getElementById('ID-national-code')?.focus();
+                },
+            },
+        },
         { name: 'multi-file', type: 'MULTI-FILE' },
         {
             name: 'multi-select',
@@ -96,14 +164,73 @@ export class AppComponent implements OnInit {
             view: 'SELECT',
         },
         { name: 'name', type: 'NAME', optional: true },
-        { name: 'national-code', type: 'NATIONAL-CODE', optional: true },
-        { name: 'number', type: 'NUMBER', title: 'مقدار عددی', optional: true },
-        { name: 'numeric', type: 'NUMERIC', title: 'عبارت عددی', optional: true },
+        {
+            name: 'national-code',
+            type: 'NATIONAL-CODE',
+            optional: true,
+            id: 'ID-national-code',
+            keyboard: {
+                up: (event: KeyboardEvent) => {
+                    if (event.shiftKey && event.key === 'ArrowLeft') document.getElementById('ID-mobile')?.focus();
+                    if (event.shiftKey && event.key === 'ArrowRight') document.getElementById('ID-number')?.focus();
+                },
+            },
+        },
+        {
+            name: 'number',
+            type: 'NUMBER',
+            title: 'مقدار عددی',
+            optional: true,
+            id: 'ID-number',
+            keyboard: {
+                up: (event: KeyboardEvent) => {
+                    if (event.shiftKey && event.key === 'ArrowLeft')
+                        document.getElementById('ID-national-code')?.focus();
+                    if (event.shiftKey && event.key === 'ArrowRight') document.getElementById('ID-numeric')?.focus();
+                },
+            },
+        },
+        {
+            name: 'numeric',
+            type: 'NUMERIC',
+            title: 'عبارت عددی',
+            optional: true,
+            id: 'ID-numeric',
+            keyboard: {
+                up: (event: KeyboardEvent) => {
+                    if (event.shiftKey && event.key === 'ArrowLeft') document.getElementById('ID-number')?.focus();
+                    if (event.shiftKey && event.key === 'ArrowRight') document.getElementById('ID-password')?.focus();
+                },
+            },
+        },
         { name: 'option-list', type: 'OPTION-LIST', title: 'لیست گزینه‌ها' },
-        { name: 'password', type: 'PASSWORD', optional: true },
+        {
+            name: 'password',
+            type: 'PASSWORD',
+            optional: true,
+            id: 'ID-password',
+            keyboard: {
+                up: (event: KeyboardEvent) => {
+                    if (event.shiftKey && event.key === 'ArrowLeft') document.getElementById('ID-numeric')?.focus();
+                    if (event.shiftKey && event.key === 'ArrowRight') document.getElementById('ID-price')?.focus();
+                },
+            },
+        },
         { name: 'period', type: 'PERIOD', optional: true },
         { name: 'plate', type: 'PLATE', optional: true },
-        { name: 'price', type: 'PRICE', title: 'قیمت', optional: true },
+        {
+            name: 'price',
+            type: 'PRICE',
+            title: 'قیمت',
+            optional: true,
+            id: 'ID-price',
+            keyboard: {
+                up: (event: KeyboardEvent) => {
+                    if (event.shiftKey && event.key === 'ArrowLeft') document.getElementById('ID-password')?.focus();
+                    if (event.shiftKey && event.key === 'ArrowRight') document.getElementById('ID-text')?.focus();
+                },
+            },
+        },
         { name: 'range', type: 'RANGE', title: 'محدوده عددی', optional: true },
         {
             name: 'select',
@@ -118,11 +245,56 @@ export class AppComponent implements OnInit {
             optional: true,
         },
         { name: 'tag', type: 'TAG', tags: ['اول', 'دوم', 'سوم', 'چهارم', 'پنجم'] },
-        { name: 'text', type: 'TEXT', title: 'متن یک خطی', optional: true },
-        { name: 'textarea', type: 'TEXTAREA', title: 'متن چند خطی', optional: true },
+        {
+            name: 'text',
+            type: 'TEXT',
+            title: 'متن یک خطی',
+            optional: true,
+            id: 'ID-text',
+            keyboard: {
+                up: (event: KeyboardEvent) => {
+                    if (event.shiftKey && event.key === 'ArrowLeft') document.getElementById('ID-price')?.focus();
+                    if (event.shiftKey && event.key === 'ArrowRight') document.getElementById('ID-textarea')?.focus();
+                },
+            },
+        },
+        {
+            name: 'textarea',
+            type: 'TEXTAREA',
+            title: 'متن چند خطی',
+            optional: true,
+            id: 'ID-textarea',
+            keyboard: {
+                up: (event: KeyboardEvent) => {
+                    if (event.shiftKey && event.key === 'ArrowLeft') document.getElementById('ID-text')?.focus();
+                    if (event.shiftKey && event.key === 'ArrowRight') document.getElementById('ID-url')?.focus();
+                },
+            },
+        },
         { name: 'time', type: 'TIME', optional: true },
-        { name: 'url', type: 'URL', optional: true },
-        { name: 'username', type: 'USERNAME', optional: true },
+        {
+            name: 'url',
+            type: 'URL',
+            optional: true,
+            id: 'ID-url',
+            keyboard: {
+                up: (event: KeyboardEvent) => {
+                    if (event.shiftKey && event.key === 'ArrowLeft') document.getElementById('ID-textarea')?.focus();
+                    if (event.shiftKey && event.key === 'ArrowRight') document.getElementById('ID-username')?.focus();
+                },
+            },
+        },
+        {
+            name: 'username',
+            type: 'USERNAME',
+            optional: true,
+            id: 'ID-username',
+            keyboard: {
+                up: (event: KeyboardEvent) => {
+                    if (event.shiftKey && event.key === 'ArrowLeft') document.getElementById('ID-url')?.focus();
+                },
+            },
+        },
     ];
 
     public ngxForm: INgxForm = {

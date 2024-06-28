@@ -8,7 +8,7 @@ import { INgxFormInput } from '../interfaces';
 /**
  * AUTO-COMPLETE input interface
  */
-export interface INgxFormInputAutoComplete extends Omit<INgxFormInput, 'autoFocus'> {
+export interface INgxFormInputAutoComplete extends Omit<INgxFormInput, 'id' | 'autoFocus' | 'keyboard'> {
     type: 'AUTO-COMPLETE';
 
     /**

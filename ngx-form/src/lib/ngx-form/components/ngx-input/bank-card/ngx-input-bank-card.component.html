@@ -14,6 +14,7 @@
             matInput
             type="text"
             [name]="input.name"
+            [id]="input.id || ''"
             [formControl]="control"
             [inputMode]="'numeric'"
             class="input-en"
@@ -22,6 +23,9 @@
             (input)="setBank(bankCardInput.value)"
             [ngxAutoFocus]="!!input.autoFocus"
             #bankCardInput
+            (keypress)="input.keyboard && input.keyboard.press !== undefined ? input.keyboard.press($event) : null"
+            (keydown)="input.keyboard && input.keyboard.down !== undefined ? input.keyboard.down($event) : null"
+            (keyup)="input.keyboard && input.keyboard.up !== undefined ? input.keyboard.up($event) : null"
         />
         <mat-icon
             [ngClass]="{ 'ngx-form-icon': true, 'ngx-form-disabled': control.disabled }"
