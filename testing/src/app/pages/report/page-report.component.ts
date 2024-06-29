@@ -3,11 +3,11 @@ import { Component } from '@angular/core';
 import { INgxReport, NgxReportInputs } from '@ngx-form';
 
 @Component({
-    selector: 'app-report',
-    templateUrl: './report.component.html',
-    styleUrls: ['./report.component.scss'],
+    host: { selector: 'page-report' },
+    templateUrl: './page-report.component.html',
+    styleUrl: './page-report.component.scss',
 })
-export class ReportComponent {
+export class PageReportComponent {
     public ngxInputs: NgxReportInputs[] = [
         { name: 'bank-card', type: 'BANK-CARD', title: 'شماره کارت بانکی' },
         { name: 'checkbox', type: 'CHECKBOX', title: 'یک انتخابی' },

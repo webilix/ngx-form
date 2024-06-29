@@ -1,0 +1,53 @@
+:host {
+    display: block;
+
+    content {
+        display: block;
+        margin-bottom: 2rem;
+
+        section.header {
+            display: flex;
+            column-gap: 0.5rem;
+            margin-bottom: 2rem;
+            padding: 2rem;
+            background-color: rgb(29, 91, 116);
+
+            position: sticky;
+            top: 0;
+            z-index: 1;
+
+            width: 600px;
+            max-width: 100vw;
+            margin: 0 auto 2rem auto;
+
+            select {
+                flex: 3;
+                padding: 0.5rem 0.25rem;
+                border: 1px solid rgba(0, 0, 0, 0.2);
+                border-radius: 4px;
+                outline: none;
+            }
+
+            select.column {
+                flex: 1;
+            }
+        }
+
+        section.form {
+            display: block;
+            width: calc(600px - 4rem);
+            max-width: calc(100vw - 4rem);
+            margin: 0 auto;
+
+            .comment {
+                text-align: center;
+                border: 1px solid #ccc;
+                background-color: #eee;
+                border-radius: 4px;
+                padding: 1rem 0;
+                font-size: 11px;
+                margin-bottom: 1rem;
+            }
+        }
+    }
+}

@@ -1,0 +1,53 @@
+<content>
+    <section class="header">
+        <button mat-button [matMenuTriggerFor]="menu"><mat-icon>more_vert</mat-icon></button>
+        <mat-menu #menu="matMenu">
+            <button mat-menu-item [routerLink]="['/responsive']">Responsive Form</button>
+            <button mat-menu-item [routerLink]="['/report']">Report Form</button>
+        </mat-menu>
+
+        <select
+            *ngIf="!type"
+            class="column"
+            [dir]="'rtl'"
+            [(ngModel)]="column"
+            (change)="setColumn(columnSelect.value)"
+            #columnSelect
+        >
+            <option *ngFor="let c of ['1', '2', '3', 'FLEX']" [value]="c">{{ c }}</option>
+        </select>
+
+        <select [dir]="'rtl'" (change)="setType(typeSelect.value)" #typeSelect>
+            <option value="" [selected]="type === null"></option>
+            <option *ngFor="let t of types; let index = index" [value]="t.type" [selected]="type === t.type">
+                {{ index + 1 | number }}: {{ t.title }}
+            </option>
+        </select>
+
+        <button
+            *ngIf="!type"
+            mat-button
+            type="button"
+            color="primary"
+            style="color: #fff; font-weight: 600"
+            (click)="setButton()"
+        >
+            <mat-icon [fontIcon]="'dashboard'"></mat-icon>
+        </button>
+    </section>
+
+    <section class="form" *ngIf="type">
+        <app-input [rows]="rows"></app-input>
+    </section>
+
+    <section class="form" *ngIf="!type">
+        <ngx-form
+            [ngxForm]="ngxForm"
+            (ngxSubmit)="showValues('ngxSubmit', $event)"
+            (ngxChange)="showValues('ngxChange', $event)"
+            #ngxFormComponent
+        >
+            <div class="comment">این متن در پایین فرم نمایش داده می‌شود.</div>
+        </ngx-form>
+    </section>
+</content>

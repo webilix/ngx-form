@@ -1,0 +1,12 @@
+<header>
+    <section>
+        <button mat-button [routerLink]="['/']">
+            <mat-icon>navigate_before</mat-icon>
+        </button>
+        <div class="title">Report Form</div>
+    </section>
+</header>
+
+<content>
+    <ngx-report [ngxInputs]="ngxInputs" [(ngxReport)]="ngxReport" (changed)="showValues($event)"></ngx-report>
+</content>
