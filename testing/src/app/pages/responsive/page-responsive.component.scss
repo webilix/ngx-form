@@ -20,14 +20,22 @@
             max-width: 100vw;
             margin: 0 auto 2rem auto;
 
+            mat-icon {
+                font-size: 28px !important;
+            }
+
             .title {
+                flex: 1;
+
                 color: #fff;
                 font-size: 16px;
                 font-weight: 500;
             }
 
-            mat-icon {
-                font-size: 28px !important;
+            .view {
+                color: #fff;
+                font-size: 12px;
+                font-weight: 500;
             }
         }
     }

@@ -52,6 +52,38 @@ export interface INgxForm {
     floatLabel?: FloatLabelType;
 }
 
+export interface INgxResponsiveFormSection {
+    title?: string;
+    description?: string;
+    columns:
+        | NgxFormInputs[]
+        | [{ inputs: NgxFormInputs[]; flex?: number }, { inputs: NgxFormInputs[]; flex?: number }]
+        | [
+              { inputs: NgxFormInputs[]; flex?: number },
+              { inputs: NgxFormInputs[]; flex?: number },
+              { inputs: NgxFormInputs[]; flex?: number },
+          ];
+}
+
+/**
+ * Responsive form data interface
+ */
+
+export interface INgxResponsiveForm extends Omit<INgxForm, 'inputs'> {
+    /**
+     * Form Sections
+     * @type { Array<INgxResponsiveFormSection> }
+     *      */
+    sections: INgxResponsiveFormSection[];
+
+    /**
+     * Maximum page width for mobile view
+     * @type { Number }
+     * @optional 600
+     */
+    mobileWidth?: number;
+}
+
 /**
  * Form input values
  *

@@ -3,6 +3,8 @@
  */
 
 export * from './lib/ngx-form/ngx-form.component';
+export * from './lib/ngx-form/responsive/ngx-form-responsive.component';
+
 export * from './lib/ngx-form/ngx-form.interface';
 export * from './lib/ngx-form/ngx-form.module';
 export * from './lib/ngx-form/ngx-form.type';

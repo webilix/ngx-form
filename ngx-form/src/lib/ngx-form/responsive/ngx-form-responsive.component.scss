@@ -1,0 +1,101 @@
+form {
+    display: flex;
+    flex-direction: column;
+    row-gap: 1rem;
+
+    .ngx-form-responsive {
+        .ngx-form-responsive-header {
+            padding: 0.75rem 1rem;
+            border-radius: 4px;
+            color: var(--ngxFormPrimaryColor);
+            border: 1px solid var(--ngxFormBorderColor);
+            background-color: var(--ngxFormBackgroundColor);
+            margin-bottom: 1rem;
+
+            .ngx-form-responsive-title {
+                font-size: 1.15em;
+                font-weight: 500;
+            }
+
+            .ngx-form-responsive-seperator {
+                height: 0.25rem;
+            }
+
+            .ngx-form-responsive-description {
+                font-size: 0.85em;
+            }
+        }
+
+        .ngx-form-responsive-columns {
+            display: flex;
+            column-gap: 1rem;
+            align-items: flex-start;
+
+            .ngx-form-responsive-column {
+                display: flex;
+                flex-direction: column;
+                row-gap: 1rem;
+
+                .ngx-form-responsive-input {
+                    display: flex;
+                    align-items: flex-start;
+                    column-gap: 0.5rem;
+
+                    ngx-input {
+                        flex: 1;
+                        width: 0;
+                    }
+
+                    button {
+                        min-width: auto;
+                        padding: 0;
+
+                        mat-icon {
+                            font-family: var(--ngxFormIconFont) !important;
+                            font-size: var(--ngxFormIconSize) !important;
+                            color: var(--ngxFormPrimaryColor) !important;
+                            margin: 0 1rem !important;
+                            height: auto !important;
+                            width: auto !important;
+                        }
+                    }
+
+                    button.disabled {
+                        mat-icon {
+                            color: var(--ngxFormBorderColor) !important;
+                        }
+                    }
+                }
+            }
+        }
+
+        .ngx-form-responsive-mobile {
+            flex-direction: column;
+            row-gap: 1rem;
+
+            .ngx-form-responsive-column {
+                width: 100%;
+            }
+        }
+    }
+
+    .buttons {
+        margin-top: 1rem;
+
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        column-gap: 1rem;
+
+        button[type='submit'] {
+            padding-left: 3rem;
+            padding-right: 3rem;
+        }
+    }
+
+    .buttons-mobile {
+        button[type='submit'] {
+            flex: 1;
+        }
+    }
+}

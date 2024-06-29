@@ -1,0 +1,74 @@
+<form class="ngxForm" [formGroup]="formGroup" (ngSubmit)="checkValues()" dir="rtl" #formObject="ngForm">
+    @for (section of sections; track $index) {
+    <!-- SHOW SECTION -->
+    @if (showSection(section)) {
+    <div class="ngx-form-responsive">
+        <!-- HEADER -->
+        @if (section.title || section.description) {
+        <div class="ngx-form-responsive-header">
+            <!-- TITLE -->
+            @if (section.title ) {
+            <div class="ngx-form-responsive-title">{{ section.title }}</div>
+            }
+            <!-- SEPERATOR -->
+            @if (section.title && section.description) {
+            <div class="ngx-form-responsive-seperator"></div>
+            }
+            <!-- DESCRIPTION -->
+            @if (section.description ) {
+            <div class="ngx-form-responsive-description">{{ section.description }}</div>
+            }
+        </div>
+        }
+
+        <!-- COLUMNS -->
+        <div class="ngx-form-responsive-columns" [class.ngx-form-responsive-mobile]="size.isMobile">
+            @for (column of section.columns; track $index) {
+            <!-- SHOW COLUMN -->
+            @if (showColumn(column.inputs)) {
+            <div class="ngx-form-responsive-column" [ngStyle]="{ flex: column.flex }">
+                @for (input of column.inputs; track $index) {
+
+                <!-- INPUT -->
+                @if ($any(input).type === 'COMMENT' || !hiddenInputs.includes($any(input).name)) {
+                <div class="ngx-form-responsive-input">
+                    <ngx-input
+                        [group]="formGroup"
+                        [input]="$any(input)"
+                        [appearance]="ngxForm.appearance || appearance"
+                        [floatLabel]="floatLabel"
+                    ></ngx-input>
+
+                    <!-- BUTTON -->
+                    @if ($any(input).button) {
+                    <button
+                        mat-stroked-button
+                        type="button"
+                        [color]="$any(input).button.color || 'primary'"
+                        (click)="$any(input).button.click(getValues())"
+                        [ngClass]="{ disabled: disabledButtons.includes($any(input).name) }"
+                        [disabled]="disabledButtons.includes($any(input).name)"
+                    >
+                        <mat-icon [fontIcon]="$any(input).button.icon"></mat-icon>
+                    </button>
+                    }
+                </div>
+                } }
+            </div>
+            } }
+        </div>
+    </div>
+    } }
+
+    <ng-content></ng-content>
+
+    <div class="buttons" [class.buttons-mobile]="size.isMobile">
+        <button mat-flat-button type="submit" color="primary">{{ ngxForm.submit }}</button>
+        <!-- EXTRA BUTTONS -->
+        @for (button of ngxForm.buttons; track $index) {
+        <button mat-stroked-button type="button" color="primary" (click)="button.action(getValues())">
+            {{ button.title }}
+        </button>
+        }
+    </div>
+</form>

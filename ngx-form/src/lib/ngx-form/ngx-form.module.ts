@@ -52,10 +52,13 @@ import {
 import { INgxFormStyle } from './interfaces';
 
 import { NgxFormComponent } from './ngx-form.component';
+import { NgxFormResponsiveComponent } from './responsive/ngx-form-responsive.component';
+import { NgxFormService } from './ngx-form.service';
 
 @NgModule({
     declarations: [
         NgxFormComponent,
+        NgxFormResponsiveComponent,
 
         NgxDescriptionComponent,
         NgxListOptionInputComponent,
@@ -109,8 +112,8 @@ import { NgxFormComponent } from './ngx-form.component';
         NgxDirectiveModule,
         NgxPipeModule,
     ],
-    providers: [DecimalPipe, provideNgxMask({})],
-    exports: [NgxFormComponent],
+    providers: [DecimalPipe, provideNgxMask({}), NgxFormService],
+    exports: [NgxFormComponent, NgxFormResponsiveComponent],
 })
 export class NgxFormModule {
     static forRoot(): ModuleWithProviders<NgxFormModule>;
