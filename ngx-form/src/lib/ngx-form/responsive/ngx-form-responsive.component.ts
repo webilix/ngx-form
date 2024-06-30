@@ -53,6 +53,7 @@ export class NgxFormResponsiveComponent implements OnInit, OnChanges {
 
     constructor(
         @Inject('NGX_FORM_APPEARANCE') public readonly ngxAppearance: MatFormFieldAppearance,
+        @Inject('NGX_FORM_MOBILEWIDTH') public readonly mobileWidth: number,
         private readonly changeDetectorRef: ChangeDetectorRef,
         private readonly ngxFormService: NgxFormService,
     ) {}
@@ -130,10 +131,11 @@ export class NgxFormResponsiveComponent implements OnInit, OnChanges {
         const omitEmit: boolean = this.size.width === 0 && this.size.height === 0;
         const isMobile: boolean = this.size.isMobile;
 
+        const mobileWidth: number = this.ngxForm.mobileWidth || this.mobileWidth || 600;
         this.size = {
             width: window.innerWidth,
             height: window.innerHeight,
-            isMobile: window.innerWidth <= (this.ngxForm.mobileWidth || 600),
+            isMobile: window.innerWidth <= mobileWidth,
         };
 
         if (!omitEmit || isMobile !== this.size.isMobile) {

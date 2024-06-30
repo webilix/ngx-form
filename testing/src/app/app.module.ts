@@ -27,7 +27,7 @@ import { AppRoutingModule } from './app.routing';
         MatIconModule,
         MatMenuModule,
 
-        NgxFormModule.forRoot('outline'),
+        NgxFormModule.forRoot({ appearance: 'fill' }),
         NgxReportModule.forRoot(),
 
         AppRoutingModule,

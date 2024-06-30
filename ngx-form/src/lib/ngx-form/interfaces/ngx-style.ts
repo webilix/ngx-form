@@ -1,5 +1,5 @@
 /**
- * NgxForm config
+ * NgxForm style
  */
 export interface INgxFormStyle {
     /**

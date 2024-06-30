@@ -49,7 +49,7 @@ import {
     NgxListOptionInputComponent,
     NgxListOptionItemComponent,
 } from './components';
-import { INgxFormStyle } from './interfaces';
+import { INgxFormConfig, INgxFormStyle } from './interfaces';
 
 import { NgxFormComponent } from './ngx-form.component';
 import { NgxFormResponsiveComponent } from './responsive/ngx-form-responsive.component';
@@ -117,15 +117,14 @@ import { NgxFormService } from './ngx-form.service';
 })
 export class NgxFormModule {
     static forRoot(): ModuleWithProviders<NgxFormModule>;
-    static forRoot(appearance: MatFormFieldAppearance): ModuleWithProviders<NgxFormModule>;
+    static forRoot(config: Partial<INgxFormConfig>): ModuleWithProviders<NgxFormModule>;
     static forRoot(style: Partial<INgxFormStyle>): ModuleWithProviders<NgxFormModule>;
-    static forRoot(
-        appearance: MatFormFieldAppearance,
-        style: Partial<INgxFormStyle>,
-    ): ModuleWithProviders<NgxFormModule>;
+    static forRoot(config: Partial<INgxFormConfig>, style: Partial<INgxFormStyle>): ModuleWithProviders<NgxFormModule>;
     static forRoot(arg1?: any, arg2?: any): ModuleWithProviders<NgxFormModule> {
+        const config: Partial<INgxFormConfig> = arg1 && 'appearance' in arg1 ? arg1 : {};
+
         const style: Partial<INgxFormStyle> =
-            arg1 && typeof arg1 !== 'string' ? arg1 : arg2 && typeof arg2 !== 'string' ? arg2 : {};
+            arg1 && !('appearance' in arg1) ? arg1 : arg2 && !('appearance' in arg2) ? arg2 : {};
 
         const root: string =
             ':root {' +
@@ -149,11 +148,11 @@ export class NgxFormModule {
         html.innerHTML = root;
         document.getElementsByTagName('head')[0].appendChild(html);
 
-        const appearance: MatFormFieldAppearance = arg1 === 'fill' || arg1 === 'outline' ? arg1 : 'fill';
         return {
             ngModule: NgxFormModule,
             providers: [
-                { provide: 'NGX_FORM_APPEARANCE', useValue: appearance },
+                { provide: 'NGX_FORM_APPEARANCE', useValue: config?.appearance || 'fill' },
+                { provide: 'NGX_FORM_MOBILEWIDTH', useValue: config?.mobileWidth || 600 },
                 { provide: 'NGX_FORM_PRIMARY_COLOR', useValue: style.primaryColor || 'rgb(29, 91, 116)' },
             ],
         };

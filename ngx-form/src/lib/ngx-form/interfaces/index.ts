@@ -1,4 +1,5 @@
 export * from './ngx-button';
+export * from './ngx-config';
 export * from './ngx-coordinates';
 export * from './ngx-info';
 export * from './ngx-input';
