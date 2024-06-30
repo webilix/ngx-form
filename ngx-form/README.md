@@ -31,8 +31,13 @@ npm install --save @webilix/ngx-form
 -   NgxFormModule
     -   [NgxFormModule Usage](#ngxformmodule-usage)
     -   [NgxFormModule Configuration](#ngxformmodule-configuration)
+    -   [NgxFormModule Style](#ngxformmodule-style)
     -   [NgxFormModule Input Types](#ngxformmodule-input-types)
     -   [NgxFormModule Preview](#ngxformmodule-preview)
+-   NgxFormModule (Responsive)
+    -   [NgxFormModule Responsive Configuration](#ngxformmodule-responsive-configuration)
+    -   [NgxFormModule Responsive Usage](#ngxformmodule-responsive-usage)
+    -   [NgxFormModule Responsive Preview](#ngxformmodule-responsive-preview)
 -   NgxReportModule
     -   [NgxReportModule Usage](#ngxreportmodule-usage)
     -   [NgxReportModule Configuration](#ngxreportmodule-configuration)
@@ -65,6 +70,15 @@ import { NgxFormModule } from '@webilix/ngx-form';
    imports: [
        ...
        NgxFormModule.forRoot()
+
+       // set module configuration
+       // NgxFormModule.forRoot({ appearance: 'fill', ... }),
+
+       // set module style
+       // NgxFormModule.forRoot({ primaryColor: '#123456', ... }),
+
+       // set module configuration and style
+       // NgxFormModule.forRoot({ appearance: 'fill', ... }, { primaryColor: '#123456', ... }),
    ],
    ...
 })
@@ -113,6 +127,30 @@ showValues(values: INgxFormValues): void {
 ```js
 /**
  * NgxForm config
+ */
+export interface INgxFormConfig {
+    /**
+     * Form input appearance
+     * @type { MatFormFieldAppearance }
+     * @enum 'fill', 'outline'
+     * @optional 'fill'
+     */
+    appearance: MatFormFieldAppearance;
+
+    /**
+     * Maximum page width for mobile view in responsive forms
+     * @type { Number }
+     * @optional 600
+     */
+    mobileWidth: number;
+}
+```
+
+## NgxFormModule Style
+
+```js
+/**
+ * NgxForm style
  */
 export interface INgxFormStyle {
     /**
@@ -226,6 +264,58 @@ export interface INgxFormStyle {
 <div style="margin-top: 2rem; text-align: center;">
 
 ![alt text](https://github.com/webilix/ngx-form/blob/master/testing/src/assets/ngx-form.preview.png?raw=true '@webilix/ngx-form : NgxFormModule')
+
+</div>
+
+---
+
+## NgxFormModule Responsive Configuration
+
+```js
+export interface INgxResponsiveFormSection {
+    title?: string;
+    description?: string;
+    columns:
+        | NgxFormInputs[]
+        | [{ inputs: NgxFormInputs[], flex?: number }, { inputs: NgxFormInputs[], flex?: number }]
+        | [
+              { inputs: NgxFormInputs[], flex?: number },
+              { inputs: NgxFormInputs[], flex?: number },
+              { inputs: NgxFormInputs[], flex?: number },
+          ];
+}
+
+/**
+ * Responsive form data interface
+ */
+
+export interface INgxResponsiveForm extends Omit<INgxForm, 'inputs'> {
+    /**
+     * Form Sections
+     * @type { Array<INgxResponsiveFormSection> }
+     *      */
+    sections: INgxResponsiveFormSection[];
+
+    /**
+     * Maximum page width for mobile view
+     * @type { Number }
+     * @optional 600
+     */
+    mobileWidth?: number;
+}
+```
+
+## NgxFormModule Responsive Usage
+
+```html
+<ngx-form-responsive [ngxForm]="ngxForm" (ngxSubmit)="..." (ngxChange)="..." (viewChange)="..."></ngx-form-responsive>
+```
+
+## NgxFormModule Responsive Preview
+
+<div style="margin-top: 2rem; text-align: center;">
+
+![alt text](https://github.com/webilix/ngx-form/blob/master/testing/src/assets/ngx-form.responsive.png?raw=true '@webilix/ngx-form : NgxFormModule')
 
 </div>
 
