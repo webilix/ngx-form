@@ -31,3 +31,27 @@ export interface INgxFormOptionGroup {
      */
     ids: string[];
 }
+
+/**
+ * Input group interface
+ */
+export interface INgxFormGroup {
+    /**
+     * Group id
+     * @type { string }
+     */
+    id: string;
+
+    /**
+     * Group title
+     * @type { string }
+     */
+    title: string;
+
+    /**
+     * Group icon
+     * @type { string }
+     * @optional
+     */
+    icon?: string;
+}

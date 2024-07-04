@@ -1,0 +1,30 @@
+<mat-form-field [appearance]="appearance" [floatLabel]="'always'">
+    <!-- LABEL -->
+    <mat-label>{{ input.title }}</mat-label>
+    <!-- ERROR  -->
+    @if (control.invalid) { <mat-error>{{ control.errors | ngxError : input.type }}</mat-error> }
+    <!-- HINT -->
+    @if (input.hint) { <mat-hint>{{ input.hint }}</mat-hint> }
+    <!-- INPUT -->
+    <input matInput type="text" [name]="input.name" [formControl]="control" class="input-hidden" />
+
+    <div
+        [ngStyle]="{ 'grid-template-columns': columns }"
+        [ngClass]="{ groups: true, 'ngx-form-disabled': control.disabled }"
+    >
+        @for (group of input.groups; track $index) {
+        <div class="group" [class.selected]="values.includes(group.id)" (click)="setValue(group.id)">
+            <mat-icon
+                class="ngx-form-icon"
+                [fontIcon]="values.includes(group.id) ? 'task_alt' : group.icon || 'radio_button_unchecked'"
+            ></mat-icon>
+            <div class="title">{{ group.title }}</div>
+        </div>
+        }
+    </div>
+
+    <!-- DESCRIPTION -->
+    @if (input.description) {
+    <ngx-description [description]="input.description" [disabled]="control.disabled"></ngx-description>
+    }
+</mat-form-field>

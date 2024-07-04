@@ -4,7 +4,7 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { DragDropModule } from '@angular/cdk/drag-drop';
 import { NgxMaskDirective, provideNgxMask } from 'ngx-mask';
 
-import { MatFormFieldAppearance, MatFormFieldModule } from '@angular/material/form-field';
+import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatInputModule } from '@angular/material/input';
 import { MatIconModule } from '@angular/material/icon';
 import { MatButtonModule } from '@angular/material/button';
@@ -30,6 +30,7 @@ import {
     NgxInputCoordinatesComponent,
     NgxInputDateComponent,
     NgxInputFileComponent,
+    NgxInputGroupComponent,
     NgxInputIconComponent,
     NgxInputListComponent,
     NgxInputMultiFileComponent,
@@ -72,6 +73,7 @@ import { NgxFormService } from './ngx-form.service';
         NgxInputCoordinatesComponent,
         NgxInputDateComponent,
         NgxInputFileComponent,
+        NgxInputGroupComponent,
         NgxInputIconComponent,
         NgxInputListComponent,
         NgxInputMultiFileComponent,

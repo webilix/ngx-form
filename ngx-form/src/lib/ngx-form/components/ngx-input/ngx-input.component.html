@@ -105,6 +105,11 @@
 ></ngx-input-file>
 }
 
+<!-- GROUP -->
+@case ('GROUP') {
+<ngx-input-group [control]="control" [input]="input" [appearance]="appearance"></ngx-input-group>
+}
+
 <!-- IP -->
 @case ('IP') {
 <ngx-input-text

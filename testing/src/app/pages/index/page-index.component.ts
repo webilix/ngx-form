@@ -12,6 +12,7 @@ import {
     DomainInputs,
     EmailInputs,
     FileInputs,
+    GroupInputs,
     IconInputs,
     IpInputs,
     ListInputs,
@@ -96,6 +97,16 @@ export class PageIndexComponent implements OnInit {
             },
         },
         { name: 'file', type: 'FILE', optional: true },
+        {
+            name: 'group',
+            type: 'GROUP',
+            title: 'گروه',
+            groups: [
+                { id: 'CREATE', title: 'ثبت', icon: 'add' },
+                { id: 'UPDATE', title: 'ویرایش', icon: 'update' },
+                { id: 'DELETE', title: 'حذف', icon: 'delete' },
+            ],
+        },
         {
             name: 'icon',
             type: 'ICON',
@@ -315,6 +326,7 @@ export class PageIndexComponent implements OnInit {
         { type: 'DOMAIN', title: 'نام دامنه', rows: DomainInputs },
         { type: 'EMAIL', title: 'ایمیل', rows: EmailInputs },
         { type: 'FILE', title: 'فایل', rows: FileInputs },
+        { type: 'GROUP', title: 'گروه', rows: GroupInputs },
         { type: 'ICON', title: 'آیکون', rows: IconInputs },
         { type: 'IP', title: 'آدرس آی‌پی', rows: IpInputs },
         { type: 'LIST', title: 'لیست', rows: ListInputs },

@@ -14,6 +14,7 @@ export class NgxFormService {
         const validators: ValidatorFn[] =
             input.type === 'COMMENT' ||
             input.type === 'CHECKBOX' ||
+            input.type === 'GROUP' ||
             input.type === 'LIST' ||
             input.type === 'MULTI-FILE' ||
             input.type === 'MULTI-SELECT' ||

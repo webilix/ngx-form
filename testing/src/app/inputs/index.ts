@@ -7,6 +7,7 @@ export * from './date';
 export * from './domain';
 export * from './email';
 export * from './file';
+export * from './group';
 export * from './icon';
 export * from './ip';
 export * from './list';

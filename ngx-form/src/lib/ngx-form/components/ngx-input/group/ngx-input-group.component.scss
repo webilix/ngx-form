@@ -1,0 +1,43 @@
+.groups {
+    display: grid;
+    column-gap: 1rem;
+    row-gap: 1rem;
+    margin: 0.5rem 0;
+
+    .group {
+        position: relative;
+        cursor: pointer;
+        padding: 0.5rem;
+        display: flex;
+        flex-direction: column;
+        justify-content: flex-start;
+        align-items: center;
+        border-radius: 4px;
+        border: 1px solid var(--ngxFormBorderColor);
+        background-color: transparent;
+        filter: grayscale(100%);
+        opacity: 0.75;
+        transition: all 0.15s ease-in-out;
+
+        mat-icon {
+            font-size: calc(var(--ngxFormIconSize) + 2px) !important;
+        }
+
+        .title {
+            font-size: 90%;
+            margin-top: 0.25rem;
+            text-align: center;
+        }
+    }
+
+    .selected {
+        filter: none;
+        opacity: 1;
+        border-color: var(--ngxFormBorderColor);
+        background-color: var(--ngxFormBackgroundColor);
+
+        .title {
+            color: var(--ngxFormPrimaryColor);
+        }
+    }
+}

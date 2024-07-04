@@ -11,6 +11,7 @@ export * from './ngx-input/color/ngx-input-color.component';
 export * from './ngx-input/coordinates/ngx-input-coordinates.component';
 export * from './ngx-input/date/ngx-input-date.component';
 export * from './ngx-input/file/ngx-input-file.component';
+export * from './ngx-input/group/ngx-input-group.component';
 export * from './ngx-input/icon/ngx-input-icon.component';
 export * from './ngx-input/list/ngx-input-list.component';
 export * from './ngx-input/multi-file/ngx-input-multi-file.component';
