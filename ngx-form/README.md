@@ -232,6 +232,7 @@ export interface INgxFormStyle {
 -   DOMAIN
 -   EMAIL
 -   FILE
+-   GROUP
 -   ICON
 -   IP
 -   LIST
