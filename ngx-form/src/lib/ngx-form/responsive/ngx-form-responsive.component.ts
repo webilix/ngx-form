@@ -49,6 +49,8 @@ export class NgxFormResponsiveComponent implements OnInit, OnChanges {
     protected inputValues: INgxFormValues = {};
     protected hiddenInputs: string[] = [];
     protected disabledButtons: string[] = [];
+
+    protected initialized: boolean = false;
     protected size: { width: number; height: number; isMobile: boolean } = { width: 0, height: 0, isMobile: false };
 
     constructor(
@@ -102,7 +104,10 @@ export class NgxFormResponsiveComponent implements OnInit, OnChanges {
         this.hiddenInputs = this.ngxFormService.checkVisibility(this.formGroup, inputs, values);
         this.disabledButtons = this.ngxFormService.checkButtons(inputs, values);
 
-        this.setSize();
+        setTimeout(() => {
+            this.setSize();
+            this.initialized = true;
+        }, 0);
     }
 
     ngOnChanges(changes: SimpleChanges): void {
@@ -150,7 +155,9 @@ export class NgxFormResponsiveComponent implements OnInit, OnChanges {
         for (let c = 0; c < section.columns.length; c++) {
             for (let i = 0; i < section.columns[c].inputs.length; i++) {
                 const input = section.columns[c].inputs[i];
-                if ('name' in input && !this.hiddenInputs.includes(input.name)) return true;
+
+                if (input.type === 'COMMENT') return true;
+                if (!this.hiddenInputs.includes(input.name)) return true;
             }
         }
 
@@ -160,7 +167,9 @@ export class NgxFormResponsiveComponent implements OnInit, OnChanges {
     protected showColumn(inputs: NgxFormInputs[]): boolean {
         for (let i = 0; i < inputs.length; i++) {
             const input = inputs[i];
-            if ('name' in input && !this.hiddenInputs.includes(input.name)) return true;
+
+            if (input.type === 'COMMENT') return true;
+            if (!this.hiddenInputs.includes(input.name)) return true;
         }
 
         return false;

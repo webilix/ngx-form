@@ -9,17 +9,17 @@ import { INgxFormValues, INgxResponsiveForm } from '@ngx-form';
 })
 export class PageResponsiveComponent {
     public showValues = console.log;
-    public view: 'MOBILE' | 'DESKTOP' = 'DESKTOP';
+    public view?: 'MOBILE' | 'DESKTOP';
 
     public ngxForm: INgxResponsiveForm = {
         submit: 'نمایش مقادیر ثبت شده در فرم',
         sections: [
             {
                 columns: [
-                    { title: 'ستون اول', inputs: [{ name: 'date-1', type: 'DATE', optional: true }] },
-                    { title: 'ستون دوم', inputs: [{ name: 'date-2', type: 'DATE', optional: true }] },
-                    { title: 'ستون سوم', inputs: [{ name: 'date-3', type: 'DATE', optional: true }] },
-                    { title: 'ستون چهارم', inputs: [{ name: 'date-4', type: 'DATE', optional: true }] },
+                    { title: 'ستون اول', inputs: [{ type: 'COMMENT', title: 'شماره ستون', value: 'ستون اول' }] },
+                    { title: 'ستون دوم', inputs: [{ type: 'COMMENT', title: 'شماره ستون', value: 'ستون دوم' }] },
+                    { title: 'ستون سوم', inputs: [{ type: 'COMMENT', title: 'شماره ستون', value: 'ستون سوم' }] },
+                    { title: 'ستون چهارم', inputs: [{ type: 'COMMENT', title: 'شماره ستون', value: 'ستون چهارم' }] },
                 ],
             },
             {
@@ -116,4 +116,9 @@ export class PageResponsiveComponent {
         buttons: [{ title: 'کلید دوم', action: () => this.showValues('FORM EXTRA BUTTON') }],
         appearance: 'fill',
     };
+
+    setView(view: 'MOBILE' | 'DESKTOP'): void {
+        console.log('setView');
+        this.view = view;
+    }
 }

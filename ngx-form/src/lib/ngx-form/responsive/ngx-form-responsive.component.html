@@ -1,3 +1,4 @@
+@if (initialized) {
 <form class="ngxForm" [formGroup]="formGroup" (ngSubmit)="checkValues()" dir="rtl" #formObject="ngForm">
     @for (section of sections; track $index) {
     <!-- SHOW SECTION -->
@@ -24,6 +25,7 @@
         <!-- COLUMNS -->
         <div class="ngx-form-responsive-columns" [class.ngx-form-responsive-mobile]="size.isMobile">
             @for (column of section.columns; track $index) {
+
             <!-- SHOW COLUMN -->
             @if (showColumn(column.inputs)) {
             <div class="ngx-form-responsive-column" [ngStyle]="{ flex: column.flex }">
@@ -91,3 +93,4 @@
         }
     </div>
 </form>
+}

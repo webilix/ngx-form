@@ -4,7 +4,9 @@
             <mat-icon>navigate_before</mat-icon>
         </button>
         <div class="title">Responsive Form</div>
+        @if (view) {
         <div class="view">view: {{ view }}</div>
+        }
     </section>
 </header>
 
@@ -13,6 +15,6 @@
         [ngxForm]="ngxForm"
         (ngxSubmit)="showValues('SUBMIT', $event)"
         (ngxChange)="showValues('CHANGE', $event)"
-        (viewChange)="view = $event"
+        (viewChange)="setView($event)"
     ></ngx-form-responsive>
 </content>
