@@ -27,6 +27,25 @@
             <!-- SHOW COLUMN -->
             @if (showColumn(column.inputs)) {
             <div class="ngx-form-responsive-column" [ngStyle]="{ flex: column.flex }">
+                <!-- HEADER -->
+                @if (column.title || column.description) {
+                <div class="ngx-form-responsive-header" style="margin-bottom: 0">
+                    <!-- TITLE -->
+                    @if (column.title ) {
+                    <div class="ngx-form-responsive-title">{{ column.title }}</div>
+                    }
+                    <!-- SEPERATOR -->
+                    @if (column.title && column.description) {
+                    <div class="ngx-form-responsive-seperator"></div>
+                    }
+                    <!-- DESCRIPTION -->
+                    @if (column.description ) {
+                    <div class="ngx-form-responsive-description">{{ column.description }}</div>
+                    }
+                </div>
+                }
+
+                <!-- INPUTS -->
                 @for (input of column.inputs; track $index) {
 
                 <!-- INPUT -->

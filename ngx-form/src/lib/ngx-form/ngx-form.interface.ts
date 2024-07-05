@@ -57,11 +57,20 @@ export interface INgxResponsiveFormSection {
     description?: string;
     columns:
         | NgxFormInputs[]
-        | [{ inputs: NgxFormInputs[]; flex?: number }, { inputs: NgxFormInputs[]; flex?: number }]
         | [
-              { inputs: NgxFormInputs[]; flex?: number },
-              { inputs: NgxFormInputs[]; flex?: number },
-              { inputs: NgxFormInputs[]; flex?: number },
+              { title?: string; description?: string; inputs: NgxFormInputs[]; flex?: number },
+              { title?: string; description?: string; inputs: NgxFormInputs[]; flex?: number },
+          ]
+        | [
+              { title?: string; description?: string; inputs: NgxFormInputs[]; flex?: number },
+              { title?: string; description?: string; inputs: NgxFormInputs[]; flex?: number },
+              { title?: string; description?: string; inputs: NgxFormInputs[]; flex?: number },
+          ]
+        | [
+              { title?: string; description?: string; inputs: NgxFormInputs[]; flex?: number },
+              { title?: string; description?: string; inputs: NgxFormInputs[]; flex?: number },
+              { title?: string; description?: string; inputs: NgxFormInputs[]; flex?: number },
+              { title?: string; description?: string; inputs: NgxFormInputs[]; flex?: number },
           ];
 }
 

@@ -15,6 +15,14 @@ export class PageResponsiveComponent {
         submit: 'نمایش مقادیر ثبت شده در فرم',
         sections: [
             {
+                columns: [
+                    { title: 'ستون اول', inputs: [{ name: 'date-1', type: 'DATE', optional: true }] },
+                    { title: 'ستون دوم', inputs: [{ name: 'date-2', type: 'DATE', optional: true }] },
+                    { title: 'ستون سوم', inputs: [{ name: 'date-3', type: 'DATE', optional: true }] },
+                    { title: 'ستون چهارم', inputs: [{ name: 'date-4', type: 'DATE', optional: true }] },
+                ],
+            },
+            {
                 title: 'مشخصات عضویت',
                 description: 'این بخش از فرم در حالت نمایش دسکتاپ در سه ستون نمایش داده می‌شود.',
                 columns: [

@@ -21,7 +21,7 @@ import { NgxFormInputs } from '../ngx-form.type';
 interface ISection {
     title?: string;
     description?: string;
-    columns: { inputs: NgxFormInputs[]; flex: number }[];
+    columns: { title?: string; description?: string; inputs: NgxFormInputs[]; flex: number }[];
 }
 
 @Component({
@@ -115,6 +115,8 @@ export class NgxFormResponsiveComponent implements OnInit, OnChanges {
                 section.columns.forEach((column) => {
                     if ('inputs' in column)
                         this.sections[this.sections.length - 1].columns.push({
+                            title: column.title,
+                            description: column.description,
                             inputs: column.inputs,
                             flex: column.flex || 1,
                         });
