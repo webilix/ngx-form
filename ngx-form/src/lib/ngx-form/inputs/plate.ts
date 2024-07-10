@@ -5,6 +5,7 @@ import { Helper } from '@webilix/helper-library';
 import { NgxFormMethods } from '../classes';
 import { INgxFormInput } from '../interfaces';
 import { NgxPlateValidator } from '../validators';
+import { INgxFormValues } from '../ngx-form.interface';
 
 export interface INgxFormInputPlate
     extends Omit<INgxFormInput, 'id' | 'english' | 'value' | 'floatLabel' | 'keyboard'> {
@@ -24,6 +25,14 @@ export interface INgxFormInputPlate
      * @optional
      */
     letter?: string;
+
+    /**
+     * Callback method after completing input value
+     * @type { function(value): void }
+     * @param { [string, string, string, string] } value input value
+     * @optional
+     */
+    onComplete?: (value: [string, string, string, string]) => void;
 }
 
 export class NgxFormInputPlateMethods extends NgxFormMethods<INgxFormInputPlate, (string | null)[] | null> {

@@ -23,6 +23,14 @@ export const PlateInputs: NgxFormRow[] = [
     {
         name: 'plate-6',
         type: 'PLATE',
+        title: 'اجرای دستور در هنگام کامل شدن',
+        optional: true,
+        letter: 'ع',
+        onComplete: (value) => console.log('COMPLETE', value),
+    },
+    {
+        name: 'plate-7',
+        type: 'PLATE',
         title: 'دارای کلید اضافه',
         optional: true,
         button: {
@@ -33,7 +41,7 @@ export const PlateInputs: NgxFormRow[] = [
         hint: 'در صورتی که مقدار اختیاری مشخص شده باشد کلید اضافه این گزینه غیرفعال می‌شود.',
     },
     {
-        name: 'plate-7',
+        name: 'plate-8',
         type: 'PLATE',
         title: 'دارای توضیحات',
         optional: true,

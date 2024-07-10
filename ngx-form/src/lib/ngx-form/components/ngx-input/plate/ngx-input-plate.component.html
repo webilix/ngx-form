@@ -67,7 +67,9 @@
             [inputTransformFn]="inputTransformFn"
             [disabled]="control.disabled"
             (blur)="setPlate(plateLeft.value, plateLetter.value, plateRight.value, plateIran.value)"
-            (keyup)="setPlate(plateLeft.value, plateLetter.value, plateRight.value, plateIran.value)"
+            (keyup)="
+                setPlate(plateLeft.value, plateLetter.value, plateRight.value, plateIran.value); onComplete($event)
+            "
             #plateIran
         />
         <div [ngClass]="{ iran: true, 'ngx-form-disabled': control.disabled }">ایران</div>

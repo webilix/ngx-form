@@ -24,4 +24,14 @@ export class NgxInputPlateComponent {
         this.control.setValue([left, letter, right, iran]);
         this.control.markAllAsTouched();
     }
+
+    onComplete(event: KeyboardEvent): void {
+        if (event.code.substring(0, 5) !== 'Digit') return;
+
+        const input: HTMLInputElement = event.target as HTMLInputElement;
+        if (!input || input.selectionStart !== 2 || input.selectionEnd !== 2) return;
+
+        if (!this.input.onComplete || !!this.control.errors) return;
+        this.input.onComplete(this.control.value);
+    }
 }
