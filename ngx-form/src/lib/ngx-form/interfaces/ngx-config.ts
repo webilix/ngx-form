@@ -18,4 +18,11 @@ export interface INgxFormConfig {
      * @optional 600
      */
     mobileWidth: number;
+
+    /**
+     * Column gap width in responsive forms
+     * @type { String }
+     * @optional
+     */
+    columnGap?: string;
 }

@@ -28,7 +28,7 @@ form {
 
         .ngx-form-responsive-columns {
             display: flex;
-            column-gap: 1rem;
+            column-gap: var(--column-gap);
             align-items: flex-start;
 
             .ngx-form-responsive-column {

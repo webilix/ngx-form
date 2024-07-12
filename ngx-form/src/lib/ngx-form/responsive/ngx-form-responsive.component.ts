@@ -2,6 +2,7 @@ import {
     ChangeDetectorRef,
     Component,
     EventEmitter,
+    HostBinding,
     HostListener,
     Inject,
     Input,
@@ -35,6 +36,8 @@ export class NgxFormResponsiveComponent implements OnInit, OnChanges {
         this.setSize();
     }
 
+    @HostBinding('style.--column-gap') styleColumnGap: string = '2rem';
+
     @ViewChild('formObject') ngForm?: NgForm;
 
     @Input({ required: true }) ngxForm!: INgxResponsiveForm;
@@ -56,6 +59,7 @@ export class NgxFormResponsiveComponent implements OnInit, OnChanges {
     constructor(
         @Inject('NGX_FORM_APPEARANCE') public readonly ngxAppearance: MatFormFieldAppearance,
         @Inject('NGX_FORM_MOBILEWIDTH') public readonly mobileWidth: number,
+        @Inject('NGX_FORM_COLUMNGAP') public readonly columnGap: string,
         private readonly changeDetectorRef: ChangeDetectorRef,
         private readonly ngxFormService: NgxFormService,
     ) {}
@@ -111,6 +115,8 @@ export class NgxFormResponsiveComponent implements OnInit, OnChanges {
     }
 
     ngOnChanges(changes: SimpleChanges): void {
+        this.styleColumnGap = this.ngxForm.columnGap || this.columnGap || '2rem';
+
         this.sections = [];
         this.ngxForm.sections.forEach((section: INgxResponsiveFormSection) => {
             if (section.columns.length === 0) return;

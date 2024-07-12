@@ -91,6 +91,13 @@ export interface INgxResponsiveForm extends Omit<INgxForm, 'inputs'> {
      * @optional 600
      */
     mobileWidth?: number;
+
+    /**
+     * Column gap width
+     * @type { String }
+     * @optional
+     */
+    columnGap?: string;
 }
 
 /**
