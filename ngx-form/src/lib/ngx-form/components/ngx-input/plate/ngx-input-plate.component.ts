@@ -26,7 +26,7 @@ export class NgxInputPlateComponent {
     }
 
     onComplete(event: KeyboardEvent): void {
-        if (event.code.substring(0, 5) !== 'Digit') return;
+        if (event.code.substring(0, 5) !== 'Digit' && event.code.substring(0, 6) !== 'Numpad') return;
 
         const input: HTMLInputElement = event.target as HTMLInputElement;
         if (!input || input.selectionStart !== 2 || input.selectionEnd !== 2) return;
