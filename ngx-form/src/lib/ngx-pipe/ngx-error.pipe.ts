@@ -24,6 +24,9 @@ export class NgxErrorPipe implements PipeTransform {
             case 'maximum':
                 return `مقدار نمی‌تواند بزرگتر از ${Helper.NUMBER.format(value)} باشد.`;
 
+            case 'multiplyOf':
+                return `مقدار باید مضربی از ${Helper.NUMBER.format(value)} باشد.`;
+
             case 'length':
                 return `مقدار باید داری ${Helper.NUMBER.format(value)} کاراکتر باشد.`;
 

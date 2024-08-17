@@ -21,9 +21,10 @@ export const PriceInputs: NgxFormRow[] = [
         hint: 'در صورتی که مقدار اختیاری 0 باشد این گزینه نمایش داده نمی‌شود.',
     },
     { name: 'price-6', type: 'PRICE', title: 'محدودیت مقدار', optional: true, minimum: 10, maximum: 20 },
-    { name: 'price-7', type: 'PRICE', title: 'نمایش حروف', optional: true, showText: true },
+    { name: 'price-7', type: 'PRICE', title: 'مضارب ۱۰', optional: true, multiplyOf: 10 },
+    { name: 'price-8', type: 'PRICE', title: 'نمایش حروف', optional: true, showText: true },
     {
-        name: 'price-8',
+        name: 'price-9',
         type: 'PRICE',
         title: 'دارای کلید اضافه',
         optional: true,
@@ -35,7 +36,7 @@ export const PriceInputs: NgxFormRow[] = [
         hint: 'در صورتی که مقدار اختیاری 0 باشد کلید اضافه این گزینه غیرفعال می‌شود.',
     },
     {
-        name: 'price-9',
+        name: 'price-10',
         type: 'PRICE',
         title: 'دارای توضیحات',
         optional: true,

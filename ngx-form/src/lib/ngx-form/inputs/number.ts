@@ -4,7 +4,7 @@ import { Helper } from '@webilix/helper-library';
 
 import { NgxFormMethods } from '../classes';
 import { INgxFormInput } from '../interfaces';
-import { NgxMaxValidator, NgxMinValidator } from '../validators';
+import { NgxMaxValidator, NgxMinValidator, NgxMultiplyOfValidator } from '../validators';
 
 export interface INgxFormInputNumber extends Omit<INgxFormInput, 'english' | 'value'> {
     type: 'NUMBER';
@@ -46,6 +46,13 @@ export interface INgxFormInputNumber extends Omit<INgxFormInput, 'english' | 'va
     maximum?: number;
 
     /**
+     * Constraint value to be multiple of a number
+     * @type { number }
+     * @optional
+     */
+    multiplyOf?: number;
+
+    /**
      * Accept negative values
      * @type { boolean }
      * @optional false
@@ -78,6 +85,7 @@ export class NgxFormInputNumberMethods extends NgxFormMethods<INgxFormInputNumbe
     control(input: INgxFormInputNumber, validators: ValidatorFn[]): FormControl<number | null> {
         if (input.minimum) validators.push(NgxMinValidator(input.minimum));
         if (input.maximum) validators.push(NgxMaxValidator(input.maximum));
+        if (input.multiplyOf) validators.push(NgxMultiplyOfValidator(input.multiplyOf));
 
         const value: number | null =
             input.value === undefined ? null : Helper.IS.number(input.value) ? input.value : null;

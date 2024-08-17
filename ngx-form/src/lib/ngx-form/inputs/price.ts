@@ -4,7 +4,7 @@ import { Helper } from '@webilix/helper-library';
 
 import { NgxFormMethods } from '../classes';
 import { INgxFormInput } from '../interfaces';
-import { NgxMaxValidator, NgxMinValidator } from '../validators';
+import { NgxMaxValidator, NgxMinValidator, NgxMultiplyOfValidator } from '../validators';
 
 export interface INgxFormInputPrice extends Omit<INgxFormInput, 'english' | 'value'> {
     type: 'PRICE';
@@ -39,6 +39,13 @@ export interface INgxFormInputPrice extends Omit<INgxFormInput, 'english' | 'val
     maximum?: number;
 
     /**
+     * Constraint value to be multiple of a number
+     * @type { number }
+     * @optional
+     */
+    multiplyOf?: number;
+
+    /**
      * Input currency
      * @type { string }
      * @optional 'ریال'
@@ -58,6 +65,7 @@ export class NgxFormInputPriceMethods extends NgxFormMethods<INgxFormInputPrice,
         input.currency = input.currency || 'ریال';
         if (input.minimum) validators.push(NgxMinValidator(input.minimum));
         if (input.maximum) validators.push(NgxMaxValidator(input.maximum));
+        if (input.multiplyOf) validators.push(NgxMultiplyOfValidator(input.multiplyOf));
 
         const value: number | null =
             input.value === undefined
