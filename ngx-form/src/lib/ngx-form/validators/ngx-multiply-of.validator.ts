@@ -9,7 +9,6 @@ export const NgxMultiplyOfValidator = <T>(multiplyOf: number): ValidatorFn => {
             : formControl.value;
         if (Helper.IS.empty(value) || !Helper.IS.number(value)) return null;
 
-        console.log(value, multiplyOf, value % multiplyOf);
         return value % multiplyOf === 0 ? null : { multiplyOf };
     };
 };
