@@ -52,12 +52,14 @@ export class NgxFormResponsiveComponent implements OnInit, OnChanges {
     protected inputValues: INgxFormValues = {};
     protected hiddenInputs: string[] = [];
     protected disabledButtons: string[] = [];
+    protected lastSubmit?: Date;
 
     protected initialized: boolean = false;
     protected size: { width: number; height: number; isMobile: boolean } = { width: 0, height: 0, isMobile: false };
 
     constructor(
         @Inject('NGX_FORM_APPEARANCE') public readonly ngxAppearance: MatFormFieldAppearance,
+        @Inject('NGX_FORM_SUBMITTIMEOUT') public readonly submitTimeout: number | null,
         @Inject('NGX_FORM_MOBILEWIDTH') public readonly mobileWidth: number,
         @Inject('NGX_FORM_COLUMNGAP') public readonly columnGap: string,
         private readonly changeDetectorRef: ChangeDetectorRef,
@@ -198,6 +200,14 @@ export class NgxFormResponsiveComponent implements OnInit, OnChanges {
     protected getValues = (): INgxFormValues =>
         this.ngxFormService.getValues(this.formGroup, this.getInputs(), this.hiddenInputs);
 
-    protected checkValues = (): void =>
-        this.ngxFormService.checkValues(this.formGroup, this.getInputs(), this.hiddenInputs, this.ngxSubmit);
+    protected checkValues = (): void => {
+        const timeout: number = this.submitTimeout && this.submitTimeout > 0 ? this.submitTimeout : 0;
+        this.lastSubmit = this.ngxFormService.checkValues(
+            this.formGroup,
+            this.getInputs(),
+            this.hiddenInputs,
+            this.ngxSubmit,
+            { timeout, last: this.lastSubmit },
+        );
+    };
 }

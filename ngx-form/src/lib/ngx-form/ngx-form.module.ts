@@ -154,6 +154,7 @@ export class NgxFormModule {
             ngModule: NgxFormModule,
             providers: [
                 { provide: 'NGX_FORM_APPEARANCE', useValue: config?.appearance || 'fill' },
+                { provide: 'NGX_FORM_SUBMITTIMEOUT', useValue: config?.submitTimeout || null },
                 { provide: 'NGX_FORM_MOBILEWIDTH', useValue: config?.mobileWidth || 600 },
                 { provide: 'NGX_FORM_COLUMNGAP', useValue: config?.columnGap || '2rem' },
                 { provide: 'NGX_FORM_PRIMARY_COLOR', useValue: style.primaryColor || 'rgb(29, 91, 116)' },

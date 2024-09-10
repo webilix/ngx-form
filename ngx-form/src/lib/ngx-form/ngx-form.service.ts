@@ -2,6 +2,8 @@ import { EventEmitter, Injectable } from '@angular/core';
 import { FormGroup, ValidatorFn, Validators } from '@angular/forms';
 import { NgxMaskService } from 'ngx-mask';
 
+import { Helper } from '@webilix/helper-library';
+
 import { INgxFormValues } from './ngx-form.interface';
 import { NgxFormInputs } from './ngx-form.type';
 import { NgxFieldInputInfo } from './interfaces';
@@ -101,11 +103,20 @@ export class NgxFormService {
         inputs: NgxFormInputs[],
         hiddenInputs: string[],
         ngxSubmit: EventEmitter<INgxFormValues>,
-    ): void {
+        submit: { timeout: number; last?: Date },
+    ): Date | undefined {
         formGroup.markAllAsTouched();
-        if (formGroup.invalid) return;
+        if (formGroup.invalid) return submit.last;
+
+        if (Helper.IS.number(submit.timeout) && submit.timeout > 0 && submit.last) {
+            const timeout: number = submit.timeout * 1000;
+            const duration: number = new Date().getTime() - submit.last.getTime();
+            if (duration < timeout) return submit.last;
+        }
 
         const values: INgxFormValues = this.getValues(formGroup, inputs, hiddenInputs);
         ngxSubmit.emit(values);
+
+        return new Date();
     }
 }

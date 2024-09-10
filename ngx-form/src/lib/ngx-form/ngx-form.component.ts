@@ -39,11 +39,13 @@ export class NgxFormComponent implements OnInit, OnChanges {
     protected inputValues: INgxFormValues = {};
     protected hiddenInputs: string[] = [];
     protected disabledButtons: string[] = [];
+    protected lastSubmit?: Date;
 
     protected isString = (value: any): boolean => typeof value === 'string';
 
     constructor(
         @Inject('NGX_FORM_APPEARANCE') public readonly ngxAppearance: MatFormFieldAppearance,
+        @Inject('NGX_FORM_SUBMITTIMEOUT') public readonly submitTimeout: number | null,
         private readonly ngxFormService: NgxFormService,
     ) {}
 
@@ -147,6 +149,14 @@ export class NgxFormComponent implements OnInit, OnChanges {
     protected getValues = (): INgxFormValues =>
         this.ngxFormService.getValues(this.formGroup, this.getInputs(), this.hiddenInputs);
 
-    protected checkValues = (): void =>
-        this.ngxFormService.checkValues(this.formGroup, this.getInputs(), this.hiddenInputs, this.ngxSubmit);
+    protected checkValues = (): void => {
+        const timeout: number = this.submitTimeout && this.submitTimeout > 0 ? this.submitTimeout : 0;
+        this.lastSubmit = this.ngxFormService.checkValues(
+            this.formGroup,
+            this.getInputs(),
+            this.hiddenInputs,
+            this.ngxSubmit,
+            { timeout, last: this.lastSubmit },
+        );
+    };
 }
