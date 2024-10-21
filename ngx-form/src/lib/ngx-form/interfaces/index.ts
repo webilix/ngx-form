@@ -6,3 +6,4 @@ export * from './ngx-input';
 export * from './ngx-name';
 export * from './ngx-option';
 export * from './ngx-style';
+export * from './ngx-unit';

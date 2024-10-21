@@ -2,6 +2,8 @@ import { Component, Input, OnInit } from '@angular/core';
 import { FormControl, FormGroup } from '@angular/forms';
 import { FloatLabelType, MatFormFieldAppearance } from '@angular/material/form-field';
 
+import { Helper } from '@webilix/helper-library';
+
 import { NgxFormInputs } from '../../ngx-form.type';
 
 @Component({
@@ -16,6 +18,8 @@ export class NgxInputComponent implements OnInit {
     @Input({ required: true }) floatLabel!: FloatLabelType;
 
     public control?: FormControl;
+
+    public unit = Helper.UNIT;
 
     ngOnInit(): void {
         if (this.input.type === 'COMMENT') return;

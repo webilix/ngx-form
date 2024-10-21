@@ -1,0 +1,64 @@
+<mat-form-field [appearance]="appearance" [floatLabel]="input.floatLabel || floatLabel">
+    <!-- LABEL -->
+    <mat-label>{{ input.title }}</mat-label>
+    <!-- ERROR  -->
+    @if (control.invalid) { <mat-error>{{ control.errors | ngxError : input.type }}</mat-error> }
+    <!-- INPUT -->
+    <input matInput type="text" [name]="input.name" [formControl]="control" class="input-hidden" />
+    <!-- HINT -->
+    @if (input.hint) { <mat-hint>{{ input.hint }}</mat-hint> }
+
+    <div class="content">
+        <input
+            matInput
+            type="text"
+            [name]="input.name"
+            [id]="input.id || ''"
+            [ngModel]="control.value?.value?.toString() || ''"
+            inputmode="numeric"
+            class="input-en"
+            [mask]="
+                input.decimal === true
+                    ? 'separator.3'
+                    : !!input.decimal && input.decimal > 0
+                    ? 'separator.' + input.decimal.toString()
+                    : 'separator.0'
+            "
+            thousandSeparator=","
+            decimalMarker="."
+            [allowNegativeNumbers]="!!negative"
+            [inputTransformFn]="inputTransformFn"
+            [maxlength]="15"
+            (input)="setValue(unitInput.value); updateHint()"
+            [ngxAutoFocus]="!!input.autoFocus"
+            [disabled]="control.disabled"
+            #unitInput
+            (keypress)="input.keyboard && input.keyboard.press !== undefined ? input.keyboard.press($event) : null"
+            (keydown)="input.keyboard && input.keyboard.down !== undefined ? input.keyboard.down($event) : null"
+            (keyup)="input.keyboard && input.keyboard.up !== undefined ? input.keyboard.up($event) : null"
+        />
+
+        <div
+            [ngClass]="{ unit: true, 'ngx-form-disabled': control.disabled }"
+            [matMenuTriggerFor]="control.disabled ? null : unitMenu"
+        >
+            <div [ngClass]="{ 'suffix-text': true, 'suffix-disabled': control.disabled }">{{ title }}</div>
+            <button mat-button type="button" color="primary" [disabled]="control.disabled">
+                <mat-icon [fontIcon]="'arrow_drop_down'" class="ngx-form-icon"></mat-icon>
+            </button>
+            <mat-menu #unitMenu="matMenu" class="ngx-form-option-menu-panel" [xPosition]="'before'">
+                @for (option of options; track $index) {
+                <button mat-menu-item (click)="setUnit(option.id, unitInput.value)">
+                    <div class="label">{{ option.title }}</div>
+                    <mat-icon [fontIcon]="'check'" [ngClass]="{ hidden: unit !== option.id }"></mat-icon>
+                </button>
+                }
+            </mat-menu>
+        </div>
+    </div>
+
+    <!-- DESCRIPTION -->
+    @if (input.description) {
+    <ngx-description [description]="input.description" [disabled]="control.disabled"></ngx-description>
+    }
+</mat-form-field>

@@ -3,7 +3,7 @@
         matInput
         type="text"
         [ngClass]="{ en: !!english || !!format, 'ngx-form-disabled': !!disabled }"
-        [readonly]="!!disabled"
+        [disabled]="!!disabled"
         (input)="checkValid(input.value)"
         (keydown.enter)="$event.preventDefault(); checkValue(input)"
         [mask]="mask"

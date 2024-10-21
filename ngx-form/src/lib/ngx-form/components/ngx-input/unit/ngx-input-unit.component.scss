@@ -1,0 +1,16 @@
+.content {
+    display: flex;
+    align-items: center;
+
+    input {
+        flex: 1;
+    }
+
+    .unit {
+        display: flex;
+        align-items: center;
+        column-gap: 1rem;
+
+        cursor: pointer;
+    }
+}

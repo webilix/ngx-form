@@ -33,6 +33,10 @@ import {
     NgxFormInputTextareaMethods,
     NgxFormInputTextMethods,
     NgxFormInputTimeMethods,
+    NgxFormInputUnitAreaMethods,
+    NgxFormInputUnitLengthMethods,
+    NgxFormInputUnitVolumeMethods,
+    NgxFormInputUnitWeightMethods,
     NgxFormInputUrlMethods,
     NgxFormInputUsernameMethods,
 } from '../inputs';
@@ -81,4 +85,9 @@ export const NgxFieldInputInfo: { [key in NgxFormInputs['type']]: INgxFieldInput
     TIME: { title: 'ساعت', methods: new NgxFormInputTimeMethods() },
     URL: { title: 'آدرس سایت', methods: new NgxFormInputUrlMethods() },
     USERNAME: { title: 'نام کاربری', methods: new NgxFormInputUsernameMethods() },
+    // UNIT
+    'UNIT-AREA': { title: 'مساحت', methods: new NgxFormInputUnitAreaMethods() },
+    'UNIT-LENGTH': { title: 'طول', methods: new NgxFormInputUnitLengthMethods() },
+    'UNIT-VOLUME': { title: 'حجم', methods: new NgxFormInputUnitVolumeMethods() },
+    'UNIT-WEIGHT': { title: 'وزن', methods: new NgxFormInputUnitWeightMethods() },
 };

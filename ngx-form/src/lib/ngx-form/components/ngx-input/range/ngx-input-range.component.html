@@ -24,7 +24,7 @@
             [allowNegativeNumbers]="!!input.negative"
             [inputTransformFn]="inputTransformFn"
             maxlength="15"
-            [readonly]="control.disabled"
+            [disabled]="control.disabled"
             (blur)="setRange(rangeMinimum.value, rangeMaximum.value)"
             (keyup)="setRange(rangeMinimum.value, rangeMaximum.value)"
             [ngxAutoFocus]="!!input.autoFocus"
@@ -43,7 +43,7 @@
             [allowNegativeNumbers]="!!input.negative"
             [inputTransformFn]="inputTransformFn"
             maxlength="15"
-            [readonly]="control.disabled"
+            [disabled]="control.disabled"
             (blur)="setRange(rangeMinimum.value, rangeMaximum.value)"
             (keyup)="setRange(rangeMinimum.value, rangeMaximum.value)"
             #rangeMaximum

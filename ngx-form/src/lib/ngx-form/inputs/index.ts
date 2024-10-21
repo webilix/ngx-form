@@ -34,3 +34,8 @@ export * from './textarea';
 export * from './time';
 export * from './url';
 export * from './username';
+
+export * from './unit/area';
+export * from './unit/length';
+export * from './unit/volume';
+export * from './unit/weight';

@@ -272,6 +272,11 @@ export interface INgxFormStyle {
 -   URL
 -   USERNAME
 
+-   UNIT-AREA
+-   UNIT-LENGTH
+-   UNIT-VOLUME
+-   UNIT-WEIGHT
+
 ---
 
 ## NgxFormModule Preview

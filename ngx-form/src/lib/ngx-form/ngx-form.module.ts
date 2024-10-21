@@ -47,6 +47,7 @@ import {
     NgxInputTextareaComponent,
     NgxInputTextComponent,
     NgxInputTimeComponent,
+    NgxInputUnitComponent,
     NgxListOptionInputComponent,
     NgxListOptionItemComponent,
 } from './components';
@@ -90,6 +91,7 @@ import { NgxFormService } from './ngx-form.service';
         NgxInputTextComponent,
         NgxInputTextareaComponent,
         NgxInputTimeComponent,
+        NgxInputUnitComponent,
     ],
     imports: [
         CommonModule,

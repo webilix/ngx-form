@@ -35,6 +35,7 @@
             (blur)="hintView = 'INPUT'; isFocused = false; updateHint()"
             (input)="setValue(numberInput.value); updateHint()"
             [ngxAutoFocus]="!!input.autoFocus"
+            [disabled]="control.disabled"
             #numberInput
             (keypress)="input.keyboard && input.keyboard.press !== undefined ? input.keyboard.press($event) : null"
             (keydown)="input.keyboard && input.keyboard.down !== undefined ? input.keyboard.down($event) : null"

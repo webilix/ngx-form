@@ -17,7 +17,7 @@
             [name]="input.name + '-first'"
             [ngModel]="first"
             [ngClass]="{ empty: first === '' && !control.disabled, 'ngx-form-disabled': control.disabled }"
-            [readonly]="control.disabled"
+            [disabled]="control.disabled"
             (input)="setName(firstName.value, lastName.value)"
             [ngxAutoFocus]="!!input.autoFocus"
             #firstName
@@ -28,7 +28,7 @@
             [name]="input.name + '-last'"
             [ngModel]="last"
             [ngClass]="{ empty: last === '' && !control.disabled, 'ngx-form-disabled': control.disabled }"
-            [readonly]="control.disabled"
+            [disabled]="control.disabled"
             (input)="setName(firstName.value, lastName.value)"
             #lastName
         />

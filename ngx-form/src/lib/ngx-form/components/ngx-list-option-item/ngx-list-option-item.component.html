@@ -25,7 +25,7 @@
         [ngModel]="format === 'MOBILE' ? item.substring(2) : item"
         [ngClass]="{ en: !!english || !!format, 'ngx-form-disabled': !!disabled }"
         [ngStyle]="{ 'padding-left': suffix ? '0px' : '0.5rem' }"
-        [readonly]="!!disabled"
+        [disabled]="!!disabled"
         (input)="checkValid(input.value)"
         (keydown.enter)="$event.preventDefault(); checkValue(input)"
         [mask]="mask"

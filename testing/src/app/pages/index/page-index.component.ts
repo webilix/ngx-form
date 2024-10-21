@@ -35,6 +35,10 @@ import {
     TextareaInputs,
     TextInputs,
     TimeInputs,
+    UnitAreaInputs,
+    UnitLengthInputs,
+    UnitVolumeInputs,
+    UnitWeightInputs,
     UrlInputs,
     UsernameInputs,
 } from '../../inputs';
@@ -303,6 +307,57 @@ export class PageIndexComponent implements OnInit {
             keyboard: {
                 up: (event: KeyboardEvent) => {
                     if (event.shiftKey && event.key === 'ArrowLeft') document.getElementById('ID-url')?.focus();
+                    if (event.shiftKey && event.key === 'ArrowRight') document.getElementById('ID-unit-area')?.focus();
+                },
+            },
+        },
+        {
+            name: 'unit-area',
+            type: 'UNIT-AREA',
+            optional: true,
+            id: 'ID-unit-area',
+            keyboard: {
+                up: (event: KeyboardEvent) => {
+                    if (event.shiftKey && event.key === 'ArrowLeft') document.getElementById('ID-username')?.focus();
+                    if (event.shiftKey && event.key === 'ArrowRight')
+                        document.getElementById('ID-unit-length')?.focus();
+                },
+            },
+        },
+        {
+            name: 'unit-length',
+            type: 'UNIT-LENGTH',
+            optional: true,
+            id: 'ID-unit-length',
+            keyboard: {
+                up: (event: KeyboardEvent) => {
+                    if (event.shiftKey && event.key === 'ArrowLeft') document.getElementById('ID-unit-area')?.focus();
+                    if (event.shiftKey && event.key === 'ArrowRight')
+                        document.getElementById('ID-unit-volume')?.focus();
+                },
+            },
+        },
+        {
+            name: 'unit-volume',
+            type: 'UNIT-VOLUME',
+            optional: true,
+            id: 'ID-unit-volume',
+            keyboard: {
+                up: (event: KeyboardEvent) => {
+                    if (event.shiftKey && event.key === 'ArrowLeft') document.getElementById('ID-unit-length')?.focus();
+                    if (event.shiftKey && event.key === 'ArrowRight')
+                        document.getElementById('ID-unit-weight')?.focus();
+                },
+            },
+        },
+        {
+            name: 'unit-weight',
+            type: 'UNIT-WEIGHT',
+            optional: true,
+            id: 'ID-unit-weight',
+            keyboard: {
+                up: (event: KeyboardEvent) => {
+                    if (event.shiftKey && event.key === 'ArrowLeft') document.getElementById('ID-unit-volume')?.focus();
                 },
             },
         },
@@ -351,6 +406,11 @@ export class PageIndexComponent implements OnInit {
         { type: 'TIME', title: 'ساعت', rows: TimeInputs },
         { type: 'URL', title: 'آدرس سایت', rows: UrlInputs },
         { type: 'USERNAME', title: 'نام کاربری', rows: UsernameInputs },
+        // UNIT
+        { type: 'UNIT-AREA', title: 'واحد: مساحت', rows: UnitAreaInputs },
+        { type: 'UNIT-LENGTH', title: 'واحد: طول', rows: UnitLengthInputs },
+        { type: 'UNIT-volume', title: 'واحد: حجم', rows: UnitVolumeInputs },
+        { type: 'UNIT-WEIGHT', title: 'واحد: وزن', rows: UnitWeightInputs },
     ];
 
     public type: string | null = null;

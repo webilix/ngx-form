@@ -346,4 +346,48 @@
     [icon]="'person'"
     [en]="true"
 ></ngx-input-text>
-} } } }
+}
+
+<!-- UNIT-AREA -->
+@case ('UNIT-AREA') {
+<ngx-input-unit
+    [control]="control"
+    [input]="input"
+    [appearance]="appearance"
+    [floatLabel]="floatLabel"
+    [options]="unit.AREA.options"
+></ngx-input-unit>
+}
+
+<!-- UNIT-LENGTH -->
+@case ('UNIT-LENGTH') {
+<ngx-input-unit
+    [control]="control"
+    [input]="input"
+    [appearance]="appearance"
+    [floatLabel]="floatLabel"
+    [options]="unit.LENGTH.options"
+></ngx-input-unit>
+}
+
+<!-- UNIT-VOLUME -->
+@case ('UNIT-VOLUME') {
+<ngx-input-unit
+    [control]="control"
+    [input]="input"
+    [appearance]="appearance"
+    [floatLabel]="floatLabel"
+    [options]="unit.VOLUME.options"
+></ngx-input-unit>
+}
+
+<!-- UNIT-WEIGHT -->
+@case ('UNIT-WEIGHT') {
+<ngx-input-unit
+    [control]="control"
+    [input]="input"
+    [appearance]="appearance"
+    [floatLabel]="floatLabel"
+    [options]="unit.WEIGHT.options"
+></ngx-input-unit>
+}} } }
