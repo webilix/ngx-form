@@ -25,6 +25,13 @@ export class NgxInputPlateComponent {
         this.control.markAllAsTouched();
     }
 
+    checkBackspace(event: KeyboardEvent, input: HTMLInputElement, previous: HTMLInputElement): void {
+        if (event.key !== 'Backspace') return;
+
+        const length: number = (input.value || '').length;
+        if (length === 0) previous.focus();
+    }
+
     onComplete(event: KeyboardEvent): void {
         if (event.code.substring(0, 5) !== 'Digit' && event.code.substring(0, 6) !== 'Numpad') return;
 

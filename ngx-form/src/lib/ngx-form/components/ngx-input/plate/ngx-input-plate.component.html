@@ -52,7 +52,10 @@
             [inputTransformFn]="inputTransformFn"
             [disabled]="control.disabled"
             (blur)="setPlate(plateLeft.value, plateLetter.value, plateRight.value, plateIran.value)"
-            (keyup)="setPlate(plateLeft.value, plateLetter.value, plateRight.value, plateIran.value)"
+            (keyup)="
+                setPlate(plateLeft.value, plateLetter.value, plateRight.value, plateIran.value);
+                checkBackspace($event, plateRight, plateLeft)
+            "
             (input)="(plateRight.value || '').length === 3 ? plateIran.focus() : null"
             #plateRight
         />
@@ -68,7 +71,9 @@
             [disabled]="control.disabled"
             (blur)="setPlate(plateLeft.value, plateLetter.value, plateRight.value, plateIran.value)"
             (keyup)="
-                setPlate(plateLeft.value, plateLetter.value, plateRight.value, plateIran.value); onComplete($event)
+                setPlate(plateLeft.value, plateLetter.value, plateRight.value, plateIran.value);
+                onComplete($event);
+                checkBackspace($event, plateIran, plateRight)
             "
             #plateIran
         />
